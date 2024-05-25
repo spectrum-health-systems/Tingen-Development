@@ -9,8 +9,7 @@
 
 /* PLEASE NOTE
  * -----------
- * This is the development version of Tingen, and should not be used in
- * production environments.
+ * This is the development version of Tingen, and should not be used in production environments. This is the development version of Tingen, and should not be used in production environments.
  *
  * For stable releases of Tingen:
  *  https://github.com/APrettyCoolProgram/Tingen
