@@ -5,7 +5,7 @@
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240525 =====
 
-// u240525.1402
+// u240525.1957
 
 /* PLEASE NOTE
  * -----------
@@ -91,14 +91,16 @@ namespace Tingen_development
         ///             </item>
         ///         </list>
         ///     </para>
-        ///     - This class has Debuggler statements that should remain in place for development purposes, and
-        ///       commented out in the production version.
+        ///     <para>
+        ///     This class has Debuggler statements that should remain in place for development purposes, and commented
+        ///     out in the production version.
+        ///     </para>
         /// </remarks>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            Outpost31.Core.Debuggler.Primeval.Log($"[START]"); /* <- For development use only */
+            //Outpost31.Core.Debuggler.Primeval.Log($"[START]"); /* <- For development use only */
 
             const string configFilePath = @"C:\TingenData\UAT\Configs\Tingen.config";
 
@@ -110,15 +112,17 @@ namespace Tingen_development
             }
             else
             {
+                /* This is here so that the service status files are updated even if Tingen is disabled, or in an
+                 * unknown state. This should be moved to a location that does a few things at startup. Also, there
+                 * should be a place that does maintenance at the beginning of the day, an the beginning of the month.
+                 */
                 Outpost31.Module.Admin.Action.Service.StatusUpdate(tnSession.TingenMode, tnSession.AvatarSystemCode, tnSession.TnFramework.ServiceStatusPaths);
-                //Outpost31.Core.Debuggler.Primeval.Log("[SERVICE DISABLED]"); /* <- For development use only */
                 // [TODO] Just make the sent OptionObject the return OptionObject.
             }
 
-            Outpost31.Core.Debuggler.Primeval.Log($"[END]"); /* <- For development use only */
+            //Outpost31.Core.Debuggler.Primeval.Log($"[END]"); /* <- For development use only */
 
             return sentOptionObject.ToReturnOptionObject(); // [TODO] Eventually this should be tnSession.OptionObject.ToReturnOptionObject();
         }
-
     }
 }
