@@ -55,7 +55,7 @@ namespace Tingen_development
              * work), uncomment the line below, debug the solution, click the GetVersion link, and then the "Invoke"
              * button. Good luck!
              */
-            RunScript(null, "admin-service-status-update");
+            //RunScript(null, "admin-service-status-update");
 
             return "VERSION 24.5";
         }
@@ -110,7 +110,7 @@ namespace Tingen_development
             }
             else
             {
-                Outpost31.Core.Debuggler.Primeval.Log("[SERVICE DISABLED]");
+                //Outpost31.Core.Debuggler.Primeval.Log("[SERVICE DISABLED]"); /* <- For development use only */
                 // [TODO] Just make the sent OptionObject the return OptionObject.
             }
 
