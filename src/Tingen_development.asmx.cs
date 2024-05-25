@@ -12,39 +12,34 @@
  * This is the development version of Tingen, and should not be used in
  * production environments.
  *
- * For stable releases of Abatab:
+ * For stable releases of Tingen:
  *  https://github.com/APrettyCoolProgram/Tingen
  *
  * For production environments:
  *  https://github.com/spectrum-health-systems/Tingen-Community-Release
  *
- * For more information about Abatab:
+ * For more information about Tingen:
  *  https://github.com/spectrum-health-systems/Tingen-Documentation-Project
  *
  * For more information about web services and Avatar:
  *  https://github.com/myAvatar-Development-Community
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
+using Outpost31.Core.Session;
 using ScriptLinkStandard.Objects;
 
 namespace Tingen_development
 {
-    /// <summary>
-    /// Summary description for Tingen_development
-    /// </summary>
+    /// <summary>The entry class for Tingen.</summary>
+    /// <remarks>
+    ///     This class is designed to be static, and should not be modified.
+    /// </remarks>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
-    public class Tingen_development : System.Web.Services.WebService
+    public class Tingen_development : WebService
     {
-
         /// <summary>Returns the current version of Tingen.</summary>
         /// <remarks>
         ///     <para> This method is required by Avatar. </para>
@@ -55,8 +50,8 @@ namespace Tingen_development
         public string GetVersion()
         {
             /* DON'T DO THIS!
-             * This is a terrible, dangerous way to test Abatab, and should be removed at some point. But if you really,
-             * really want to do something dumb and test Abatab in a way that is not recommended (and might not even
+             * This is a terrible, dangerous way to test Tingen, and should be removed at some point. But if you really,
+             * really want to do something dumb and test Tingen in a way that is not recommended (and might not even
              * work), uncomment the line below, debug the solution, click the GetVersion link, and then the "Invoke"
              * button. Good luck!
              */
@@ -75,16 +70,16 @@ namespace Tingen_development
         ///         <list type="table">
         ///             <item>
         ///                 <term>Development</term>
-        ///                 <description>C:\Abatab\UAT\Configs\abatab.config</description>
+        ///                 <description>C:\Tingen\UAT\Configs\Tingen.config</description>
         ///             </item>
         ///             <item>
         ///                 <term>Production</term>
-        ///                 <description>C:\Abatab\LIVE\Configs\abatab.config</description>
+        ///                 <description>C:\Tingen\LIVE\Configs\Tingen.config</description>
         ///             </item>
         ///         </list>
         ///     </para>
         ///     <para>
-        ///         Abatab has the following modes:
+        ///         Tingen has the following modes:
         ///         <list type="table">
         ///             <item>
         ///                 <term>Enabled</term>
@@ -103,23 +98,25 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            // For development use only: Abatab.Core.Debuggler.Primeval.Log($"[START]");
+            // For development use only: Outpost31.Core.Debuggler.Primeval.Log($"[START]");
+            Outpost31.Core.Debuggler.Primeval.Log($"[START]");
 
-            //const string configFilePath = @"C:\Abatab\UAT\Configs\abatab.config";
+            const string configFilePath = @"C:\TingenData\UAT\Configs\Tingen.config";
 
-            //AbatabSession abSession = AbatabSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
+            TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
 
-            //if (abSession.AbatabMode == "enabled")
-            //{
-            //    Abatab.Core.Common.ParseScriptModule.Run(abSession);
-            //}
-            //else
-            //{
-            //    Abatab.Core.Debuggler.Primeval.Log("[SERVICE DISABLED]");
-            //    // [TODO] Just make the sent OptionObject the return OptionObject.
-            //}
+            if (tnSession.TingenMode == "enabled")
+            {
+                Outpost31.Core.Common.ParseScriptModule.Run(tnSession);
+            }
+            else
+            {
+                Outpost31.Core.Debuggler.Primeval.Log("[SERVICE DISABLED]");
+                // [TODO] Just make the sent OptionObject the return OptionObject.
+            }
 
-            /* For development use only: Abatab.Core.Debuggler.Primeval.Log($"[SEND]"); */
+            // For development use only: Outpost31.Core.Debuggler.Primeval.Log($"[SEND]");
+            Outpost31.Core.Debuggler.Primeval.Log($"[SEND]");
 
             return sentOptionObject.ToReturnOptionObject(); // [TODO] Eventually this should be abSession.OptionObject.ToReturnOptionObject();
         }
