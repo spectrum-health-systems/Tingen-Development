@@ -5,7 +5,7 @@
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240525 =====
 
-// u240525.0928
+// u240525.1402
 
 /* PLEASE NOTE
  * -----------
@@ -98,8 +98,7 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            // For development use only: Outpost31.Core.Debuggler.Primeval.Log($"[START]");
-            Outpost31.Core.Debuggler.Primeval.Log($"[START]");
+            Outpost31.Core.Debuggler.Primeval.Log($"[START]"); /* <- For development use only */
 
             const string configFilePath = @"C:\TingenData\UAT\Configs\Tingen.config";
 
@@ -115,8 +114,7 @@ namespace Tingen_development
                 // [TODO] Just make the sent OptionObject the return OptionObject.
             }
 
-            // For development use only: Outpost31.Core.Debuggler.Primeval.Log($"[SEND]");
-            Outpost31.Core.Debuggler.Primeval.Log($"[SEND]");
+            Outpost31.Core.Debuggler.Primeval.Log($"[END]"); /* <- For development use only */
 
             return sentOptionObject.ToReturnOptionObject(); // [TODO] Eventually this should be tnSession.OptionObject.ToReturnOptionObject();
         }
