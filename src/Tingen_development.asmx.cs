@@ -9,19 +9,15 @@
 
 /* PLEASE NOTE
  * -----------
- * This is the development version of Tingen, and should not be used in production environments. This is the development version of Tingen, and should not be used in production environments.
+ * This is the development version of Tingen, and should not be used in production environments.
  *
- * For stable releases of Tingen:
- *  https://github.com/APrettyCoolProgram/Tingen
+ * For stable releases of Tingen: https://github.com/APrettyCoolProgram/Tingen
  *
- * For production environments:
- *  https://github.com/spectrum-health-systems/Tingen-Community-Release
+ * For production environments: https://github.com/spectrum-health-systems/Tingen-Community-Release
  *
- * For more information about Tingen:
- *  https://github.com/spectrum-health-systems/Tingen-Documentation-Project
+ * For more information about Tingen: https://github.com/spectrum-health-systems/Tingen-Documentation-Project
  *
- * For more information about web services and Avatar:
- *  https://github.com/myAvatar-Development-Community
+ * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
  */
 
 using System.Web.Services;
@@ -46,18 +42,7 @@ namespace Tingen_development
         /// </remarks>
         /// <returns>The current version of Tingen.</returns>
         [WebMethod]
-        public string GetVersion()
-        {
-            /* DON'T DO THIS!
-             * This is a terrible, dangerous way to test Tingen, and should be removed at some point. But if you really,
-             * really want to do something dumb and test Tingen in a way that is not recommended (and might not even
-             * work), uncomment the line below, debug the solution, click the GetVersion link, and then the "Invoke"
-             * button. Good luck!
-             */
-            //RunScript(null, "admin-service-status-update");
-
-            return "VERSION 24.5";
-        }
+        public string GetVersion() => "VERSION 24.5";
 
         /// <summary>The starting method for Tingen.</summary>
         /// <param name="sentOptionObject">The OptionObject sent from myAvatar.</param>
@@ -102,8 +87,7 @@ namespace Tingen_development
             //Outpost31.Core.Debuggler.Primeval.Log($"[START]"); /* <- For development use only */
 
             const string configFilePath = @"C:\TingenData\UAT\Configs\Tingen.config";
-
-            TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
+            TingenSession tnSession     = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
 
             if (tnSession.TingenMode == "enabled")
             {
@@ -111,7 +95,8 @@ namespace Tingen_development
             }
             else
             {
-                /* This is here so that the service status files are updated even if Tingen is disabled, or in an
+                /* DEVNOTE
+                 * This is here so that the service status files are updated even if Tingen is disabled, or in an
                  * unknown state. This should be moved to a location that does a few things at startup. Also, there
                  * should be a place that does maintenance at the beginning of the day, an the beginning of the month.
                  */
