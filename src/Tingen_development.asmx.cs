@@ -118,7 +118,7 @@ namespace Tingen_development
             // For development use only: Outpost31.Core.Debuggler.Primeval.Log($"[SEND]");
             Outpost31.Core.Debuggler.Primeval.Log($"[SEND]");
 
-            return sentOptionObject.ToReturnOptionObject(); // [TODO] Eventually this should be abSession.OptionObject.ToReturnOptionObject();
+            return sentOptionObject.ToReturnOptionObject(); // [TODO] Eventually this should be tnSession.OptionObject.ToReturnOptionObject();
         }
 
     }
