@@ -104,14 +104,13 @@ namespace Tingen_development
 
             TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
 
-            Outpost31.Core.Debuggler.Primeval.Log($"[tnSession.AvatarSystemCode] {tnSession.AvatarSystemCode.ToLower()}");
-
             if (tnSession.TingenMode == "enabled")
             {
                 Outpost31.Core.Common.ParseScriptModule.Run(tnSession);
             }
             else
             {
+                Outpost31.Module.Admin.Action.Service.StatusUpdate(tnSession.TingenMode, tnSession.AvatarSystemCode, tnSession.TnFramework.ServiceStatusPaths);
                 //Outpost31.Core.Debuggler.Primeval.Log("[SERVICE DISABLED]"); /* <- For development use only */
                 // [TODO] Just make the sent OptionObject the return OptionObject.
             }
