@@ -104,6 +104,8 @@ namespace Tingen_development
 
             TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
 
+            Outpost31.Core.Debuggler.Primeval.Log($"[tnSession.AvatarSystemCode] {tnSession.AvatarSystemCode.ToLower()}");
+
             if (tnSession.TingenMode == "enabled")
             {
                 Outpost31.Core.Common.ParseScriptModule.Run(tnSession);
