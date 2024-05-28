@@ -106,7 +106,7 @@ namespace Tingen_development
 
             //Outpost31.Core.Debuggler.Primeval.Log($"[END]"); /* <- For development use only */
 
-            return sentOptionObject.ToReturnOptionObject(); // [TODO] Eventually this should be tnSession.OptionObject.ToReturnOptionObject();
+            return tnSession.AvComponents.ReturnOptionObject; // [TODO] Eventually this should be tnSession.OptionObject.ToReturnOptionObject();
         }
     }
 }
