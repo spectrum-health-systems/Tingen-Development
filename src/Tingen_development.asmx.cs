@@ -3,7 +3,7 @@
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240525 =====
+// ================================================================ 240528 =====
 
 // u240525.1957
 
@@ -85,7 +85,7 @@ namespace Tingen_development
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
             //Outpost31.Core.Debuggler.Primeval.Log($"[START]"); /* <- For development use only */
-
+            Outpost31.Core.Debuggler.Primeval.Log($"{sentScriptParameter}");
             const string configFilePath = @"C:\TingenData\UAT\Configs\Tingen.config";
             TingenSession tnSession     = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
 
