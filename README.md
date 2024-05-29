@@ -4,13 +4,9 @@
 
   ![logo](./.github/images/logos/tingendevelopment_README.png)
 
-  <h1>
-    Tingen Development
-  </h1>
-
 </div>
 
-# About
+# About Tingen Development
 
 Tingen Development is the development version of the Tingen web service
 
