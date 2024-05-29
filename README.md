@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  ![logo](./.github/images/logos/tingendevelopment_README.png)
+  ![logo](./.github/images/logos/TingenDevelopment_README.png)
 
 </div>
 
