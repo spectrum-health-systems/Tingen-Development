@@ -28,7 +28,9 @@ namespace Tingen_development
 {
     /// <summary>The entry class for Tingen.</summary>
     /// <remarks>
-    ///  This class is designed to be static, and should not be modified.
+    ///  <para>
+    ///   This class is designed to be static, and should not be modified.
+    ///  </para>
     /// </remarks>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
@@ -38,9 +40,7 @@ namespace Tingen_development
         /// <summary>Returns the current version of Tingen.</summary>
         /// <remarks>
         ///  <para>
-        ///   This method is required by Avatar.
-        ///  </para>
-        ///  <para>
+        ///   This method is required by Avatar.<br/><br/>
         ///   The version number the current development version in <b>YY.MM</b> format.
         ///  </para>
         /// </remarks>
@@ -53,10 +53,15 @@ namespace Tingen_development
         /// <param name="sentScriptParameter">The Script Parameter sent from myAvatar.</param>
         /// <remarks>
         ///  <para>
-        ///   This method is required by Avatar, and should be modified since the work is done elsewhere.
+        ///   This method:
+        ///   <list type="bullet">
+        ///    <item>Is required by Avatar</item>
+        ///    <item>Should not be modified, since the actual work is done elsewhere.</item>
+        ///    <item>Contains Primeval.Log() statements for debugging that should be commented out in the production version.</item>
+        ///   </list>
         ///  </para>
         ///  <para>
-        ///   The only difference between the development and production versions of this class is the value of <c>configFilePath</c>.
+        ///   The only difference between the development and production versions of this class is the value of <c>configFilePath</c>:
         ///   <list type="table">
         ///    <item>
         ///     <term>Development</term>
@@ -70,20 +75,16 @@ namespace Tingen_development
         ///  </para>
         ///  <para>
         ///   Tingen has the following modes:
-        ///    <list type="table">
-        ///     <item>
-        ///      <term>Enabled</term>
-        ///      <description>Work is done, and a modified sentOptionObject is returned to Avatar</description>
-        ///     </item>
-        ///      <item>
-        ///      <term>Disabled</term>
+        ///   <list type="table">
+        ///    <item>
+        ///     <term>Enabled</term>
+        ///     <description>Work is done, and a modified sentOptionObject is returned to Avatar</description>
+        ///    </item>
+        ///    <item>
+        ///     <term>Disabled</term>
         ///     <description><i>No work</i> is done, and the <i>unmodified</i> sentOptionObject is returned to Avatar</description>
         ///    </item>
         ///   </list>
-        ///  </para>
-        ///  <para>
-        ///   This class has Debuggler statements that should remain in place for development purposes, and commented out in the
-        ///   production version.
         ///  </para>
         /// </remarks>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
