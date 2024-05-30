@@ -3,9 +3,9 @@
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240528 =====
+// ================================================================ 240530 =====
 
-// u240525.1957
+// u240530.0703
 
 /* PLEASE NOTE
  * -----------
@@ -28,7 +28,7 @@ namespace Tingen_development
 {
     /// <summary>The entry class for Tingen.</summary>
     /// <remarks>
-    ///     This class is designed to be static, and should not be modified.
+    ///  This class is designed to be static, and should not be modified.
     /// </remarks>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
@@ -37,8 +37,12 @@ namespace Tingen_development
     {
         /// <summary>Returns the current version of Tingen.</summary>
         /// <remarks>
-        ///     <para> This method is required by Avatar. </para>
-        ///     <para> The version number the current development version in <b>YY.MM</b> format. </para>
+        ///  <para>
+        ///   This method is required by Avatar.
+        ///  </para>
+        ///  <para>
+        ///   The version number the current development version in <b>YY.MM</b> format.
+        ///  </para>
         /// </remarks>
         /// <returns>The current version of Tingen.</returns>
         [WebMethod]
@@ -48,37 +52,39 @@ namespace Tingen_development
         /// <param name="sentOptionObject">The OptionObject sent from myAvatar.</param>
         /// <param name="sentScriptParameter">The Script Parameter sent from myAvatar.</param>
         /// <remarks>
-        ///     <para>This method is required by Avatar, and should be modified since the work is done elsewhere.</para>
-        ///     <para>
-        ///         The only difference between the development and production versions of this class is the <paramref name="configFilePath"/> value
-        ///         <list type="table">
-        ///             <item>
-        ///                 <term>Development</term>
-        ///                 <description>C:\Tingen\UAT\Configs\Tingen.config</description>
-        ///             </item>
-        ///             <item>
-        ///                 <term>Production</term>
-        ///                 <description>C:\Tingen\LIVE\Configs\Tingen.config</description>
-        ///             </item>
-        ///         </list>
-        ///     </para>
-        ///     <para>
-        ///         Tingen has the following modes:
-        ///         <list type="table">
-        ///             <item>
-        ///                 <term>Enabled</term>
-        ///                 <description>Work is done, and a modified sentOptionObject is returned to Avatar</description>
-        ///             </item>
-        ///             <item>
-        ///                 <term>Disabled</term>
-        ///                 <description><i>No work</i> is done, and the <i>unmodified</i> sentOptionObject is returned to Avatar</description>
-        ///             </item>
-        ///         </list>
-        ///     </para>
-        ///     <para>
-        ///     This class has Debuggler statements that should remain in place for development purposes, and commented
-        ///     out in the production version.
-        ///     </para>
+        ///  <para>
+        ///   This method is required by Avatar, and should be modified since the work is done elsewhere.
+        ///  </para>
+        ///  <para>
+        ///   The only difference between the development and production versions of this class is the value of <c>configFilePath</c>.
+        ///   <list type="table">
+        ///    <item>
+        ///     <term>Development</term>
+        ///     <description>C:\Tingen\UAT\Configs\Tingen.config</description>
+        ///    </item>
+        ///    <item>
+        ///     <term>Production</term>
+        ///     <description>C:\Tingen\LIVE\Configs\Tingen.config</description>
+        ///    </item>
+        ///   </list>
+        ///  </para>
+        ///  <para>
+        ///   Tingen has the following modes:
+        ///    <list type="table">
+        ///     <item>
+        ///      <term>Enabled</term>
+        ///      <description>Work is done, and a modified sentOptionObject is returned to Avatar</description>
+        ///     </item>
+        ///      <item>
+        ///      <term>Disabled</term>
+        ///     <description><i>No work</i> is done, and the <i>unmodified</i> sentOptionObject is returned to Avatar</description>
+        ///    </item>
+        ///   </list>
+        ///  </para>
+        ///  <para>
+        ///   This class has Debuggler statements that should remain in place for development purposes, and commented out in the
+        ///   production version.
+        ///  </para>
         /// </remarks>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
         [WebMethod]
@@ -91,14 +97,14 @@ namespace Tingen_development
 
             if (tnSession.TingenMode == "enabled")
             {
-                Outpost31.Core.Common.ParseScriptModule.Run(tnSession);
+                Outpost31.Core.Common.ParseScriptModule.ParseModule(tnSession);
             }
             else
             {
                 /* DEVNOTE
-                 * This is here so that the service status files are updated even if Tingen is disabled, or in an
-                 * unknown state. This should be moved to a location that does a few things at startup. Also, there
-                 * should be a place that does maintenance at the beginning of the day, an the beginning of the month.
+                 * This is here so that the service status files are updated even if Tingen is disabled, or in an  unknown state. This
+                 * should be moved to a location that does a few things at startup. Also, there should be a place that does maintenance
+                 * at the beginning of the day, an the beginning of the month.
                  */
                 Outpost31.Module.Admin.Action.Service.StatusUpdate(tnSession.TingenMode, tnSession.AvatarSystemCode, tnSession.TnFramework.ServiceStatusPaths);
                 // [TODO] Just make the sent OptionObject the return OptionObject.
@@ -106,7 +112,7 @@ namespace Tingen_development
 
             //Outpost31.Core.Debuggler.Primeval.Log($"[END]"); /* <- For development use only */
 
-            return tnSession.AvComponents.ReturnOptionObject; // [TODO] Eventually this should be tnSession.OptionObject.ToReturnOptionObject();
+            return tnSession.AvComponents.ReturnOptionObject;
         }
     }
 }
