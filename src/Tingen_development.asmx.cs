@@ -91,7 +91,7 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            //Outpost31.Core.Debuggler.Primeval.Log($"[START]"); /* <- For development use only */
+            Outpost31.Core.Debuggler.Primeval.Log($"[START]"); /* <- For development use only */
 
             const string configFilePath = @"C:\TingenData\UAT\Configs\Tingen.config";
             TingenSession tnSession     = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
@@ -111,7 +111,7 @@ namespace Tingen_development
                 // [TODO] Just make the sent OptionObject the return OptionObject.
             }
 
-            //Outpost31.Core.Debuggler.Primeval.Log($"[END]"); /* <- For development use only */
+            Outpost31.Core.Debuggler.Primeval.Log($"[END]"); /* <- For development use only */
 
             return tnSession.AvComponents.ReturnOptionObject;
         }
