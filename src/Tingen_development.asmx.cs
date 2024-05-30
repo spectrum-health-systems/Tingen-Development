@@ -93,6 +93,8 @@ namespace Tingen_development
         {
             Outpost31.Core.Debuggler.Primeval.Log($"[START]"); /* <- For development use only */
 
+            Outpost31.Core.Debuggler.Primeval.Log(sentScriptParameter);
+
             const string configFilePath = @"C:\TingenData\UAT\Configs\Tingen.config";
             TingenSession tnSession     = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
 
