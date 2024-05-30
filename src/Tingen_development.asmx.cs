@@ -100,6 +100,7 @@ namespace Tingen_development
 
             if (tnSession.TingenMode == "enabled")
             {
+                Outpost31.Core.Debuggler.Primeval.Log(tnSession.TingenMode);
                 Outpost31.Core.Common.ParseScriptModule.ParseModule(tnSession);
             }
             else
