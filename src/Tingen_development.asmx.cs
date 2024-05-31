@@ -3,9 +3,9 @@
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240530 =====
+// ================================================================ 240531 =====
 
-// u240530.0703
+// u240531.1015
 
 /* PLEASE NOTE
  * -----------
@@ -21,6 +21,7 @@
  */
 
 using System.Web.Services;
+using Outpost31.Core.Configuration;
 using Outpost31.Core.Session;
 using ScriptLinkStandard.Objects;
 
@@ -91,17 +92,19 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            Outpost31.Core.Debuggler.Primeval.Log($"[START]"); /* <- For development use only */
+            Outpost31.Core.Debuggler.PrimevalLog.Create($"[START]"); /* <- For development use only */
 
-            Outpost31.Core.Debuggler.Primeval.Log(sentScriptParameter);
+            /* This is the only difference between the development and production versions of Tingen.
+             * For the development version, the config file is located in the UAT directory.
+             * For the production version, the config file is located in the LIVE directory.
+             */
+            string configFilePath = TingenConfiguration.GetPath("UAT");
 
-            const string configFilePath = @"C:\TingenData\UAT\Configs\Tingen.config";
-            TingenSession tnSession     = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
+            TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
 
             if (tnSession.TingenMode == "enabled")
             {
-                Outpost31.Core.Debuggler.Primeval.Log(tnSession.TingenMode);
-                Outpost31.Core.Common.Parse.ParseModule(tnSession);
+                Outpost31.Core.Roundhouse.Parse(tnSession);
             }
             else
             {
@@ -110,13 +113,13 @@ namespace Tingen_development
                  * should be moved to a location that does a few things at startup. Also, there should be a place that does maintenance
                  * at the beginning of the day, an the beginning of the month.
                  */
-                Outpost31.Module.Admin.Action.Service.StatusUpdate(tnSession.TingenMode, tnSession.AvatarSystemCode, tnSession.TnFramework.ServiceStatusPaths);
+                Outpost31.Module.Admin.Service.ModeUpdate(tnSession.TingenMode, tnSession.AvatarSystemCode, tnSession.TnFramework.ServiceStatusPaths);
                 // [TODO] Just make the sent OptionObject the return OptionObject.
             }
 
-            Outpost31.Core.Debuggler.Primeval.Log($"[END]"); /* <- For development use only */
+            Outpost31.Core.Debuggler.PrimevalLog.Create($"[END]"); /* <- For development use only */
 
-            return tnSession.AvComponents.ReturnOptionObject;
+            return tnSession.AvData.ReturnOptionObject;
         }
     }
 }
