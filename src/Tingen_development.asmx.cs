@@ -104,6 +104,7 @@ namespace Tingen_development
 
             if (tnSession.TingenMode == "enabled")
             {
+                Outpost31.Core.Debuggler.PrimevalLog.Create($"[ENABLED]");
                 Outpost31.Core.Roundhouse.Parse(tnSession);
             }
             else
