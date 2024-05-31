@@ -5,7 +5,7 @@
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240531 =====
 
-// u240531.1015
+// u240531.1350
 
 /* PLEASE NOTE
  * -----------
@@ -94,28 +94,19 @@ namespace Tingen_development
         {
             Outpost31.Core.Debuggler.PrimevalLog.Create($"[START]"); /* <- For development use only */
 
-            /* This is the only difference between the development and production versions of Tingen.
-             * For the development version, the config file is located in the UAT directory.
-             * For the production version, the config file is located in the LIVE directory.
-             */
-            string configFilePath = TingenConfiguration.GetPath("UAT");
-
+            string configFilePath   = TingenConfiguration.GetPath("UAT");
             TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
 
             if (tnSession.TingenMode == "enabled")
             {
-                Outpost31.Core.Debuggler.PrimevalLog.Create($"[ENABLED]");
                 Outpost31.Core.Roundhouse.Parse(tnSession);
             }
             else
             {
-                /* DEVNOTE
-                 * This is here so that the service status files are updated even if Tingen is disabled, or in an  unknown state. This
-                 * should be moved to a location that does a few things at startup. Also, there should be a place that does maintenance
-                 * at the beginning of the day, an the beginning of the month.
+                /* If Tingen is disabled, update all of the service status files.
                  */
-                Outpost31.Module.Admin.Service.ModeUpdate(tnSession.TingenMode, tnSession.AvatarSystemCode, tnSession.TnFramework.ServiceStatusPaths);
-                // [TODO] Just make the sent OptionObject the return OptionObject.
+                Outpost31.Module.Admin.Service.AllUpdate(tnSession);
+                Outpost31.Core.Avatar.TheOptionObject.ReturnClonedSent(tnSession);
             }
 
             Outpost31.Core.Debuggler.PrimevalLog.Create($"[END]"); /* <- For development use only */
