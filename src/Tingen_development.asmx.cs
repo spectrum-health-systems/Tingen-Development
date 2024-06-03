@@ -105,9 +105,10 @@ namespace Tingen_development
 
             if (tnSession.TingenMode == "disabled")
             {
+                Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "DISABLED"); /* <- For development use only */
                 /* If Tingen is disabled, update all of the service status files.
                  */
-                Outpost31.Module.Admin.Service.AllUpdate(tnSession);
+                //Outpost31.Module.Admin.Service.AllUpdate(tnSession);
                 Outpost31.Core.Avatar.TheOptionObject.ReturnClonedSent(tnSession);
             }
             else
