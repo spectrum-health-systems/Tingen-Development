@@ -20,6 +20,7 @@
  * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
  */
 
+using System.IO;
 using System.Reflection;
 using System.Web.Services;
 using Outpost31.Core.Configuration;
@@ -104,6 +105,8 @@ namespace Tingen_development
 
             if (tnSession.TingenMode == "disabled")
             {
+                File.WriteAllText(@"C:\TingenData\UAT\Temporary\a.txt", "");
+
                 Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "DISABLED"); /* <- For development use only */
 
                 /* If Tingen is disabled, update all of the service status files.
@@ -113,10 +116,13 @@ namespace Tingen_development
             }
             else
             {
+                File.WriteAllText(@"C:\TingenData\UAT\Temporary\b.txt", "");
                 Outpost31.Core.Roundhouse.Parse(tnSession);
             }
 
+            File.WriteAllText(@"C:\TingenData\UAT\Temporary\c.txt", "");
             Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "END"); /* <- For development use only */
+            File.WriteAllText(@"C:\TingenData\UAT\Temporary\d.txt", "");
 
             return tnSession.AvData.ReturnOptionObject;
         }
