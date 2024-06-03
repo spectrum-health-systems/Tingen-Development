@@ -116,6 +116,7 @@ namespace Tingen_development
             }
             else
             {
+                Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "INIT");
                 Outpost31.Core.Session.TingenSession.Initialize(tnSession);
                 Outpost31.Core.Roundhouse.Parse(tnSession);
             }
