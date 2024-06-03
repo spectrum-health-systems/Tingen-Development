@@ -1,11 +1,11 @@
-﻿// ================================================================ 24.5.0 =====
+﻿// ================================================================ 24.6.0 =====
 // Tingen_development: The development version of Tingen
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240531 =====
+// ================================================================ 240603 =====
 
-// u240531.1350
+// u240603.0732
 
 /* PLEASE NOTE
  * -----------
@@ -20,6 +20,7 @@
  * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
  */
 
+using System.Reflection;
 using System.Web.Services;
 using Outpost31.Core.Configuration;
 using Outpost31.Core.Session;
@@ -47,7 +48,7 @@ namespace Tingen_development
         /// </remarks>
         /// <returns>The current version of Tingen.</returns>
         [WebMethod]
-        public string GetVersion() => "VERSION 24.5";
+        public string GetVersion() => "VERSION 24.6";
 
         /// <summary>The starting method for Tingen.</summary>
         /// <param name="sentOptionObject">The OptionObject sent from myAvatar.</param>
@@ -92,24 +93,32 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            Outpost31.Core.Debuggler.PrimevalLog.Create($"[START]"); /* <- For development use only */
+                    /// <summary>Executing assembly name for log files.</summary>
+                    /// <remarks>
+                    ///     - The executing assembly is defined at the start of the class so it can be easily used throughout the
+                    ///       method when creating log files.
+                    /// </remarks>
+        string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+
+
+        Outpost31.Core.Debuggler.PrimevalLog.Create($"[{AssemblyName}]"); /* <- For development use only */
 
             string configFilePath   = TingenConfiguration.GetPath("UAT");
             TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
 
-            if (tnSession.TingenMode == "enabled")
-            {
-                Outpost31.Core.Roundhouse.Parse(tnSession);
-            }
-            else
+            if (tnSession.TingenMode == "disabled")
             {
                 /* If Tingen is disabled, update all of the service status files.
                  */
                 Outpost31.Module.Admin.Service.AllUpdate(tnSession);
                 Outpost31.Core.Avatar.TheOptionObject.ReturnClonedSent(tnSession);
             }
+            else
+            {
+                Outpost31.Core.Roundhouse.Parse(tnSession);
+            }
 
-            Outpost31.Core.Debuggler.PrimevalLog.Create($"[END]"); /* <- For development use only */
+            Outpost31.Core.Debuggler.PrimevalLog.Create($"[{AssemblyName}]"); /* <- For development use only */
 
             return tnSession.AvData.ReturnOptionObject;
         }
