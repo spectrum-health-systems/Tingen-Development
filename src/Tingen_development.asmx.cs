@@ -20,10 +20,10 @@
  * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
  */
 
-using System.IO;
 using System.Reflection;
 using System.Web.Services;
 using Outpost31.Core.Configuration;
+using Outpost31.Core.Logger;
 using Outpost31.Core.Session;
 using ScriptLinkStandard.Objects;
 
@@ -94,22 +94,30 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
+            /* The executing assembly name for log files.
+             */
+            string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+
             /* Can't put a trace log here, so we'll use a Primeval log for debugging.
              */
-            //Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "START");
+            //LogEvent.Primeval(AssemblyName, "Starting Tingen.");
 
-            string AssemblyName   = Assembly.GetExecutingAssembly().GetName().Name;
+            /* For development: "UAT".
+             * For production: "LIVE".
+             */
             string configFilePath = TingenConfiguration.GetPath("UAT");
 
-            TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
+            TingenSession tnSession = TingenSession.Build(configFilePath, sentOptionObject, sentScriptParameter);
 
-            Outpost31.Core.Session.TingenSession.Initialize(tnSession);
+            /* First good opportunity to create a trace log.
+             */
+            LogEvent.Trace(tnSession, AssemblyName);
 
-            Outpost31.Core.Logger.LogEvent.Trace(tnSession, AssemblyName);
+            TingenSession.Initialize(tnSession);
 
             if (tnSession.TingenMode == "disabled")
             {
-                Outpost31.Core.Logger.LogEvent.Trace(tnSession, AssemblyName);
+                LogEvent.Trace(tnSession, AssemblyName);
 
                 /* If Tingen is disabled, update all of the service status files.
                  */
@@ -118,14 +126,11 @@ namespace Tingen_development
             }
             else
             {
-                Outpost31.Core.Logger.LogEvent.Trace(tnSession, AssemblyName);
-
+                LogEvent.Trace(tnSession, AssemblyName);
                 Outpost31.Core.Roundhouse.Parse(tnSession);
             }
 
-            /* We could put a trace log here, but this is a nice bookend for the Primeval log at the start.
-             */
-            Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "END");
+            LogEvent.Trace(tnSession, AssemblyName);
 
             return tnSession.AvData.ReturnOptionObject;
         }
