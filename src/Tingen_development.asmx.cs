@@ -102,7 +102,7 @@ namespace Tingen_development
 
 
         Outpost31.Core.Debuggler.PrimevalLog.Create($"[{AssemblyName}]"); /* <- For development use only */
-
+            Outpost31.Core.Debuggler.PrimevalLog.Create($"[START]");
             string configFilePath   = TingenConfiguration.GetPath("UAT");
             TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
 
@@ -119,7 +119,7 @@ namespace Tingen_development
             }
 
             Outpost31.Core.Debuggler.PrimevalLog.Create($"[{AssemblyName}]"); /* <- For development use only */
-
+            Outpost31.Core.Debuggler.PrimevalLog.Create($"[END]");
             return tnSession.AvData.ReturnOptionObject;
         }
     }
