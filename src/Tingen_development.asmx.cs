@@ -94,22 +94,22 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            /* The name of this assembly for log files.
+            /* Can't put a trace log here, so we'll use a Primeval log for debugging.
              */
-            string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+            //Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "START");
 
-            Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "START"); /* <- For development use only */
+            string AssemblyName   = Assembly.GetExecutingAssembly().GetName().Name;
+            string configFilePath = TingenConfiguration.GetPath("UAT");
 
-            string configFilePath   = TingenConfiguration.GetPath("UAT");
             TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
+
             Outpost31.Core.Session.TingenSession.Initialize(tnSession);
 
-            Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "TRCLOG");
             Outpost31.Core.Logger.LogEvent.Trace(tnSession, AssemblyName);
 
             if (tnSession.TingenMode == "disabled")
             {
-                Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "DISABLED"); /* <- For development use only */
+                Outpost31.Core.Logger.LogEvent.Trace(tnSession, AssemblyName);
 
                 /* If Tingen is disabled, update all of the service status files.
                  */
@@ -117,11 +117,15 @@ namespace Tingen_development
                 Outpost31.Core.Avatar.TheOptionObject.ReturnClonedSent(tnSession);
             }
             else
-            {           
+            {
+                Outpost31.Core.Logger.LogEvent.Trace(tnSession, AssemblyName);
+
                 Outpost31.Core.Roundhouse.Parse(tnSession);
             }
 
-            Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "END"); /* <- For development use only */
+            /* We could put a trace log here, but this is a nice bookend for the Primeval log at the start.
+             */
+            //Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "END");
 
             return tnSession.AvData.ReturnOptionObject;
         }
