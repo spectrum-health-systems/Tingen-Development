@@ -93,8 +93,7 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            /*
-             * The name of the assembly for log files. Special for this method, since it's the entry point for Tingen.
+            /* The name of this assembly for log files.
              */
             string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
 
@@ -106,6 +105,7 @@ namespace Tingen_development
             if (tnSession.TingenMode == "disabled")
             {
                 Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "DISABLED"); /* <- For development use only */
+
                 /* If Tingen is disabled, update all of the service status files.
                  */
                 Outpost31.Module.Admin.Service.AllUpdate(tnSession);
