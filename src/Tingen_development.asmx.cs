@@ -125,7 +125,7 @@ namespace Tingen_development
 
             /* We could put a trace log here, but this is a nice bookend for the Primeval log at the start.
              */
-            //Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "END");
+            Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "END");
 
             return tnSession.AvData.ReturnOptionObject;
         }
