@@ -107,8 +107,6 @@ namespace Tingen_development
              */
             string configFilePath = TingenConfiguration.GetPath("UAT");
 
-            LogEvent.Primeval(AssemblyName, configFilePath);
-
             TingenSession tnSession = TingenSession.Build(configFilePath, sentOptionObject, sentScriptParameter);
 
             /* First good opportunity to create a trace log.
