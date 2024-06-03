@@ -103,6 +103,7 @@ namespace Tingen_development
             string configFilePath   = TingenConfiguration.GetPath("UAT");
             TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
 
+            Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "TRCLOG");
             Outpost31.Core.Logger.LogEvent.Trace(tnSession, AssemblyName);
 
             if (tnSession.TingenMode == "disabled")
