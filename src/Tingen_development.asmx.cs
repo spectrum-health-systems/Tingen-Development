@@ -102,6 +102,7 @@ namespace Tingen_development
 
             string configFilePath   = TingenConfiguration.GetPath("UAT");
             TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
+            Outpost31.Core.Session.TingenSession.Initialize(tnSession);
 
             Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "TRCLOG");
             Outpost31.Core.Logger.LogEvent.Trace(tnSession, AssemblyName);
@@ -116,9 +117,7 @@ namespace Tingen_development
                 Outpost31.Core.Avatar.TheOptionObject.ReturnClonedSent(tnSession);
             }
             else
-            {
-                Outpost31.Core.Debuggler.PrimevalLog.Create(AssemblyName, "INIT");
-                Outpost31.Core.Session.TingenSession.Initialize(tnSession);
+            {           
                 Outpost31.Core.Roundhouse.Parse(tnSession);
             }
 
