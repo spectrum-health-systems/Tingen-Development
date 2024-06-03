@@ -93,16 +93,14 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-                    /// <summary>Executing assembly name for log files.</summary>
-                    /// <remarks>
-                    ///     - The executing assembly is defined at the start of the class so it can be easily used throughout the
-                    ///       method when creating log files.
-                    /// </remarks>
-        string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+            /*
+             * The name of the assembly for log files.
+             */
+            string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
 
 
-        Outpost31.Core.Debuggler.PrimevalLog.Create($"[{AssemblyName}]"); /* <- For development use only */
-            Outpost31.Core.Debuggler.PrimevalLog.Create($"[START]");
+            Outpost31.Core.Debuggler.PrimevalLog.Create($"[{AssemblyName}]"); /* <- For development use only */
+
             string configFilePath   = TingenConfiguration.GetPath("UAT");
             TingenSession tnSession = TingenSession.Load(configFilePath, sentOptionObject, sentScriptParameter);
 
@@ -119,7 +117,6 @@ namespace Tingen_development
             }
 
             Outpost31.Core.Debuggler.PrimevalLog.Create($"[{AssemblyName}]"); /* <- For development use only */
-            Outpost31.Core.Debuggler.PrimevalLog.Create($"[END]");
             return tnSession.AvData.ReturnOptionObject;
         }
     }
