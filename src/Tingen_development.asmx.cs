@@ -22,7 +22,6 @@
 
 using System.Reflection;
 using System.Web.Services;
-using Outpost31.Core.Configuration;
 using Outpost31.Core.Logger;
 using Outpost31.Core.Session;
 using ScriptLinkStandard.Objects;
@@ -67,32 +66,33 @@ namespace Tingen_development
             /* The assembly name, defined here for use in all log files.*/
             string Asm = Assembly.GetExecutingAssembly().GetName().Name;
 
-            /* For debugging */
-            //LogEvent.Primeval(asm);
+            /* <!-- For debugging: LogEvent.Primeval(asm); --> */
 
-            string configFilePath = TingenConfiguration.BuildFilePath("UAT");
+            // This is the only difference.
+            string avatarSystemCode = "UAT";
+            string configFilePath   = $@"C:\TingenData\{avatarSystemCode}\Config\Tingen.config";
 
-            TingenSession tnSession = TingenSession.BuildNew(configFilePath, sentOptionObject, sentScriptParameter);
+            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, avatarSystemCode, configFilePath);
 
-            TingenSession.InitializeNew(tnSession);
+            TingenSession.Initialize(tnSession);
 
-            LogEvent.Trace(1, tnSession, Asm);
+            LogEvent.Trace(1, tnSession.TraceLogs, Asm);
 
-            switch (tnSession.TingenMode)
+            switch (tnSession.Config.TingenMode)
             {
                 case "disabled":
-                    LogEvent.Trace(2, tnSession, Asm);
+                    LogEvent.Trace(2, tnSession.TraceLogs, Asm);
                     Outpost31.Module.Admin.Service.AllUpdate(tnSession);
                     Outpost31.Core.Avatar.OptionObjects.CloneSentToReturn(tnSession);
                     break;
 
                 default:
-                    LogEvent.Trace(2, tnSession, Asm);
+                    LogEvent.Trace(2, tnSession.TraceLogs, Asm);
                     Outpost31.Core.Roundhouse.Parse(tnSession);
                     break;
             }
 
-            return tnSession.AvData.ReturnOptionObject;
+            return tnSession.AvatarData.ReturnObject;
         }
     }
 }
