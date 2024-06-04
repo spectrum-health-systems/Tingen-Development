@@ -67,7 +67,7 @@ namespace Tingen_development
             /* The executing assembly name for any log files.*/
             string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
 
-            /* Since we can't write a trace log until the TingenSession is created, we'll use the primeval log for
+            /* Since we can't write a trace log until we initialize the session, we'll use the primeval log for
              * debugging. I'm leavving this here so it's easy to enable, but it should be commented out for production.
              */
             //LogEvent.Primeval(AssemblyName, "Starting Tingen."); // Comment out for production.
@@ -76,9 +76,9 @@ namespace Tingen_development
             //File.WriteAllText(@"C:\TingenData\UAT\Config\Tingen.config", "test");
             TingenSession tnSession = TingenSession.Build(configFilePath, sentOptionObject, sentScriptParameter);
 
-            LogEvent.Trace(1, tnSession, AssemblyName);
-
             TingenSession.Initialize(tnSession);
+
+            LogEvent.Trace(1, tnSession, AssemblyName);
 
             if (tnSession.TingenMode == "disabled")
             {
