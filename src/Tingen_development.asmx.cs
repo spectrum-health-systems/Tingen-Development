@@ -73,7 +73,7 @@ namespace Tingen_development
             //LogEvent.Primeval(AssemblyName, "Starting Tingen."); // Comment out for production.
 
             string configFilePath = TingenConfiguration.GetPath("UAT");
-            //File.WriteAllText(@"C:\TingenData\UAT\Config\Tingen.config", "test");
+
             TingenSession tnSession = TingenSession.Build(configFilePath, sentOptionObject, sentScriptParameter);
 
             TingenSession.Initialize(tnSession);
