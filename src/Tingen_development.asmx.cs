@@ -20,7 +20,6 @@
  * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
  */
 
-using System.IO;
 using System.Reflection;
 using System.Web.Services;
 using Outpost31.Core.Configuration;
@@ -74,7 +73,7 @@ namespace Tingen_development
             //LogEvent.Primeval(AssemblyName, "Starting Tingen."); // Comment out for production.
 
             string configFilePath = TingenConfiguration.GetPath("UAT");
-            File.WriteAllText(@"C:\TingenData\UAT\Config\Tingen.config", "test");
+            //File.WriteAllText(@"C:\TingenData\UAT\Config\Tingen.config", "test");
             TingenSession tnSession = TingenSession.Build(configFilePath, sentOptionObject, sentScriptParameter);
 
             LogEvent.Trace(1, tnSession, AssemblyName);
