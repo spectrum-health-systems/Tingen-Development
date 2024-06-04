@@ -3,9 +3,9 @@
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240603 =====
+// ================================================================ 240604 =====
 
-// u240603.0732
+// u240604.1125
 
 /* PLEASE NOTE
  * -----------
@@ -15,7 +15,7 @@
  *
  * For production environments: https://github.com/spectrum-health-systems/Tingen-Community-Release
  *
- * For more information about Tingen: https://github.com/spectrum-health-systems/Tingen-Documentation-Project
+ * For more information about Tingen: https://github.com/spectrum-health-systems/Tingen-Documentation
  *
  * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
  */
@@ -32,7 +32,7 @@ namespace Tingen_development
     /// <summary>The entry class for Tingen.</summary>
     /// <remarks>
     ///  <para>
-    ///   This class is designed to be static, and should not be modified.
+    ///   - This class is designed to be static, and should not be modified.
     ///  </para>
     /// </remarks>
     [WebService(Namespace = "http://tempuri.org/")]
@@ -43,8 +43,8 @@ namespace Tingen_development
         /// <summary>Returns the current version of Tingen.</summary>
         /// <remarks>
         ///  <para>
-        ///   This method is required by Avatar.<br/><br/>
-        ///   The version number the current development version in <b>YY.MM</b> format.
+        ///   - Required by Avatar.<br/>
+        ///   - The version number is the current development version in <b>YY.MM</b> format (ex: "<b>24.5</b>").
         ///  </para>
         /// </remarks>
         /// <returns>The current version of Tingen.</returns>
@@ -56,68 +56,33 @@ namespace Tingen_development
         /// <param name="sentScriptParameter">The Script Parameter sent from myAvatar.</param>
         /// <remarks>
         ///  <para>
-        ///   This method:
-        ///   <list type="bullet">
-        ///    <item>Is required by Avatar</item>
-        ///    <item>Should not be modified, since the actual work is done elsewhere.</item>
-        ///    <item>Contains Primeval.Log() statements for debugging that should be commented out in the production version.</item>
-        ///   </list>
-        ///  </para>
-        ///  <para>
-        ///   The only difference between the development and production versions of this class is the value of <c>configFilePath</c>:
-        ///   <list type="table">
-        ///    <item>
-        ///     <term>Development</term>
-        ///     <description>C:\Tingen\UAT\Configs\Tingen.config</description>
-        ///    </item>
-        ///    <item>
-        ///     <term>Production</term>
-        ///     <description>C:\Tingen\LIVE\Configs\Tingen.config</description>
-        ///    </item>
-        ///   </list>
-        ///  </para>
-        ///  <para>
-        ///   Tingen has the following modes:
-        ///   <list type="table">
-        ///    <item>
-        ///     <term>Enabled</term>
-        ///     <description>Work is done, and a modified sentOptionObject is returned to Avatar</description>
-        ///    </item>
-        ///    <item>
-        ///     <term>Disabled</term>
-        ///     <description><i>No work</i> is done, and the <i>unmodified</i> sentOptionObject is returned to Avatar</description>
-        ///    </item>
-        ///   </list>
+        ///   - Required by Avatar.<br/>
+        ///   - Should <i>not be modified</i>, since the heavy lifting is done elsewhere.<br/>
         ///  </para>
         /// </remarks>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            /* The executing assembly name for log files.
-             */
+            /* The executing assembly name for any log files.*/
             string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
 
-            /* Can't put a trace log here, so we'll use a Primeval log for debugging.
+            /* Since we can't write a trace log until the TingenSession is created, we'll use the primeval log for
+             * debugging. I'm leavving this here so it's easy to enable, but it should be commented out for production.
              */
-            //LogEvent.Primeval(AssemblyName, "Starting Tingen.");
+            //LogEvent.Primeval(AssemblyName, "Starting Tingen."); // Comment out for production.
 
-            /* For development: "UAT".
-             * For production: "LIVE".
-             */
             string configFilePath = TingenConfiguration.GetPath("UAT");
 
             TingenSession tnSession = TingenSession.Build(configFilePath, sentOptionObject, sentScriptParameter);
 
-            /* First good opportunity to create a trace log.
-             */
-            LogEvent.Trace(tnSession, AssemblyName);
+            LogEvent.Trace(1, tnSession, AssemblyName);
 
             TingenSession.Initialize(tnSession);
 
             if (tnSession.TingenMode == "disabled")
             {
-                LogEvent.Trace(tnSession, AssemblyName);
+                LogEvent.Trace(2, tnSession, AssemblyName);
 
                 /* If Tingen is disabled, update all of the service status files.
                  */
@@ -126,11 +91,11 @@ namespace Tingen_development
             }
             else
             {
-                LogEvent.Trace(tnSession, AssemblyName);
+                LogEvent.Trace(2, tnSession, AssemblyName);
                 Outpost31.Core.Roundhouse.Parse(tnSession);
             }
 
-            LogEvent.Trace(tnSession, AssemblyName);
+            LogEvent.Trace(1, tnSession, AssemblyName);
 
             return tnSession.AvData.ReturnOptionObject;
         }
