@@ -68,9 +68,9 @@ namespace Tingen_development
             string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
 
             /* Since we can't write a trace log until we initialize the session, we'll use the primeval log for
-             * debugging. I'm leavving this here so it's easy to enable, but it should be commented out for production.
+             * debugging this class. This should be commented out in production.
              */
-            //LogEvent.Primeval(AssemblyName, "Starting Tingen."); // Comment out for production.
+            //LogEvent.Primeval(AssemblyName);
 
             string configFilePath = TingenConfiguration.GetPath("UAT");
 
