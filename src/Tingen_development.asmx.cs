@@ -5,9 +5,9 @@
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240604 =====
 
-// u240604.1125
+// u240604.1308
 
-/* PLEASE NOTE
+/* PLEASE READ
  * -----------
  * This is the development version of Tingen, and should not be used in production environments.
  *
@@ -64,38 +64,33 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            /* The executing assembly name for any log files.*/
-            string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+            /* The assembly name, defined here for use in all log files.*/
+            string Asm = Assembly.GetExecutingAssembly().GetName().Name;
 
-            /* Since we can't write a trace log until we initialize the session, we'll use the primeval log for
-             * debugging this class. This should be commented out in production.
-             */
-            //LogEvent.Primeval(AssemblyName);
+            /* For debugging */
+            //LogEvent.Primeval(asm);
 
-            string configFilePath = TingenConfiguration.GetPath("UAT");
+            string configFilePath = TingenConfiguration.BuildFilePath("UAT");
 
-            TingenSession tnSession = TingenSession.Build(configFilePath, sentOptionObject, sentScriptParameter);
+            TingenSession tnSession = TingenSession.BuildNew(configFilePath, sentOptionObject, sentScriptParameter);
 
-            TingenSession.Initialize(tnSession);
+            TingenSession.InitializeNew(tnSession);
 
-            LogEvent.Trace(1, tnSession, AssemblyName);
+            LogEvent.Trace(1, tnSession, Asm);
 
-            if (tnSession.TingenMode == "disabled")
+            switch (tnSession.TingenMode)
             {
-                LogEvent.Trace(2, tnSession, AssemblyName);
+                case "disabled":
+                    LogEvent.Trace(2, tnSession, Asm);
+                    Outpost31.Module.Admin.Service.AllUpdate(tnSession);
+                    Outpost31.Core.Avatar.OptionObjects.CloneSentToReturn(tnSession);
+                    break;
 
-                /* If Tingen is disabled, update all of the service status files.
-                 */
-                Outpost31.Module.Admin.Service.AllUpdate(tnSession);
-                Outpost31.Core.Avatar.TheOptionObject.ReturnClonedSent(tnSession);
+                default:
+                    LogEvent.Trace(2, tnSession, Asm);
+                    Outpost31.Core.Roundhouse.Parse(tnSession);
+                    break;
             }
-            else
-            {
-                LogEvent.Trace(2, tnSession, AssemblyName);
-                Outpost31.Core.Roundhouse.Parse(tnSession);
-            }
-
-            LogEvent.Trace(1, tnSession, AssemblyName);
 
             return tnSession.AvData.ReturnOptionObject;
         }
