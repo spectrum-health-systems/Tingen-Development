@@ -79,9 +79,9 @@ namespace Tingen_development
             string configFilePath         = $@"C:\TingenData\{avatarSystemCode}\Config\Tingen.config";
 
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, avatarSystemCode, configFilePath);
-
+            LogEvent.Primeval(Asm);
             TingenSession.Initialize(tnSession);
-
+            LogEvent.Primeval(Asm);
             LogEvent.Trace(1, tnSession.TraceLogs, Asm);
 
             switch (tnSession.Config.TingenMode)
