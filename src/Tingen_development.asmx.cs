@@ -67,7 +67,7 @@ namespace Tingen_development
              * This will probably be used relatively often during developement, so it's worth keeping around, but it should be
              * commneted out in production.
              */
-            //LogEvent.Primeval(Asm);
+            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
 
             /* The only difference between the development and production versions of Tingen is the hardcoded Avatar System Code. For
              * development, the Avatar System Code is "UAT". For production, the Avatar System Code is "LIVE"
@@ -110,6 +110,8 @@ namespace Tingen_development
 
                     break;
             }
+
+            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
 
             return tnSession.AvatarData.ReturnObject;
         }
