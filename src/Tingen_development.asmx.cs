@@ -20,11 +20,13 @@
  * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
  */
 
+using System.Data.SqlClient;
 using System.Reflection;
 using System.Web.Services;
 using Outpost31.Core.Logger;
 using Outpost31.Core.Session;
 using ScriptLinkStandard.Objects;
+using System.Collections.Generic;
 
 namespace Tingen_development
 {
@@ -39,6 +41,14 @@ namespace Tingen_development
     [System.ComponentModel.ToolboxItem(false)]
     public class Tingen_development : WebService
     {
+        /// <summary>Assembly name for log files.</summary>
+        /// <remarks>
+        ///   <para>
+        ///    - Define the assembly name here so it can be used to write log files throughout the class.
+        ///   </para>
+        /// </remarks>
+        public static string Asm { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
+
         /// <summary>Returns the current version of Tingen.</summary>
         /// <remarks>
         ///  <para>
@@ -63,14 +73,11 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            /* We define the assembly name here so we can use it to write log files throughout the class.*/
-            string Asm = Assembly.GetExecutingAssembly().GetName().Name;
-
             /* Debugging requires writing a Primeval log, since trace logs aren't available until the Tingen Session is initialized.
              * This will probably be used relatively often during developement, so it's worth keeping around, but it should be
              * commneted out in production.
              */
-            LogEvent.Primeval(Asm);
+            //LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
 
             /* The only difference between the development and production versions of Tingen is the hardcoded Avatar System Code. For
              * development, the Avatar System Code is "UAT". For production, the Avatar System Code is "LIVE"
@@ -79,15 +86,15 @@ namespace Tingen_development
             string configFilePath         = $@"C:\TingenData\{avatarSystemCode}\Config\Tingen.config";
 
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, avatarSystemCode, configFilePath);
-            LogEvent.Primeval(Asm);
+
             TingenSession.Initialize(tnSession);
-            LogEvent.Primeval(Asm);
-            LogEvent.Trace(1, tnSession.TraceLogs, Asm);
-            LogEvent.Primeval(Asm);
+
+            LogEvent.Trace(1, Asm, tnSession.TraceInfo);
+
             switch (tnSession.Config.TingenMode)
             {
                 case "disabled":
-                    LogEvent.Trace(2, tnSession.TraceLogs, Asm);
+                    LogEvent.Trace(2, Asm, tnSession.TraceInfo);
 
                     /* If Tingen is disabled, we should update the service status files so the necessary users are notified. When
                      * Tingen is re-enabled, the service status files will need to be manually updated using the Admin Module.
@@ -102,7 +109,7 @@ namespace Tingen_development
                     break;
 
                 default:
-                    LogEvent.Trace(2, tnSession.TraceLogs, Asm);
+                    LogEvent.Trace(2, Asm, tnSession.TraceInfo);
 
                     Outpost31.Core.Roundhouse.Parse(tnSession);
 
