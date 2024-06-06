@@ -76,7 +76,11 @@ namespace Tingen_development
             const string avatarSystemCode = "UAT";
             string configFilePath         = $@"C:\TingenData\{avatarSystemCode}\Config\Tingen.config";
 
+            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, avatarSystemCode, configFilePath);
+
+            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
 
             TingenSession.Initialize(tnSession);
 
