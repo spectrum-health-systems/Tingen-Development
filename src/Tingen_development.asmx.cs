@@ -73,7 +73,7 @@ namespace Tingen_development
             LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
             Dictionary<string, string> hardCode = SetHardCodes();
             LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
-            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, hardCode["avSystemCode"], hardCode["tnDataRoot"], hardCode["tnConfigFileName"]);
+            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, hardCode["tnDataRoot"],hardCode["avSystemCode"], hardCode["tnConfigFileName"]);
             LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
             Outpost31.Core.Framework.Maintenance.VerifyFrameworkStructure(tnSession);
             LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
