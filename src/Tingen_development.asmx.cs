@@ -113,6 +113,8 @@ namespace Tingen_development
 
                     File.WriteAllText(path, Catalog.SessionDetails(tnSession));
 
+                    LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
+
                     break;
             }
 
