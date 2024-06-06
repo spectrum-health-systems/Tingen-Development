@@ -70,8 +70,6 @@ namespace Tingen_development
              */
             //LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
 
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
-
             /* The only difference between the development and production versions of Tingen is the hardcoded Avatar System Code. For
              * development, the Avatar System Code is "UAT". For production, the Avatar System Code is "LIVE"
              */
@@ -108,18 +106,20 @@ namespace Tingen_development
                     break;
 
                 default:
-                    LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
 
+                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+                    LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
+                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
                     Outpost31.Core.Roundhouse.Parse(tnSession);
-
+                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
                     tnSession.AvatarData.ReturnOptionObject = tnSession.AvatarData.WorkOptionObject.Clone();
-
+                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
                     var path = $@"{tnSession.Framework.SystemCodePath.Session}\Session.md";
-
+                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
                     File.WriteAllText(path, Catalog.SessionDetails(tnSession));
-
+                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
                     LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
-
+                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
                     break;
             }
 
