@@ -20,12 +20,8 @@
  * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
  */
 
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.Versioning;
 using System.Web.Services;
 using Outpost31.Core.Logger;
 using Outpost31.Core.Session;
@@ -44,6 +40,14 @@ namespace Tingen_development
     [System.ComponentModel.ToolboxItem(false)]
     public class Tingen_development : WebService
     {
+        /// <summary>Assembly name for log files.</summary>
+        /// <remarks>
+        ///   <para>
+        ///    - Define the assembly name here so it can be used to write log files throughout the class.
+        ///   </para>
+        /// </remarks>
+        public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
+
         /// <summary>Returns the current version of Tingen.</summary>
         /// <remarks>
         ///  <para>
@@ -70,54 +74,49 @@ namespace Tingen_development
         {
             /* Trace logs cannot be used here. For debugging purposes, use a Primeval log. */
 
+            var sVar = TingenSession.BuildStaticVars(Assembly.GetExecutingAssembly().GetName().Version.ToString());
 
-
-            Dictionary<string, string> hardCode = SetHardCodes();
-
-            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, hardCode["Version"], hardCode["tnDataRoot"], hardCode["avSystemCode"], hardCode["tnConfigFileName"]);
-
-            Outpost31.Core.Framework.Maintenance.VerifyFrameworkStructure(tnSession);
-
-            ////TingenSession.Initialize(tnSession); // need?
+            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, sVar["tnVersion"], sVar["tnDataRoot"], sVar["avSystemCode"], sVar["tnConfigFileName"]);
 
             /* Logging is done a little different in this method, since the Tingen Session is not yet initialized. We'll get the
              * AssemblyName here instead of at the top of the method.
              */
-            string assemblyName = Assembly.GetExecutingAssembly().GetName().Name; // TODO Move to top?
+            //string assemblyName = Assembly.GetExecutingAssembly().GetName().Name; // TODO Move to top?
 
-            LogEvent.Trace(1, assemblyName, tnSession.TraceInfo);
+            LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
 
             switch (tnSession.TnConfig.TingenMode)
             {
                 case "disabled":
-                    LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
+                    LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
 
                     /* If Tingen is disabled, we should update the service status files so the necessary users are notified. When
                      * Tingen is re-enabled, the service status files will need to be manually updated using the Admin Module.
                      */
+                    Outpost31.Core.Framework.Maintenance.VerifyFrameworkStructure(tnSession);
                     Outpost31.Module.Admin.Service.Status.UpdateAll(tnSession);
 
-                    EndTingen(tnSession, assemblyName);
+                    EndTingen(tnSession);
 
                     break;
 
                 case "development":
-                    LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
+                    LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
 
                     Outpost31.Core.Framework.Maintenance.DevelopmentModeCleanup(tnSession.TnPath.Tingen.Primeval, tnSession.TnPath.SystemCode.Sessions);
 
-                    StartTingen(tnSession, assemblyName);
+                    StartTingen(tnSession);
 
-                    EndTingen(tnSession, assemblyName);
+                    EndTingen(tnSession);
 
                     break;
 
                 default:
-                    LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
+                    LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
 
-                    StartTingen(tnSession, assemblyName);
+                    StartTingen(tnSession);
 
-                    EndTingen(tnSession, assemblyName);
+                    EndTingen(tnSession);
 
                     break;
             }
@@ -125,27 +124,27 @@ namespace Tingen_development
             return tnSession.AvData.ReturnOptionObject.ToReturnOptionObject();
         }
 
-        private static Dictionary <string, string> SetHardCodes()
-        {
-            return new Dictionary<string, string>
-            {
-                { "Version",          Assembly.GetExecutingAssembly().GetName().Version.ToString() },
-                { "avSystemCode",     "UAT" },
-                { "tnDataRoot",       @"C:\TingenData" },
-                { "tnConfigFileName", "Tingen.config" }
-            };
-        }
+        //private static Dictionary<string, string> SetHardCodes()
+        //{
+        //    return new Dictionary<string, string>
+        //    {
+        //        { "tnVersion",        Assembly.GetExecutingAssembly().GetName().Version.ToString() },
+        //        { "avSystemCode",     "UAT" },
+        //        { "tnDataRoot",       @"C:\TingenData" },
+        //        { "tnConfigFileName", "Tingen.config" }
+        //    };
+        //}
 
-        private static void StartTingen(TingenSession tnSession, string assemblyName)
+        private static void StartTingen(TingenSession tnSession)
         {
-            LogEvent.Trace(1, assemblyName, tnSession.TraceInfo);
+            LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
 
             Outpost31.Core.Roundhouse.Parse(tnSession);
         }
 
-        private static void EndTingen(TingenSession tnSession, string assemblyName)
+        private static void EndTingen(TingenSession tnSession)
         {
-            LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
+            LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
 
             if (tnSession.TnConfig.TingenMode == "disabled")
             {
