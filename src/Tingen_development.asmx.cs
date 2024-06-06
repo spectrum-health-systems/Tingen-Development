@@ -3,7 +3,7 @@
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240605 =====
+// ================================================================ 240606 =====
 
 // u240605.1530
 
@@ -20,6 +20,7 @@
  * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
  */
 
+using System.IO;
 using System.Reflection;
 using System.Web.Services;
 using Outpost31.Core.Logger;
@@ -107,6 +108,10 @@ namespace Tingen_development
                     LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
 
                     Outpost31.Core.Roundhouse.Parse(tnSession);
+
+                    var path = $@"{tnSession.Framework.SystemCodePath.Session}\Session.md";
+
+                    File.WriteAllText(path, Catalog.SessionDetails(tnSession));
 
                     break;
             }
