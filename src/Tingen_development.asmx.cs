@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using System.Web.Services;
 using Outpost31.Core.Logger;
 using Outpost31.Core.Session;
@@ -71,6 +72,8 @@ namespace Tingen_development
             Dictionary<string, string> hardCode = SetHardCodes();
 
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, hardCode["avSystemCode"], hardCode["tnDataRoot"], hardCode["tnConfigFileName"]);
+
+            Outpost31.Core.Framework.Maintenance.VerifyFrameworkStructure(tnSession);
 
             ////TingenSession.Initialize(tnSession); // need?
 
