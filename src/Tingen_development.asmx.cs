@@ -68,13 +68,13 @@ namespace Tingen_development
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
             /* Trace logs cannot be used here. For debugging purposes, use a Primeval log. */
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             Dictionary<string, string> hardCode = SetHardCodes();
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, hardCode["avSystemCode"], hardCode["tnDataRoot"], hardCode["tnConfigFileName"]);
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             Outpost31.Core.Framework.Maintenance.VerifyFrameworkStructure(tnSession);
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             ////TingenSession.Initialize(tnSession); // need?
 
             /* Logging is done a little different in this method, since the Tingen Session is not yet initialized. We'll get the
