@@ -20,6 +20,7 @@
  * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
  */
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -69,9 +70,11 @@ namespace Tingen_development
         {
             /* Trace logs cannot be used here. For debugging purposes, use a Primeval log. */
 
+
+
             Dictionary<string, string> hardCode = SetHardCodes();
 
-            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, hardCode["tnDataRoot"],hardCode["avSystemCode"], hardCode["tnConfigFileName"]);
+            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, hardCode["Version"], hardCode["tnDataRoot"], hardCode["avSystemCode"], hardCode["tnConfigFileName"]);
 
             Outpost31.Core.Framework.Maintenance.VerifyFrameworkStructure(tnSession);
 
@@ -126,6 +129,7 @@ namespace Tingen_development
         {
             return new Dictionary<string, string>
             {
+                { "Version",          Assembly.GetExecutingAssembly().GetName().Version.ToString() },
                 { "avSystemCode",     "UAT" },
                 { "tnDataRoot",       @"C:\TingenData" },
                 { "tnConfigFileName", "Tingen.config" }
