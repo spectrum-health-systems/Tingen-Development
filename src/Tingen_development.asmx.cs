@@ -20,8 +20,10 @@
  * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
  */
 
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Web.Services;
 using Outpost31.Core.Logger;
 using Outpost31.Core.Session;
@@ -64,31 +66,22 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            /* Debugging at this point requires writing a Primeval log, since trace logs aren't available until the Tingen Session is
-             * initialized. This will probably be used relatively often during developement, so it's worth keeping around, but it
-             * should be commneted out in production.
-             */
-            //LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+            /* Trace logs cannot be used here. For debugging purposes, use a Primeval log. */
 
-            /* The only difference between the development and production versions of Tingen is the hardcoded Avatar System Code. For
-             * development, the Avatar System Code is "UAT". For production, the Avatar System Code is "LIVE"
-             */
-            const string avatarSystemCode = "UAT";
-            const string configFileName   = "Tingen.config";
-            var configPath                = $@"C:\TingenData\{avatarSystemCode}\Config\";
+            Dictionary<string, string> hardCode = SetHardCodes();
 
-            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, avatarSystemCode, configPath, configFileName);
+            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, hardCode["avSystemCode"], hardCode["tnDataRoot"], hardCode["tnConfigFileName"]);
 
-            TingenSession.Initialize(tnSession);
+            ////TingenSession.Initialize(tnSession); // need?
 
             /* Logging is done a little different in this method, since the Tingen Session is not yet initialized. We'll get the
              * AssemblyName here instead of at the top of the method.
              */
-            string assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+            string assemblyName = Assembly.GetExecutingAssembly().GetName().Name; // TODO Move to top?
 
             LogEvent.Trace(1, assemblyName, tnSession.TraceInfo);
 
-            switch (tnSession.Config.TingenMode)
+            switch (tnSession.TnConfig.TingenMode)
             {
                 case "disabled":
                     LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
@@ -96,32 +89,69 @@ namespace Tingen_development
                     /* If Tingen is disabled, we should update the service status files so the necessary users are notified. When
                      * Tingen is re-enabled, the service status files will need to be manually updated using the Admin Module.
                      */
-                    Outpost31.Module.Admin.Service.AllUpdate(tnSession);
+                    Outpost31.Module.Admin.Service.Status.UpdateAll(tnSession);
 
-                    /* Normally we would let Outpost31.Core.OptionObject handle this, but since we really want to limit what is done
-                     * while Tingen is disabled, we'll just clone the SentObject to the ReturnObject and return it.
-                     */
-                    tnSession.AvatarData.ReturnOptionObject = tnSession.AvatarData.SentOptionObject.Clone();
+                    EndTingen(tnSession, assemblyName);
+
+                    break;
+
+                case "development":
+                    LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
+
+                    Outpost31.Core.Framework.Maintenance.DevelopmentModeCleanup(tnSession.TnPath.Tingen.Primeval, tnSession.TnPath.SystemCode.Sessions);
+
+                    StartTingen(tnSession, assemblyName);
+
+                    EndTingen(tnSession, assemblyName);
 
                     break;
 
                 default:
                     LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
 
-                    Outpost31.Core.Roundhouse.Parse(tnSession);
+                    StartTingen(tnSession, assemblyName);
 
-                    tnSession.AvatarData.ReturnOptionObject = tnSession.AvatarData.WorkOptionObject.Clone();
-
-                    var path = $@"{tnSession.Framework.SystemCodePath.Session}\Session.md";
-
-                    File.WriteAllText(path, Catalog.SessionDetails(tnSession));
-
-                    LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
+                    EndTingen(tnSession, assemblyName);
 
                     break;
             }
 
-            return tnSession.AvatarData.ReturnOptionObject.ToReturnOptionObject();
+            return tnSession.AvData.ReturnOptionObject.ToReturnOptionObject();
+        }
+
+        private static Dictionary <string, string> SetHardCodes()
+        {
+            return new Dictionary<string, string>
+            {
+                { "avSystemCode",     "UAT" },
+                { "tnDataRoot",       @"C:\TingenData\" },
+                { "tnConfigFileName", "Tingen.config" }
+            };
+        }
+
+        private static void StartTingen(TingenSession tnSession, string assemblyName)
+        {
+            LogEvent.Trace(1, assemblyName, tnSession.TraceInfo);
+
+            Outpost31.Core.Roundhouse.Parse(tnSession);
+        }
+
+        private static void EndTingen(TingenSession tnSession, string assemblyName)
+        {
+            LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
+
+            if (tnSession.TnConfig.TingenMode == "disabled")
+            {
+                tnSession.AvData.ReturnOptionObject = tnSession.AvData.SentOptionObject.Clone(); // TODO move to core functionality
+            }
+            else
+            {
+                tnSession.AvData.ReturnOptionObject = tnSession.AvData.WorkOptionObject.Clone(); // TODO move to core functionality
+            }
+
+            ////var path = $@"{tnSession.TnPath.SystemCode.CurrentSession}\Session.md";
+
+            ////File.WriteAllText(path, Catalog.SessionDetails(tnSession));
         }
     }
 }
@@ -130,7 +160,6 @@ namespace Tingen_development
 
 Development notes
 -----------------
-
 - Is there a efficient way to automatically update the service status files when Tingen is re-enabled?
 
 */
