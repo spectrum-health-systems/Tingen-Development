@@ -129,7 +129,7 @@ namespace Tingen_development
             return new Dictionary<string, string>
             {
                 { "avSystemCode",     "UAT" },
-                { "tnDataRoot",       @"C:\TingenData\" },
+                { "tnDataRoot",       @"C:\TingenData" },
                 { "tnConfigFileName", "Tingen.config" }
             };
         }
