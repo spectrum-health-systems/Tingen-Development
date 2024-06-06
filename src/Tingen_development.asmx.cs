@@ -122,8 +122,6 @@ namespace Tingen_development
 
             LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
 
-            //tnSession.AvatarData.ReturnObject = tnSession.AvatarData.WorkObject.Clone();
-
             return tnSession.AvatarData.ReturnObject;
         }
     }
