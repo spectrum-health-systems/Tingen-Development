@@ -74,9 +74,11 @@ namespace Tingen_development
              * development, the Avatar System Code is "UAT". For production, the Avatar System Code is "LIVE"
              */
             const string avatarSystemCode = "UAT";
-            string configFilePath         = $@"C:\TingenData\{avatarSystemCode}\Config\Tingen.config";
+            const string configFileName   = "Tingen.config";
+            var configPath                = $@"C:\TingenData\{avatarSystemCode}\Config\";
+            
 
-            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, avatarSystemCode, configFilePath);
+            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, avatarSystemCode, configPath, configFileName);
 
             TingenSession.Initialize(tnSession);
 
