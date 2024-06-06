@@ -73,12 +73,10 @@ namespace Tingen_development
             /* The only difference between the development and production versions of Tingen is the hardcoded Avatar System Code. For
              * development, the Avatar System Code is "UAT". For production, the Avatar System Code is "LIVE"
              */
-
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
             const string avatarSystemCode = "UAT";
             const string configFileName   = "Tingen.config";
             var configPath                = $@"C:\TingenData\{avatarSystemCode}\Config\";
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, avatarSystemCode, configPath, configFileName);
             LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
             TingenSession.Initialize(tnSession);
