@@ -77,7 +77,6 @@ namespace Tingen_development
             const string configFileName   = "Tingen.config";
             var configPath                = $@"C:\TingenData\{avatarSystemCode}\Config\";
             
-
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, avatarSystemCode, configPath, configFileName);
 
             TingenSession.Initialize(tnSession);
