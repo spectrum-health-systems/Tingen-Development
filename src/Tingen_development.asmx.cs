@@ -80,6 +80,8 @@ namespace Tingen_development
 
             TingenSession.Initialize(tnSession);
 
+            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name, tnSession.Framework.SystemCodePath.Session);
+
             /* Logging is done a little different in this method, since the Tingen Session is not yet initialized. We'll get the
              * AssemblyName here instead of at the top of the method.
              */
