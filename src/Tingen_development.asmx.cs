@@ -78,16 +78,16 @@ namespace Tingen_development
             var configPath                = $@"C:\TingenData\{avatarSystemCode}\Config\";
 
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, avatarSystemCode, configPath, configFileName);
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             TingenSession.Initialize(tnSession);
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             /* Logging is done a little different in this method, since the Tingen Session is not yet initialized. We'll get the
              * AssemblyName here instead of at the top of the method.
              */
             string assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             LogEvent.Trace(1, assemblyName, tnSession.TraceInfo);
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             switch (tnSession.Config.TingenMode)
             {
                 case "disabled":
@@ -106,24 +106,20 @@ namespace Tingen_development
                     break;
 
                 default:
+                    LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
 
-                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
-                    LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
-                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
                     Outpost31.Core.Roundhouse.Parse(tnSession);
-                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
                     tnSession.AvatarData.ReturnOptionObject = tnSession.AvatarData.WorkOptionObject.Clone();
-                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
                     var path = $@"{tnSession.Framework.SystemCodePath.Session}\Session.md";
-                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
                     File.WriteAllText(path, Catalog.SessionDetails(tnSession));
-                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
                     LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
-                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
                     break;
             }
-
-            //LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
 
             return tnSession.AvatarData.ReturnOptionObject.ToReturnOptionObject();
         }
