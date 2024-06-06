@@ -109,7 +109,6 @@ namespace Tingen_development
 
                     Outpost31.Core.Roundhouse.Parse(tnSession);
 
-
                     tnSession.AvatarData.ReturnObject = tnSession.AvatarData.WorkObject.Clone();
 
                     var path = $@"{tnSession.Framework.SystemCodePath.Session}\Session.md";
