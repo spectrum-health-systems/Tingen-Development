@@ -108,7 +108,10 @@ namespace Tingen_development
                     LogEvent.Trace(2, assemblyName, tnSession.TraceInfo);
 
                     Outpost31.Core.Roundhouse.Parse(tnSession);
-   
+
+
+                    tnSession.AvatarData.ReturnObject = tnSession.AvatarData.WorkObject.Clone();
+
                     var path = $@"{tnSession.Framework.SystemCodePath.Session}\Session.md";
 
                     File.WriteAllText(path, Catalog.SessionDetails(tnSession));
@@ -122,7 +125,7 @@ namespace Tingen_development
 
             //tnSession.AvatarData.ReturnObject = tnSession.AvatarData.WorkObject.Clone();
 
-            return tnSession.AvatarData.WorkObject.Clone();
+            return tnSession.AvatarData.ReturnObject;
         }
     }
 }
