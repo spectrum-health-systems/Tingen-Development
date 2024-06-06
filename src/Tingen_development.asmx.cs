@@ -81,9 +81,9 @@ namespace Tingen_development
             /* Logging is done a little different in this method, since the Tingen Session is not yet initialized. We'll get the
              * AssemblyName here instead of at the top of the method.
              */
-            //string assemblyName = Assembly.GetExecutingAssembly().GetName().Name; // TODO Move to top?
+            string assemblyName = Assembly.GetExecutingAssembly().GetName().Name; // TODO Move to top?
 
-            LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
+            LogEvent.Trace(1, assemblyName, tnSession.TraceInfo);
 
             switch (tnSession.TnConfig.TingenMode)
             {
