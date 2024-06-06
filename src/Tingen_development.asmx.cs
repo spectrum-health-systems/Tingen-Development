@@ -5,7 +5,7 @@
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240606 =====
 
-// u240605.1530
+// u240606.0824
 
 /* PLEASE READ
  * -----------
@@ -64,9 +64,9 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            /* Debugging requires writing a Primeval log, since trace logs aren't available until the Tingen Session is initialized.
-             * This will probably be used relatively often during developement, so it's worth keeping around, but it should be
-             * commneted out in production.
+            /* Debugging at this point requires writing a Primeval log, since trace logs aren't available until the Tingen Session is
+             * initialized. This will probably be used relatively often during developement, so it's worth keeping around, but it
+             * should be commneted out in production.
              */
             //LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
 
@@ -100,7 +100,7 @@ namespace Tingen_development
                     /* Normally we would let Outpost31.Core.OptionObject handle this, but since we really want to limit what is done
                      * while Tingen is disabled, we'll just clone the SentObject to the ReturnObject and return it.
                      */
-                    tnSession.AvatarData.ReturnObject = tnSession.AvatarData.SentObject.Clone();
+                    tnSession.AvatarData.ReturnOptionObject = tnSession.AvatarData.SentOptionObject.Clone();
 
                     break;
 
@@ -109,7 +109,7 @@ namespace Tingen_development
 
                     Outpost31.Core.Roundhouse.Parse(tnSession);
 
-                    tnSession.AvatarData.ReturnObject = tnSession.AvatarData.WorkObject.Clone();
+                    tnSession.AvatarData.ReturnOptionObject = tnSession.AvatarData.WorkOptionObject.Clone();
 
                     var path = $@"{tnSession.Framework.SystemCodePath.Session}\Session.md";
 
@@ -122,7 +122,7 @@ namespace Tingen_development
 
             //LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
 
-            return tnSession.AvatarData.ReturnObject.ToReturnOptionObject();
+            return tnSession.AvatarData.ReturnOptionObject.ToReturnOptionObject();
         }
     }
 }
