@@ -111,7 +111,7 @@ namespace Tingen_development
 
                     tnSession.AvatarData.ReturnObject = tnSession.AvatarData.WorkObject.Clone();
 
-                    var path = $@"{tnSession.Framework.SystemCodePath.Session}\[Session] {tnSession.AvatarData.ScriptParameter}.md";
+                    var path = $@"{tnSession.Framework.SystemCodePath.Session}\Session.md";
 
                     File.WriteAllText(path, Catalog.SessionDetails(tnSession));
 
