@@ -3,7 +3,7 @@
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240606 =====
+// ================================================================ 240607 =====
 
 // u240606.0824
 
@@ -52,20 +52,21 @@ namespace Tingen_development
         /// <remarks>
         ///  <para>
         ///   - Required by Avatar.<br/>
-        ///   - The version number is the current development version in <b>YY.MM</b> format (ex: "<b>24.5</b>").
         ///  </para>
         /// </remarks>
         /// <returns>The current version of Tingen.</returns>
         [WebMethod]
-        public string GetVersion() => "VERSION 24.6";
+        public string GetVersion() => $"VERSION {Assembly.GetExecutingAssembly().GetName().Version}";
 
-        /// <summary>The starting method for Tingen.</summary>
+
+        /// <summary>Determines what work needs to be done, and returns data to Avatar.</summary>
         /// <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
         /// <param name="sentScriptParameter">The Script Parameter sent from Avatar.</param>
         /// <remarks>
         ///  <para>
         ///   - Required by Avatar.<br/>
         ///   - Should <i>not be modified</i>, since the heavy lifting is done elsewhere.<br/>
+        ///   - Tingen uses a few hardcoded variables, which are set in <see cref="TingenSession.BuildStaticVars()"/>"<br/>
         ///  </para>
         /// </remarks>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
@@ -74,14 +75,12 @@ namespace Tingen_development
         {
             /* Trace logs cannot be used here. For debugging purposes, use a Primeval log. */
 
-            var sVar = TingenSession.BuildStaticVars(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            //var staticVar = TingenSession.BuildStaticVars(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            //TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, staticVar["tnVersion"], staticVar["tnDataRoot"], staticVar["avSystemCode"], staticVar["tnConfigFileName"]);
 
-            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, sVar["tnVersion"], sVar["tnDataRoot"], sVar["avSystemCode"], sVar["tnConfigFileName"]);
+            var tnVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-            /* Logging is done a little different in this method, since the Tingen Session is not yet initialized. We'll get the
-             * AssemblyName here instead of at the top of the method.
-             */
-            //string assemblyName = Assembly.GetExecutingAssembly().GetName().Name; // TODO Move to top?
+            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, tnVersion);
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
 
