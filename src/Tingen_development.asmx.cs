@@ -58,7 +58,6 @@ namespace Tingen_development
         [WebMethod]
         public string GetVersion() => $"VERSION {Assembly.GetExecutingAssembly().GetName().Version}";
 
-
         /// <summary>Determines what work needs to be done, and returns data to Avatar.</summary>
         /// <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
         /// <param name="sentScriptParameter">The Script Parameter sent from Avatar.</param>
