@@ -5,10 +5,23 @@
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240607 =====
 
-// u240607.0852
+// u240607.0910
 
-/* PLEASE READ
- * -----------
+/* ----------------------------------
+ * IMPORTANT INFORMATION ABOUT TINGEN
+ * ----------------------------------
+ * The Tingen class is the entry point for the Tingen web service.
+ *
+ * You'll notice it's pretty bare-bones, and doesn't do much. That's because the heavy lifting is done in the Outpost31 project. All
+ * Tingen does is provide the interface that Avatar expects, and then hands the work off to Outpost31.
+ *
+ * This class really shouldn't be modified (so don't worry about the build number being really old, it's fine)
+ */
+
+/* ----------------------------------------------
+ * IMPORTANT INFORMATION ABOUT TINGEN_DEVELOPMENT
+ * ----------------------------------------------
+ *
  * This is the development version of Tingen, and should not be used in production environments.
  *
  * For stable releases of Tingen: https://github.com/APrettyCoolProgram/Tingen
@@ -32,7 +45,8 @@ namespace Tingen_development
     /// <summary>The entry class for Tingen.</summary>
     /// <remarks>
     ///  <para>
-    ///   - This class is designed to be static, and should not be modified.
+    ///   - This class is designed to be static, and <i>should not be modified</i>.<br/>
+    ///   - The heavy lifting is done in the <see cref="Outpost31"/> project.
     ///  </para>
     /// </remarks>
     [WebService(Namespace = "http://tempuri.org/")]
@@ -42,10 +56,19 @@ namespace Tingen_development
     {
         /// <summary>Assembly information.</summary>
         /// <remarks>
-        ///   <para>
-        ///    - Name for log files<br/>
-        ///    - Version for rest.
-        ///   </para>
+        ///  <para>
+        ///   There are two assembly properties that we'll set here to use elsewhere in the class:<br/>
+        ///   <list type="table">
+        ///    <item>
+        ///     <term>AssemblyName</term>
+        ///     <description>The assemblyname used when creating trace logs.</description>
+        ///    </item>
+        ///    <item>
+        ///     <term>TingenVersion</term>
+        ///     <description>The current version of Tingen, used in <see cref="GetVersion()"/> and in the Tingen Session object.</description>
+        ///    </item>
+        ///   </list>
+        ///  </para>
         /// </remarks>
         public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -54,6 +77,7 @@ namespace Tingen_development
         /// <remarks>
         ///  <para>
         ///   - Required by Avatar.<br/>
+        ///   - Should <i>not be modified</i>.<br/>
         ///  </para>
         /// </remarks>
         /// <returns>The current version of Tingen.</returns>
@@ -80,38 +104,6 @@ namespace Tingen_development
             Start.WebApp(tnSession);
 
             Stop.WebApp(tnSession);
-
-            //switch (tnSession.TnConfig.TingenMode)
-            //{
-            //    case "disabled":
-            //        LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
-
-            //        Outpost31.Core.Framework.Refresh.RefreshOnDisable(tnSession);
-
-            //        Stop.WebApp(tnSession);
-
-            //        break;
-
-            //    case "development":
-            //        LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
-
-            //        Outpost31.Core.Framework.Refresh.RefreshOnDevelopment(tnSession);
-
-            //        Start.WebApp(tnSession);
-
-            //        Stop.WebApp(tnSession);
-
-            //        break;
-
-            //    default: // "enabled"
-            //        LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
-
-            //        Start.WebApp(tnSession);
-
-            //        Stop.WebApp(tnSession);
-
-            //        break;
-            //}
 
             return tnSession.AvData.ReturnOptionObject.ToReturnOptionObject();
         }
