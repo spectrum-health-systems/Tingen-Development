@@ -5,7 +5,7 @@
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240607 =====
 
-// u240606.0824
+// u240607.0821
 
 /* PLEASE READ
  * -----------
@@ -26,6 +26,7 @@ using System.Web.Services;
 using Outpost31.Core.Logger;
 using Outpost31.Core.Session;
 using ScriptLinkStandard.Objects;
+using Outpost31.Core;
 
 namespace Tingen_development
 {
@@ -85,31 +86,37 @@ namespace Tingen_development
 
                     Outpost31.Core.Framework.Refresh.RefreshOnDisable(tnSession);
 
-                    // DEPRECIATED
-                    //Outpost31.Core.Framework.Maintenance.VerifyFrameworkStructure(tnSession);
-                    //Outpost31.Module.Admin.Service.Status.UpdateAll(tnSession);
+                    Stop.WebApp(tnSession);
 
-                    EndTingen(tnSession);
+                    //EndTingen(tnSession);
 
                     break;
 
                 case "development":
                     LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
 
-                    Outpost31.Core.Framework.Maintenance.DevelopmentModeCleanup(tnSession.TnPath.Tingen.Primeval, tnSession.TnPath.SystemCode.Sessions);
+                    Outpost31.Core.Framework.Refresh.RefreshOnDevelopment(tnSession);
 
-                    StartTingen(tnSession);
+                    Start.WebApp(tnSession);
 
-                    EndTingen(tnSession);
+                    Stop.WebApp(tnSession);
+
+                    //StartTingen(tnSession);
+
+                    //EndTingen(tnSession);
 
                     break;
 
-                default:
+                default: // "enabled"
                     LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
 
-                    StartTingen(tnSession);
+                    Start.WebApp(tnSession);
 
-                    EndTingen(tnSession);
+                    Stop.WebApp(tnSession);
+
+                    //StartTingen(tnSession);
+
+                    //EndTingen(tnSession);
 
                     break;
             }
@@ -117,41 +124,30 @@ namespace Tingen_development
             return tnSession.AvData.ReturnOptionObject.ToReturnOptionObject();
         }
 
-        //private static Dictionary<string, string> SetHardCodes()
+        //private static void StartTingen(TingenSession tnSession)
         //{
-        //    return new Dictionary<string, string>
-        //    {
-        //        { "tnVersion",        Assembly.GetExecutingAssembly().GetName().Version.ToString() },
-        //        { "avSystemCode",     "UAT" },
-        //        { "tnDataRoot",       @"C:\TingenData" },
-        //        { "tnConfigFileName", "Tingen.config" }
-        //    };
+        //    LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
+
+        //    Outpost31.Core.Roundhouse.Parse(tnSession);
         //}
 
-        private static void StartTingen(TingenSession tnSession)
-        {
-            LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
+        //private static void EndTingen(TingenSession tnSession)
+        //{
+        //    LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
 
-            Outpost31.Core.Roundhouse.Parse(tnSession);
-        }
+        //    if (tnSession.TnConfig.TingenMode == "disabled")
+        //    {
+        //        tnSession.AvData.ReturnOptionObject = tnSession.AvData.SentOptionObject.Clone(); // TODO move to core functionality
+        //    }
+        //    else
+        //    {
+        //        tnSession.AvData.ReturnOptionObject = tnSession.AvData.WorkOptionObject.Clone(); // TODO move to core functionality
+        //    }
 
-        private static void EndTingen(TingenSession tnSession)
-        {
-            LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
+        //    ////var path = $@"{tnSession.TnPath.SystemCode.CurrentSession}\Session.md";
 
-            if (tnSession.TnConfig.TingenMode == "disabled")
-            {
-                tnSession.AvData.ReturnOptionObject = tnSession.AvData.SentOptionObject.Clone(); // TODO move to core functionality
-            }
-            else
-            {
-                tnSession.AvData.ReturnOptionObject = tnSession.AvData.WorkOptionObject.Clone(); // TODO move to core functionality
-            }
-
-            ////var path = $@"{tnSession.TnPath.SystemCode.CurrentSession}\Session.md";
-
-            ////File.WriteAllText(path, Catalog.SessionDetails(tnSession));
-        }
+        //    ////File.WriteAllText(path, Catalog.SessionDetails(tnSession));
+        //}
     }
 }
 
