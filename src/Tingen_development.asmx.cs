@@ -40,13 +40,15 @@ namespace Tingen_development
     [System.ComponentModel.ToolboxItem(false)]
     public class Tingen_development : WebService
     {
-        /// <summary>Assembly name for log files.</summary>
+        /// <summary>Assembly information.</summary>
         /// <remarks>
         ///   <para>
-        ///    - Define the assembly name here so it can be used to write log files throughout the class.
+        ///    - Name for log files<br/>
+        ///    - Version for rest.
         ///   </para>
         /// </remarks>
-        public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
+        public static string AssemblyName { get; set; }  = Assembly.GetExecutingAssembly().GetName().Name;
+        public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         /// <summary>Returns the current version of Tingen.</summary>
         /// <remarks>
@@ -56,7 +58,7 @@ namespace Tingen_development
         /// </remarks>
         /// <returns>The current version of Tingen.</returns>
         [WebMethod]
-        public string GetVersion() => $"VERSION {Assembly.GetExecutingAssembly().GetName().Version}";
+        public string GetVersion() => $"VERSION {TingenVersion}";
 
         /// <summary>Determines what work needs to be done, and returns data to Avatar.</summary>
         /// <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
@@ -72,9 +74,7 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            /* Trace logs cannot be used here. For debugging purposes, use a Primeval log. */
-
-            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
 
@@ -83,11 +83,11 @@ namespace Tingen_development
                 case "disabled":
                     LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
 
-                    /* If Tingen is disabled, we should update the service status files so the necessary users are notified. When
-                     * Tingen is re-enabled, the service status files will need to be manually updated using the Admin Module.
-                     */
-                    Outpost31.Core.Framework.Maintenance.VerifyFrameworkStructure(tnSession);
-                    Outpost31.Module.Admin.Service.Status.UpdateAll(tnSession);
+                    Outpost31.Core.Framework.Refresh.RefreshOnDisable(tnSession);
+
+                    // DEPRECIATED
+                    //Outpost31.Core.Framework.Maintenance.VerifyFrameworkStructure(tnSession);
+                    //Outpost31.Module.Admin.Service.Status.UpdateAll(tnSession);
 
                     EndTingen(tnSession);
 
