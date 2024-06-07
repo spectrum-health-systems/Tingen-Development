@@ -75,12 +75,7 @@ namespace Tingen_development
         {
             /* Trace logs cannot be used here. For debugging purposes, use a Primeval log. */
 
-            //var staticVar = TingenSession.BuildStaticVars(Assembly.GetExecutingAssembly().GetName().Version.ToString());
-            //TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, staticVar["tnVersion"], staticVar["tnDataRoot"], staticVar["avSystemCode"], staticVar["tnConfigFileName"]);
-
-            var tnVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, tnVersion);
+            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, Assembly.GetExecutingAssembly().GetName().Version.ToString());
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
 
