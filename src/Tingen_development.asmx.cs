@@ -5,7 +5,7 @@
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240607 =====
 
-// u240607.0910
+// u240607.1004
 
 /* ----------------------------------
  * IMPORTANT INFORMATION ABOUT TINGEN
@@ -16,6 +16,8 @@
  * Tingen does is provide the interface that Avatar expects, and then hands the work off to Outpost31.
  *
  * This class really shouldn't be modified (so don't worry about the build number being really old, it's fine)
+ *
+ * When a new version of Tingen is released, the version and build number in the file header should be updated.
  */
 
 /* ----------------------------------------------
@@ -101,9 +103,9 @@ namespace Tingen_development
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
 
-            Start.WebApp(tnSession);
+            TingenApp.Start(tnSession);
 
-            Stop.WebApp(tnSession);
+            TingenApp.Stop(tnSession);
 
             return tnSession.AvData.ReturnOptionObject.ToReturnOptionObject();
         }
