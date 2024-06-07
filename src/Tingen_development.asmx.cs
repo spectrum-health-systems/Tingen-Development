@@ -5,7 +5,7 @@
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240607 =====
 
-// u240607.0821
+// u240607.0852
 
 /* PLEASE READ
  * -----------
@@ -20,13 +20,12 @@
  * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
  */
 
-using System.Collections.Generic;
 using System.Reflection;
 using System.Web.Services;
+using Outpost31.Core;
 using Outpost31.Core.Logger;
 using Outpost31.Core.Session;
 using ScriptLinkStandard.Objects;
-using Outpost31.Core;
 
 namespace Tingen_development
 {
@@ -48,7 +47,7 @@ namespace Tingen_development
         ///    - Version for rest.
         ///   </para>
         /// </remarks>
-        public static string AssemblyName { get; set; }  = Assembly.GetExecutingAssembly().GetName().Name;
+        public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         /// <summary>Returns the current version of Tingen.</summary>
@@ -68,7 +67,6 @@ namespace Tingen_development
         ///  <para>
         ///   - Required by Avatar.<br/>
         ///   - Should <i>not be modified</i>, since the heavy lifting is done elsewhere.<br/>
-        ///   - Tingen uses a few hardcoded variables, which are set in <see cref="TingenSession.BuildStaticVars()"/>"<br/>
         ///  </para>
         /// </remarks>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
@@ -79,82 +77,51 @@ namespace Tingen_development
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
 
-            switch (tnSession.TnConfig.TingenMode)
-            {
-                case "disabled":
-                    LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
+            Start.WebApp(tnSession);
 
-                    Outpost31.Core.Framework.Refresh.RefreshOnDisable(tnSession);
+            Stop.WebApp(tnSession);
 
-                    Stop.WebApp(tnSession);
+            //switch (tnSession.TnConfig.TingenMode)
+            //{
+            //    case "disabled":
+            //        LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
 
-                    //EndTingen(tnSession);
+            //        Outpost31.Core.Framework.Refresh.RefreshOnDisable(tnSession);
 
-                    break;
+            //        Stop.WebApp(tnSession);
 
-                case "development":
-                    LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
+            //        break;
 
-                    Outpost31.Core.Framework.Refresh.RefreshOnDevelopment(tnSession);
+            //    case "development":
+            //        LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
 
-                    Start.WebApp(tnSession);
+            //        Outpost31.Core.Framework.Refresh.RefreshOnDevelopment(tnSession);
 
-                    Stop.WebApp(tnSession);
+            //        Start.WebApp(tnSession);
 
-                    //StartTingen(tnSession);
+            //        Stop.WebApp(tnSession);
 
-                    //EndTingen(tnSession);
+            //        break;
 
-                    break;
+            //    default: // "enabled"
+            //        LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
 
-                default: // "enabled"
-                    LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
+            //        Start.WebApp(tnSession);
 
-                    Start.WebApp(tnSession);
+            //        Stop.WebApp(tnSession);
 
-                    Stop.WebApp(tnSession);
-
-                    //StartTingen(tnSession);
-
-                    //EndTingen(tnSession);
-
-                    break;
-            }
+            //        break;
+            //}
 
             return tnSession.AvData.ReturnOptionObject.ToReturnOptionObject();
         }
-
-        //private static void StartTingen(TingenSession tnSession)
-        //{
-        //    LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
-
-        //    Outpost31.Core.Roundhouse.Parse(tnSession);
-        //}
-
-        //private static void EndTingen(TingenSession tnSession)
-        //{
-        //    LogEvent.Trace(2, AssemblyName, tnSession.TraceInfo);
-
-        //    if (tnSession.TnConfig.TingenMode == "disabled")
-        //    {
-        //        tnSession.AvData.ReturnOptionObject = tnSession.AvData.SentOptionObject.Clone(); // TODO move to core functionality
-        //    }
-        //    else
-        //    {
-        //        tnSession.AvData.ReturnOptionObject = tnSession.AvData.WorkOptionObject.Clone(); // TODO move to core functionality
-        //    }
-
-        //    ////var path = $@"{tnSession.TnPath.SystemCode.CurrentSession}\Session.md";
-
-        //    ////File.WriteAllText(path, Catalog.SessionDetails(tnSession));
-        //}
     }
 }
 
 /*
 
+-----------------
 Development notes
 -----------------
-- Is there a efficient way to automatically update the service status files when Tingen is re-enabled?
 
 */
