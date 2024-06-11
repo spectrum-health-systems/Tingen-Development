@@ -3,7 +3,7 @@
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240610 =====
+// ================================================================ 240611 =====
 
 // u240607.1004
 
@@ -12,8 +12,8 @@
  * ----------------------------------
  * The Tingen class is the entry point for the Tingen web service.
  *
- * You'll notice it's pretty bare-bones, and doesn't do much. That's because the heavy lifting is done in the Outpost31 project. All
- * Tingen does is provide the interface that Avatar expects, and then hands the work off to Outpost31.
+ * You'll notice it's pretty bare-bones, and doesn't do much. That's because the heavy lifting is done in the Outpost31
+ * project. All Tingen does is provide the interface that Avatar expects, and then hands the work off to Outpost31.
  *
  * This class really shouldn't be modified (so don't worry about the build number being really old, it's fine)
  *
