@@ -1,0 +1,46 @@
+## .gitignore for Abatabadev
+## b240517
+
+## There are a few directories/resources that usually aren't committed to a
+## repository that need to be committed for Abatabdev:
+##
+##  bin/
+##  AbatabLieutenant needs the files in this directory to successfully
+##  deploy Abatabadev.
+##
+##  log/, logs/
+##  Abatabadev logs are stored in these directories with similar names, so
+##  these are ignored to avoid issues.
+
+#[Bb]in/
+#[Ll]og/
+#[Ll]ogs/
+
+## User-specific
+*.rsuser
+*.sln.docstates
+*.suo
+*.user
+*.userosscache
+*.userprefs
+*.vs/
+
+## Build results.
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Oo]bj/
+
+## MacOS specific
+*DS_Store
+
+## Data/sourcecode that is used during development, but should not be committed
+## to the repository should go here.
+*.non-committal/
