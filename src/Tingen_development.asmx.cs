@@ -108,7 +108,9 @@ namespace Tingen_development
 
             TingenApp.Stop(tnSession);
 
-            return tnSession.AvData.ReturnOptionObject.ToReturnOptionObject();
+            return tnSession.AvData.ReturnOptionObject; // MAKE SURE EVERYTHING IS FORMATTED BEFORE THIS POINT
+
+            //return tnSession.AvData.ReturnOptionObject.ToReturnOptionObject();
         }
     }
 }
