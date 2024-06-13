@@ -99,15 +99,15 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             TingenApp.Start(tnSession);
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             TingenApp.Stop(tnSession);
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             return tnSession.AvData.ReturnOptionObject.ToReturnOptionObject();
         }
     }
