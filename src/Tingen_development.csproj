@@ -91,8 +91,8 @@
       <Project>{89ec105e-b456-479d-a328-ee3afff39473}</Project>
       <Name>Outpost31</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Tingen.ThirdParty\ScriptLinkStandard\ScriptLinkStandard.csproj">
-      <Project>{6f7baf8a-9a54-4da8-94a9-202e5f25c52d}</Project>
+    <ProjectReference Include="..\..\Tingen-ThirdParty\ScriptLinkStandard\ScriptLinkStandard.csproj">
+      <Project>{1cc89ac0-0c32-441b-972d-d6f2396ef9e0}</Project>
       <Name>ScriptLinkStandard</Name>
     </ProjectReference>
   </ItemGroup>
