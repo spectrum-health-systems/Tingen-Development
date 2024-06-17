@@ -3,21 +3,25 @@
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240614 =====
+// ================================================================ 240617 =====
 
-// u240612.0935
+// u240617.0820
 
-/* ----------------------------------
- * IMPORTANT INFORMATION ABOUT TINGEN
- * ----------------------------------
- * The Tingen class is the entry point for the Tingen web service.
+/* -----------------------------------------------------------------
+ * Important information about Tingen.cs (and Tingen_development.cs)
+ * -----------------------------------------------------------------
  *
- * You'll notice it's pretty bare-bones, and doesn't do much. That's because the heavy lifting is done in the Outpost31
- * project. All Tingen does is provide the interface that Avatar expects, and then hands the work off to Outpost31.
+ * Tingen.cs and Tingen_development.cs are the entry points for the Tingen web service. Tingen.cs is the stable release intended for
+ * production environments, while Tingen_development.cs is the development version.
  *
- * This class really shouldn't be modified (so don't worry about the build number being really old, it's fine)
+ * You are currently viewing Tingen_development.cs.
  *
- * When a new version of Tingen is released, the version and build number in the file header should be updated.
+ * These classes are pretty bare-bones because the heavy lifting is done in Outpost31, which is shared between the production and
+ * development version of Tingen.
+ *
+ * Tingen.cs/Tingen_development.cs should not be modified, so don't worry if the "//uYYMMDD.HHMM" comment up above is old.
+ *
+ * Any changes to the Tingen web service should be made in Outpost31, generally in TingenApp.Start() and TingenApp.Stop().
  */
 
 /* ----------------------------------------------
@@ -48,7 +52,7 @@ namespace Tingen_development
     /// <remarks>
     ///  <para>
     ///   - This class is designed to be static, and <i>should not be modified</i>.<br/>
-    ///   - The heavy lifting is done in the <see cref="Outpost31"/> project.
+    ///   - The heavy lifting is done in the <see href="https://github.com/spectrum-health-systems/Outpost31">Outpost31</see> project.
     ///  </para>
     /// </remarks>
     [WebService(Namespace = "http://tempuri.org/")]
@@ -56,23 +60,20 @@ namespace Tingen_development
     [System.ComponentModel.ToolboxItem(false)]
     public class Tingen_development : WebService
     {
-        /// <summary>Assembly information.</summary>
+        /// <summary>Assembly name for log files.</summary>
         /// <remarks>
-        ///  <para>
-        ///   There are two assembly properties that we'll set here to use elsewhere in the class:<br/>
-        ///   <list type="table">
-        ///    <item>
-        ///     <term>AssemblyName</term>
-        ///     <description>The assemblyname used when creating trace logs.</description>
-        ///    </item>
-        ///    <item>
-        ///     <term>TingenVersion</term>
-        ///     <description>The current version of Tingen, used in <see cref="GetVersion()"/> and in the Tingen Session object.</description>
-        ///    </item>
-        ///   </list>
-        ///  </para>
+        ///   <para>
+        ///    - Define the assembly name here so it can be used to write log files throughout the class.
+        ///   </para>
         /// </remarks>
         public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
+
+        /// <summary>The current version of Tingen.</summary>
+        /// <remarks>
+        ///   <para>
+        ///    - This is used in a few places in this class, so let's define it here.
+        ///   </para>
+        /// </remarks>
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         /// <summary>Returns the current version of Tingen.</summary>
@@ -92,14 +93,14 @@ namespace Tingen_development
         /// <remarks>
         ///  <para>
         ///   - Required by Avatar.<br/>
-        ///   - Should <i>not be modified</i>, since the heavy lifting is done elsewhere.<br/>
+        ///   - Should <i>not be modified</i><br/>
+        ///   - The heavy lifting is done in <see href="https://github.com/spectrum-health-systems/Outpost31">Outpost31</see>
         ///  </para>
         /// </remarks>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
@@ -108,9 +109,10 @@ namespace Tingen_development
 
             TingenApp.Stop(tnSession);
 
-            return tnSession.AvData.ReturnOptionObject; // MAKE SURE EVERYTHING IS FORMATTED BEFORE THIS POINT
+            // TODO: It's important that the return object is formatted correctly before this point. Currently OptionObjects are
+            // formatted closer to the work being done, but we need to make sure that is happenening. [1]
 
-            //return tnSession.AvData.ReturnOptionObject.ToReturnOptionObject();
+            return tnSession.AvData.ReturnOptionObject;
         }
     }
 }
@@ -120,5 +122,8 @@ namespace Tingen_development
 -----------------
 Development notes
 -----------------
+
+[1] This might actually be done in TingenApp.Stop(). Regardless, we should have a failsafe to make sure the return object is
+    formatted correctly before it gets returned to Avatar.
 
 */
