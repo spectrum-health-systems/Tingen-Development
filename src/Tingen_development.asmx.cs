@@ -1,9 +1,9 @@
 ﻿// ================================================================ 24.6.0 =====
-// Tingen_development: The development version of Tingen
+// Tingen-development: The development version of Tingen
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240613 =====
+// ================================================================ 240614 =====
 
 // u240612.0935
 
@@ -28,7 +28,7 @@
  *
  * For stable releases of Tingen: https://github.com/APrettyCoolProgram/Tingen
  *
- * For production environments: https://github.com/spectrum-health-systems/Tingen-Community-Release
+ * For production environments: https://github.com/spectrum-health-systems/Tingen-CommunityRelease
  *
  * For more information about Tingen: https://github.com/spectrum-health-systems/Tingen-Documentation
  *
