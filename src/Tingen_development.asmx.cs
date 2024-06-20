@@ -52,7 +52,7 @@ namespace Tingen_development
     /// <remarks>
     ///  <para>
     ///   - This class is designed to be static, and <i>should not be modified</i>.<br/>
-    ///   - The heavy lifting is done in the <see href="https://github.com/spectrum-health-systems/Outpost31">Outpost31</see> project.
+    ///   - The heavy lifting is done in the <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#Outpost31">Outpost31</see> project.
     ///  </para>
     /// </remarks>
     [WebService(Namespace = "http://tempuri.org/")]
@@ -94,7 +94,7 @@ namespace Tingen_development
         ///  <para>
         ///   - Required by Avatar.<br/>
         ///   - <i>Should not be modified</i><br/>
-        ///   - The heavy lifting is done in <see href="https://github.com/spectrum-health-systems/Outpost31">Outpost31</see>
+        ///   - The majority of work is done in the <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#Outpost31">Outpost31</see> project.
         ///  </para>
         /// </remarks>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
