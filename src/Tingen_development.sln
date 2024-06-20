@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tingen_development", "Tinge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Outpost31", "..\..\Outpost31\src\Outpost31.csproj", "{89EC105E-B456-479D-A328-EE3AFFF39473}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptLinkStandard", "..\..\Tingen.ThirdParty\ScriptLinkStandard\ScriptLinkStandard.csproj", "{6F7BAF8A-9A54-4DA8-94A9-202E5F25C52D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScriptLinkStandard", "..\..\Tingen-ThirdParty\ScriptLinkStandard\ScriptLinkStandard.csproj", "{1CC89AC0-0C32-441B-972D-D6F2396EF9E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{89EC105E-B456-479D-A328-EE3AFFF39473}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89EC105E-B456-479D-A328-EE3AFFF39473}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89EC105E-B456-479D-A328-EE3AFFF39473}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F7BAF8A-9A54-4DA8-94A9-202E5F25C52D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F7BAF8A-9A54-4DA8-94A9-202E5F25C52D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F7BAF8A-9A54-4DA8-94A9-202E5F25C52D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F7BAF8A-9A54-4DA8-94A9-202E5F25C52D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CC89AC0-0C32-441B-972D-D6F2396EF9E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CC89AC0-0C32-441B-972D-D6F2396EF9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CC89AC0-0C32-441B-972D-D6F2396EF9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CC89AC0-0C32-441B-972D-D6F2396EF9E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
