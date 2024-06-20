@@ -118,7 +118,6 @@ namespace Tingen_development
 }
 
 /*
-
 =================
 DEVELOPMENT NOTES
 =================
@@ -127,4 +126,5 @@ DEVELOPMENT NOTES
     the work being done, but we need to make sure that is happenening. This might actually be done in TingenApp.Stop(). Regardless, we
     should have a failsafe to make sure the return object is formatted correctly before it gets returned to Avatar.
 
+_Documentation updated 240620
 */
