@@ -3,32 +3,22 @@
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240621 =====
+// ================================================================ 240624 =====
 
-// u240620.1102
+// u240624.0843_code
+// u240624.0843_documentation
 
-/* -----------------------------------------------------------------
- * Important information about Tingen.cs (and Tingen_development.cs)
- * -----------------------------------------------------------------
+/* -----------
+ * PLEASE READ
+ * -----------
  *
- * Tingen.cs and Tingen_development.cs are the entry points for the Tingen web service. Tingen.cs is the stable release intended for
- * production environments, while Tingen_development.cs is the development version.
+ * Tingen_development.cs are the entry points for the development version of the Tingen web service.
  *
- * You are currently viewing Tingen_development.cs.
+ * This class is pretty bare-bones because the heavy lifting is done in Outpost31, which is shared between the production and
+ * development versions of Tingen.
  *
- * These classes are pretty bare-bones because the heavy lifting is done in Outpost31, which is shared between the production and
- * development version of Tingen.
- *
- * Tingen.cs/Tingen_development.cs should not be modified, so don't worry if the "// uYYMMDD.HHMM" comment up above is old.
- *
- * Any changes to the Tingen web service should be made in Outpost31, generally in TingenApp.Start() and TingenApp.Stop().
- */
-
-/* ----------------------------------------------
- * IMPORTANT INFORMATION ABOUT TINGEN_DEVELOPMENT
- * ----------------------------------------------
- *
- * This is the development version of Tingen, and should not be used in production environments.
+ * Tingen_development.cs should not be modified (so don't worry if the "// uYYMMDD.HHMM" comment up above is old). Any changes to the
+ * Tingen web service should be made in Outpost31, generally in Outpost31.Core.TingenApp.Start() and Outpost31.Core.TingenApp.Stop().
  *
  * For stable releases of Tingen: https://github.com/APrettyCoolProgram/Tingen
  *
@@ -105,26 +95,15 @@ namespace Tingen_development
 
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
 
+            tnSession.AvData.AvatarSystemCode = "UAT";
+
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
 
             TingenApp.Start(tnSession);
 
             TingenApp.Stop(tnSession);
 
-            /*[1]*/
             return tnSession.AvData.ReturnOptionObject;
         }
     }
 }
-
-/*
-=================
-DEVELOPMENT NOTES
-=================
-
-[1] It's important that the return object is formatted correctly before this point. Currently OptionObjects are formatted closer to
-    the work being done, but we need to make sure that is happenening. This might actually be done in TingenApp.Stop(). Regardless, we
-    should have a failsafe to make sure the return object is formatted correctly before it gets returned to Avatar.
-
-_Documentation updated 240620
-*/
