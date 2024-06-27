@@ -3,10 +3,10 @@
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240624 =====
+// ================================================================ 240627 =====
 
-// u240624.0843_code
-// u240624.0843_documentation
+// u240627.0909_code
+// u240627.0909_documentation
 
 /* -----------
  * PLEASE READ
@@ -61,7 +61,7 @@ namespace Tingen_development
         /// <summary>The current version of Tingen.</summary>
         /// <remarks>
         ///   <para>
-        ///    - This is used in a few places in this class, so let's define it here.
+        ///    - Both <see cref="GetVersion()"/> and <see cref="RunScript()"/> need the current version number.
         ///   </para>
         /// </remarks>
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -78,8 +78,8 @@ namespace Tingen_development
         public string GetVersion() => $"VERSION {TingenVersion}";
 
         /// <summary>Starts the Tingen web service</summary>
-        /// <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
-        /// <param name="sentScriptParameter">The Script Parameter sent from Avatar.</param>
+        /// <param name="sentOptionObject">The <paramref name="OptionObject"/> sent from Avatar.</param>
+        /// <param name="sentScriptParameter">The <paramref name="Script Parameter"/> sent from Avatar.</param>
         /// <remarks>
         ///  <para>
         ///   - Required by Avatar.<br/>
@@ -87,7 +87,7 @@ namespace Tingen_development
         ///   - The majority of work is done in the <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#Outpost31">Outpost31</see> project.
         ///  </para>
         /// </remarks>
-        /// <returns>The finalized OptionObject to myAvatar.</returns>
+        /// <returns>The finalized <paramref name="OptionObject"/> to myAvatar.</returns>
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
