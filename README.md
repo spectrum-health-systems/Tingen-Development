@@ -2,9 +2,9 @@
 
 <div align="center">
 
- <img src="./.github/images/logos/TingenDevelopment_README.png"> 
+ <img src="https://github.com/spectrum-health-systems/Tingen-Development/blob/main/.github/images/logos/TingenDevelopment_README.png"> 
 
-  ![logo](https://github.com/spectrum-health-systems/Tingen-Development/blob/main/.github/images/logos/TingenDevelopment_README.png?raw=true)
+  ![logo](https://github.com/spectrum-health-systems/Tingen-Development/blob/main/.github/images/logos/TingenDevelopment_README.png)
 
 </div>
 
