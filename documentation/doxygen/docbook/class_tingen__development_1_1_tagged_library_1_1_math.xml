@@ -1,0 +1,603 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_tingen__development_1_1_tagged_library_1_1_math" xml:lang="en-US">
+<title>Tingen_development.TaggedLibrary.Math Class Reference</title>
+<indexterm><primary>Tingen_development.TaggedLibrary.Math</primary></indexterm>
+<para>
+
+<para>The main <computeroutput><link linkend="_class_tingen__development_1_1_tagged_library_1_1_math">Math</link></computeroutput> class. Contains all methods for performing basic math functions. <itemizedlist>
+<listitem>
+
+<para>Add Addition Operation  </para>
+</listitem>
+<listitem>
+
+<para>Subtract Subtraction Operation  </para>
+</listitem>
+<listitem>
+
+<para>Multiply Multiplication Operation  </para>
+</listitem>
+<listitem>
+
+<para>Divide Division Operation  </para>
+</listitem>
+</itemizedlist>
+</para>
+ 
+</para>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static int <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1abe3384e47b770dc50f35a71b791e8093">Add</link> (int a, int b)</para>
+
+<para>Adds two integers <emphasis>a</emphasis>  and <emphasis>b</emphasis>  and returns the result. </para>
+</listitem>
+            <listitem><para>static double <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1ad2744903abd2f1a0b54b92a30eea9d29">Add</link> (double a, double b)</para>
+
+<para>Adds two doubles <emphasis>a</emphasis>  and <emphasis>b</emphasis>  and returns the result. </para>
+</listitem>
+            <listitem><para>static int <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a99433a6ccce4b22fac8a7cf967375e82">Subtract</link> (int a, int b)</para>
+
+<para>Subtracts <emphasis>b</emphasis>  from <emphasis>a</emphasis>  and returns the result. </para>
+</listitem>
+            <listitem><para>static double <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1ac51235b1b5f2b8705438eab82bca67f9">Subtract</link> (double a, double b)</para>
+
+<para>Subtracts a double <emphasis>b</emphasis>  from another double <emphasis>a</emphasis>  and returns the result. </para>
+</listitem>
+            <listitem><para>static int <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a14b26ec056f4536747e590cf2d8df779">Multiply</link> (int a, int b)</para>
+
+<para>Multiplies two integers <emphasis>a</emphasis>  and <emphasis>b</emphasis>  and returns the result. </para>
+</listitem>
+            <listitem><para>static double <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1adb16acc9aec34f580fa3bf685559f7ba">Multiply</link> (double a, double b)</para>
+
+<para>Multiplies two doubles <emphasis>a</emphasis>  and <emphasis>b</emphasis>  and returns the result. </para>
+</listitem>
+            <listitem><para>static int <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a460b67eb1f3f267bff9d45067151d23b">Divide</link> (int a, int b)</para>
+
+<para>Divides an integer <emphasis>a</emphasis>  by another integer <emphasis>b</emphasis>  and returns the result. </para>
+</listitem>
+            <listitem><para>static double <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1aaddeb86c59000f478dcdef79637a8276">Divide</link> (double a, double b)</para>
+
+<para>Divides a double <emphasis>a</emphasis>  by another double <emphasis>b</emphasis>  and returns the result. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The main <computeroutput><link linkend="_class_tingen__development_1_1_tagged_library_1_1_math">Math</link></computeroutput> class. Contains all methods for performing basic math functions. <itemizedlist>
+<listitem>
+
+<para>Add Addition Operation  </para>
+</listitem>
+<listitem>
+
+<para>Subtract Subtraction Operation  </para>
+</listitem>
+<listitem>
+
+<para>Multiply Multiplication Operation  </para>
+</listitem>
+<listitem>
+
+<para>Divide Division Operation  </para>
+</listitem>
+</itemizedlist>
+</para>
+
+
+
+<para>This class can add, subtract, multiply and divide. </para>
+
+<para>These operations can be performed on both integers and doubles. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_tingen__development_1_1_tagged_library_1_1_math_1ad2744903abd2f1a0b54b92a30eea9d29"/><section>
+    <title>Add()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Add</primary><secondary>Tingen_development.TaggedLibrary.Math</secondary></indexterm>
+<indexterm><primary>Tingen_development.TaggedLibrary.Math</primary><secondary>Add</secondary></indexterm>
+<para><computeroutput>static double Tingen_development.TaggedLibrary.Math.Add (double a, double b)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Adds two doubles <emphasis>a</emphasis>  and <emphasis>b</emphasis>  and returns the result. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The sum of two doubles. </para>
+</formalpara>
+</para>
+
+<para><literallayout><computeroutput><emphasis role="keywordtype">double</emphasis>&#32;c&#32;=&#32;Math.Add(4.5,&#32;5.4);
+<emphasis role="keywordflow">if</emphasis>&#32;(c&#32;&gt;&#32;10)
+{
+&#32;&#32;&#32;&#32;Console.WriteLine(c);
+}
+</computeroutput></literallayout> </para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>System.OverflowException</entry><entry>
+<para>Thrown when one parameter is max and the other is greater than 0.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                See <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1abe3384e47b770dc50f35a71b791e8093">Math.Add(int, int)</link> to add integers. <formalpara><title>See also</title>
+
+<para><link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1ac51235b1b5f2b8705438eab82bca67f9">Math.Subtract(double, double)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1adb16acc9aec34f580fa3bf685559f7ba">Math.Multiply(double, double)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1aaddeb86c59000f478dcdef79637a8276">Math.Divide(double, double)</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>a</entry><entry>
+<para>A double precision number.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>b</entry><entry>
+<para>A double precision number.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tingen__development_1_1_tagged_library_1_1_math_1abe3384e47b770dc50f35a71b791e8093"/><section>
+    <title>Add()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Add</primary><secondary>Tingen_development.TaggedLibrary.Math</secondary></indexterm>
+<indexterm><primary>Tingen_development.TaggedLibrary.Math</primary><secondary>Add</secondary></indexterm>
+<para><computeroutput>static int Tingen_development.TaggedLibrary.Math.Add (int a, int b)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Adds two integers <emphasis>a</emphasis>  and <emphasis>b</emphasis>  and returns the result. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The sum of two integers. </para>
+</formalpara>
+</para>
+
+<para><literallayout><computeroutput><emphasis role="keywordtype">int</emphasis>&#32;c&#32;=&#32;Math.Add(4,&#32;5);
+<emphasis role="keywordflow">if</emphasis>&#32;(c&#32;&gt;&#32;10)
+{
+&#32;&#32;&#32;&#32;Console.WriteLine(c);
+}
+</computeroutput></literallayout> </para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>System.OverflowException</entry><entry>
+<para>Thrown when one parameter is Int32.MaxValue and the other is greater than 0. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                See <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1ad2744903abd2f1a0b54b92a30eea9d29">Math.Add(double, double)</link> to add doubles. <formalpara><title>See also</title>
+
+<para><link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a99433a6ccce4b22fac8a7cf967375e82">Math.Subtract(int, int)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a14b26ec056f4536747e590cf2d8df779">Math.Multiply(int, int)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a460b67eb1f3f267bff9d45067151d23b">Math.Divide(int, int)</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>a</entry><entry>
+<para>An integer.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>b</entry><entry>
+<para>An integer.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tingen__development_1_1_tagged_library_1_1_math_1aaddeb86c59000f478dcdef79637a8276"/><section>
+    <title>Divide()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Divide</primary><secondary>Tingen_development.TaggedLibrary.Math</secondary></indexterm>
+<indexterm><primary>Tingen_development.TaggedLibrary.Math</primary><secondary>Divide</secondary></indexterm>
+<para><computeroutput>static double Tingen_development.TaggedLibrary.Math.Divide (double a, double b)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Divides a double <emphasis>a</emphasis>  by another double <emphasis>b</emphasis>  and returns the result. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The quotient of two doubles. </para>
+</formalpara>
+</para>
+
+<para><literallayout><computeroutput><emphasis role="keywordtype">double</emphasis>&#32;c&#32;=&#32;Math.Divide(4.5,&#32;5.4);
+<emphasis role="keywordflow">if</emphasis>&#32;(c&#32;&gt;&#32;1.0)
+{
+&#32;&#32;&#32;&#32;Console.WriteLine(c);
+}
+</computeroutput></literallayout> </para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>System.DivideByZeroException</entry><entry>
+<para>Thrown when <emphasis>b</emphasis>  is equal to 0. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                See <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a460b67eb1f3f267bff9d45067151d23b">Math.Divide(int, int)</link> to divide integers. <formalpara><title>See also</title>
+
+<para><link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1ad2744903abd2f1a0b54b92a30eea9d29">Math.Add(double, double)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1ac51235b1b5f2b8705438eab82bca67f9">Math.Subtract(double, double)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1adb16acc9aec34f580fa3bf685559f7ba">Math.Multiply(double, double)</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>a</entry><entry>
+<para>A double precision dividend.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>b</entry><entry>
+<para>A double precision divisor.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tingen__development_1_1_tagged_library_1_1_math_1a460b67eb1f3f267bff9d45067151d23b"/><section>
+    <title>Divide()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Divide</primary><secondary>Tingen_development.TaggedLibrary.Math</secondary></indexterm>
+<indexterm><primary>Tingen_development.TaggedLibrary.Math</primary><secondary>Divide</secondary></indexterm>
+<para><computeroutput>static int Tingen_development.TaggedLibrary.Math.Divide (int a, int b)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Divides an integer <emphasis>a</emphasis>  by another integer <emphasis>b</emphasis>  and returns the result. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The quotient of two integers. </para>
+</formalpara>
+</para>
+
+<para><literallayout><computeroutput><emphasis role="keywordtype">int</emphasis>&#32;c&#32;=&#32;Math.Divide(4,&#32;5);
+<emphasis role="keywordflow">if</emphasis>&#32;(c&#32;&gt;&#32;1)
+{
+&#32;&#32;&#32;&#32;Console.WriteLine(c);
+}
+</computeroutput></literallayout> </para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>System.DivideByZeroException</entry><entry>
+<para>Thrown when <emphasis>b</emphasis>  is equal to 0. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                See <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1aaddeb86c59000f478dcdef79637a8276">Math.Divide(double, double)</link> to divide doubles. <formalpara><title>See also</title>
+
+<para><link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1abe3384e47b770dc50f35a71b791e8093">Math.Add(int, int)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a99433a6ccce4b22fac8a7cf967375e82">Math.Subtract(int, int)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a14b26ec056f4536747e590cf2d8df779">Math.Multiply(int, int)</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>a</entry><entry>
+<para>An integer dividend.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>b</entry><entry>
+<para>An integer divisor.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tingen__development_1_1_tagged_library_1_1_math_1adb16acc9aec34f580fa3bf685559f7ba"/><section>
+    <title>Multiply()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Multiply</primary><secondary>Tingen_development.TaggedLibrary.Math</secondary></indexterm>
+<indexterm><primary>Tingen_development.TaggedLibrary.Math</primary><secondary>Multiply</secondary></indexterm>
+<para><computeroutput>static double Tingen_development.TaggedLibrary.Math.Multiply (double a, double b)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Multiplies two doubles <emphasis>a</emphasis>  and <emphasis>b</emphasis>  and returns the result. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The product of two doubles. </para>
+</formalpara>
+</para>
+
+<para><literallayout><computeroutput><emphasis role="keywordtype">double</emphasis>&#32;c&#32;=&#32;Math.Multiply(4.5,&#32;5.4);
+<emphasis role="keywordflow">if</emphasis>&#32;(c&#32;&gt;&#32;100.0)
+{
+&#32;&#32;&#32;&#32;Console.WriteLine(c);
+}
+</computeroutput></literallayout> </para>
+
+<para>See <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a14b26ec056f4536747e590cf2d8df779">Math.Multiply(int, int)</link> to multiply integers. <formalpara><title>See also</title>
+
+<para><link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1ad2744903abd2f1a0b54b92a30eea9d29">Math.Add(double, double)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1ac51235b1b5f2b8705438eab82bca67f9">Math.Subtract(double, double)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1aaddeb86c59000f478dcdef79637a8276">Math.Divide(double, double)</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>a</entry><entry>
+<para>A double precision number.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>b</entry><entry>
+<para>A double precision number.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tingen__development_1_1_tagged_library_1_1_math_1a14b26ec056f4536747e590cf2d8df779"/><section>
+    <title>Multiply()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Multiply</primary><secondary>Tingen_development.TaggedLibrary.Math</secondary></indexterm>
+<indexterm><primary>Tingen_development.TaggedLibrary.Math</primary><secondary>Multiply</secondary></indexterm>
+<para><computeroutput>static int Tingen_development.TaggedLibrary.Math.Multiply (int a, int b)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Multiplies two integers <emphasis>a</emphasis>  and <emphasis>b</emphasis>  and returns the result. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The product of two integers. </para>
+</formalpara>
+</para>
+
+<para><literallayout><computeroutput><emphasis role="keywordtype">int</emphasis>&#32;c&#32;=&#32;Math.Multiply(4,&#32;5);
+<emphasis role="keywordflow">if</emphasis>&#32;(c&#32;&gt;&#32;100)
+{
+&#32;&#32;&#32;&#32;Console.WriteLine(c);
+}
+</computeroutput></literallayout> </para>
+
+<para>See <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1adb16acc9aec34f580fa3bf685559f7ba">Math.Multiply(double, double)</link> to multiply doubles. <formalpara><title>See also</title>
+
+<para><link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1abe3384e47b770dc50f35a71b791e8093">Math.Add(int, int)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a99433a6ccce4b22fac8a7cf967375e82">Math.Subtract(int, int)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a460b67eb1f3f267bff9d45067151d23b">Math.Divide(int, int)</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>a</entry><entry>
+<para>An integer.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>b</entry><entry>
+<para>An integer.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tingen__development_1_1_tagged_library_1_1_math_1ac51235b1b5f2b8705438eab82bca67f9"/><section>
+    <title>Subtract()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Subtract</primary><secondary>Tingen_development.TaggedLibrary.Math</secondary></indexterm>
+<indexterm><primary>Tingen_development.TaggedLibrary.Math</primary><secondary>Subtract</secondary></indexterm>
+<para><computeroutput>static double Tingen_development.TaggedLibrary.Math.Subtract (double a, double b)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Subtracts a double <emphasis>b</emphasis>  from another double <emphasis>a</emphasis>  and returns the result. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The difference between two doubles. </para>
+</formalpara>
+</para>
+
+<para><literallayout><computeroutput><emphasis role="keywordtype">double</emphasis>&#32;c&#32;=&#32;Math.Subtract(4.5,&#32;5.4);
+<emphasis role="keywordflow">if</emphasis>&#32;(c&#32;&gt;&#32;1)
+{
+&#32;&#32;&#32;&#32;Console.WriteLine(c);
+}
+</computeroutput></literallayout> </para>
+
+<para>See <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a99433a6ccce4b22fac8a7cf967375e82">Math.Subtract(int, int)</link> to subtract integers. <formalpara><title>See also</title>
+
+<para><link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1ad2744903abd2f1a0b54b92a30eea9d29">Math.Add(double, double)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1adb16acc9aec34f580fa3bf685559f7ba">Math.Multiply(double, double)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1aaddeb86c59000f478dcdef79637a8276">Math.Divide(double, double)</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>a</entry><entry>
+<para>A double precision number.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>b</entry><entry>
+<para>A double precision number.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_tingen__development_1_1_tagged_library_1_1_math_1a99433a6ccce4b22fac8a7cf967375e82"/><section>
+    <title>Subtract()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Subtract</primary><secondary>Tingen_development.TaggedLibrary.Math</secondary></indexterm>
+<indexterm><primary>Tingen_development.TaggedLibrary.Math</primary><secondary>Subtract</secondary></indexterm>
+<para><computeroutput>static int Tingen_development.TaggedLibrary.Math.Subtract (int a, int b)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Subtracts <emphasis>b</emphasis>  from <emphasis>a</emphasis>  and returns the result. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The difference between two integers. </para>
+</formalpara>
+</para>
+
+<para><literallayout><computeroutput><emphasis role="keywordtype">int</emphasis>&#32;c&#32;=&#32;Math.Subtract(4,&#32;5);
+<emphasis role="keywordflow">if</emphasis>&#32;(c&#32;&gt;&#32;1)
+{
+&#32;&#32;&#32;&#32;Console.WriteLine(c);
+}
+</computeroutput></literallayout> </para>
+
+<para>See <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1ac51235b1b5f2b8705438eab82bca67f9">Math.Subtract(double, double)</link> to subtract doubles. <formalpara><title>See also</title>
+
+<para><link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1abe3384e47b770dc50f35a71b791e8093">Math.Add(int, int)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a14b26ec056f4536747e590cf2d8df779">Math.Multiply(int, int)</link>, <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math_1a460b67eb1f3f267bff9d45067151d23b">Math.Divide(int, int)</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>a</entry><entry>
+<para>An integer.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>b</entry><entry>
+<para>An integer.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs</section>
+</section>

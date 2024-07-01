@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_tingen__development_1_1_implementing_class" kind="class" language="C#" prot="public">
+    <compoundname>Tingen_development::ImplementingClass</compoundname>
+    <basecompoundref refid="interface_tingen__development_1_1_i_test_interface" prot="public" virt="non-virtual">Tingen_development.ITestInterface</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_tingen__development_1_1_implementing_class_1a01686b0db68125e529a5b140ddbb6d0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Tingen_development.ImplementingClass.Method</definition>
+        <argsstring>(int arg)</argsstring>
+        <name>Method</name>
+        <qualifiedname>Tingen_development.ImplementingClass.Method</qualifiedname>
+        <reimplements refid="interface_tingen__development_1_1_i_test_interface_1a60fd5de498d71294fa29f969fbc80162">Method</reimplements>
+        <param>
+          <type>int</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>This method is part of the test interface. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This content would be inherited by classes that implement this interface when the implementing class uses &quot;inheritdoc&quot; </para>
+<para><simplesect kind="return"><para>The value of <emphasis>arg</emphasis>  </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The argument to the method</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs" line="208" column="20"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ITestInterface</label>
+        <link refid="interface_tingen__development_1_1_i_test_interface"/>
+      </node>
+      <node id="1">
+        <label>Tingen_development.ImplementingClass</label>
+        <link refid="class_tingen__development_1_1_implementing_class"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ITestInterface</label>
+        <link refid="interface_tingen__development_1_1_i_test_interface"/>
+      </node>
+      <node id="1">
+        <label>Tingen_development.ImplementingClass</label>
+        <link refid="class_tingen__development_1_1_implementing_class"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs" line="205" column="11" bodyfile="C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs" bodystart="206" bodyend="209"/>
+    <listofallmembers>
+      <member refid="class_tingen__development_1_1_implementing_class_1a01686b0db68125e529a5b140ddbb6d0c" prot="public" virt="non-virtual"><scope>Tingen_development::ImplementingClass</scope><name>Method</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_tingen__development_1_1_tagged_library" xml:lang="en-US">
+<title>Tingen_development.TaggedLibrary Namespace Reference</title>
+<indexterm><primary>Tingen_development.TaggedLibrary</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math">Math</link></para>
+
+<para>The main <computeroutput><link linkend="_class_tingen__development_1_1_tagged_library_1_1_math">Math</link></computeroutput> class. Contains all methods for performing basic math functions. <itemizedlist>
+<listitem>
+
+<para>Add Addition Operation  </para>
+</listitem>
+<listitem>
+
+<para>Subtract Subtraction Operation  </para>
+</listitem>
+<listitem>
+
+<para>Multiply Multiplication Operation  </para>
+</listitem>
+<listitem>
+
+<para>Divide Division Operation  </para>
+</listitem>
+</itemizedlist>
+</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

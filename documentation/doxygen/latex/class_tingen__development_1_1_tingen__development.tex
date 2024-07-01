@@ -1,0 +1,143 @@
+\doxysection{Tingen\+\_\+development.\+Tingen\+\_\+development Class Reference}
+\hypertarget{class_tingen__development_1_1_tingen__development}{}\label{class_tingen__development_1_1_tingen__development}\index{Tingen\_development.Tingen\_development@{Tingen\_development.Tingen\_development}}
+
+
+The entry class for Tingen.  
+
+
+
+
+Inheritance diagram for Tingen\+\_\+development.\+Tingen\+\_\+development\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_tingen__development_1_1_tingen__development__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Tingen\+\_\+development.\+Tingen\+\_\+development\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_tingen__development_1_1_tingen__development__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_tingen__development_1_1_tingen__development_aee6a88ab1a043b6f7d90cb8f9dc47d3b}{Get\+Version}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current version of Tingen. \end{DoxyCompactList}\item 
+Option\+Object2015 \mbox{\hyperlink{class_tingen__development_1_1_tingen__development_a104cfa18aa5445a832662f89c997d5bf}{Run\+Script}} (Option\+Object2015 sent\+Option\+Object, string sent\+Script\+Parameter)
+\begin{DoxyCompactList}\small\item\em Starts the Tingen web service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{class_tingen__development_1_1_tingen__development_a99d58283fe7f38e46ad6f91e1cc817c7}{Assembly\+Name}} = Assembly.\+Get\+Executing\+Assembly().Get\+Name().Name\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Assembly name for log files. \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{class_tingen__development_1_1_tingen__development_afd33480e0eedb9cdb78fb688c72d1659}{Tingen\+Version}} = Assembly.\+Get\+Executing\+Assembly().Get\+Name().Version.\+To\+String()\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The current version of Tingen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The entry class for Tingen. 
+
+
+\begin{DoxyItemize}
+\item This class is designed to be static, and {\itshape should not be modified}.~\newline
+
+\item The heavy lifting is done in the Outpost31
+\end{DoxyItemize}
+
+project. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tingen__development_1_1_tingen__development_aee6a88ab1a043b6f7d90cb8f9dc47d3b}\index{Tingen\_development.Tingen\_development@{Tingen\_development.Tingen\_development}!GetVersion@{GetVersion}}
+\index{GetVersion@{GetVersion}!Tingen\_development.Tingen\_development@{Tingen\_development.Tingen\_development}}
+\doxysubsubsection{\texorpdfstring{GetVersion()}{GetVersion()}}
+{\footnotesize\ttfamily \label{class_tingen__development_1_1_tingen__development_aee6a88ab1a043b6f7d90cb8f9dc47d3b} 
+string Tingen\+\_\+development.\+Tingen\+\_\+development.\+Get\+Version (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the current version of Tingen. 
+
+
+\begin{DoxyItemize}
+\item Required by Avatar.~\newline
+
+\item {\itshape Should not be modified}. 
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+The current version of Tingen.
+\end{DoxyReturn}
+\Hypertarget{class_tingen__development_1_1_tingen__development_a104cfa18aa5445a832662f89c997d5bf}\index{Tingen\_development.Tingen\_development@{Tingen\_development.Tingen\_development}!RunScript@{RunScript}}
+\index{RunScript@{RunScript}!Tingen\_development.Tingen\_development@{Tingen\_development.Tingen\_development}}
+\doxysubsubsection{\texorpdfstring{RunScript()}{RunScript()}}
+{\footnotesize\ttfamily \label{class_tingen__development_1_1_tingen__development_a104cfa18aa5445a832662f89c997d5bf} 
+Option\+Object2015 Tingen\+\_\+development.\+Tingen\+\_\+development.\+Run\+Script (\begin{DoxyParamCaption}\item[{Option\+Object2015}]{sent\+Option\+Object}{, }\item[{string}]{sent\+Script\+Parameter}{}\end{DoxyParamCaption})}
+
+
+
+Starts the Tingen web service. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sent\+Option\+Object} & The {\itshape Option\+Object}  sent from Avatar.\\
+\hline
+{\em sent\+Script\+Parameter} & The {\itshape Script Parameter}  sent from Avatar.\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyItemize}
+\item Required by Avatar.~\newline
+
+\item {\itshape Should not be modified}~\newline
+
+\item The majority of work is done in the Outpost31
+\end{DoxyItemize}
+
+project. 
+
+\begin{DoxyReturn}{Returns}
+The finalized {\itshape Option\+Object}  to my\+Avatar.
+\end{DoxyReturn}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_tingen__development_1_1_tingen__development_a99d58283fe7f38e46ad6f91e1cc817c7}\index{Tingen\_development.Tingen\_development@{Tingen\_development.Tingen\_development}!AssemblyName@{AssemblyName}}
+\index{AssemblyName@{AssemblyName}!Tingen\_development.Tingen\_development@{Tingen\_development.Tingen\_development}}
+\doxysubsubsection{\texorpdfstring{AssemblyName}{AssemblyName}}
+{\footnotesize\ttfamily \label{class_tingen__development_1_1_tingen__development_a99d58283fe7f38e46ad6f91e1cc817c7} 
+string Tingen\+\_\+development.\+Tingen\+\_\+development.\+Assembly\+Name = Assembly.\+Get\+Executing\+Assembly().Get\+Name().Name\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Assembly name for log files. 
+
+
+\begin{DoxyItemize}
+\item Define the assembly name here so it can be used to write log files throughout the class. 
+\end{DoxyItemize}\Hypertarget{class_tingen__development_1_1_tingen__development_afd33480e0eedb9cdb78fb688c72d1659}\index{Tingen\_development.Tingen\_development@{Tingen\_development.Tingen\_development}!TingenVersion@{TingenVersion}}
+\index{TingenVersion@{TingenVersion}!Tingen\_development.Tingen\_development@{Tingen\_development.Tingen\_development}}
+\doxysubsubsection{\texorpdfstring{TingenVersion}{TingenVersion}}
+{\footnotesize\ttfamily \label{class_tingen__development_1_1_tingen__development_afd33480e0eedb9cdb78fb688c72d1659} 
+string Tingen\+\_\+development.\+Tingen\+\_\+development.\+Tingen\+Version = Assembly.\+Get\+Executing\+Assembly().Get\+Name().Version.\+To\+String()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The current version of Tingen. 
+
+
+\begin{DoxyItemize}
+\item Both \doxylink{class_tingen__development_1_1_tingen__development_aee6a88ab1a043b6f7d90cb8f9dc47d3b}{Get\+Version()} and \doxylink{class_tingen__development_1_1_tingen__development_a104cfa18aa5445a832662f89c997d5bf}{Run\+Script()} need the current version number. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+IT/\+Git\+Hub/\+SHS/\+Public repositories/\+Tingen-\/\+Development/src/Tingen\+\_\+development.\+asmx.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_tingen__development_1_1_inherit_only_returns" kind="class" language="C#" prot="public">
+    <compoundname>Tingen_development::InheritOnlyReturns</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_tingen__development_1_1_inherit_only_returns_1ac85cbd989ce5dd50946e62f458229b5e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool Tingen_development.InheritOnlyReturns.MyParentMethod</definition>
+        <argsstring>(bool x)</argsstring>
+        <name>MyParentMethod</name>
+        <qualifiedname>Tingen_development.InheritOnlyReturns.MyParentMethod</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>In this example, this summary is only visible for this method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs" line="225" column="28" bodyfile="C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs" bodystart="225" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tingen__development_1_1_inherit_only_returns_1a03e1b344d90d12f6e76c1061a07f3c2a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool Tingen_development.InheritOnlyReturns.MyChildMethod</definition>
+        <argsstring>()</argsstring>
+        <name>MyChildMethod</name>
+        <qualifiedname>Tingen_development.InheritOnlyReturns.MyChildMethod</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs" line="228" column="28" bodyfile="C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs" bodystart="228" bodyend="228"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This class shows hows you can &quot;inherit&quot; the doc comments from one method in another method. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>You can inherit all comments, or only a specific tag, represented by an xpath expression. </para>
+    </detaileddescription>
+    <location file="C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs" line="219" column="11" bodyfile="C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs" bodystart="220" bodyend="229"/>
+    <listofallmembers>
+      <member refid="class_tingen__development_1_1_inherit_only_returns_1a03e1b344d90d12f6e76c1061a07f3c2a" prot="public" virt="non-virtual"><scope>Tingen_development::InheritOnlyReturns</scope><name>MyChildMethod</name></member>
+      <member refid="class_tingen__development_1_1_inherit_only_returns_1ac85cbd989ce5dd50946e62f458229b5e" prot="public" virt="non-virtual"><scope>Tingen_development::InheritOnlyReturns</scope><name>MyParentMethod</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

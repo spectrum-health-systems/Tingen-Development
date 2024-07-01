@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_tingen__development_1_1_i_test_interface" xml:lang="en-US">
+<title>Tingen_development.ITestInterface Interface Reference</title>
+<indexterm><primary>Tingen_development.ITestInterface</primary></indexterm>
+<para>
+
+<para>This interface would describe all the methods in its contract. </para>
+ 
+</para>
+Inheritance diagram for Tingen_development.ITestInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_tingen__development_1_1_i_test_interface__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_interface_tingen__development_1_1_i_test_interface_1a60fd5de498d71294fa29f969fbc80162">Method</link> (int arg)</para>
+
+<para>This method is part of the test interface. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This interface would describe all the methods in its contract. </para>
+
+
+
+<para>While elided for brevity, each method or property in this interface would contain docs that you want to duplicate in each implementing class. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interface_tingen__development_1_1_i_test_interface_1a60fd5de498d71294fa29f969fbc80162"/><section>
+    <title>Method()</title>
+<indexterm><primary>Method</primary><secondary>Tingen_development.ITestInterface</secondary></indexterm>
+<indexterm><primary>Tingen_development.ITestInterface</primary><secondary>Method</secondary></indexterm>
+<para><computeroutput>int Tingen_development.ITestInterface.Method (int arg)</computeroutput></para><para>
+
+<para>This method is part of the test interface. </para>
+</para>
+
+<para>This content would be inherited by classes that implement this interface when the implementing class uses &quot;inheritdoc&quot; </para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The value of <emphasis>arg</emphasis>  </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>arg</entry><entry>
+<para>The argument to the method</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implemented in <link linkend="_class_tingen__development_1_1_implementing_class_1a01686b0db68125e529a5b140ddbb6d0c">Tingen_development.ImplementingClass</link>.</para>
+</section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs</section>
+</section>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_tingen__development_1_1_params_and_param_refs" xml:lang="en-US">
+<title>Tingen_development.ParamsAndParamRefs Class Reference</title>
+<indexterm><primary>Tingen_development.ParamsAndParamRefs</primary></indexterm>
+<para>
+
+<para>This shows examples of typeparamref and typeparam tags. </para>
+ 
+</para>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static T <link linkend="_class_tingen__development_1_1_params_and_param_refs_1a3b7098dc53611d3e94ed0fac805d9426">GetGenericValue&lt; T &gt;</link> (T para)</para>
+
+<para>The GetGenericValue method. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This shows examples of typeparamref and typeparam tags. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_tingen__development_1_1_params_and_param_refs_1a3b7098dc53611d3e94ed0fac805d9426"/><section>
+    <title>GetGenericValue&lt; T &gt;()</title>
+<indexterm><primary>GetGenericValue&lt; T &gt;</primary><secondary>Tingen_development.ParamsAndParamRefs</secondary></indexterm>
+<indexterm><primary>Tingen_development.ParamsAndParamRefs</primary><secondary>GetGenericValue&lt; T &gt;</secondary></indexterm>
+<para><computeroutput>static T Tingen_development.ParamsAndParamRefs.GetGenericValue&lt; T &gt; (T para)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>The GetGenericValue method. </para>
+</para>
+
+<para>This sample shows how to specify the GetGenericValue method as a cref attribute. The parameter and return value are both of an arbitrary type, <emphasis>T</emphasis>  </para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs</section>
+</section>

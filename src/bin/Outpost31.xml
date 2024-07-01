@@ -1,0 +1,1024 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Outpost31</name>
+    </assembly>
+    <members>
+        <member name="P:Outpost31.Core.TingenApp.AssemblyName">
+            <summary>Assembly name for log files.</summary>
+            <remarks>
+              <para>
+               - Define the assembly name here so it can be used to write log files throughout the class.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Core.TingenApp.Start(Outpost31.Core.Session.TingenSession)">
+            <summary>Start the Tingen web service.</summary>
+            <param name="tnSession">The TingenSession object for this session.</param>
+        </member>
+        <member name="M:Outpost31.Core.TingenApp.Stop(Outpost31.Core.Session.TingenSession)">
+            <summary>Handles any logic related to stopping Tingen.</summary>
+        </member>
+        <member name="T:Outpost31.Core.Avatar.AvatarData">
+            <summary>Avatar-specific data and logic.</summary>
+            <remarks>
+             <para>
+              This class should only contain the following Avatar-specific data:<br/>
+              <list type="bullet">
+               <item>The <paramref name="AvatarSystemCode"/></item>
+               <item>The <paramref name="SentScriptParameter"/></item>
+               <item>The <paramref name="SentOptionObject"/></item>
+               <item>The <paramref name="WorkOptionObject"/></item>
+               <item>The <paramref name="ReturnOptionObject"/></item>
+              </list>
+             </para>
+             <para>
+              - This object is added to the Tingen Session object when Tingen starts.<br/>
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Avatar.AvatarData.AvatarSystemCode">
+            <summary>The <b>Avatar System Code</b> that Tingen will be using.</summary>
+            <remarks>
+             <para>
+              Valid Avatar System Codes:
+              <list type="table">
+               <item>
+                <term>UAT</term>
+                <description>Used for the <i>development</i> version of Tingen.</description>
+               </item>
+               <item>
+                <term>LIVE</term>
+                <description>Used for the <i>production</i> version of Tingen.</description>
+               </item>
+              </list>
+               - More information about Avatar System Codes <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">here</see>.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter">
+            <summary>The <b>Script Parameter</b> sent from Avatar.</summary>
+            <remarks>
+             <para>
+              The Script Parameter is a "-" delimited string with the following compoents:
+              <list type="table">
+               <item>
+                <term>Module</term>
+                <description>The Tingen <i>Module</i> that will be doing the session work (ex: "Admin").</description>
+               </item>
+               <item>
+                <term>Command</term>
+                <description>The Tingen <i>Command</i> request (ex: "All").</description>
+               </item>
+               <item>
+                <term>Action</term>
+                <description>The Tingen <i>Action</i> request (ex: "Status").</description>
+               </item>
+               <item>
+                <term>Option</term>
+                <description>The optional <i>Action Option</i> (ex: "Update").</description>
+               </item>
+              </list>
+              - More information about the Avatar Script Parameter <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-parameter">here</see>.
+             </para>
+            </remarks>
+              <example>
+               The following Script Parameter will update all status files:
+               <code>
+                 Admin-All-Status-Update
+               </code>
+              </example>
+        </member>
+        <member name="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject">
+            <summary>The original <b>OptionObject</b> sent from Avatar.</summary>
+            <remarks>
+             <para>
+              - <i>The <paramref name="SentOptionObject"/> should not be modified</i>.<br/>
+              - All work should be done with the <paramref name="WorkOptionObject"/>.<br/>
+              - More information about OptionObjects <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">here</see>.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject">
+            <summary>The <b>OptionObject</b> that may be modified during the session.</summary>
+            <remarks>
+             <para>
+              - All work should be done with the <paramref name="WorkOptionObject"/>.<br/>
+              - When a Tingen session is initialized, the <paramref name="WorkOptionObject"/> is cloned from the <paramref name="SentOptionObject"/>.<br/>
+              - The <paramref name="WorkOptionObject"/> <i>is not</i> formatted properly for returning to Avatar.<br/>
+              - More information about OptionObjects <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">here</see>.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject">
+            <summary>The <b>OptionObject</b> that will be returned to Avatar.</summary>
+            <remarks>
+             <para>
+              - The  <paramref name="ReturnOptionObject"/> must be formatted properly to be returned to Avatar.<br/>
+              - More information about OptionObjects <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">here</see>.  
+             </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Core.Avatar.AvatarData.BuildObject(ScriptLinkStandard.Objects.OptionObject2015,System.String)">
+            <summary>Builds a new <b>AvatarData</b> object.</summary>
+            <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
+            <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
+            <remarks>
+             <para>
+              - The <paramref name="sentScriptParameter"/> is converted to lowercase so it is easier to compare against.<br/>
+              - The <paramref name="workOptionObject"/> is cloned from the  <paramref name="sentOptionObject"/> so it can be modified without affecting the original data.<br/>
+              - The <paramref name="returnOptionObject"/> is initally set to "null", and will be formatted/finalized prior to returning to Avatar.<br/>
+              - More information about OptionObjects <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">here</see>.  
+             </para>
+            </remarks>
+            <returns>The necessary Avatar data.</returns>
+        </member>
+        <member name="T:Outpost31.Core.Avatar.ReturnObject">
+            <summary>Logic specific to the <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">returnOptionObject</see>.</summary>
+            <remarks>
+             <para>
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Avatar.ReturnObject.AssemblyName">
+            <summary>Assembly name for log files.</summary>
+            <remarks>
+              <para>
+               - Define the assembly name here so it can be used to write log files throughout the class.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Core.Avatar.ReturnObject.Finalize(Outpost31.Core.Session.TingenSession,System.String,System.String)">
+            <summary>Format an <paramref name="OptionObject"/> to be returned to Avatar.</summary>
+            <param name="tnSession">The Tingen session object.</param>
+            <remarks>
+             <para>
+              Part of the finalization process is assigning a valid error code to the returnOptionObject:
+              <list type="table">
+               <item>
+                <term>0</term>
+                <description>Success - Returns the OptionObject without a message</description>
+               </item>
+               <item>
+                <term>1</term>
+                <description> Error - Stops the script from processing and displays an message with an "OK" button</description>
+               </item>
+               <item>
+                <term>2</term>
+                <description>OKCancel - Displays a message with "OK" and "Cancel" buttons.</description>
+               </item>
+               <item>
+                <term>3</term>
+                <description>Info - Displays an informational warning message with an "OK" button.</description>
+               </item>
+               <item>
+                <term>4</term>
+                <description>YesNo - Displays a message with "Yes" and "No" buttons.</description>
+               </item>
+               <item>
+                <term>5</term>
+                <description>OpenURL - Opens an URL in a browser</description>
+               </item>
+               <item>
+                <term>6</term>
+                <description>OpenForm - Presents an OK/Cancel dialog to open a form (only be used on Form Load and Field events).</description>
+               </item>
+              </list>
+             </para>
+             <para>
+              - <i>The returnOptionObject must be propery formatted when returned to Avatar</i>.<br/>
+              - More information about OptionObjects <a href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">here</a>.
+             
+             </para>
+            </remarks>
+             <example>
+              To return a formatted returnOptionObject:<br/>
+              <code>
+               Core.Avatar.FormatReturnObject.AsErrorCode(tnSession, errorCode, errorMessage);
+              </code>
+             </example>
+        </member>
+        <member name="T:Outpost31.Core.Framework.Catalog.SystemCodePaths">
+            <summary>System Code paths for Tingen.</summary>
+            <remarks>
+             <para>
+              - The System Code path is where Tingen stores most of it's important day-to-day data.
+              - There is a separate System Code path for each Avatar System Code.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Root">
+            <summary>Root path for System Code data.</summary>
+            <value>C:\TingenData\%SystemCode%</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Config">
+            <summary>Path for System Code configuration data.</summary>
+            <value>C:\TingenData\%SystemCode%\Config</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Sessions">
+            <summary>Path for System Code session data.</summary>
+            <value>C:\TingenData\%SystemCode%\Sessions</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.CurrentSession">
+            <summary>Current session path.</summary>
+            <remarks>
+             <para>
+              - Set at runtime.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Extensions">
+            <summary>Path for Tingen Extensions.</summary>
+            <remarks>
+             <para>
+              - Future functionality.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Security">
+            <summary>Path for Tingen security-related data.</summary>
+            <remarks>
+             <para>
+              - Future functionality.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Temporary">
+            <summary>Path for temporary data.</summary>
+            <remarks>
+             <para>
+              - Temporary files.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.MessageRoot">
+            <summary>Root for message data.</summary>
+            <value>C:\TingenData\%SystemCode%\Messages</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Alerts">
+            <summary>Path for alert data.</summary>
+            <value>C:\TingenData\%SystemCode%\Messages\Alerts</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Errors">
+            <summary>Path for error data.</summary>
+            <value>C:\TingenData\%SystemCode%\Messages\Errors</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Warnings">
+            <summary>Path for warning data.</summary>
+            <value>C:\TingenData\%SystemCode%\Messages\Warnings</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.ExportRoot">
+            <summary>Root for exported data.</summary>
+            <value>C:\TingenData\%SystemCode%\Exports</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Reports">
+            <summary>Path for exported reports.</summary>
+            <value>C:\TingenData\%SystemCode%\Exports\Reports</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.ImportRoot">
+            <summary>Root for imported data.</summary>
+            <value>C:\TingenData\%SystemCode%\Imports</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.FromAvatar">
+            <summary>Path for imported data from Avatar.</summary>
+            <value>C:\TingenData\%SystemCode%\Imports\FromAvatar</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Templates">
+            <summary>Path for imported templates.</summary>
+            <value>C:\TingenData\%SystemCode%\Imports\Templates</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.SupportRoot">
+            <summary>Root for support data.</summary>
+            <value>C:\TingenData\%SystemCode%\Support</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Admin">
+            <summary>Path for admin data.</summary>
+            <value>C:\TingenData\%SystemCode%\Support\Admin</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Archive">
+            <summary>Path for archived data.</summary>
+            <value>C:\TingenData\%SystemCode%\Support\Archive</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Debugging">
+            <summary>Path for debugging data.</summary>
+            <value>C:\TingenData\%SystemCode%\Support\Debugging</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Logs">
+            <summary>Path for log data.</summary>
+            <value>C:\TingenData\%SystemCode%\Support\Logs</value>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Catalog.SystemCodePaths.BuildObject(System.String,System.String)">
+            <summary>Builds the system code paths object.</summary>
+            <param name="tnDataRoot">The Tingen data root.</param>
+            <param name="avSystemCode">The Avatar System Code.</param>
+            <returns>The System Code data paths.</returns>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Catalog.SystemCodePaths.RequiredPaths(Outpost31.Core.Framework.Catalog.SystemCodePaths)">
+            <summary>Returns a list of required System Code paths.</summary>
+            <param name="systemCodePaths">The System Code paths.</param>
+            <returns>The list of required System Code paths.</returns>
+        </member>
+        <member name="T:Outpost31.Core.Framework.Catalog.PublicPaths">
+            <summary>Public paths for Tingen.</summary>
+            <remarks>
+             <para>
+              - Public paths are used to store data that is accessible to specific users that have access to these locations.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Root">
+            <summary>Root path for public data.</summary>
+            <value>C:\TingenData\Public</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Alerts">
+            <summary>Path for public alert data.</summary>
+            <value>C:\TingenData\Public\Alerts</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Errors">
+            <summary>Path for public error data.</summary>
+            <value>C:\TingenData\Public\Errors</value>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Outpost31.Core.Framework.Catalog.PublicPaths.Exports" -->
+        <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Reports">
+            <summary>Path for public report data.</summary>
+            <value>C:\TingenData\Public\Reports</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Warnings">
+            <summary>Path for public warning data.</summary>
+            <value>C:\TingenData\Public\Warnings</value>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Catalog.PublicPaths.BuildObject(System.String)">
+            <summary>Builds the public paths object.</summary>
+            <param name="tnDataRoot">The Tingen data root.</param>
+            <returns>A collection of public paths.</returns>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Catalog.PublicPaths.RequiredPaths(Outpost31.Core.Framework.Catalog.PublicPaths)">
+            <summary>Returns a list of required public paths.</summary>
+            <param name="publicPaths">The Tingen public paths.</param>
+            <returns>The list of required public paths.</returns>
+        </member>
+        <member name="T:Outpost31.Core.Framework.Catalog.RemotePaths">
+            <summary>Remote paths for Tingen.</summary>
+            <remarks>
+             <para>
+              - Remote paths are used to store data that is accessible to specific users that have access to these locations.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Root">
+            <summary>Root path for remote data.</summary>
+            <value>C:\TingenData\Remote</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Alerts">
+            <summary>Path for remote alert data.</summary>
+            <value>C:\TingenData\Remote\Alerts</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Errors">
+            <summary>Path for remote error data.</summary>
+            <value>C:\TingenData\Remote\Errors</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Exports">
+            <summary>Path for remote export data.</summary>
+            <value>C:\TingenData\Remote\Exports</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Reports">
+            <summary>Path for remote report data.</summary>
+            <value>C:\TingenData\Remote\Reports</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Sessions">
+            <summary>Path for remote session data.</summary>
+            <value>C:\TingenData\Remote\Sessions</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.CurrentSession">
+            <summary>Current session path.</summary>
+            <remarks>
+             <para>
+              - Set at runtime.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Warnings">
+            <summary>Path for remote warning files.</summary>
+            <value>C:\TingenData\Remote\Warnings</value>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Catalog.RemotePaths.BuildObject(System.String)">
+            <summary>Builds the remote paths object.</summary>
+            <param name="tnDataRoot">The Tingen data root.</param>
+            <returns>A collection of remote paths.</returns>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Catalog.RemotePaths.RequiredPaths(Outpost31.Core.Framework.Catalog.RemotePaths)">
+            <summary>Returns a list of required paths.</summary>
+            <param name="remotePaths">The Tingen remote paths.</param>
+            <returns>The list of required remote paths.</returns>
+        </member>
+        <member name="T:Outpost31.Core.Framework.Catalog.TingenPaths">
+            <summary>Specific to Tingen.</summary>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.TingenPaths.Root">
+            <summary>Root path for Tingen data.</summary>
+            <value>C:\TingenData</value>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.TingenPaths.Primeval">
+            <summary>Path for Tingen Primeval data.</summary>
+            <value>C:\TingenData\Primeval</value>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Catalog.TingenPaths.BuildObject(System.String)">
+            <summary>Builds the Tingen path object.</summary>
+            <param name="tnDataRoot">The Tingen data root.</param>
+            <returns>A collection of Tingen paths.</returns>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Catalog.TingenPaths.RequiredPaths(Outpost31.Core.Framework.Catalog.TingenPaths)">
+            <summary>Returns a list of required Tingen paths.</summary>
+            <param name="tnPaths">The Tingen paths.</param>
+            <returns>The list of required Tingen paths.</returns>
+        </member>
+        <member name="T:Outpost31.Core.Framework.Refresh">
+            <summary>Refresh the Tingen directory structure.</summary>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Refresh.RefreshOnDisable(Outpost31.Core.Session.TingenSession)">
+            <summary>Refresh the Tingen directory structure when Tingen is disabled.</summary>
+            <remarks>
+             <para>
+              - If Tingen is disabled, might as well update the service status files.
+             </para>
+            </remarks>
+            <param name="tnSession">The Tingen Session object</param>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Refresh.RefreshOnUnknown(Outpost31.Core.Session.TingenSession)">
+            <summary>Refresh the Tingen directory structure when Tingen is in an unknown state.</summary>
+        </member>
+        <member name="T:Outpost31.Core.Framework.Maintenance">
+            <summary>Methods for maintaining the Tingen framework.</summary>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Maintenance.AssemblyName">
+            <summary>Assembly name for log files.</summary>
+            <remarks>
+              <para>
+               - Define the assembly name here so it can be used to write log files throughout the class.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Maintenance.CleanSessionData">
+            <summary>Soon.</summary>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Maintenance.VerifyFramework(Outpost31.Core.Session.TingenSession)">
+            <summary>Verify the Tingen framework.</summary>
+            <param name="tnSession">The Tingen Session object.</param>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Maintenance.RefreshDirectory(System.String)">
+            <summary>Delete a directory, then recreate it.</summary>
+            <param name="directoryPath">The path to the directory to refresh.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Outpost31.Core.Framework.Maintenance.VerifyDirectory(System.String)" -->
+        <!-- Badly formed XML comment ignored for member "M:Outpost31.Core.Framework.Maintenance.VerifyDirectories(System.Collections.Generic.List{System.String})" -->
+        <member name="M:Outpost31.Core.Framework.Maintenance.TESTER">
+            <summary>
+            Tester
+            </summary>
+        </member>
+        <member name="T:Outpost31.Core.Framework.Paths">
+            <summary>The Tingen Framework.</summary>
+            <remarks>
+             <para>
+              The Tingen Framework is comprised of:
+              <list type = "bullet">
+               <item>The Tingen directory structure</item>
+               <item>Tingen core data/files</item>
+               <item>Tingen maintenance procedures</item>
+              </list>
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Paths.Tingen">
+            <summary>Tingen data paths.</summary>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Paths.SystemCode">
+            <summary>System code data paths.</summary>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Paths.Public">
+            <summary>Public data paths.</summary>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Paths.Remote">
+            <summary>Remote data paths.</summary>
+        </member>
+        <member name="M:Outpost31.Core.Framework.Paths.Build(System.String,System.String)">
+            <summary>Builds the paths object.</summary>
+            <param name="tnDataRoot">The Tingen data root.</param>
+            <param name="avSystemCode">The Avatar System Code.</param>
+            <returns>The Tingen data paths</returns>
+        </member>
+        <member name="T:Outpost31.Core.Logger.LoggerCatalog">
+            <summary>Log catalog for the Outpost31.Core.Logger namespace.</summary>
+        </member>
+        <member name="M:Outpost31.Core.Logger.LoggerCatalog.StandardContent(System.String,System.String,System.String,System.String,System.String)">
+            <summary>Soon.</summary>
+            <param name="assemblyName"></param>
+            <param name="callPath"></param>
+            <param name="callMember"></param>
+            <param name="callLine"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Outpost31.Core.Logger.TraceLog">
+            <summary>Soon.</summary>
+        </member>
+        <member name="M:Outpost31.Core.Logger.TraceLog.BuildInfo(System.String,System.Int32,System.Int32)">
+            <summary>Build the trace log information.</summary>
+            <remarks>
+            The <b>TraceLogPath</b> is the same as the <b>tnSession.Framework.SystemCodePath.Session</b> It's here so we can easily pass all the data
+            </remarks>
+            <param name="traceLogLevel"></param>
+            <param name="traceLogDelay"></param>
+            <param name="traceLogPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Outpost31.Core.Logger.TraceLog.Create(System.Int32,System.String,Outpost31.Core.Logger.TraceLog,System.String,System.String,System.Int32)">
+            <summary>Soon.</summary>
+            <param name="traceLevel"></param>
+            <param name="traceInfo"></param>
+            <param name="assemblyName"></param>
+            <param name="callPath"></param>
+            <param name="callMember"></param>
+            <param name="callLine"></param>
+        </member>
+        <member name="M:Outpost31.Core.Logger.TraceLog.Create(System.Int32,System.String,Outpost31.Core.Logger.TraceLog,System.String,System.String,System.Int32,System.String)">
+            <summary>Soon.</summary>
+            <param name="logLevel"></param>
+            <param name="assemblyName"></param>
+            <param name="traceInfo"></param>
+            <param name="fromClass"></param>
+            <param name="fromMethod"></param>
+            <param name="line"></param>
+            <param name="message"></param>
+        </member>
+        <member name="T:Outpost31.Core.Logger.PrimevalLog">
+            <summary>Primeval logs</summary>
+        </member>
+        <member name="P:Outpost31.Core.Logger.PrimevalLog.PrimevalLogPath">
+            <summary>Primeval log path.</summary>
+            <remarks>
+              <para>
+               - Primeval logs are written to <i>C:\TingenData\Primeval\</i>, defined here so it can be easily changed if needed.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Core.Logger.PrimevalLog.Create(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>Creates a Primeval log.</summary>
+            <param name="assemblyName"></param>
+            <param name="message"></param>
+            <param name="fromClass"></param>
+            <param name="fromMethod"></param>
+            <param name="line"></param>
+            <remarks>
+             <para>
+               - Before a Primeval log is written, the Primeval log path is verified to ensure it exists.<br/>
+               - Log files may be created quickly - and possibly at the same time - so a pause is added to ensure logs are unique.
+             </para>
+            </remarks>
+               <example>
+               To create a simple Primeval log:
+               <code>
+                LogEvent.Primeval(AssemblyName);
+                LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+               </code>
+               To create a Primeval log with custom content:
+               <code>
+                LogEvent.Primeval(AssemblyName, message);
+                LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name, message);
+               </code>
+              </example>
+        </member>
+        <member name="M:Outpost31.Core.Logger.PrimevalLog.DevelopmentCleanup">
+            <summary> Removes old Primeval logs.</summary>
+            <remarks>
+             <para>
+              - Not currently used.
+             </para>
+            </remarks>
+        </member>
+        <member name="T:Outpost31.Core.Logger.LogEvent">
+            <summary>Provides logging functionality.</summary>
+        </member>
+        <member name="M:Outpost31.Core.Logger.LogEvent.Trace(System.Int32,System.String,Outpost31.Core.Logger.TraceLog,System.String,System.String,System.String,System.Int32)">
+            <summary>Log a trace event.</summary>
+            <remarks>
+             <para>
+              Trace logs are used to record information about the application's execution.
+              <list type="bullet">
+               <item>Records information about Tingen's execution</item>
+               <item>Used when debugging/troublshooting during development, and should probably be disabled in production</item>
+               <item>Important details are in the filename: <b>%assemblyName%-%calledClass%-%calledMethod%-%lineNumber.trace</b></item>
+               <item>Do not contain any data</item>   
+               <item>To ensure all logs are captured, filenames start with a timestamp: <b>ssfffffff_</b></item>
+               <item>Extension is <b>.trace</b></item>
+              </list>
+              - More information about Trace logs <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#logging">here</see>.
+             </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Core.Logger.LogEvent.Primeval(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>Log a primeval event.</summary>
+            <remarks>
+             <para>
+              Primeval logs are vary simple logs that can be created with very little information.
+              <list type="bullet">
+               <item>Do not require any paramaters</item>
+               <item>Used when debugging/troublshooting during development, and should be disabled in production</item>
+               <item>Important details can be found in the file contents</item>
+               <item>May have custom messages (the default message is "Tingen primeval log"</item>
+               <item>To ensure all logs are captured, filenames are timestamped <b>yyMMddHHmmssfffffff</b></item>
+               <item>Extenstion is <b>.primeval</b></item>
+              </list>
+              - More information about Primeval logs <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#logging">here</see>.
+             </para>
+            </remarks>
+        </member>
+        <member name="T:Outpost31.Core.ParseScriptParameter">
+            <summary>Soon.</summary>
+        </member>
+        <member name="P:Outpost31.Core.ParseScriptParameter.AssemblyName">
+            <summary>Executing assembly name for log files.</summary>
+            <remarks>
+              <para>
+               - Executing assembly is defined here so it can be used when creating log files.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Core.ParseScriptParameter.Parse(Outpost31.Core.Session.TingenSession)">
+            <summary>OLD Determines which Tingen <i>Module</i> will be doing the work this session.</summary>
+            <param name="tnSession">The Tingen session object.</param>
+            <remarks>
+             <para> When a new Tingen Module is added, this method needs to be updated.
+              <example>
+               To add a new Tingen Module named "NewModule", the following code <c>else if</c> needs be added
+                <code>
+                 else if (tnSession.AvComponents.ScriptModule == "newmodule")
+                 {
+                     Outpost31.Module.NewModule.ParseScriptCommand.ParseCommand(tnSession);
+                 }
+                </code>
+               </example>
+              </para>
+            </remarks>
+        </member>
+        <member name="T:Outpost31.Core.Configuration.ConfigSettings">
+            <summary>Tingen configuration settings.</summary>
+            <remarks>
+             <para>
+              Tingen configuration settings:
+              <list type="bullet">
+               <item>Are specific to Tingen core functionality (other components/modules have their own configurations)</item>
+               <item>Do not change between Tingen sessions</item>
+               <item>Can be modified by the user to suit their environment</item>
+              </list>
+             </para>
+             <para>
+              - The Tingen configuration file is located in <i>"TingenData\%SystemCode%\Config\Tingen.config"</i>.<br/>
+              - More information about configuring Tingen <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-configuration">here.</see>
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Configuration.ConfigSettings.TingenMode">
+            <summary>Determines what Tingen does, if anything.</summary>
+            <remarks>
+             <para>
+              Valid Tingen modes:
+              <list type="table">
+               <item>
+                <term>Enabled (default)</term>
+                <description>Tingen is enabled, and will hand work off to the requested <i>Tingen Module</i>.</description>
+               </item>
+               <item>
+                <term>Disabled</term>
+                <description>Tingen is disabled, and the sentObject is returned to Avatar unmodified.</description>
+               </item>
+              </list>
+             </para>
+             <para>
+             - There is logic to catch <i>"enable"</i> and <i>"disable"</i>, since I kept making that mistake.<br/>
+             - More information about Tingen modes <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-modes">here.</see>
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Configuration.ConfigSettings.ModOpenIncidentMode">
+            <summary>Determines if the <b>Open Incident Module</b> is enabled.</summary>
+            <remarks>
+             <para>
+              Valid Open Incident Module modes:
+              <list type="table">
+               <item>
+                <term>Enabled (default)</term>
+                <description>The Open Incident Module is enabled.</description>
+               </item>
+               <item>
+                <term>Disabled</term>
+                <description>The Open Incident Module is disabled., and the sentObject is returned to Avatar unmodified.</description>
+               </item>
+              </list>
+             </para>
+             <para>
+             - Disabling this module not affect other modules, or Tingen as a whole.<br/>
+             - More information about Tingen modes <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-modes">here.</see>
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Configuration.ConfigSettings.NtstWebServices">
+            <summary>Determines if the NTST web services are enabled.</summary>
+            <remarks>
+             <para>
+              - Currently not used, but will be in the future.<br/>
+              - This should be set to "<b>disabled</b>" until the NTST web services are implemented.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Configuration.ConfigSettings.TraceLevel">
+            <summary>The trace logging level.</summary>
+            <remarks>
+             <para>
+              - Trace logs with a level less than or equal to the <paramref name="TraceLevel"/> will be written.<br/>
+              - Trace logs are written to <i>"%TingenDataRoot%\%AvatarSystemCode%\YYMM\%OptionUserId%\HHMMSS\"</i>.<br/>
+              - More information about trace logs can be found <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#logging">here</see>.
+             </para>
+            </remarks>
+              <example>
+               If the TraceLogLevel is set to "<c>2</c>", the following log calls will be executed:<br/>
+               <c>LogEvent.Trace(1, tnSession.TraceLogs, Asm);</c><br/>
+               <c>LogEvent.Trace(2, tnSession.TraceLogs, Asm);</c><br/><br/>
+               If the TraceLogLevel is set to "<c>2</c>", the following log calls will <i>not</i> be executed:<br/>
+               <c>LogEvent.Trace(4, tnSession.TraceLogs, Asm);</c><br/>
+               <c>LogEvent.Trace(5, tnSession.TraceLogs, Asm);</c>
+              </example>
+            <value>
+             0 (default)
+            </value>
+        </member>
+        <member name="P:Outpost31.Core.Configuration.ConfigSettings.TraceDelay">
+            <summary>The delay between trace log writes.</summary>
+            <remarks>
+             <para>
+              - In some cases, logs may be written too quickly, and cause files to be overwritten.<br/>
+              - By including a short delay, the logs can be written in a way that prevents this from happening.
+             </para>
+            </remarks>
+            <value>
+             10 (default)
+            </value>
+        </member>
+        <member name="M:Outpost31.Core.Configuration.ConfigSettings.BuildDefaultObject">
+            <summary>Build a default Tingen configuration object.</summary>
+            <remarks>
+             <para>
+              - These are the default values for the Tingen configuration settings.<br/>
+              - When a new version of Tingen is released, these need to be verified/updated.<br/>
+              - More information about configuring Tingen <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-configuration">here.</see>
+             </para>
+            </remarks>
+            <returns>An object with default Tingen configuration values.</returns>
+        </member>
+        <member name="M:Outpost31.Core.Configuration.ConfigSettings.Load(System.String,System.String)">
+            <summary>Loads the Tingen configuration file.</summary>
+            <param name="configPath">Path to the Tingen configuration file.</param>
+            <remarks>
+             <para>
+              - The configuration file path is created in <b>Tingen.asmx.cs</b><br/>
+              - If the configuration file does not exist, a configuration file with default values will be created.
+             </para>
+            </remarks>
+            <returns>The Tingen configuration settings.</returns>
+        </member>
+        <member name="T:Outpost31.Core.Session.Catalog">
+            <summary>Soon.</summary>
+        </member>
+        <member name="P:Outpost31.Core.Session.Catalog.AssemblyName">
+            <summary>Assembly name for log files.</summary>
+            <remarks>
+              <para>
+               - Define the assembly name here so it can be used to write log files throughout the class.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Core.Session.Catalog.CurrentSettings(Outpost31.Core.Session.TingenSession)">
+            <summary>Soon.</summary>
+            <param name="tnSession"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Outpost31.Core.Session.Catalog.SessionDetails(Outpost31.Core.Session.TingenSession)">
+            <summary>Soon.</summary>
+            <param name="tnSession"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Outpost31.Core.Session.TingenSession">
+            <summary>Contains Tingen session logic.</summary>
+            <remarks>
+             <para>
+              Properties for the Tingen session are located in <b>TingenSession.Properties.cs.</b>
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Session.TingenSession.Date">
+            <summary>The session datestamp.</summary>
+        </member>
+        <member name="P:Outpost31.Core.Session.TingenSession.Time">
+            <summary>The session timestamp.</summary>
+        </member>
+        <member name="P:Outpost31.Core.Session.TingenSession.ReturnClonedOptionObject">
+            <summary>Return the cloned OptionObject.</summary>
+        </member>
+        <member name="P:Outpost31.Core.Session.TingenSession.TnConfig">
+            <summary>Config</summary>
+        </member>
+        <member name="P:Outpost31.Core.Session.TingenSession.TnPath">
+            <summary>Tingen Framework information.</summary>
+            <remarks>
+             <para>
+              See <b>Outpost31.Core.Configuration.TingenFramework.cs</b> for more information.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Session.TingenSession.AvData">
+            <summary>Avatar components .</summary>
+            <remarks>
+             <para>
+              See <b>Outpost31.Core.Configuration.TingenFramework.cs</b> for more information.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Session.TingenSession.TraceInfo">
+            <summary>Trace log information.</summary>
+        </member>
+        <member name="P:Outpost31.Core.Session.TingenSession.ModOpenIncident">
+             <summary>Module to open an incident.</summary>
+            
+        </member>
+        <member name="M:Outpost31.Core.Session.TingenSession.Build(ScriptLinkStandard.Objects.OptionObject2015,System.String,System.String)">
+            <summary>Builds the Tingen Session object.</summary>
+            <param name="configFile">The path to the Tingen configuration file.</param>
+            <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
+            <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
+            <remarks>
+             <para>
+              The Tingen Session contains all of the information that Tingen needs to do what it does, including:
+              <list type="bullet">
+               <item>Configuration settings (user-definable settings from the <paramref name="configFile"/>)</item>
+               <item>Static settings (these do not change between sessions)</item>
+               <item>Runtime settings (unique to the current session)</item>
+               <item>Data sent from Avatar, including the <paramref name="sentOptionObject"/> and <paramref name="sentScriptParameter"/></item>
+               <item>Data derived from the <paramref name="sentOptionObject"/> or <paramref name="sentScriptParameter"/>.</item>
+               <item>Required Tingen Module details.</item>
+              </list>
+             </para>
+             <para>
+              <b>More information about this method:</b><br/>
+              This method is one of the most important in Tingen, as it builds the Tingen Session object.<br/><br/>
+              The Session object is built in this order:
+              <list type="number">
+               <item>A basic TingenSession object is initalized with the current date, time, configuration settings, and Avatar data.</item>
+               <item>Framework information is added seperately.</item>
+               <item>Trace log information is added seperately.</item>
+               <item>Module objects are added seperately.</item>
+              </list>
+             </para>
+            </remarks>
+            <returns>An Tingen Session object.</returns>
+        </member>
+        <member name="M:Outpost31.Core.Session.TingenSession.Initialize(Outpost31.Core.Session.TingenSession)">
+            <summary>Soon.</summary>
+            <param name="tnSession"></param>
+        </member>
+        <member name="T:Outpost31.Core.Utilities.DuJson">
+            <summary>Provides JSON functionality.</summary>
+        </member>
+        <member name="M:Outpost31.Core.Utilities.DuJson.ExportToLocalFile``1(``0,System.String,System.Boolean)">
+            <summary>Export JSON data to an external file.</summary>
+            <typeparam name="JsonObject">The JSON object type.</typeparam>
+            <param name="jsonObject">The JSON object.</param>
+            <param name="filePath">The export file path.</param>
+            <param name="formatJson">Determines if the JSON data is formatted.</param>
+            <remarks>
+             <para>
+              <example>
+               To call DuJson.ExportToLocalFile():
+               <code>
+                TheObject theObject = new TheObject();
+                DuJson.ExportToLocalFile&lt;TheObject&gt;(theObject, "/Path/To/Export/File");
+               </code>
+              </example>
+             </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Core.Utilities.DuJson.ConvertToString``1(``0)">
+            <summary>Convert a JSON object to a string[].</summary>
+            <typeparam name="JsonObject">The JSON object type.</typeparam>
+            <param name="jsonObject">The JSON object.</param>
+            <returns>A JSON object as a string[].</returns>
+        </member>
+        <member name="M:Outpost31.Core.Utilities.DuJson.ImportFromLocalFile``1(System.String)">
+            <summary>Import JSON data from an external file.</summary>
+            <typeparam name="JsonObject">The JSON object type.</typeparam>
+            <param name="filePath">The import file path.</param>
+            <remarks>
+             <para>
+              <example>
+               To call DuJson.ImportFromLocalFile():
+               <code>
+                 TheObject theObject = DuJson.ImportFromLocalFile&lt;TheObject&gt;("/Path/To/Import/File");
+               </code>
+              </example>
+             </para>
+            </remarks>
+            <returns>The contents of the file as a JSON object.</returns>
+        </member>
+        <member name="T:Outpost31.Module.Admin.Service.Status">
+            <summary>Soon.</summary>
+        </member>
+        <member name="P:Outpost31.Module.Admin.Service.Status.AssemblyName">
+            <summary>Assembly name for log files.</summary>
+            <remarks>
+              <para>
+               - Define the assembly name here so it can be used to write log files throughout the class.
+              </para>
+            </remarks>
+        </member>
+        <member name="T:Outpost31.Module.Common.Action.Field">
+            <summary>Field operations.</summary>
+        </member>
+        <member name="P:Outpost31.Module.Common.Action.Field.AssemblyName">
+            <summary>Assembly name for log files.</summary>
+            <remarks>
+              <para>
+               - Define the assembly name here so it can be used to write log files throughout the class.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Module.Common.Action.Field.CompareValue(System.String,System.String,Outpost31.Core.Logger.TraceLog)">
+            <summary>Compare the values of two form field IDs to determine if they are the same.</summary>
+            <param name="field01Value">The value of the first field.</param>
+            <param name="field02Value">The value of the second field.</param>
+            <remarks>
+             <example>
+              To call FieldOperation.Compare():
+              <code>
+               var value1 = tnSession.AvComponents.SentOptionObject.GetFieldValue("10001")
+               var value2 = tnSession.AvComponents.SentOptionObject.GetFieldValue("10002");
+               Outpost31.Module.Common.FieldOperation.SaveValue(value1, value1);
+              </code>
+             </example>
+            </remarks>
+            <returns>True (the fields values are the same) or false(the field values are different).</returns>
+        </member>
+        <member name="M:Outpost31.Module.Common.Action.Field.Lock(System.String)">
+            <summary>Locks a field so that it cannot be edited.</summary>
+            <param name="fieldId">The field ID to be locked.</param>
+        </member>
+        <member name="M:Outpost31.Module.Common.Action.Field.SaveValue(System.String,System.String,Outpost31.Core.Logger.TraceLog)">
+            <summary>Saves the value of a field to a file.</summary>
+            <param name="valueToSave">The value to save.</param>
+            <param name="filePath">The file path.</param>
+            <remarks>
+             <para>
+              <example>
+               To call FieldOperation.Compare():
+               <code>
+                var fieldValue = tnSession.AvComponents.SentOptionObject.GetFieldValue("10001")
+                var filePath = $@"{tnSession.TnFramework.TemporaryPath}\{currentAvatarUser}-%filename%.%extension%";
+                Outpost31.Module.Common.FieldOperation.SaveValue(originalAuthor, filePath);
+               </code>
+              </example>
+             </para>
+             <para>
+              To ensure that any sensitive data is removed at the end of a session, the filePath should adhere to the following standards:
+              <list type="bullet">
+               <item>The filename should always start with the <c>currentAvatarUser</c></item>
+               <item>The <c>filePath</c> should be in <c>tnSession.TnFramework.TemporaryPath</c></item>
+              </list>
+             </para>
+             <para>
+              Since the <c>filePath</c> is user-definable, we will verify that the <c>filePath</c> doesn't exist before (re)creating it.
+             </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Module.OpenIncident.ModuleOpenIncident.AssemblyName">
+            <summary>Assembly name for log files.</summary>
+            <remarks>
+              <para>
+               - Define the assembly name here so it can be used to write log files throughout the class.
+              </para>
+            </remarks>
+        </member>
+        <member name="T:Outpost31.Module.OpenIncident.Verify">
+            <summary>VerifyAuthor command.</summary>
+        </member>
+        <member name="P:Outpost31.Module.OpenIncident.Verify.AssemblyName">
+            <summary>Assembly name for log files.</summary>
+            <remarks>
+              <para>
+               - Define the assembly name here so it can be used to write log files throughout the class.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Module.OpenIncident.Verify.OriginalAuthorIsSubmitting(Outpost31.Core.Session.TingenSession)">
+            <summary>Verify the Avatar user is the same as the original author.</summary>
+            <param name="tnSession"></param>
+        </member>
+    </members>
+</doc>

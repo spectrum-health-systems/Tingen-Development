@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_tingen__development_1_1_inherit_only_returns" xml:lang="en-US">
+<title>Tingen_development.InheritOnlyReturns Class Reference</title>
+<indexterm><primary>Tingen_development.InheritOnlyReturns</primary></indexterm>
+<para>
+
+<para>This class shows hows you can &quot;inherit&quot; the doc comments from one method in another method. </para>
+ 
+</para>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static bool <link linkend="_class_tingen__development_1_1_inherit_only_returns_1ac85cbd989ce5dd50946e62f458229b5e">MyParentMethod</link> (bool x)</para>
+
+<para>In this example, this summary is only visible for this method. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_tingen__development_1_1_inherit_only_returns_1a03e1b344d90d12f6e76c1061a07f3c2a"/>static bool <emphasis role="strong">MyChildMethod</emphasis> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This class shows hows you can &quot;inherit&quot; the doc comments from one method in another method. </para>
+
+
+
+<para>You can inherit all comments, or only a specific tag, represented by an xpath expression. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_tingen__development_1_1_inherit_only_returns_1ac85cbd989ce5dd50946e62f458229b5e"/><section>
+    <title>MyParentMethod()</title>
+<indexterm><primary>MyParentMethod</primary><secondary>Tingen_development.InheritOnlyReturns</secondary></indexterm>
+<indexterm><primary>Tingen_development.InheritOnlyReturns</primary><secondary>MyParentMethod</secondary></indexterm>
+<para><computeroutput>static bool Tingen_development.InheritOnlyReturns.MyParentMethod (bool x)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>In this example, this summary is only visible for this method. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>A boolean</para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs</section>
+</section>
