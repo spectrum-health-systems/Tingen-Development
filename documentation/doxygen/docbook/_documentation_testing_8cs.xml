@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__documentation_testing_8cs" xml:lang="en-US">
+<title>C:/Users/cbanw/GitHub/Spectrum Health Systems/Tingen-Development/src/DocumentationTesting.cs File Reference</title>
+<indexterm><primary>C:/Users/cbanw/GitHub/Spectrum Health Systems/Tingen-Development/src/DocumentationTesting.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_tingen__development_1_1_documentation_testing">Tingen_development.DocumentationTesting</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_tingen__development_1_1_documentation_testing_1_1_example_class">Tingen_development.DocumentationTesting.ExampleClass</link></para>
+
+<para>Every class and member should have a one sentence summary describing its purpose. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_tingen__development_1_1_main_class">Tingen_development.MainClass</link></para>
+
+<para>A summary about this class. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_tingen__development_1_1_derived_class">Tingen_development.DerivedClass</link></para>
+</listitem>
+            <listitem><para>interface <link linkend="_interface_tingen__development_1_1_i_test_interface">Tingen_development.ITestInterface</link></para>
+
+<para>This interface would describe all the methods in its contract. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_tingen__development_1_1_implementing_class">Tingen_development.ImplementingClass</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_tingen__development_1_1_inherit_only_returns">Tingen_development.InheritOnlyReturns</link></para>
+
+<para>This class shows hows you can &quot;inherit&quot; the doc comments from one method in another method. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_tingen__development_1_1_inherit_all_but_remarks">Tingen_development.InheritAllButRemarks</link></para>
+
+<para>This class shows an example ofsharing comments across methods. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_tingen__development_1_1_generic_class">Tingen_development.GenericClass&lt; T &gt;</link></para>
+
+<para>This is a generic class. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_tingen__development_1_1_params_and_param_refs">Tingen_development.ParamsAndParamRefs</link></para>
+
+<para>This shows examples of typeparamref and typeparam tags. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_tingen__development_1_1_tagged_library_1_1_math">Tingen_development.TaggedLibrary.Math</link></para>
+
+<para>The main <computeroutput><link linkend="_class_tingen__development_1_1_tagged_library_1_1_math">Math</link></computeroutput> class. Contains all methods for performing basic math functions. <itemizedlist>
+<listitem>
+
+<para>Add Addition Operation  </para>
+</listitem>
+<listitem>
+
+<para>Subtract Subtraction Operation  </para>
+</listitem>
+<listitem>
+
+<para>Multiply Multiplication Operation  </para>
+</listitem>
+<listitem>
+
+<para>Divide Division Operation  </para>
+</listitem>
+</itemizedlist>
+</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_tingen__development">Tingen_development</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_tingen__development_1_1_tagged_library">Tingen_development.TaggedLibrary</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>
