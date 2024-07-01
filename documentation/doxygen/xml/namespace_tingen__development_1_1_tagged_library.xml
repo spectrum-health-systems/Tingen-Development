@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="namespace_tingen__development_1_1_tagged_library" kind="namespace" language="C#">
+    <compoundname>Tingen_development::TaggedLibrary</compoundname>
+    <innerclass refid="class_tingen__development_1_1_tagged_library_1_1_math" prot="public">Tingen_development::TaggedLibrary::Math</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs" line="284" column="5"/>
+  </compounddef>
+</doxygen>

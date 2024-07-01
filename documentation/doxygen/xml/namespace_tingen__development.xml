@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="namespace_tingen__development" kind="namespace" language="C#">
+    <compoundname>Tingen_development</compoundname>
+    <innerclass refid="class_tingen__development_1_1_derived_class" prot="public">Tingen_development::DerivedClass</innerclass>
+    <innerclass refid="class_tingen__development_1_1_documentation_testing" prot="public">Tingen_development::DocumentationTesting</innerclass>
+    <innerclass refid="class_tingen__development_1_1_generic_class" prot="public">Tingen_development::GenericClass</innerclass>
+    <innerclass refid="class_tingen__development_1_1_implementing_class" prot="public">Tingen_development::ImplementingClass</innerclass>
+    <innerclass refid="class_tingen__development_1_1_inherit_all_but_remarks" prot="public">Tingen_development::InheritAllButRemarks</innerclass>
+    <innerclass refid="class_tingen__development_1_1_inherit_only_returns" prot="public">Tingen_development::InheritOnlyReturns</innerclass>
+    <innerclass refid="interface_tingen__development_1_1_i_test_interface" prot="public">Tingen_development::ITestInterface</innerclass>
+    <innerclass refid="class_tingen__development_1_1_main_class" prot="public">Tingen_development::MainClass</innerclass>
+    <innerclass refid="class_tingen__development_1_1_params_and_param_refs" prot="public">Tingen_development::ParamsAndParamRefs</innerclass>
+    <innerclass refid="class_tingen__development_1_1_tingen__development" prot="public">Tingen_development::Tingen_development</innerclass>
+    <innernamespace refid="namespace_tingen__development_1_1_tagged_library">Tingen_development::TaggedLibrary</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs" line="16" column="1"/>
+  </compounddef>
+</doxygen>

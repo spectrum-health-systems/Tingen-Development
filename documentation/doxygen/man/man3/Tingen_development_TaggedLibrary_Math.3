@@ -1,0 +1,404 @@
+.TH "Tingen_development.TaggedLibrary.Math" 3 "Tingen_development" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Tingen_development.TaggedLibrary.Math \- The main \fR\fBMath\fP\fP class\&. Contains all methods for performing basic math functions\&. 
+.PD 0
+.IP "\(bu" 2
+Add Addition Operation  
+.IP "\(bu" 2
+Subtract Subtraction Operation  
+.IP "\(bu" 2
+Multiply Multiplication Operation  
+.IP "\(bu" 2
+Divide Division Operation  
+.PP
+ 
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static int \fBAdd\fP (int a, int b)"
+.br
+.RI "Adds two integers \fIa\fP  and \fIb\fP  and returns the result\&. "
+.ti -1c
+.RI "static double \fBAdd\fP (double a, double b)"
+.br
+.RI "Adds two doubles \fIa\fP  and \fIb\fP  and returns the result\&. "
+.ti -1c
+.RI "static int \fBSubtract\fP (int a, int b)"
+.br
+.RI "Subtracts \fIb\fP  from \fIa\fP  and returns the result\&. "
+.ti -1c
+.RI "static double \fBSubtract\fP (double a, double b)"
+.br
+.RI "Subtracts a double \fIb\fP  from another double \fIa\fP  and returns the result\&. "
+.ti -1c
+.RI "static int \fBMultiply\fP (int a, int b)"
+.br
+.RI "Multiplies two integers \fIa\fP  and \fIb\fP  and returns the result\&. "
+.ti -1c
+.RI "static double \fBMultiply\fP (double a, double b)"
+.br
+.RI "Multiplies two doubles \fIa\fP  and \fIb\fP  and returns the result\&. "
+.ti -1c
+.RI "static int \fBDivide\fP (int a, int b)"
+.br
+.RI "Divides an integer \fIa\fP  by another integer \fIb\fP  and returns the result\&. "
+.ti -1c
+.RI "static double \fBDivide\fP (double a, double b)"
+.br
+.RI "Divides a double \fIa\fP  by another double \fIb\fP  and returns the result\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The main \fR\fBMath\fP\fP class\&. Contains all methods for performing basic math functions\&. 
+.PD 0
+.IP "\(bu" 2
+Add Addition Operation  
+.IP "\(bu" 2
+Subtract Subtraction Operation  
+.IP "\(bu" 2
+Multiply Multiplication Operation  
+.IP "\(bu" 2
+Divide Division Operation  
+.PP
+
+
+This class can add, subtract, multiply and divide\&. 
+.PP
+These operations can be performed on both integers and doubles\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "static double Tingen_development\&.TaggedLibrary\&.Math\&.Add (double a, double b)\fR [static]\fP"
+
+.PP
+Adds two doubles \fIa\fP  and \fIb\fP  and returns the result\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The sum of two doubles\&. 
+.RE
+.PP
+.PP
+.PP
+.nf
+double c = Math\&.Add(4\&.5, 5\&.4);
+if (c > 10)
+{
+    Console\&.WriteLine(c);
+}
+.fi
+.PP
+ 
+.PP
+\fBExceptions\fP
+.RS 4
+\fISystem\&.OverflowException\fP Thrown when one parameter is max and the other is greater than 0\&.
+.RE
+.PP
+See \fBMath\&.Add(int, int)\fP to add integers\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBMath\&.Subtract(double, double)\fP, \fBMath\&.Multiply(double, double)\fP, \fBMath\&.Divide(double, double)\fP
+.PP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP A double precision number\&.
+.br
+\fIb\fP A double precision number\&.
+.RE
+.PP
+
+.SS "static int Tingen_development\&.TaggedLibrary\&.Math\&.Add (int a, int b)\fR [static]\fP"
+
+.PP
+Adds two integers \fIa\fP  and \fIb\fP  and returns the result\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The sum of two integers\&. 
+.RE
+.PP
+.PP
+.PP
+.nf
+int c = Math\&.Add(4, 5);
+if (c > 10)
+{
+    Console\&.WriteLine(c);
+}
+.fi
+.PP
+ 
+.PP
+\fBExceptions\fP
+.RS 4
+\fISystem\&.OverflowException\fP Thrown when one parameter is Int32\&.MaxValue and the other is greater than 0\&. 
+.RE
+.PP
+See \fBMath\&.Add(double, double)\fP to add doubles\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBMath\&.Subtract(int, int)\fP, \fBMath\&.Multiply(int, int)\fP, \fBMath\&.Divide(int, int)\fP
+.PP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP An integer\&.
+.br
+\fIb\fP An integer\&.
+.RE
+.PP
+
+.SS "static double Tingen_development\&.TaggedLibrary\&.Math\&.Divide (double a, double b)\fR [static]\fP"
+
+.PP
+Divides a double \fIa\fP  by another double \fIb\fP  and returns the result\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The quotient of two doubles\&. 
+.RE
+.PP
+.PP
+.PP
+.nf
+double c = Math\&.Divide(4\&.5, 5\&.4);
+if (c > 1\&.0)
+{
+    Console\&.WriteLine(c);
+}
+.fi
+.PP
+ 
+.PP
+\fBExceptions\fP
+.RS 4
+\fISystem\&.DivideByZeroException\fP Thrown when \fIb\fP  is equal to 0\&. 
+.RE
+.PP
+See \fBMath\&.Divide(int, int)\fP to divide integers\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBMath\&.Add(double, double)\fP, \fBMath\&.Subtract(double, double)\fP, \fBMath\&.Multiply(double, double)\fP
+.PP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP A double precision dividend\&.
+.br
+\fIb\fP A double precision divisor\&.
+.RE
+.PP
+
+.SS "static int Tingen_development\&.TaggedLibrary\&.Math\&.Divide (int a, int b)\fR [static]\fP"
+
+.PP
+Divides an integer \fIa\fP  by another integer \fIb\fP  and returns the result\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The quotient of two integers\&. 
+.RE
+.PP
+.PP
+.PP
+.nf
+int c = Math\&.Divide(4, 5);
+if (c > 1)
+{
+    Console\&.WriteLine(c);
+}
+.fi
+.PP
+ 
+.PP
+\fBExceptions\fP
+.RS 4
+\fISystem\&.DivideByZeroException\fP Thrown when \fIb\fP  is equal to 0\&. 
+.RE
+.PP
+See \fBMath\&.Divide(double, double)\fP to divide doubles\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBMath\&.Add(int, int)\fP, \fBMath\&.Subtract(int, int)\fP, \fBMath\&.Multiply(int, int)\fP
+.PP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP An integer dividend\&.
+.br
+\fIb\fP An integer divisor\&.
+.RE
+.PP
+
+.SS "static double Tingen_development\&.TaggedLibrary\&.Math\&.Multiply (double a, double b)\fR [static]\fP"
+
+.PP
+Multiplies two doubles \fIa\fP  and \fIb\fP  and returns the result\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The product of two doubles\&. 
+.RE
+.PP
+.PP
+.PP
+.nf
+double c = Math\&.Multiply(4\&.5, 5\&.4);
+if (c > 100\&.0)
+{
+    Console\&.WriteLine(c);
+}
+.fi
+.PP
+ 
+.PP
+See \fBMath\&.Multiply(int, int)\fP to multiply integers\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBMath\&.Add(double, double)\fP, \fBMath\&.Subtract(double, double)\fP, \fBMath\&.Divide(double, double)\fP
+.PP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP A double precision number\&.
+.br
+\fIb\fP A double precision number\&.
+.RE
+.PP
+
+.SS "static int Tingen_development\&.TaggedLibrary\&.Math\&.Multiply (int a, int b)\fR [static]\fP"
+
+.PP
+Multiplies two integers \fIa\fP  and \fIb\fP  and returns the result\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The product of two integers\&. 
+.RE
+.PP
+.PP
+.PP
+.nf
+int c = Math\&.Multiply(4, 5);
+if (c > 100)
+{
+    Console\&.WriteLine(c);
+}
+.fi
+.PP
+ 
+.PP
+See \fBMath\&.Multiply(double, double)\fP to multiply doubles\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBMath\&.Add(int, int)\fP, \fBMath\&.Subtract(int, int)\fP, \fBMath\&.Divide(int, int)\fP
+.PP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP An integer\&.
+.br
+\fIb\fP An integer\&.
+.RE
+.PP
+
+.SS "static double Tingen_development\&.TaggedLibrary\&.Math\&.Subtract (double a, double b)\fR [static]\fP"
+
+.PP
+Subtracts a double \fIb\fP  from another double \fIa\fP  and returns the result\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The difference between two doubles\&. 
+.RE
+.PP
+.PP
+.PP
+.nf
+double c = Math\&.Subtract(4\&.5, 5\&.4);
+if (c > 1)
+{
+    Console\&.WriteLine(c);
+}
+.fi
+.PP
+ 
+.PP
+See \fBMath\&.Subtract(int, int)\fP to subtract integers\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBMath\&.Add(double, double)\fP, \fBMath\&.Multiply(double, double)\fP, \fBMath\&.Divide(double, double)\fP
+.PP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP A double precision number\&.
+.br
+\fIb\fP A double precision number\&.
+.RE
+.PP
+
+.SS "static int Tingen_development\&.TaggedLibrary\&.Math\&.Subtract (int a, int b)\fR [static]\fP"
+
+.PP
+Subtracts \fIb\fP  from \fIa\fP  and returns the result\&. 
+.PP
+\fBReturns\fP
+.RS 4
+The difference between two integers\&. 
+.RE
+.PP
+.PP
+.PP
+.nf
+int c = Math\&.Subtract(4, 5);
+if (c > 1)
+{
+    Console\&.WriteLine(c);
+}
+.fi
+.PP
+ 
+.PP
+See \fBMath\&.Subtract(double, double)\fP to subtract doubles\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBMath\&.Add(int, int)\fP, \fBMath\&.Multiply(int, int)\fP, \fBMath\&.Divide(int, int)\fP
+.PP
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP An integer\&.
+.br
+\fIb\fP An integer\&.
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Tingen_development from the source code\&.

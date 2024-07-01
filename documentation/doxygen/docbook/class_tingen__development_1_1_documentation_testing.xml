@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_tingen__development_1_1_documentation_testing" xml:lang="en-US">
+<title>Tingen_development.DocumentationTesting Class Reference</title>
+<indexterm><primary>Tingen_development.DocumentationTesting</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_tingen__development_1_1_documentation_testing_1_1_example_class">ExampleClass</link></para>
+
+<para>Every class and member should have a one sentence summary describing its purpose. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/DocumentationTesting.cs</section>

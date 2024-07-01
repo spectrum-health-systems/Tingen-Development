@@ -3,32 +3,22 @@
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240617 =====
+// ================================================================ 240627 =====
 
-// u240617.0820
+// u240627.0909_code
+// u240627.0909_documentation
 
-/* -----------------------------------------------------------------
- * Important information about Tingen.cs (and Tingen_development.cs)
- * -----------------------------------------------------------------
+/* -----------
+ * PLEASE READ
+ * -----------
  *
- * Tingen.cs and Tingen_development.cs are the entry points for the Tingen web service. Tingen.cs is the stable release intended for
- * production environments, while Tingen_development.cs is the development version.
+ * Tingen_development.cs are the entry points for the development version of the Tingen web service.
  *
- * You are currently viewing Tingen_development.cs.
+ * This class is pretty bare-bones because the heavy lifting is done in Outpost31, which is shared between the production and
+ * development versions of Tingen.
  *
- * These classes are pretty bare-bones because the heavy lifting is done in Outpost31, which is shared between the production and
- * development version of Tingen.
- *
- * Tingen.cs/Tingen_development.cs should not be modified, so don't worry if the "//uYYMMDD.HHMM" comment up above is old.
- *
- * Any changes to the Tingen web service should be made in Outpost31, generally in TingenApp.Start() and TingenApp.Stop().
- */
-
-/* ----------------------------------------------
- * IMPORTANT INFORMATION ABOUT TINGEN_DEVELOPMENT
- * ----------------------------------------------
- *
- * This is the development version of Tingen, and should not be used in production environments.
+ * Tingen_development.cs should not be modified (so don't worry if the "// uYYMMDD.HHMM" comment up above is old). Any changes to the
+ * Tingen web service should be made in Outpost31, generally in Outpost31.Core.TingenApp.Start() and Outpost31.Core.TingenApp.Stop().
  *
  * For stable releases of Tingen: https://github.com/APrettyCoolProgram/Tingen
  *
@@ -52,7 +42,7 @@ namespace Tingen_development
     /// <remarks>
     ///  <para>
     ///   - This class is designed to be static, and <i>should not be modified</i>.<br/>
-    ///   - The heavy lifting is done in the <see href="https://github.com/spectrum-health-systems/Outpost31">Outpost31</see> project.
+    ///   - The heavy lifting is done in the <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#Outpost31">Outpost31</see> project.
     ///  </para>
     /// </remarks>
     [WebService(Namespace = "http://tempuri.org/")]
@@ -71,7 +61,7 @@ namespace Tingen_development
         /// <summary>The current version of Tingen.</summary>
         /// <remarks>
         ///   <para>
-        ///    - This is used in a few places in this class, so let's define it here.
+        ///    - Both <see cref="GetVersion()"/> and <see cref="RunScript()"/> need the current version number.
         ///   </para>
         /// </remarks>
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -80,28 +70,32 @@ namespace Tingen_development
         /// <remarks>
         ///  <para>
         ///   - Required by Avatar.<br/>
-        ///   - Should <i>not be modified</i>.<br/>
+        ///   - <i>Should not be modified</i>.
         ///  </para>
         /// </remarks>
         /// <returns>The current version of Tingen.</returns>
         [WebMethod]
         public string GetVersion() => $"VERSION {TingenVersion}";
 
-        /// <summary>Determines what work needs to be done, and returns data to Avatar.</summary>
-        /// <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
-        /// <param name="sentScriptParameter">The Script Parameter sent from Avatar.</param>
+        /// <summary>Starts the Tingen web service</summary>
+        /// <param name="sentOptionObject">The <paramref name="OptionObject"/> sent from Avatar.</param>
+        /// <param name="sentScriptParameter">The <paramref name="Script Parameter"/> sent from Avatar.</param>
         /// <remarks>
         ///  <para>
         ///   - Required by Avatar.<br/>
-        ///   - Should <i>not be modified</i><br/>
-        ///   - The heavy lifting is done in <see href="https://github.com/spectrum-health-systems/Outpost31">Outpost31</see>
+        ///   - <i>Should not be modified</i><br/>
+        ///   - The majority of work is done in the <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#Outpost31">Outpost31</see> project.
         ///  </para>
         /// </remarks>
-        /// <returns>The finalized OptionObject to myAvatar.</returns>
+        /// <returns>The finalized <paramref name="OptionObject"/> to myAvatar.</returns>
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
+            /* Trace logs can't go here - the infrastrucure isn't setup yet. */
+
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
+
+            tnSession.AvData.AvatarSystemCode = "UAT";
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
 
@@ -109,21 +103,7 @@ namespace Tingen_development
 
             TingenApp.Stop(tnSession);
 
-            // TODO: It's important that the return object is formatted correctly before this point. Currently OptionObjects are
-            // formatted closer to the work being done, but we need to make sure that is happenening. [1]
-
             return tnSession.AvData.ReturnOptionObject;
         }
     }
 }
-
-/*
-
------------------
-Development notes
------------------
-
-[1] This might actually be done in TingenApp.Stop(). Regardless, we should have a failsafe to make sure the return object is
-    formatted correctly before it gets returned to Avatar.
-
-*/

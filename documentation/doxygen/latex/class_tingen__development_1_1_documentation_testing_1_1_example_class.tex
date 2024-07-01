@@ -1,0 +1,106 @@
+\doxysection{Tingen\+\_\+development.\+Documentation\+Testing.\+Example\+Class Class Reference}
+\hypertarget{class_tingen__development_1_1_documentation_testing_1_1_example_class}{}\label{class_tingen__development_1_1_documentation_testing_1_1_example_class}\index{Tingen\_development.DocumentationTesting.ExampleClass@{Tingen\_development.DocumentationTesting.ExampleClass}}
+
+
+Every class and member should have a one sentence summary describing its purpose.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_tingen__development_1_1_documentation_testing_1_1_example_class_a8c857f4d7dc4cbeec7b067994e6d931f}{Add}} (int left, int right)
+\begin{DoxyCompactList}\small\item\em Adds two integers and returns the result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_tingen__development_1_1_documentation_testing_1_1_example_class_a54b8c0b0085ea64d628717eda51cc09e}{Label}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Every class and member should have a one sentence summary describing its purpose. 
+
+You can expand on that one sentence summary to provide more information for readers. In this case, the {\ttfamily \doxylink{class_tingen__development_1_1_documentation_testing_1_1_example_class}{Example\+Class}} provides different C\# elements to show how you would add documentation comments for most elements in a typical class. 
+
+The remarks can add multiple paragraphs, so you can write detailed information for developers that use your work. You should add everything needed for readers to be successful. This class contains examples for the following\+: 
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+Summary &This should provide a one sentence summary of the class or member.   \\\cline{1-2}
+Remarks &This is typically a more detailed description of the class or member   \\\cline{1-2}
+para &The para tag separates a section into multiple paragraphs   \\\cline{1-2}
+list &Provides a list of terms or elements   \\\cline{1-2}
+returns, param &Used to describe parameters and return values   \\\cline{1-2}
+value &Used to describe properties  \\\cline{1-2}
+exception &Used to describe exceptions that may be thrown   \\\cline{1-2}
+c, cref, see, seealso &These provide code style and links to other documentation elements   \\\cline{1-2}
+example, code &These are used for code examples   \\\cline{1-2}
+\end{longtabu}
+
+
+The list above uses the "{}table"{} style. You could also use the "{}bullet"{} or "{}number"{} style. Neither would typically use the "{}term"{} element. ~\newline
+ Note\+: paragraphs are double spaced. Use the {\itshape br} tag for single spaced lines. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tingen__development_1_1_documentation_testing_1_1_example_class_a8c857f4d7dc4cbeec7b067994e6d931f}\index{Tingen\_development.DocumentationTesting.ExampleClass@{Tingen\_development.DocumentationTesting.ExampleClass}!Add@{Add}}
+\index{Add@{Add}!Tingen\_development.DocumentationTesting.ExampleClass@{Tingen\_development.DocumentationTesting.ExampleClass}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily \label{class_tingen__development_1_1_documentation_testing_1_1_example_class_a8c857f4d7dc4cbeec7b067994e6d931f} 
+static int Tingen\+\_\+development.\+Documentation\+Testing.\+Example\+Class.\+Add (\begin{DoxyParamCaption}\item[{int}]{left}{, }\item[{int}]{right}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Adds two integers and returns the result. 
+
+\begin{DoxyReturn}{Returns}
+The sum of two integers. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em left} & The left operand of the addition. \\
+\hline
+{\em right} & The right operand of the addition. \\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ c\ =\ Math.Add(4,\ 5);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (c\ >\ 10)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ Console.WriteLine(c);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em System.\+Overflow\+Exception} & Thrown when one parameter is \doxylink{}{Max\+Value} and the other is greater than 0. Note that here you can also use  to point a web page instead. \\
+\hline
+\end{DoxyExceptions}
+\doxylink{class_tingen__development_1_1_documentation_testing_1_1_example_class}{Example\+Class} for a list of all the tags in these examples. \begin{DoxySeeAlso}{See also}
+\doxylink{class_tingen__development_1_1_documentation_testing_1_1_example_class_a54b8c0b0085ea64d628717eda51cc09e}{Example\+Class.\+Label}
+
+
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_tingen__development_1_1_documentation_testing_1_1_example_class_a54b8c0b0085ea64d628717eda51cc09e}\index{Tingen\_development.DocumentationTesting.ExampleClass@{Tingen\_development.DocumentationTesting.ExampleClass}!Label@{Label}}
+\index{Label@{Label}!Tingen\_development.DocumentationTesting.ExampleClass@{Tingen\_development.DocumentationTesting.ExampleClass}}
+\doxysubsubsection{\texorpdfstring{Label}{Label}}
+{\footnotesize\ttfamily \label{class_tingen__development_1_1_documentation_testing_1_1_example_class_a54b8c0b0085ea64d628717eda51cc09e} 
+string Tingen\+\_\+development.\+Documentation\+Testing.\+Example\+Class.\+Label\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+The {\ttfamily Label} property represents a label for this instance. 
+
+The \doxylink{class_tingen__development_1_1_documentation_testing_1_1_example_class_a54b8c0b0085ea64d628717eda51cc09e}{Label} is a {\ttfamily string} that you use for a label. 
+
+Note that there isn\textquotesingle{}t a way to provide a "{}cref"{} to each accessor, only to the property itself. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+IT/\+Git\+Hub/\+SHS/\+Public repositories/\+Tingen-\/\+Development/src/Documentation\+Testing.\+cs\end{DoxyCompactItemize}

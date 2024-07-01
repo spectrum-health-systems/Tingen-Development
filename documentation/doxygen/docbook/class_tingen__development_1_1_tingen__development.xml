@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_tingen__development_1_1_tingen__development" xml:lang="en-US">
+<title>Tingen_development.Tingen_development Class Reference</title>
+<indexterm><primary>Tingen_development.Tingen_development</primary></indexterm>
+<para>
+
+<para>The entry class for Tingen. </para>
+ 
+</para>
+Inheritance diagram for Tingen_development.Tingen_development:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_tingen__development_1_1_tingen__development__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for Tingen_development.Tingen_development:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_tingen__development_1_1_tingen__development__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>string <link linkend="_class_tingen__development_1_1_tingen__development_1aee6a88ab1a043b6f7d90cb8f9dc47d3b">GetVersion</link> ()</para>
+
+<para>Returns the current version of Tingen. </para>
+</listitem>
+            <listitem><para>OptionObject2015 <link linkend="_class_tingen__development_1_1_tingen__development_1a104cfa18aa5445a832662f89c997d5bf">RunScript</link> (OptionObject2015 sentOptionObject, string sentScriptParameter)</para>
+
+<para>Starts the Tingen web service. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Properties    </title>
+        <itemizedlist>
+            <listitem><para>static string <link linkend="_class_tingen__development_1_1_tingen__development_1a99d58283fe7f38e46ad6f91e1cc817c7">AssemblyName</link> = Assembly.GetExecutingAssembly().GetName().Name<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>Assembly name for log files. </para>
+</listitem>
+            <listitem><para>static string <link linkend="_class_tingen__development_1_1_tingen__development_1afd33480e0eedb9cdb78fb688c72d1659">TingenVersion</link> = Assembly.GetExecutingAssembly().GetName().Version.ToString()<computeroutput> [get, set]</computeroutput>
+</para>
+
+<para>The current version of Tingen. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The entry class for Tingen. </para>
+
+
+
+<para><itemizedlist>
+<listitem>
+<para>This class is designed to be static, and <emphasis>should not be modified</emphasis>.<?linebreak?></para>
+</listitem><listitem>
+<para>The heavy lifting is done in the Outpost31</para>
+</listitem></itemizedlist>
+</para>
+
+<para>project. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_tingen__development_1_1_tingen__development_1aee6a88ab1a043b6f7d90cb8f9dc47d3b"/><section>
+    <title>GetVersion()</title>
+<indexterm><primary>GetVersion</primary><secondary>Tingen_development.Tingen_development</secondary></indexterm>
+<indexterm><primary>Tingen_development.Tingen_development</primary><secondary>GetVersion</secondary></indexterm>
+<para><computeroutput>string Tingen_development.Tingen_development.GetVersion ( )</computeroutput></para><para>
+
+<para>Returns the current version of Tingen. </para>
+</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Required by Avatar.<?linebreak?></para>
+</listitem><listitem>
+<para><emphasis>Should not be modified</emphasis>. </para>
+</listitem></itemizedlist>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The current version of Tingen.</para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_tingen__development_1_1_tingen__development_1a104cfa18aa5445a832662f89c997d5bf"/><section>
+    <title>RunScript()</title>
+<indexterm><primary>RunScript</primary><secondary>Tingen_development.Tingen_development</secondary></indexterm>
+<indexterm><primary>Tingen_development.Tingen_development</primary><secondary>RunScript</secondary></indexterm>
+<para><computeroutput>OptionObject2015 Tingen_development.Tingen_development.RunScript (OptionObject2015 sentOptionObject, string sentScriptParameter)</computeroutput></para><para>
+
+<para>Starts the Tingen web service. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>sentOptionObject</entry><entry>
+<para>The <emphasis>OptionObject</emphasis>  sent from Avatar.</para>
+</entry>
+                            </row>
+                            <row>
+<entry>sentScriptParameter</entry><entry>
+<para>The <emphasis>Script Parameter</emphasis>  sent from Avatar.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para><itemizedlist>
+<listitem>
+<para>Required by Avatar.<?linebreak?></para>
+</listitem><listitem>
+<para><emphasis>Should not be modified</emphasis><?linebreak?></para>
+</listitem><listitem>
+<para>The majority of work is done in the Outpost31</para>
+</listitem></itemizedlist>
+</para>
+
+<para>project. </para>
+
+<para><formalpara><title>Returns</title>
+
+<para>The finalized <emphasis>OptionObject</emphasis>  to myAvatar.</para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Property Documentation</title>
+<anchor xml:id="_class_tingen__development_1_1_tingen__development_1a99d58283fe7f38e46ad6f91e1cc817c7"/><section>
+    <title>AssemblyName</title>
+<indexterm><primary>AssemblyName</primary><secondary>Tingen_development.Tingen_development</secondary></indexterm>
+<indexterm><primary>Tingen_development.Tingen_development</primary><secondary>AssemblyName</secondary></indexterm>
+<para><computeroutput>string Tingen_development.Tingen_development.AssemblyName = Assembly.GetExecutingAssembly().GetName().Name<computeroutput>[static]</computeroutput>, <computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>Assembly name for log files. </para>
+</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Define the assembly name here so it can be used to write log files throughout the class. </para>
+</listitem></itemizedlist>
+</para>
+</section>
+<anchor xml:id="_class_tingen__development_1_1_tingen__development_1afd33480e0eedb9cdb78fb688c72d1659"/><section>
+    <title>TingenVersion</title>
+<indexterm><primary>TingenVersion</primary><secondary>Tingen_development.Tingen_development</secondary></indexterm>
+<indexterm><primary>Tingen_development.Tingen_development</primary><secondary>TingenVersion</secondary></indexterm>
+<para><computeroutput>string Tingen_development.Tingen_development.TingenVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString()<computeroutput>[static]</computeroutput>, <computeroutput>[get]</computeroutput>, <computeroutput>[set]</computeroutput></computeroutput></para><para>
+
+<para>The current version of Tingen. </para>
+</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Both <link linkend="_class_tingen__development_1_1_tingen__development_1aee6a88ab1a043b6f7d90cb8f9dc47d3b">GetVersion()</link> and <link linkend="_class_tingen__development_1_1_tingen__development_1a104cfa18aa5445a832662f89c997d5bf">RunScript()</link> need the current version number. </para>
+</listitem></itemizedlist>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/IT/GitHub/SHS/Public repositories/Tingen-Development/src/Tingen_development.asmx.cs</section>
+</section>
