@@ -30,4 +30,4 @@ This repository is used for active Tingen development.
 
 # Documentation
 
-You can find API documentation [here](./documentation/doxygen/html/index.html).
+You can find API documentation [here](./docs/).
