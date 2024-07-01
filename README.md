@@ -4,6 +4,8 @@
 
  <img src="./.github/images/logos/TingenDevelopment_README.png"> 
 
+  ![logo](https://github.com/spectrum-health-systems/Tingen-Development/blob/main/.github/images/logos/TingenDevelopment_README.png?raw=true)
+
 </div>
 
 # About Tingen-Development
