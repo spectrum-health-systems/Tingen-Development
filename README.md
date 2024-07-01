@@ -30,4 +30,4 @@ This repository is used for active Tingen development.
 
 # Documentation
 
-You can find API documentation [here](https://spectrum-health-systems.github.io/Tingen-Documentation/).
+You can find API documentation [here](https://spectrum-health-systems.github.io/Tingen-Development/).
