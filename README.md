@@ -15,7 +15,9 @@ This repository is used for active Tingen development.
 ## Repository branches
 
 * [main](https://github.com/spectrum-health-systems/Tingen_development/tree/main)  
-  The stable branch of Tingen. You are btter off using the [Tingen stable release](https://github.com/spectrum-health-systems/Tingen), or even *better* off using the Community Release (coming soon).
+  The "probably stable" branch of Tingen.
+  
+  On occasion the development branch is merged with main, in order to test/view documentation changes. You are better off using the [Tingen stable release](https://github.com/spectrum-health-systems/Tingen), or even *better* off using the Community Release (coming soon).
   
   <!--[the Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease). -->
 
