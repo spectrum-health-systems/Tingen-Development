@@ -6,17 +6,24 @@
 
 </div>
 
-# About Tingen Development
+# About Tingen-Development
 
-Tingen Development is the development version of the Tingen web service
+This repository is used for active Tingen development.
+
+**Don't use this repository in production environments!**
 
 ## Repository branches
 
-* [main](https://github.com/spectrum-health-systems/Tingen_development/tree/main)
-  The stable branch of Tingen
+* [main](https://github.com/spectrum-health-systems/Tingen_development/tree/main)  
+  The stable branch of Tingen. You are btter off using the [Tingen stable release](https://github.com/spectrum-health-systems/Tingen), or even *better* off using the Community Release (coming soon).
+  
+  <!--[the Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease). -->
 
-* [development](https://github.com/spectrum-health-systems/Tingen_development/tree/development)
+* [development](https://github.com/spectrum-health-systems/Tingen_development/tree/development)  
   The current development branch of Tingen
 
-* [24.5_development](https://github.com/spectrum-health-systems/Tingen_development/tree/24.5_development)
-* A snapshot of the current development branch of Tingen
+* Tingen_development snapshots.
+
+# Documentation
+
+You can find API documentation [here](./documentation/doxygen/html/index.html).
