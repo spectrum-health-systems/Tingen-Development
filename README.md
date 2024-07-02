@@ -8,7 +8,7 @@
 
 # About Tingen-Development
 
-This repository is used for active Tingen development.
+This repository is used for active Tingen **development**.
 
 ## You (probably) aren't interested in this repository
 
