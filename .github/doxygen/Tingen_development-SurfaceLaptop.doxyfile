@@ -61,7 +61,7 @@ PROJECT_BRIEF          = "Development version of the Tingen web ."
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           = "C:/IT/GitHub/SHS/Public repositories/Tingen-Development/docs/TingenDevelopment.png"
+PROJECT_LOGO           = "C:/IT/GitHub/SHS/Public repositories/Tingen-Development/.github/doxygen/TingenDevelopment.png"
 
 # With the PROJECT_ICON tag one can specify an icon that is included in the tabs
 # when the HTML document is shown. Doxygen will copy the logo to the output
