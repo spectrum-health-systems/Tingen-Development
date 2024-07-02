@@ -2,9 +2,7 @@
 
 <div align="center">
 
- <img src="https://github.com/spectrum-health-systems/Tingen-Development/blob/main/.github/images/logos/TingenDevelopment_README.png"> 
-
-  ![logo](https://github.com/spectrum-health-systems/Tingen-Development/blob/main/.github/images/logos/TingenDevelopment_README.png)
+  ![logo](/.github/images/logos/TingenDevelopment_README.png)
 
 </div>
 
@@ -12,22 +10,38 @@
 
 This repository is used for active Tingen development.
 
-**Don't use this repository in production environments!**
+## You (probably) aren't interested in this repository
 
-## Repository branches
+Most likely this repository isn't going to be much use to you because:
+
+* It's ***the development version*** of Tingen
+* It's ***not intended*** to be used in production environments
+* It's most likely filled with ***bad/ugly/dumb placeholder code***
+
+This repository is public because I want everything Tingen-related to be transparent and reviewable.
+
+## You might be interested in another Tingen repository
+
+Check out:
+
+* The [stable release of Tingen](https://github.com/spectrum-health-systems/Tingen)
+* The Community Release of Tingen (coming soon) <!--[the Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease). -->
+* The [Tingen documentation](https://github.com/spectrum-health-systems/Tingen-Documentation)
+
+# Repository branches
+
+There are three types of branches in this repository:
 
 * [main](https://github.com/spectrum-health-systems/Tingen_development/tree/main)  
-  The "probably stable" branch of Tingen.
+  Even the `main` branch of Tingen_development is considered a development version, so it may contain broken/incomplete functionality.
   
-  On occasion the development branch is merged with main, in order to test/view documentation changes. You are better off using the [Tingen stable release](https://github.com/spectrum-health-systems/Tingen), or even *better* off using the Community Release (coming soon).
+  On occasion the development branch is merged with main for testing/documentation purposes.
   
-  <!--[the Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease). -->
-
 * [development](https://github.com/spectrum-health-systems/Tingen_development/tree/development)  
-  The current development branch of Tingen
+  The majority of Tingen development is done in this branch.
 
-* Tingen_development snapshots.
+* Tingen_development archive snapshots.
 
 # Documentation
 
-You can find API documentation [here](https://spectrum-health-systems.github.io/Tingen-Development/).
+You can find the Tingen_development API documentation [here](https://spectrum-health-systems.github.io/Tingen-Development/).
