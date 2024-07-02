@@ -41,7 +41,14 @@ namespace Tingen_development
     /// <summary>Entry point for Tingen.</summary>
     /// <remarks>
     ///  <para>
-    ///   - This class should not be modified.<br/>
+    ///   This class:
+    ///   <list type="bullet">
+    ///    <item>Should not be modified</item>
+    ///    <item>Doesn't do much (the heavy lifting is done in <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#Outpost31">Outpost31</a>)</item>
+    ///   </list>
+    ///  </para>
+    ///  <para>
+    ///   Please see the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</a> for more information.
     ///  </para>
     /// </remarks>
     [WebService(Namespace = "http://tempuri.org/")]
@@ -52,7 +59,7 @@ namespace Tingen_development
         /// <summary>Assembly name.</summary>
         /// <remarks>
         ///   <para>
-        ///    - The assembly name is defined here so it can be used to write log files throughout the class.
+        ///    The assembly name is defined here so it can be used to write log files throughout the class.
         ///   </para>
         /// </remarks>
         public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
@@ -60,7 +67,7 @@ namespace Tingen_development
         /// <summary>Tingen current version.</summary>
         /// <remarks>
         ///   <para>
-        ///    - The version number is defined here, since both <see cref="GetVersion()"/> and <see cref="RunScript()"/> use this.
+        ///    The version number is defined here, since both <see cref="GetVersion()"/> and <see cref="RunScript()"/> use this.
         ///   </para>
         /// </remarks>
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -68,22 +75,45 @@ namespace Tingen_development
         /// <summary>Get the current version of Tingen.</summary>
         /// <remarks>
         ///  <para>
-        ///   - This method is required by Avatar.<br/>
-        ///   - This method should not be modified.<br/>
+        ///   This method:
+        ///   <list type="bullet">
+        ///    <item>Is required by Avatar</item>
+        ///    <item>Should not be modified</item>
+        ///   </list>
         ///  </para>
         /// </remarks>
         /// <returns>The current version of Tingen.</returns>
         [WebMethod]
         public string GetVersion() => $"VERSION {TingenVersion}";
 
-        /// <summary>Starts the Tingen web service</summary>
+        /// <summary>Start the Tingen web service</summary>
         /// <param name="sentOptionObject">The <paramref name="OptionObject"/> sent from Avatar.</param>
         /// <param name="sentScriptParameter">The <paramref name="Script Parameter"/> sent from Avatar.</param>
         /// <remarks>
-        ///  <para>
-        ///   - This method is required by Avatar.<br/>
-        ///   - This method should not be modified.<br/>
-        ///  </para>
+        ///     <para>
+        ///         This method:
+        ///         <list type="bullet">
+        ///             <item>Is required by Avatar</item>
+        ///             <item>Should not be modified</item>
+        ///         </list>
+        ///     </para>
+        ///     <para>
+        ///         The only difference between Tingen_development.cs and Tingen.cs is the <b>AvatarSystemCode</b>:
+        ///         <list type="table">
+        ///             <listheader>
+        ///                 <term>Setting</term>
+        ///                 <description>Description</description>
+        ///             </listheader>
+        ///             <item>
+        ///                 <term>UAT</term>
+        ///                 <description>The <b>AvatarSystemCode</b> for the UAT environment</description>
+        ///             </item>
+        ///             <item>
+        ///                 <term>LIVE</term>
+        ///                 <description>The <b>AvatarSystemCode</b> for the LIVE environment</description>
+        ///             </item>
+        ///         </list>
+        ///     </para>
         /// </remarks>
         /// <returns>The finalized <b>OptionObject</b> to myAvatar.</returns>
         [WebMethod]
