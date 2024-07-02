@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['genericclass_0',['GenericClass',['../class_tingen__development_1_1_generic_class.html',1,'Tingen_development']]],
-  ['getgenericvalue_3c_20t_20_3e_1',['GetGenericValue&lt; T &gt;',['../class_tingen__development_1_1_params_and_param_refs.html#a3b7098dc53611d3e94ed0fac805d9426',1,'Tingen_development::ParamsAndParamRefs']]],
-  ['getversion_2',['GetVersion',['../class_tingen__development_1_1_tingen__development.html#aee6a88ab1a043b6f7d90cb8f9dc47d3b',1,'Tingen_development::Tingen_development']]]
+  ['how_20to_20use_0',['How to Use',['../md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_m6421e74621ae9e31a28f5af727779381.html#autotoc_md2',1,'How to Use'],['../md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_sa42cb2a8d4940385be30626fc23dbb95.html#autotoc_md8',1,'How to Use']]]
 ];

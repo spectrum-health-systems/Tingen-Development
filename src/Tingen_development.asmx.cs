@@ -3,10 +3,10 @@
 // https://github.com/APrettyCoolProgram/Tingen_development
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240701 =====
+// ================================================================ 240702 =====
 
 // u240627.0909_code
-// u240627.0909_documentation
+// u240702.1225_documentation
 
 /* -----------
  * PLEASE READ
@@ -38,11 +38,10 @@ using ScriptLinkStandard.Objects;
 
 namespace Tingen_development
 {
-    /// <summary>The entry class for Tingen.</summary>
+    /// <summary>Entry point for Tingen.</summary>
     /// <remarks>
     ///  <para>
-    ///   - This class is designed to be static, and <i>should not be modified</i>.<br/>
-    ///   - The heavy lifting is done in the <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#Outpost31">Outpost31</see> project.
+    ///   - This class should not be modified.<br/>
     ///  </para>
     /// </remarks>
     [WebService(Namespace = "http://tempuri.org/")]
@@ -50,27 +49,27 @@ namespace Tingen_development
     [System.ComponentModel.ToolboxItem(false)]
     public class Tingen_development : WebService
     {
-        /// <summary>Assembly name for log files.</summary>
+        /// <summary>Assembly name.</summary>
         /// <remarks>
         ///   <para>
-        ///    - Define the assembly name here so it can be used to write log files throughout the class.
+        ///    - The assembly name is defined here so it can be used to write log files throughout the class.
         ///   </para>
         /// </remarks>
         public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
 
-        /// <summary>The current version of Tingen.</summary>
+        /// <summary>Tingen current version.</summary>
         /// <remarks>
         ///   <para>
-        ///    - Both <see cref="GetVersion()"/> and <see cref="RunScript()"/> need the current version number.
+        ///    - The version number is defined here, since both <see cref="GetVersion()"/> and <see cref="RunScript()"/> use this.
         ///   </para>
         /// </remarks>
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-        /// <summary>Returns the current version of Tingen.</summary>
+        /// <summary>Get the current version of Tingen.</summary>
         /// <remarks>
         ///  <para>
-        ///   - Required by Avatar.<br/>
-        ///   - <i>Should not be modified</i>.
+        ///   - This method is required by Avatar.<br/>
+        ///   - This method should not be modified.<br/>
         ///  </para>
         /// </remarks>
         /// <returns>The current version of Tingen.</returns>
@@ -82,12 +81,11 @@ namespace Tingen_development
         /// <param name="sentScriptParameter">The <paramref name="Script Parameter"/> sent from Avatar.</param>
         /// <remarks>
         ///  <para>
-        ///   - Required by Avatar.<br/>
-        ///   - <i>Should not be modified</i><br/>
-        ///   - The majority of work is done in the <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#Outpost31">Outpost31</see> project.
+        ///   - This method is required by Avatar.<br/>
+        ///   - This method should not be modified.<br/>
         ///  </para>
         /// </remarks>
-        /// <returns>The finalized <paramref name="OptionObject"/> to myAvatar.</returns>
+        /// <returns>The finalized <b>OptionObject</b> to myAvatar.</returns>
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
@@ -95,6 +93,10 @@ namespace Tingen_development
 
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
 
+            /* The only difference between Tingen_development.cs and Tingen.cs is the AvatarSystemCode that is set here.
+             *  - Tingen_development.cs = "UAT".
+             *  - Tingen.cs = "LIVE".
+             */
             tnSession.AvData.AvatarSystemCode = "UAT";
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);

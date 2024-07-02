@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['label_0',['Label',['../class_tingen__development_1_1_documentation_testing_1_1_example_class.html#a54b8c0b0085ea64d628717eda51cc09e',1,'Tingen_development::DocumentationTesting::ExampleClass']]]
+  ['tingenversion_0',['TingenVersion',['../class_tingen__development_1_1_tingen__development.html#afd33480e0eedb9cdb78fb688c72d1659',1,'Tingen_development::Tingen_development']]]
 ];

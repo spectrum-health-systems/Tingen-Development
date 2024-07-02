@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['exampleclass_0',['ExampleClass',['../class_tingen__development_1_1_documentation_testing_1_1_example_class.html',1,'Tingen_development::DocumentationTesting']]]
+  ['features_0',['Features',['../md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_m6421e74621ae9e31a28f5af727779381.html#autotoc_md1',1,'Key Features'],['../md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_sa42cb2a8d4940385be30626fc23dbb95.html#autotoc_md7',1,'Key Features']]],
+  ['feedback_20contributing_1',['Feedback Contributing',['../md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_m6421e74621ae9e31a28f5af727779381.html#autotoc_md5',1,'Feedback &amp; Contributing'],['../md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_sa42cb2a8d4940385be30626fc23dbb95.html#autotoc_md12',1,'Feedback &amp; Contributing']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['features_0',['Features',['../md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_m6421e74621ae9e31a28f5af727779381.html#autotoc_md1',1,'Key Features'],['../md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_sa42cb2a8d4940385be30626fc23dbb95.html#autotoc_md7',1,'Key Features']]],
-  ['feedback_20contributing_1',['Feedback Contributing',['../md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_m6421e74621ae9e31a28f5af727779381.html#autotoc_md5',1,'Feedback &amp; Contributing'],['../md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_sa42cb2a8d4940385be30626fc23dbb95.html#autotoc_md12',1,'Feedback &amp; Contributing']]]
+  ['getversion_0',['GetVersion',['../class_tingen__development_1_1_tingen__development.html#aee6a88ab1a043b6f7d90cb8f9dc47d3b',1,'Tingen_development::Tingen_development']]]
 ];
