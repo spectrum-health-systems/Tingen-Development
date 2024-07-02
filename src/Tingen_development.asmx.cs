@@ -1,33 +1,13 @@
 ﻿// ================================================================ 24.7.0 =====
-// Tingen-development: The development version of Tingen
-// https://github.com/APrettyCoolProgram/Tingen_development
+// Tingen-Development: Tingen development version.
+// Repository: https://github.com/APrettyCoolProgram/Tingen-Development
+// Documentation: https://github.com/spectrum-health-systems/Tingen-Documentation
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240702 =====
 
 // u240627.0909_code
 // u240702.1225_documentation
-
-/* -----------
- * PLEASE READ
- * -----------
- *
- * Tingen_development.cs are the entry points for the development version of the Tingen web service.
- *
- * This class is pretty bare-bones because the heavy lifting is done in Outpost31, which is shared between the production and
- * development versions of Tingen.
- *
- * Tingen_development.cs should not be modified (so don't worry if the "// uYYMMDD.HHMM" comment up above is old). Any changes to the
- * Tingen web service should be made in Outpost31, generally in Outpost31.Core.TingenApp.Start() and Outpost31.Core.TingenApp.Stop().
- *
- * For stable releases of Tingen: https://github.com/APrettyCoolProgram/Tingen
- *
- * For production environments: https://github.com/spectrum-health-systems/Tingen-CommunityRelease
- *
- * For more information about Tingen: https://github.com/spectrum-health-systems/Tingen-Documentation
- *
- * For more information about web services and Avatar: https://github.com/myAvatar-Development-Community
- */
 
 using System.Reflection;
 using System.Web.Services;
@@ -71,7 +51,8 @@ namespace Tingen_development
 
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
 
-            /* The only difference between Tingen_development.cs and Tingen.cs is the AvatarSystemCode that is set here.
+            /* TODO: Put these in examples in the XML documentation
+             * The only difference between Tingen_development.cs and Tingen.cs is the AvatarSystemCode that is set here.
              *  - Tingen_development.cs = "UAT".
              *  - Tingen.cs = "LIVE".
              */
