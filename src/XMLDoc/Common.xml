@@ -1,0 +1,10 @@
+﻿<doc>
+    <sec name="common">
+        <AssemblyName>
+            <remarks>
+                <b>About this property</b><br/>
+                The assembly namer is defined here so it can be used to write log files throughout the class.
+            </remarks>
+        </AssemblyName>
+    </sec>
+</doc>

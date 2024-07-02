@@ -39,83 +39,31 @@ using ScriptLinkStandard.Objects;
 namespace Tingen_development
 {
     /// <summary>Entry point for Tingen.</summary>
-    /// <remarks>
-    ///  <para>
-    ///   This class:
-    ///   <list type="bullet">
-    ///    <item>Should not be modified</item>
-    ///    <item>Doesn't do much (the heavy lifting is done in <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#Outpost31">Outpost31</a>)</item>
-    ///   </list>
-    ///  </para>
-    ///  <para>
-    ///   Please see the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</a> for more information.
-    ///  </para>
-    /// </remarks>
+    /// <include file='XMLDoc/Tingen.xml' path='doc/sec[@name="tingen"]/Tingen/*'/>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     public class Tingen_development : WebService
     {
-        /// <summary>Assembly name.</summary>
-        /// <remarks>
-        ///   <para>
-        ///    The assembly name is defined here so it can be used to write log files throughout the class.
-        ///   </para>
-        /// </remarks>
+        /// <summary>Assembly name for logging purposes.</summary>
+        /// <include file='XMLDoc/Common.xml' path='doc/sec[@name="common"]/AssemblyName/*'/>
         public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
 
         /// <summary>Tingen current version.</summary>
-        /// <remarks>
-        ///   <para>
-        ///    The version number is defined here, since both <see cref="GetVersion()"/> and <see cref="RunScript()"/> use this.
-        ///   </para>
-        /// </remarks>
+        /// <include file='XMLDoc/Tingen.xml' path='doc/sec[@name="tingen"]/TingenVersion/*'/>
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         /// <summary>Get the current version of Tingen.</summary>
-        /// <remarks>
-        ///  <para>
-        ///   This method:
-        ///   <list type="bullet">
-        ///    <item>Is required by Avatar</item>
-        ///    <item>Should not be modified</item>
-        ///   </list>
-        ///  </para>
-        /// </remarks>
         /// <returns>The current version of Tingen.</returns>
+        /// <include file='XMLDoc/Tingen.xml' path='doc/sec[@name="tingen"]/GetVersion/*'/>
         [WebMethod]
         public string GetVersion() => $"VERSION {TingenVersion}";
 
         /// <summary>Start the Tingen web service</summary>
         /// <param name="sentOptionObject">The <paramref name="OptionObject"/> sent from Avatar.</param>
         /// <param name="sentScriptParameter">The <paramref name="Script Parameter"/> sent from Avatar.</param>
-        /// <remarks>
-        ///     <para>
-        ///         This method:
-        ///         <list type="bullet">
-        ///             <item>Is required by Avatar</item>
-        ///             <item>Should not be modified</item>
-        ///         </list>
-        ///     </para>
-        ///     <para>
-        ///         The only difference between Tingen_development.cs and Tingen.cs is the <b>AvatarSystemCode</b>:
-        ///         <list type="table">
-        ///             <listheader>
-        ///                 <term>Setting</term>
-        ///                 <description>Description</description>
-        ///             </listheader>
-        ///             <item>
-        ///                 <term>UAT</term>
-        ///                 <description>The <b>AvatarSystemCode</b> for the UAT environment</description>
-        ///             </item>
-        ///             <item>
-        ///                 <term>LIVE</term>
-        ///                 <description>The <b>AvatarSystemCode</b> for the LIVE environment</description>
-        ///             </item>
-        ///         </list>
-        ///     </para>
-        /// </remarks>
-        /// <returns>The finalized <b>OptionObject</b> to myAvatar.</returns>
+        /// <returns>The finalized OptionObject to myAvatar.</returns>
+        /// <include file='XMLDoc/Tingen.xml' path='doc/sec[@name="tingen"]/RunScript/*'/>
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
