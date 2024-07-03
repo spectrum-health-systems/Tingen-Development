@@ -23,103 +23,89 @@
             <summary>Avatar-specific data and logic.</summary>
             <remarks>
                 <para>
-                    <b>About this class</b><br/>
-                    This class should only contain the following Avatar-specific data:<br/>
+                    All of the imortant data sent from Avatar is stored here, and should only contain the following Avatar-specific data:<br />
                     <list type="bullet">
-                        <item>The <paramref name="AvatarSystemCode"/></item>
-                        <item>The <paramref name="SentScriptParameter"/></item>
-                        <item>The <paramref name="SentOptionObject"/></item>
-                        <item>The <paramref name="WorkOptionObject"/></item>
-                        <item>The <paramref name="ReturnOptionObject"/></item>
+                        <item>The <paramref name="AvatarSystemCode" /></item>
+                        <item>The <paramref name="SentScriptParameter" /></item>
+                        <item>The <paramref name="SentOptionObject" /> </item>
+                        <item>The <paramref name="WorkOptionObject" /></item>
+                        <item>The <paramref name="ReturnOptionObject" /></item>
                     </list>
-                </para>
-                <para>
-                    <b>More information</b><br/>
-                    <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</a><br/>
-                    <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-paramater">Script Parameter</a><br/>
-                    <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Codes</a>
-                </para>
-                <para>
-                    <b>Also...</b><br/>
-                    Please see the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</a> for more information.
+                    <br />
+                    When Tingen starts, this object is created and added to the session object.
+                    <br />
+                    Please see the <see href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</see> for more information.
                 </para>
             </remarks>
         </member>
-        <member name="P:Outpost31.Core.Avatar.AvatarData.AvatarSystemCode">
-            <summary>The <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Code</a> that Tingen will be using.</summary>
+        <member name="P:Outpost31.Core.Avatar.AvatarData.SystemCode">
+            <summary>The System Code that Tingen will use.</summary>
+            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Codes</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter">
-            <summary>The <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-parameter">Script Parameter</a> sent from AvatarNX.</summary>
+            <summary>The Script Parameter sent from Avatar.</summary>
+            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-parameter">Script Parameter</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject">
-            <summary>The original <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObject</a> sent from AvatarNX.</summary>
+            <summary>The original OptionObject sent from Avatar.</summary>
+            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject">
-            <summary>The <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObject</a> that may be modified during the Tingen session.</summary>
+            <summary>TheOptionObject that may be modified during the Tingen session.</summary>
+            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject">
-            <summary>The <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObject</a> that will be returned to AvatarNX.</summary>
+            <summary>TheOptionObject that will be returned to Avatar.</summary>
+            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
         </member>
         <member name="M:Outpost31.Core.Avatar.AvatarData.BuildObject(ScriptLinkStandard.Objects.OptionObject2015,System.String)">
             <summary>Builds a new AvatarData object.</summary>
-            <param name="sentOptionObject">The OptionObject sent from AvatarNX.</param>
-            <param name="sentScriptParameter">The ScriptParameter sent from AvatarNX.</param>
-            <remarks>
-                <para>
-                    <b>About this method</b><br/>
-                    - The <paramref name="sentScriptParameter"/> is converted to lowercase so it is easier to compare against.<br/>
-                    - The <paramref name="workOptionObject"/> is cloned from the  <paramref name="sentOptionObject"/> so it can be modified without affecting the original data.<br/>
-                    - The <paramref name="returnOptionObject"/> is initally set to "null", and will be formatted/finalized prior to returning to AvatarNX.
-                </para>
-                <para>
-                    <b>More information</b><br/>
-                    <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</a><br/>
-                    <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-paramater">Script Parameter</a><br/>
-                    <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Codes</a>
-                </para>
-            </remarks>
+            <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
+            <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
             <returns>The necessary AvatarNX data.</returns>
+            <remarks>
+                    <para>
+                        The <paramref name="sentScriptParameter" /> is converted to lowercase so it is easier to compare against.<br />
+                        <br />
+                        The <paramref name="workOptionObject" /> is cloned from the  <paramref name="sentOptionObject" /> so it can be modified without affecting the original data.<br />
+                        <br />
+                        The <paramref name="returnOptionObject" /> is initally set to <c>null</c>, and will be formatted/finalized prior to returning to Avatar.
+                    </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-paramater">Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Codes</seealso>
         </member>
         <member name="T:Outpost31.Core.Avatar.ReturnObject">
             <summary>Finalizes an OptionObject so it can be returned to AvatarNX.</summary>
             <remarks>
                 <para>
-                    <b>About this class</b><br/>
-                    Before returning an OptionObject to AvatarNX, it must be finalized. That's what this class does. It finalizes the <br/>
-                    OptionObject so it can be returned to AvatarNX.
-                </para>
-                <para>
-                    <b>More information</b><br/>
-                    <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</a><br/>
-                </para>
-                <para>
-                    <b>Also...</b><br/>
+                    Before returning an OptionObject to Avatar, it must be finalized.<br />
+                    <br />
+                    That's what this class does. It finalizes the OptionObject so it can be returned to Avatar.
+                    <br />
                     Please see the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</a> for more information.
                 </para>
-            </remarks>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.ReturnObject.AssemblyName">
-            <summary>Assembly name for log files.</summary>
+            <summary>Assembly name for logging purposes.</summary>
             <remarks>
-                <b>About this property</b><br/>
-                The assembly name is defined here so it can be used to write log files throughout the class.
+                <para>
+                    The assembly name is defined here so it can be used to write log files throughout the class.
+                </para>
             </remarks>
         </member>
         <member name="M:Outpost31.Core.Avatar.ReturnObject.Finalize(Outpost31.Core.Session.TingenSession,System.String,System.String)">
-            <summary>Finalize an <paramref name="OptionObject"/> to be returned to AvatarNX.</summary>
-            <param name="sentOptionObject">The OptionObject sent from AvatarNX.</param>
-            <param name="sentScriptParameter">The ScriptParameter sent from AvatarNX.</param>
+            <summary>Finalize an OptionObject so it can be returned to Avatar.</summary>
+            <param name="tnSession">The Tingen session object.</param>
+            <param name="errorCode">The OptionObject error code.</param>
+            <param name="errorMessage">The OptionObject error message.</param>
             <remarks>
                 <para>
-                    <b>About this method</b><br/>
-                    The finalization process is a two part process:
+                    Before returning an OptionObject to Avatar, it must be finalized.<br />
+                    <br />
+                    Finalizing an OptionObject is a two part process:
                     <list type="number">
-                        <item>
-                            <term>Assign an error code to the returnOptionObject</term>
-                        </item>
-                        <item>
-                            <term>Verify the returnOptionObject cointains all required data</term>
-                        </item>
+                        <item>Assign an error code to the returnOptionObject</item>
+                        <item>Verify the returnOptionObject contains all required data</item>
                     </list>
                     And here is the list of valid error codes:
                     <list type="table">
@@ -157,18 +143,7 @@
                         </item>
                     </list>
                 </para>
-                <example>
-                    To return a formatted returnOptionObject:<br/>
-                    <code>
-                        Core.Avatar.FormatReturnObject.AsErrorCode(tnSession, errorCode, errorMessage);
-                    </code>
-                </example>
-                <para>
-                    <b>More information</b><br/>
-                    <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</a><br/>
-                </para>
-            </remarks>
-            <returns>The necessary AvatarNX data.</returns>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.SystemCodePaths">
             <summary>System Code paths for Tingen.</summary>
@@ -637,7 +612,6 @@
             <summary>The Tingen configuration settings.</summary>
             <remarks>
                 <para>
-                    <b>About this class</b><br/>
                     This class initializes the Tingen configuration settings, which:
                     <list type="bullet">
                         <item>Are specific to Tingen core functionality (other components/modules have their own configuration files)</item>
@@ -645,16 +619,10 @@
                         <item>Can be modified by the user to suit their environment</item>
                         <item>Are stored in "TingenData\%SystemCode%\Config\Tingen.config"</item>
                     </list>
-                </para>
-                <para>
-                    <b>More information</b><br/>
-                    <a href="http://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-configuration">Configuring Tingen</a>
-                </para>
-                <para>
-                    <b>Also...</b><br/>
+                    <br />
                     Please see the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</a> for more information.
                 </para>
-            </remarks>
+            </remarks><seealso href="http://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-configuration">Configuring Tingen</seealso>
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.TingenMode">
             <summary>Determines the Tingen Mode for the session.</summary>
@@ -991,6 +959,9 @@
         <member name="M:Outpost31.Module.OpenIncident.Verify.OriginalAuthorIsSubmitting(Outpost31.Core.Session.TingenSession)">
             <summary>Verify the Avatar user is the same as the original author.</summary>
             <param name="tnSession"></param>
+        </member>
+        <member name="T:Outpost31.WelcomeToOutpost31">
+            <summary>Just a welcome message.</summary>
         </member>
     </members>
 </doc>

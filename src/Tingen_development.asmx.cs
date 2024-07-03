@@ -21,23 +21,23 @@ namespace Tingen_development
     /// <summary>
     /// Entry point for Tingen.
     /// </summary>
-    /// <include file='XMLDoc/Tingen.xml' path='Doc/Sec[@name="tingen"]/Tingen/*'/>
+    /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="tingen"]/Tingen/*'/>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     public class Tingen_development : WebService
     {
         /// <summary>Assembly name for logging purposes.</summary>
-        /// <include file='XMLDoc/Tingen.xml' path='Doc/Sec[@name="tingen"]/AssemblyName/*'/>
+        /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="tingen"]/AssemblyName/*'/>
         public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
 
         /// <summary>Tingen current version.</summary>
-        /// <include file='XMLDoc/Tingen.xml' path='Doc/Sec[@name="tingen"]/TingenVersion/*'/>
+        /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="tingen"]/TingenVersion/*'/>
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         /// <summary>Get the current version of Tingen.</summary>
         /// <returns>The current version of Tingen.</returns>
-        /// <include file='XMLDoc/Tingen.xml' path='Doc/Sec[@name="tingen"]/GetVersion/*'/>
+        /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="tingen"]/GetVersion/*'/>
         [WebMethod]
         public string GetVersion() => $"VERSION {TingenVersion}";
 
@@ -45,7 +45,7 @@ namespace Tingen_development
         /// <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
         /// <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
-        /// <include file='XMLDoc/Tingen.xml' path='Doc/Sec[@name="tingen"]/RunScript/*'/>
+        /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="tingen"]/RunScript/*'/>
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
@@ -53,7 +53,7 @@ namespace Tingen_development
              */
 
             TingenSession tnSession           = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
-            tnSession.AvData.AvatarSystemCode = "UAT";
+            tnSession.AvData.SystemCode = "UAT";
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
 
