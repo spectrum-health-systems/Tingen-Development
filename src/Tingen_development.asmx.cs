@@ -52,14 +52,12 @@ namespace Tingen_development
             /* Trace logs can't go here - the infrastructure isn't setup yet.
              */
 
-            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
-
+            TingenSession tnSession           = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
             tnSession.AvData.AvatarSystemCode = "UAT";
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
 
             TingenApp.Start(tnSession);
-
             TingenApp.Stop(tnSession);
 
             return tnSession.AvData.ReturnOptionObject;
