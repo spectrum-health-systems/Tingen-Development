@@ -10,9 +10,9 @@
 
 # About Tingen-Development
 
-This repository is used for active Tingen **development**.
+This repository is used for active Tingen ***development***.
 
-## You (probably) aren't interested in this repository
+## You (probably) aren't interested in this repository...
 
 Most likely this repository isn't going to be much use to you because:
 
@@ -22,7 +22,7 @@ Most likely this repository isn't going to be much use to you because:
 
 This repository is public because I want everything Tingen-related to be transparent and reviewable.
 
-## You might be interested in another Tingen repository
+## ...but you might be interested in one of these!
 
 Check out:
 
