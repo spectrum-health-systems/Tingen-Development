@@ -6,8 +6,8 @@
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240703 =====
 
-// u240627.0909_code
-// u240703.0804_documentation
+// u240703.0927_code
+// u240703.0927_documentation
 
 using System.Reflection;
 using System.Web.Services;
@@ -18,28 +18,38 @@ using ScriptLinkStandard.Objects;
 
 namespace Tingen_development
 {
-    /// <summary>Entry point for Tingen.</summary>
+    /// <summary>
+    /// Entry point for Tingen.
+    /// </summary>
     /// <include file='XMLDoc/Tingen.xml' path='Doc/Sec[@name="tingen"]/Tingen/*'/>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     public class Tingen_development : WebService
     {
-        /// <summary>Assembly name for logging purposes.</summary>
+        /// <summary>
+        /// Assembly name for logging purposes.
+        /// </summary>
         /// <include file='XMLDoc/Tingen.xml' path='Doc/Sec[@name="tingen"]/AssemblyName/*'/>
         public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
 
-        /// <summary>Tingen current version.</summary>
+        /// <summary>
+        /// Tingen current version.
+        /// </summary>
         /// <include file='XMLDoc/Tingen.xml' path='Doc/Sec[@name="tingen"]/TingenVersion/*'/>
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-        /// <summary>Get the current version of Tingen.</summary>
+        /// <summary>
+        /// Get the current version of Tingen.
+        /// </summary>
         /// <returns>The current version of Tingen.</returns>
         /// <include file='XMLDoc/Tingen.xml' path='Doc/Sec[@name="tingen"]/GetVersion/*'/>
         [WebMethod]
         public string GetVersion() => $"VERSION {TingenVersion}";
 
-        /// <summary>Start the Tingen web service</summary>
+        /// <summary>
+        /// Start the Tingen web service.
+        /// </summary>
         /// <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
         /// <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
@@ -47,15 +57,11 @@ namespace Tingen_development
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            /* Trace logs can't go here - the infrastrucure isn't setup yet. */
+            /* Trace logs can't go here - the infrastructure isn't setup yet.
+             */
 
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
 
-            /* TODO: Put these in examples in the XML documentation
-             * The only difference between Tingen_development.cs and Tingen.cs is the AvatarSystemCode that is set here.
-             *  - Tingen_development.cs = "UAT".
-             *  - Tingen.cs = "LIVE".
-             */
             tnSession.AvData.AvatarSystemCode = "UAT";
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
