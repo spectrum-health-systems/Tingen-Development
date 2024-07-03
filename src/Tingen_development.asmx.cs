@@ -6,8 +6,8 @@
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240703 =====
 
-// u240703.0927_code
-// u240703.0927_documentation
+// u240703.1000_code
+// u240703.1000_documentation
 
 using System.Reflection;
 using System.Web.Services;
@@ -27,29 +27,21 @@ namespace Tingen_development
     [System.ComponentModel.ToolboxItem(false)]
     public class Tingen_development : WebService
     {
-        /// <summary>
-        /// Assembly name for logging purposes.
-        /// </summary>
+        /// <summary>Assembly name for logging purposes.</summary>
         /// <include file='XMLDoc/Tingen.xml' path='Doc/Sec[@name="tingen"]/AssemblyName/*'/>
         public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
 
-        /// <summary>
-        /// Tingen current version.
-        /// </summary>
+        /// <summary>Tingen current version.</summary>
         /// <include file='XMLDoc/Tingen.xml' path='Doc/Sec[@name="tingen"]/TingenVersion/*'/>
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-        /// <summary>
-        /// Get the current version of Tingen.
-        /// </summary>
+        /// <summary>Get the current version of Tingen.</summary>
         /// <returns>The current version of Tingen.</returns>
         /// <include file='XMLDoc/Tingen.xml' path='Doc/Sec[@name="tingen"]/GetVersion/*'/>
         [WebMethod]
         public string GetVersion() => $"VERSION {TingenVersion}";
 
-        /// <summary>
-        /// Start the Tingen web service.
-        /// </summary>
+        /// <summary>Start the Tingen web service.</summary>
         /// <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
         /// <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
