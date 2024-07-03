@@ -32,7 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>XMLDoc\generatedXML\Tingen_development.xml</DocumentationFile>
+    <DocumentationFile>XMLDoc\generatedXML\Tingen.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,9 +68,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="XMLDoc\Common.xml" />
     <Content Include="Tingen_development.asmx" />
-    <Content Include="XMLDoc\Tingen.xml" />
+    <Content Include="XMLDoc\generatedXML\Tingen.xml" />
+    <Content Include="XMLDoc\Tingen_doc.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +88,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="XMLDoc\README.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Outpost31\src\Outpost31.csproj">
