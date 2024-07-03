@@ -25,20 +25,20 @@
 var NAVTREE =
 [
   [ "Tingen_development", "index.html", [
-    [ "About", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_m6421e74621ae9e31a28f5af727779381.html", [
-      [ "Key Features", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_m6421e74621ae9e31a28f5af727779381.html#autotoc_md1", null ],
-      [ "How to Use", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_m6421e74621ae9e31a28f5af727779381.html#autotoc_md2", null ],
-      [ "Main Types", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_m6421e74621ae9e31a28f5af727779381.html#autotoc_md3", null ],
-      [ "Additional Documentation", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_m6421e74621ae9e31a28f5af727779381.html#autotoc_md4", null ],
-      [ "Feedback & Contributing", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_m6421e74621ae9e31a28f5af727779381.html#autotoc_md5", null ]
+    [ "About", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pace9bd9735ef0febdb40b32d92ccd6e4ec.html", [
+      [ "Key Features", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pace9bd9735ef0febdb40b32d92ccd6e4ec.html#autotoc_md1", null ],
+      [ "How to Use", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pace9bd9735ef0febdb40b32d92ccd6e4ec.html#autotoc_md2", null ],
+      [ "Main Types", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pace9bd9735ef0febdb40b32d92ccd6e4ec.html#autotoc_md3", null ],
+      [ "Additional Documentation", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pace9bd9735ef0febdb40b32d92ccd6e4ec.html#autotoc_md4", null ],
+      [ "Feedback & Contributing", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pace9bd9735ef0febdb40b32d92ccd6e4ec.html#autotoc_md5", null ]
     ] ],
-    [ "About", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_sa42cb2a8d4940385be30626fc23dbb95.html", [
-      [ "Key Features", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_sa42cb2a8d4940385be30626fc23dbb95.html#autotoc_md7", null ],
-      [ "How to Use", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_sa42cb2a8d4940385be30626fc23dbb95.html#autotoc_md8", null ],
-      [ "Main Types", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_sa42cb2a8d4940385be30626fc23dbb95.html#autotoc_md9", null ],
-      [ "Additional Documentation", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_sa42cb2a8d4940385be30626fc23dbb95.html#autotoc_md10", null ],
-      [ "Related Packages", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_sa42cb2a8d4940385be30626fc23dbb95.html#autotoc_md11", null ],
-      [ "Feedback & Contributing", "md__c_1_2_i_t_2_git_hub_2_s_h_s_2_public_01repositories_2_tingen-_development_2src_2packages_2_sa42cb2a8d4940385be30626fc23dbb95.html#autotoc_md12", null ]
+    [ "About", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pacc6566be995083768abefcc206c827611.html", [
+      [ "Key Features", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pacc6566be995083768abefcc206c827611.html#autotoc_md7", null ],
+      [ "How to Use", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pacc6566be995083768abefcc206c827611.html#autotoc_md8", null ],
+      [ "Main Types", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pacc6566be995083768abefcc206c827611.html#autotoc_md9", null ],
+      [ "Additional Documentation", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pacc6566be995083768abefcc206c827611.html#autotoc_md10", null ],
+      [ "Related Packages", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pacc6566be995083768abefcc206c827611.html#autotoc_md11", null ],
+      [ "Feedback & Contributing", "md__c_1_2_users_2cbanw_2_git_hub_2_spectrum_01_health_01_systems_2_tingen-_development_2src_2pacc6566be995083768abefcc206c827611.html#autotoc_md12", null ]
     ] ],
     [ "Packages", "namespaces.html", [
       [ "Package List", "namespaces.html", "namespaces_dup" ]
@@ -46,12 +46,7 @@ var NAVTREE =
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
-      [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
-        [ "Properties", "functions_prop.html", null ]
-      ] ]
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ]
     ] ]
   ] ]
 ];
