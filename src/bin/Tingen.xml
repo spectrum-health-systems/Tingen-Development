@@ -23,6 +23,7 @@
                     This class does very little work itself (the heavy lifting is done in <see href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#Outpost31">Outpost31</see>)
                     and should not be modified.<br />
                     <br />
+                    <br />
                     Please see the <see href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</see> for more information.
                 </para>
             </remarks>

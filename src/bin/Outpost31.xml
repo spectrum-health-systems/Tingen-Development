@@ -34,6 +34,7 @@
                     <br />
                     When Tingen starts, this object is created and added to the session object.
                     <br />
+                    <br />
                     Please see the <see href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</see> for more information.
                 </para>
             </remarks>
