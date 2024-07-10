@@ -41,11 +41,11 @@
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SystemCode">
             <summary>The System Code that Tingen will use.</summary>
-            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Codes</seealso>
+            <value>An Avatar System Code (e.g.: "LIVE", "UAT", "SBOX")</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Codes</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter">
             <summary>The Script Parameter sent from Avatar.</summary>
-            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-parameter">Script Parameter</seealso>
+            <value>The Script Parameter sent from Avatar (e.g.: "Admin-Mode-Status-Update")</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-parameter">Script Parameter</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject">
             <summary>The original OptionObject sent from Avatar.</summary>
@@ -63,12 +63,12 @@
             <summary>Builds a new AvatarData object.</summary>
             <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
             <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
-            <returns>The necessary AvatarNX data.</returns>
+            <returns>The necessary Avatar data.</returns>
             <remarks>
                     <para>
                         The <paramref name="sentScriptParameter" /> is converted to lowercase so it is easier to compare against.<br />
                         <br />
-                        The <paramref name="workOptionObject" /> is cloned from the  <paramref name="sentOptionObject" /> so it can be modified without affecting the original data.<br />
+                        The <paramref name="workOptionObject" /> is cloned from the <paramref name="sentOptionObject" /> so it can be modified without affecting the original data.<br />
                         <br />
                         The <paramref name="returnOptionObject" /> is initally set to <c>null</c>, and will be formatted/finalized prior to returning to Avatar.
                     </para>
@@ -81,6 +81,7 @@
                     Before returning an OptionObject to Avatar, it must be finalized.<br />
                     <br />
                     That's what this class does. It finalizes the OptionObject so it can be returned to Avatar.
+                    <br />
                     <br />
                     Please see the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</a> for more information.
                 </para>
@@ -144,7 +145,7 @@
                         </item>
                     </list>
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#optionobject-error-codes">OptionObject error codes</seealso>
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.SystemCodePaths">
             <summary>System Code paths for Tingen.</summary>
@@ -629,10 +630,7 @@
             <summary>Determines the Tingen Mode for the session.</summary>
             <remarks>
                 <para>
-                    <b>About this property</b><br/>
-                    - When enabled, the Tingen web service will do work and (potentially) return a modified OptionObject.<br/>
-                    - When disabled,the Tingen web service will <i>not</i> do work and will return an <i>unmodified</i> OptionObject.<br/>
-                    - These are the valid Tingen modes:
+                    These are the valid Tingen modes:
                     <list type="table">
                         <listheader>
                             <term>Mode</term>
@@ -647,21 +645,15 @@
                             <description>The Tingen web service is disabled</description>
                         </item>
                     </list>
+                    When <b>enabled</b>, the Tingen web service will do work and (potentially) return a <i>modified</i> OptionObject.<br />
+                    When <b>disabled</b>,the Tingen web service will <i>not</i> do work and will return an <i>unmodified</i> OptionObject.
                 </para>
-                <para>
-                    <b>More information</b><br/>
-                    <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-modes">Tingen Modes</a>
-                </para>
-            </remarks>
+            </remarks><value>Either "enabled" or "disabled"</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-modes">Tingen modes</seealso>
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.ModOpenIncidentMode">
             <summary>Determines if the Open Incident Module functionality is enabled.</summary>
             <remarks>
                 <para>
-                    <b>About this property</b><br/>
-                    - When enabled, the Open Incident Module will do work and (potentially) return a modified OptionObject.<br/>
-                    - When disabled,the Open Incident Module will <i>not</i> do work and will return an <i>unmodified</i> OptionObject.<br/>
-                    - These are the valid Open Incident Module modes:
                     <list type="table">
                         <listheader>
                             <term>Mode</term>
@@ -676,25 +668,48 @@
                             <description>The Open Incident Module is disabled</description>
                         </item>
                     </list>
+                    When <b>enabled</b>, the Open Incident Module will do work and (potentially) return a <i>modified</i> OptionObject.<br />
+                    When <b>disabled</b>,the Open Incident Module will <i>not</i> do work and will return an <i>unmodified</i> OptionObject.<br />
                 </para>
-                <para>
-                    <b>More information</b><br/>
-                    <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#open-incident-module">Open Incident Module</a>
-                </para>
-            </remarks>
+            </remarks><value>Either "enabled" or "disabled"</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#open-incident-module">Open Incident Module</seealso>
         </member>
-        <member name="P:Outpost31.Core.Configuration.ConfigSettings.NtstWebServices">
+        <member name="P:Outpost31.Core.Configuration.ConfigSettings.NtstWebServicesMode">
             <summary>Determines if the Netmart web services functionality is enabled.</summary>
             <remarks>
                 <para>
-                    <b>About this property</b><br/>
-                    This functionality is not currently implemented.
+                    Eventually Tingen may use Netsmart web services.<br />
+                    This functionality is not implemented yet.
                 </para>
-            </remarks>
+            </remarks><value>Either "enabled" or "disabled"</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#netsmart-web-services">Netsmart web services</seealso>
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.TraceLevel">
-            <summary>Determines the session <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#trace-logs">Trace Log level</a>.</summary>
-            <value>0 (default)</value>
+            <summary>Determines the session Trace Log level.</summary>
+            <remarks>
+                <para>
+                    The trace level determines the amount of information that is logged.
+                    <list type="table">
+                        <listheader>
+                            <term>Level</term>
+                            <description>Type of log written</description>
+                        </listheader>
+                        <item>
+                            <term>0</term>
+                            <description>Trace logs are disabled.</description>
+                        </item>
+                        <item>
+                            <term>1</term>
+                            <description>Method trace logs are created.</description>
+                        </item>
+                        <item>
+                            <term>2...9</term>
+                            <description>Statement/loop trace logs are written.</description>
+                        </item>
+                    </list>
+                    Trace log levels are cumulative, meaning that a level 3 trace log will also write level 2 and level 1 trace logs.<br />
+                    <br />
+                    Trace logs are fairly complex, so please see the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#logging">logging documentation</a> for more information.
+                </para>
+            </remarks><value>An integer between 0 and 9 (default = 0)</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#trace-logs">Trace logs</seealso> 
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.TraceDelay">
             <summary>Determines the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#trace-logs">Trace Log delay</a>.</summary>
