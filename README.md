@@ -36,4 +36,3 @@ There are three types of branches in this repository:
   The majority of Tingen development is done in this branch.
 
 * Tingen_development archive snapshots.
-* 
