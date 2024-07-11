@@ -36,13 +36,4 @@ There are three types of branches in this repository:
   The majority of Tingen development is done in this branch.
 
 * Tingen_development archive snapshots.
-
-
-## ...but you might be interested in one of these!
-
-We have:
-
-* The [stable release](https://github.com/spectrum-health-systems/Tingen) of Tingen
-* The Community Release of Tingen (coming soon) <!--[the Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease). -->
-* The Tingen [documentation](https://github.com/spectrum-health-systems/Tingen-Documentation)
-
+* 
