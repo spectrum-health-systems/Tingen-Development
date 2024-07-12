@@ -15,7 +15,7 @@
 
 </div>
 
-> HI THERE  
+> HI THERE!  
 > You're probably looking for the [Tingen](https://github.com/spectrum-health-systems/Tingen) repository, which ties everything together nicely.
 
 # About Tingen_development
