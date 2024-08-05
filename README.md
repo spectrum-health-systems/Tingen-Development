@@ -1,22 +1,45 @@
-<!-- u240529 -->
+<!-- u240711 -->
 
 <div align="center">
 
-  ![logo](./.github/images/logos/TingenDevelopment_README.png)
+  ![logo](/.github/images/logos/TingenDevelopment_README.png)
+
+  ![DevelopmentBranchNotifiction](https://img.shields.io/badge/DEVELOPMENT_RELEASE-E10600?style=for-the-badge)
+
+  ![DevelopmentStatus](https://img.shields.io/badge/status-active-lightgreen?style=flat-square)&nbsp;&nbsp;
+  ![ReleaseVersion](https://img.shields.io/badge/release-24.7-red?style=flat-square)&nbsp;&nbsp;
+  ![License](https://img.shields.io/github/license/spectrum-health-systems/Outpost31?style=flat-square)&nbsp;&nbsp;
+  ![DotNet](https://img.shields.io/badge/.net-Framework_4.8-blue?style=flat-square)&nbsp;&nbsp;
+  ![Platform](https://img.shields.io/badge/platform-Windows-blue?style=flat-square)&nbsp;&nbsp;
+
 
 </div>
 
-# About Tingen Development
+> HI THERE!  
+> You're probably looking for the [Tingen](https://github.com/spectrum-health-systems/Tingen) repository, which ties everything together nicely.
 
-Tingen Development is the development version of the Tingen web service
+# About Tingen_development
 
-## Repository branches
+Tingen_development is where development for the [Tingen web service](https://github.com/spectrum-health-systems/Tingen) takes place.
 
-* [main](https://github.com/spectrum-health-systems/Tingen_development/tree/main)
-  The stable branch of Tingen
+## About this repository
 
-* [development](https://github.com/spectrum-health-systems/Tingen_development/tree/development)
-  The current development branch of Tingen
+This repository is used for Tingen ***active development***, and most likely this isn't going to be much use because:
 
-* [24.5_development](https://github.com/spectrum-health-systems/Tingen_development/tree/24.5_development)
-* A snapshot of the current development branch of Tingen
+* It's ***the development version*** of Tingen
+* It's ***not intended*** to be used in production environments
+* It's most likely filled with ***bad/ugly/dumb placeholder code***
+
+This repository is public because I think it's important to make the source code available so everyone can poke through it, but it's not intended to be used on it's own.
+
+# Repository branches
+
+There are three types of branches in this repository:
+
+* [main](https://github.com/spectrum-health-systems/Tingen_development/tree/main)  
+  This is about as "stable" as Tingen_development is going to get. Even the `main` branch of Tingen_development is considered a development version, so it may contain broken/incomplete functionality!
+  
+* [development](https://github.com/spectrum-health-systems/Tingen_development/tree/development)  
+  The majority of Tingen development is done in this branch.
+
+* Tingen_development archive snapshots.

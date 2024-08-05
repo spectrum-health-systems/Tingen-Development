@@ -22,181 +22,130 @@
         <member name="T:Outpost31.Core.Avatar.AvatarData">
             <summary>Avatar-specific data and logic.</summary>
             <remarks>
-             <para>
-              This class should only contain the following Avatar-specific data:<br/>
-              <list type="bullet">
-               <item>The <paramref name="AvatarSystemCode"/></item>
-               <item>The <paramref name="SentScriptParameter"/></item>
-               <item>The <paramref name="SentOptionObject"/></item>
-               <item>The <paramref name="WorkOptionObject"/></item>
-               <item>The <paramref name="ReturnOptionObject"/></item>
-              </list>
-             </para>
-             <para>
-              - This object is added to the Tingen Session object when Tingen starts.<br/>
-             </para>
+                <para>
+                    All of the imortant data sent from Avatar is stored here, and should only contain the following Avatar-specific data:<br />
+                    <list type="bullet">
+                        <item>The <paramref name="AvatarSystemCode" /></item>
+                        <item>The <paramref name="SentScriptParameter" /></item>
+                        <item>The <paramref name="SentOptionObject" /> </item>
+                        <item>The <paramref name="WorkOptionObject" /></item>
+                        <item>The <paramref name="ReturnOptionObject" /></item>
+                    </list>
+                    <br />
+                    When Tingen starts, this object is created and added to the session object.
+                    <br />
+                    <br />
+                    Please see the <see href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</see> for more information.
+                </para>
             </remarks>
         </member>
-        <member name="P:Outpost31.Core.Avatar.AvatarData.AvatarSystemCode">
-            <summary>The <b>Avatar System Code</b> that Tingen will be using.</summary>
-            <remarks>
-             <para>
-              Valid Avatar System Codes:
-              <list type="table">
-               <item>
-                <term>UAT</term>
-                <description>Used for the <i>development</i> version of Tingen.</description>
-               </item>
-               <item>
-                <term>LIVE</term>
-                <description>Used for the <i>production</i> version of Tingen.</description>
-               </item>
-              </list>
-               - More information about Avatar System Codes <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">here</see>.
-             </para>
-            </remarks>
+        <member name="P:Outpost31.Core.Avatar.AvatarData.SystemCode">
+            <summary>The System Code that Tingen will use.</summary>
+            <value>An Avatar System Code (e.g.: "LIVE", "UAT", "SBOX")</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Codes</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter">
-            <summary>The <b>Script Parameter</b> sent from Avatar.</summary>
-            <remarks>
-             <para>
-              The Script Parameter is a "-" delimited string with the following compoents:
-              <list type="table">
-               <item>
-                <term>Module</term>
-                <description>The Tingen <i>Module</i> that will be doing the session work (ex: "Admin").</description>
-               </item>
-               <item>
-                <term>Command</term>
-                <description>The Tingen <i>Command</i> request (ex: "All").</description>
-               </item>
-               <item>
-                <term>Action</term>
-                <description>The Tingen <i>Action</i> request (ex: "Status").</description>
-               </item>
-               <item>
-                <term>Option</term>
-                <description>The optional <i>Action Option</i> (ex: "Update").</description>
-               </item>
-              </list>
-              - More information about the Avatar Script Parameter <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-parameter">here</see>.
-             </para>
-            </remarks>
-              <example>
-               The following Script Parameter will update all status files:
-               <code>
-                 Admin-All-Status-Update
-               </code>
-              </example>
+            <summary>The Script Parameter sent from Avatar.</summary>
+            <value>The Script Parameter sent from Avatar (e.g.: "Admin-Mode-Status-Update")</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-parameter">Script Parameter</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject">
-            <summary>The original <b>OptionObject</b> sent from Avatar.</summary>
-            <remarks>
-             <para>
-              - <i>The <paramref name="SentOptionObject"/> should not be modified</i>.<br/>
-              - All work should be done with the <paramref name="WorkOptionObject"/>.<br/>
-              - More information about OptionObjects <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">here</see>.
-             </para>
-            </remarks>
+            <summary>The original OptionObject sent from Avatar.</summary>
+            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject">
-            <summary>The <b>OptionObject</b> that may be modified during the session.</summary>
-            <remarks>
-             <para>
-              - All work should be done with the <paramref name="WorkOptionObject"/>.<br/>
-              - When a Tingen session is initialized, the <paramref name="WorkOptionObject"/> is cloned from the <paramref name="SentOptionObject"/>.<br/>
-              - The <paramref name="WorkOptionObject"/> <i>is not</i> formatted properly for returning to Avatar.<br/>
-              - More information about OptionObjects <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">here</see>.
-             </para>
-            </remarks>
+            <summary>TheOptionObject that may be modified during the Tingen session.</summary>
+            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject">
-            <summary>The <b>OptionObject</b> that will be returned to Avatar.</summary>
-            <remarks>
-             <para>
-              - The  <paramref name="ReturnOptionObject"/> must be formatted properly to be returned to Avatar.<br/>
-              - More information about OptionObjects <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">here</see>.  
-             </para>
-            </remarks>
+            <summary>TheOptionObject that will be returned to Avatar.</summary>
+            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
         </member>
         <member name="M:Outpost31.Core.Avatar.AvatarData.BuildObject(ScriptLinkStandard.Objects.OptionObject2015,System.String)">
-            <summary>Builds a new <b>AvatarData</b> object.</summary>
+            <summary>Builds a new AvatarData object.</summary>
             <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
             <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
-            <remarks>
-             <para>
-              - The <paramref name="sentScriptParameter"/> is converted to lowercase so it is easier to compare against.<br/>
-              - The <paramref name="workOptionObject"/> is cloned from the  <paramref name="sentOptionObject"/> so it can be modified without affecting the original data.<br/>
-              - The <paramref name="returnOptionObject"/> is initally set to "null", and will be formatted/finalized prior to returning to Avatar.<br/>
-              - More information about OptionObjects <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">here</see>.  
-             </para>
-            </remarks>
             <returns>The necessary Avatar data.</returns>
+            <remarks>
+                    <para>
+                        The <paramref name="sentScriptParameter" /> is converted to lowercase so it is easier to compare against.<br />
+                        <br />
+                        The <paramref name="workOptionObject" /> is cloned from the <paramref name="sentOptionObject" /> so it can be modified without affecting the original data.<br />
+                        <br />
+                        The <paramref name="returnOptionObject" /> is initally set to <c>null</c>, and will be formatted/finalized prior to returning to Avatar.
+                    </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-paramater">Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Codes</seealso>
         </member>
         <member name="T:Outpost31.Core.Avatar.ReturnObject">
-            <summary>Logic specific to the <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">returnOptionObject</see>.</summary>
+            <summary>Finalizes an OptionObject so it can be returned to AvatarNX.</summary>
             <remarks>
-             <para>
-             </para>
-            </remarks>
+                <para>
+                    Before returning an OptionObject to Avatar, it must be finalized.<br />
+                    <br />
+                    That's what this class does. It finalizes the OptionObject so it can be returned to Avatar.
+                    <br />
+                    <br />
+                    Please see the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</a> for more information.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.ReturnObject.AssemblyName">
-            <summary>Assembly name for log files.</summary>
+            <summary>Assembly name for logging purposes.</summary>
             <remarks>
-              <para>
-               - Define the assembly name here so it can be used to write log files throughout the class.
-              </para>
+                <para>
+                    The assembly name is defined here so it can be used to write log files throughout the class.
+                </para>
             </remarks>
         </member>
         <member name="M:Outpost31.Core.Avatar.ReturnObject.Finalize(Outpost31.Core.Session.TingenSession,System.String,System.String)">
-            <summary>Format an <paramref name="OptionObject"/> to be returned to Avatar.</summary>
+            <summary>Finalize an OptionObject so it can be returned to Avatar.</summary>
             <param name="tnSession">The Tingen session object.</param>
+            <param name="errorCode">The OptionObject error code.</param>
+            <param name="errorMessage">The OptionObject error message.</param>
             <remarks>
-             <para>
-              Part of the finalization process is assigning a valid error code to the returnOptionObject:
-              <list type="table">
-               <item>
-                <term>0</term>
-                <description>Success - Returns the OptionObject without a message</description>
-               </item>
-               <item>
-                <term>1</term>
-                <description> Error - Stops the script from processing and displays an message with an "OK" button</description>
-               </item>
-               <item>
-                <term>2</term>
-                <description>OKCancel - Displays a message with "OK" and "Cancel" buttons.</description>
-               </item>
-               <item>
-                <term>3</term>
-                <description>Info - Displays an informational warning message with an "OK" button.</description>
-               </item>
-               <item>
-                <term>4</term>
-                <description>YesNo - Displays a message with "Yes" and "No" buttons.</description>
-               </item>
-               <item>
-                <term>5</term>
-                <description>OpenURL - Opens an URL in a browser</description>
-               </item>
-               <item>
-                <term>6</term>
-                <description>OpenForm - Presents an OK/Cancel dialog to open a form (only be used on Form Load and Field events).</description>
-               </item>
-              </list>
-             </para>
-             <para>
-              - <i>The returnOptionObject must be propery formatted when returned to Avatar</i>.<br/>
-              - More information about OptionObjects <a href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">here</a>.
-             
-             </para>
-            </remarks>
-             <example>
-              To return a formatted returnOptionObject:<br/>
-              <code>
-               Core.Avatar.FormatReturnObject.AsErrorCode(tnSession, errorCode, errorMessage);
-              </code>
-             </example>
+                <para>
+                    Before returning an OptionObject to Avatar, it must be finalized.<br />
+                    <br />
+                    Finalizing an OptionObject is a two part process:
+                    <list type="number">
+                        <item>Assign an error code to the returnOptionObject</item>
+                        <item>Verify the returnOptionObject contains all required data</item>
+                    </list>
+                    And here is the list of valid error codes:
+                    <list type="table">
+                        <listheader>
+                            <term>Error code</term>
+                            <description>Description</description>
+                        </listheader>
+                        <item>
+                            <term>0</term>
+                            <description>Success - Returns the OptionObject without a message</description>
+                        </item>
+                        <item>
+                            <term>1</term>
+                            <description> Error - Stops the script from processing and displays an message with an "OK" button</description>
+                        </item>
+                        <item>
+                            <term>2</term>
+                            <description>OKCancel - Displays a message with "OK" and "Cancel" buttons.</description>
+                        </item>
+                        <item>
+                            <term>3</term>
+                            <description>Info - Displays an informational warning message with an "OK" button.</description>
+                        </item>
+                        <item>
+                            <term>4</term>
+                            <description>YesNo - Displays a message with "Yes" and "No" buttons.</description>
+                        </item>
+                        <item>
+                            <term>5</term>
+                            <description>OpenURL - Opens an URL in a browser</description>
+                        </item>
+                        <item>
+                            <term>6</term>
+                            <description>OpenForm - Presents an OK/Cancel dialog to open a form (only be used on Form Load and Field events).</description>
+                        </item>
+                    </list>
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#optionobject-error-codes">OptionObject error codes</seealso>
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.SystemCodePaths">
             <summary>System Code paths for Tingen.</summary>
@@ -662,107 +611,109 @@
             </remarks>
         </member>
         <member name="T:Outpost31.Core.Configuration.ConfigSettings">
-            <summary>Tingen configuration settings.</summary>
+            <summary>The Tingen configuration settings.</summary>
             <remarks>
-             <para>
-              Tingen configuration settings:
-              <list type="bullet">
-               <item>Are specific to Tingen core functionality (other components/modules have their own configurations)</item>
-               <item>Do not change between Tingen sessions</item>
-               <item>Can be modified by the user to suit their environment</item>
-              </list>
-             </para>
-             <para>
-              - The Tingen configuration file is located in <i>"TingenData\%SystemCode%\Config\Tingen.config"</i>.<br/>
-              - More information about configuring Tingen <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-configuration">here.</see>
-             </para>
-            </remarks>
+                <para>
+                    This class initializes the Tingen configuration settings, which:
+                    <list type="bullet">
+                        <item>Are specific to Tingen core functionality (other components/modules have their own configuration files)</item>
+                        <item>Do not change between Tingen sessions</item>
+                        <item>Can be modified by the user to suit their environment</item>
+                        <item>Are stored in "TingenData\%SystemCode%\Config\Tingen.config"</item>
+                    </list>
+                    <br />
+                    Please see the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</a> for more information.
+                </para>
+            </remarks><seealso href="http://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-configuration">Configuring Tingen</seealso>
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.TingenMode">
-            <summary>Determines what Tingen does, if anything.</summary>
+            <summary>Determines the Tingen Mode for the session.</summary>
             <remarks>
-             <para>
-              Valid Tingen modes:
-              <list type="table">
-               <item>
-                <term>Enabled (default)</term>
-                <description>Tingen is enabled, and will hand work off to the requested <i>Tingen Module</i>.</description>
-               </item>
-               <item>
-                <term>Disabled</term>
-                <description>Tingen is disabled, and the sentObject is returned to Avatar unmodified.</description>
-               </item>
-              </list>
-             </para>
-             <para>
-             - There is logic to catch <i>"enable"</i> and <i>"disable"</i>, since I kept making that mistake.<br/>
-             - More information about Tingen modes <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-modes">here.</see>
-             </para>
-            </remarks>
+                <para>
+                    These are the valid Tingen modes:
+                    <list type="table">
+                        <listheader>
+                            <term>Mode</term>
+                            <description>Description</description>
+                        </listheader>
+                        <item>
+                            <term>Enabled</term>
+                            <description>The Tingen web service is enabled (default).</description>
+                        </item>
+                        <item>
+                            <term>Disabled</term>
+                            <description>The Tingen web service is disabled</description>
+                        </item>
+                    </list>
+                    When <b>enabled</b>, the Tingen web service will do work and (potentially) return a <i>modified</i> OptionObject.<br />
+                    When <b>disabled</b>,the Tingen web service will <i>not</i> do work and will return an <i>unmodified</i> OptionObject.
+                </para>
+            </remarks><value>Either "enabled" or "disabled"</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-modes">Tingen modes</seealso>
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.ModOpenIncidentMode">
-            <summary>Determines if the <b>Open Incident Module</b> is enabled.</summary>
+            <summary>Determines if the Open Incident Module functionality is enabled.</summary>
             <remarks>
-             <para>
-              Valid Open Incident Module modes:
-              <list type="table">
-               <item>
-                <term>Enabled (default)</term>
-                <description>The Open Incident Module is enabled.</description>
-               </item>
-               <item>
-                <term>Disabled</term>
-                <description>The Open Incident Module is disabled., and the sentObject is returned to Avatar unmodified.</description>
-               </item>
-              </list>
-             </para>
-             <para>
-             - Disabling this module not affect other modules, or Tingen as a whole.<br/>
-             - More information about Tingen modes <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-modes">here.</see>
-             </para>
-            </remarks>
+                <para>
+                    <list type="table">
+                        <listheader>
+                            <term>Mode</term>
+                            <description>Description</description>
+                        </listheader>
+                        <item>
+                            <term>Enabled</term>
+                            <description>The Open Incident Module is enabled (default).</description>
+                        </item>
+                        <item>
+                            <term>Disabled</term>
+                            <description>The Open Incident Module is disabled</description>
+                        </item>
+                    </list>
+                    When <b>enabled</b>, the Open Incident Module will do work and (potentially) return a <i>modified</i> OptionObject.<br />
+                    When <b>disabled</b>,the Open Incident Module will <i>not</i> do work and will return an <i>unmodified</i> OptionObject.<br />
+                </para>
+            </remarks><value>Either "enabled" or "disabled"</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#open-incident-module">Open Incident Module</seealso>
         </member>
-        <member name="P:Outpost31.Core.Configuration.ConfigSettings.NtstWebServices">
-            <summary>Determines if the NTST web services are enabled.</summary>
+        <member name="P:Outpost31.Core.Configuration.ConfigSettings.NtstWebServicesMode">
+            <summary>Determines if the Netmart web services functionality is enabled.</summary>
             <remarks>
-             <para>
-              - Currently not used, but will be in the future.<br/>
-              - This should be set to "<b>disabled</b>" until the NTST web services are implemented.
-             </para>
-            </remarks>
+                <para>
+                    Eventually Tingen may use Netsmart web services.<br />
+                    This functionality is not implemented yet.
+                </para>
+            </remarks><value>Either "enabled" or "disabled"</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#netsmart-web-services">Netsmart web services</seealso>
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.TraceLevel">
-            <summary>The trace logging level.</summary>
+            <summary>Determines the session Trace Log level.</summary>
             <remarks>
-             <para>
-              - Trace logs with a level less than or equal to the <paramref name="TraceLevel"/> will be written.<br/>
-              - Trace logs are written to <i>"%TingenDataRoot%\%AvatarSystemCode%\YYMM\%OptionUserId%\HHMMSS\"</i>.<br/>
-              - More information about trace logs can be found <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#logging">here</see>.
-             </para>
-            </remarks>
-              <example>
-               If the TraceLogLevel is set to "<c>2</c>", the following log calls will be executed:<br/>
-               <c>LogEvent.Trace(1, tnSession.TraceLogs, Asm);</c><br/>
-               <c>LogEvent.Trace(2, tnSession.TraceLogs, Asm);</c><br/><br/>
-               If the TraceLogLevel is set to "<c>2</c>", the following log calls will <i>not</i> be executed:<br/>
-               <c>LogEvent.Trace(4, tnSession.TraceLogs, Asm);</c><br/>
-               <c>LogEvent.Trace(5, tnSession.TraceLogs, Asm);</c>
-              </example>
-            <value>
-             0 (default)
-            </value>
+                <para>
+                    The trace level determines the amount of information that is logged.
+                    <list type="table">
+                        <listheader>
+                            <term>Level</term>
+                            <description>Type of log written</description>
+                        </listheader>
+                        <item>
+                            <term>0</term>
+                            <description>Trace logs are disabled.</description>
+                        </item>
+                        <item>
+                            <term>1</term>
+                            <description>Method trace logs are created.</description>
+                        </item>
+                        <item>
+                            <term>2...9</term>
+                            <description>Statement/loop trace logs are written.</description>
+                        </item>
+                    </list>
+                    Trace log levels are cumulative, meaning that a level 3 trace log will also write level 2 and level 1 trace logs.<br />
+                    <br />
+                    Trace logs are fairly complex, so please see the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#logging">logging documentation</a> for more information.
+                </para>
+            </remarks><value>An integer between 0 and 9 (default = 0)</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#trace-logs">Trace logs</seealso> 
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.TraceDelay">
-            <summary>The delay between trace log writes.</summary>
-            <remarks>
-             <para>
-              - In some cases, logs may be written too quickly, and cause files to be overwritten.<br/>
-              - By including a short delay, the logs can be written in a way that prevents this from happening.
-             </para>
-            </remarks>
-            <value>
-             10 (default)
-            </value>
+            <summary>Determines the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#trace-logs">Trace Log delay</a>.</summary>
+            <value>10 (default)</value> 
         </member>
         <member name="M:Outpost31.Core.Configuration.ConfigSettings.BuildDefaultObject">
             <summary>Build a default Tingen configuration object.</summary>
@@ -776,15 +727,20 @@
             <returns>An object with default Tingen configuration values.</returns>
         </member>
         <member name="M:Outpost31.Core.Configuration.ConfigSettings.Load(System.String,System.String)">
-            <summary>Loads the Tingen configuration file.</summary>
+            <summary>Load the Tingen configuration file.</summary>
             <param name="configPath">Path to the Tingen configuration file.</param>
             <remarks>
-             <para>
-              - The configuration file path is created in <b>Tingen.asmx.cs</b><br/>
-              - If the configuration file does not exist, a configuration file with default values will be created.
-             </para>
+                <para>
+                    <b>About this method</b><br/>
+                    - The configuration file path is created when the session is initialzied.<br/>
+                    - If the configuration file does not exist, a configuration file with default values will be created.<br/>
+                </para>
+                <para>
+                    <b>More information</b><br/>
+                    <a href="http://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#tingen-configuration">Configuring Tingen</a>
+                </para>
             </remarks>
-            <returns>The Tingen configuration settings.</returns>
+            <returns>The necessary AvatarNX data.</returns>
         </member>
         <member name="T:Outpost31.Core.Session.Catalog">
             <summary>Soon.</summary>
@@ -1019,6 +975,9 @@
         <member name="M:Outpost31.Module.OpenIncident.Verify.OriginalAuthorIsSubmitting(Outpost31.Core.Session.TingenSession)">
             <summary>Verify the Avatar user is the same as the original author.</summary>
             <param name="tnSession"></param>
+        </member>
+        <member name="T:Outpost31.WelcomeToOutpost31">
+            <summary>Just a welcome message.</summary>
         </member>
     </members>
 </doc>
