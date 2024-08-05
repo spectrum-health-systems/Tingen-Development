@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2024.2.18.0" projectFile="C:\Users\cbanw\GitHub\Spectrum Health Systems\Tingen-Development\.github\Sandcastle\Tingen_development.shfbproj" started="7/9/2024 8:49:12 AM">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2024.2.18.0" projectFile="C:\Users\cbanw\GitHub\Spectrum Health Systems\Tingen-Development\.github\Sandcastle\Tingen_development.shfbproj" started="8/5/2024 9:01:35 AM">
 <buildStep step="Initializing">
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder&#39;
 Locating components in the following folder(s):
@@ -11,6 +11,9 @@ Using presentation style &#39;Default2022&#39; located in &#39;C:\Program Files 
 Loading and initializing plug-ins...
 Website Table of Contents Generator Version 2024.2.18.0
 Copyright &#169; 2006-2024, Eric Woodruff, All Rights Reserved
+</buildStep>
+<buildStep step="ClearWorkFolder">
+Clearing working folder...
 -------------------------------
 Clearing any prior web/markdown output...
 </buildStep>
@@ -30,18 +33,18 @@ Copying XML comments files
 </buildStep>
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
-    Last step completed in 00:00:00.0060
+    Last step completed in 00:00:00.0040
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0065
+    Last step completed in 00:00:00.0040
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
-[C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe - GenerateRefInfo-2229c728-8837-4bc5-a454-c7f51e86b780.proj]
-Build started 7/9/2024 8:49:16 AM.
+[C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe - GenerateRefInfo-6b67acd7-0f39-47b4-a749-40243eedb6f7.proj]
+Build started 8/5/2024 9:01:35 AM.
 
-Project &quot;C:\working\GenerateRefInfo-2229c728-8837-4bc5-a454-c7f51e86b780.proj&quot; on node 1 (default targets).
+Project &quot;C:\working\GenerateRefInfo-6b67acd7-0f39-47b4-a749-40243eedb6f7.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
 GenerateRefInfo:
@@ -52,29 +55,29 @@ GenerateRefInfo:
   Wrote information on 1 namespaces, 1 types, and 6 members
   Merging duplicate type and member information
   Merged 0 duplicate type(s) and 0 duplicate member(s)
-Done Building Project &quot;C:\working\GenerateRefInfo-2229c728-8837-4bc5-a454-c7f51e86b780.proj&quot; (default targets).
-    Last step completed in 00:00:00.7656
+Done Building Project &quot;C:\working\GenerateRefInfo-6b67acd7-0f39-47b4-a749-40243eedb6f7.proj&quot; (default targets).
+    Last step completed in 00:00:00.6508
 </buildStep>
 <buildStep step="ApplyDocumentModel">
 Applying document model to reflection output...
-    Last step completed in 00:00:00.0375
+    Last step completed in 00:00:00.0320
 </buildStep>
 <buildStep step="AddApiTopicFilenames">
 Adding topic filenames to API members...
-    Last step completed in 00:00:00.0125
+    Last step completed in 00:00:00.0105
 </buildStep>
 <buildStep step="GenerateApiTopicManifest">
 Generating API topic manifest...
-    Last step completed in 00:00:00.0105
+    Last step completed in 00:00:00.0100
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.0220
+    Last step completed in 00:00:00.0180
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 No additional content to copy
-    Last step completed in 00:00:00.0025
+    Last step completed in 00:00:00.0015
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
@@ -83,22 +86,22 @@ Merging conceptual and additional tables of contents...
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file for API content...
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00.0165
+    Last step completed in 00:00:00.0170
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
-    Last step completed in 00:00:00.2735
+    Last step completed in 00:00:00.2527
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00.0090
+    Last step completed in 00:00:00.0065
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 \working\BuildAssembler.config
   Updating reference topic configurations.
   No conceptual content.  Removing conceptual content components.
-    Last step completed in 00:00:00.0150
+    Last step completed in 00:00:00.0145
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
@@ -114,7 +117,7 @@ CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 2 o
 CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 1 of 30.
 <plugIn name="Website Table of Contents Generator" behavior="After" priority="1000">
 Generating TOC fragment files
-</plugIn>    Last step completed in 00:00:04.9517
+</plugIn>    Last step completed in 00:00:05.5749
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -150,26 +153,26 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Defaul
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\SearchHelp.inc.php -&gt; \working\Output\Website\SearchHelp.inc.php
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\SearchHelp.php -&gt; \working\Output\Website\SearchHelp.php
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\Web.Config -&gt; \working\Output\Website\Web.Config
-    Last step completed in 00:00:00.4461
+    Last step completed in 00:00:00.1135
 </buildStep>
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
-    Last step completed in 00:00:00.1155
+    Last step completed in 00:00:00.0995
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
 Copied 67 files for the website content
-    Last step completed in 00:00:00.0820
+    Last step completed in 00:00:00.0610
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.0145
+    Last step completed in 00:00:00.0115
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 7/9/2024 8:49:22 AM.  Total time: 00:00:10.1484
+Build completed successfully at 8/5/2024 9:01:42 AM.  Total time: 00:00:07.3132
 
 </buildStep>
 </shfbBuild>

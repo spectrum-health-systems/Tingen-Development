@@ -5,9 +5,7 @@
     </assembly>
     <members>
         <member name="T:Tingen_development.Tingen_development">
-            <summary>
-            Entry point for Tingen.
-            </summary>
+            <summary>Entry point for Tingen.</summary>
             <remarks>
                 <para>
                     This is the main entry point for the Tingen web service, and contains the two methods required by Avatar:
@@ -40,7 +38,7 @@
             <summary>Tingen current version.</summary>
             <remarks>
                 <para>
-                    The version number is defined here, since it is referenced in both <see cref="M:Tingen_development.Tingen_development.GetVersion" /> and <see cref="M:Tingen_development.Tingen_development.RunScript(ScriptLinkStandard.Objects.OptionObject2015,System.String)" />.
+                    The version number is defined here, since it is referenced in both <see cref="M:Tingen_development.Tingen_development.GetVersion" /> and <see cref="!:RunScript()" />.
                 </para>
             </remarks>
         </member>
@@ -54,7 +52,7 @@
             </remarks>
         </member>
         <member name="M:Tingen_development.Tingen_development.RunScript(ScriptLinkStandard.Objects.OptionObject2015,System.String)">
-            <summary>Start the Tingen web service.</summary>
+            <summary>Starts the Tingen web service.</summary>
             <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
             <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
             <returns>The finalized OptionObject to myAvatar.</returns>

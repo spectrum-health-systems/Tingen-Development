@@ -1,13 +1,13 @@
-﻿// ================================================================ 24.7.0 =====
+﻿// ================================================================ 24.8.0 =====
 // Tingen-Development: Tingen development version.
 // Repository: https://github.com/APrettyCoolProgram/Tingen-Development
 // Documentation: https://github.com/spectrum-health-systems/Tingen-Documentation
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240723 =====
+// ================================================================ 240805 =====
 
-// u240709.0000_code
-// u240709.0000_documentation
+// u240805.0853_code
+// u240805.0853_documentation
 
 using System.Reflection;
 using System.Web.Services;
@@ -18,9 +18,7 @@ using ScriptLinkStandard.Objects;
 
 namespace Tingen_development
 {
-    /// <summary>
-    /// Entry point for Tingen.
-    /// </summary>
+    /// <summary>Entry point for Tingen.</summary>
     /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="tingen"]/Tingen/*'/>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
@@ -41,7 +39,7 @@ namespace Tingen_development
         [WebMethod]
         public string GetVersion() => $"VERSION {TingenVersion}";
 
-        /// <summary>Start the Tingen web service.</summary>
+        /// <summary>Starts the Tingen web service.</summary>
         /// <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
         /// <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
         /// <returns>The finalized OptionObject to myAvatar.</returns>

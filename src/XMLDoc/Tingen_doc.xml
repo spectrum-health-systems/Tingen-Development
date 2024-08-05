@@ -1,5 +1,5 @@
 ﻿<!--
-    u240718.1007_documentation
+    u240805.0855_documentation
 -->
 
 <Doc>
@@ -35,7 +35,7 @@
         <TingenVersion>
             <remarks>
                 <para>
-                    The version number is defined here, since it is referenced in both <see cref="GetVersion()"/> and <see cref="RunScript(OptionObject2015, string)"/>.
+                    The version number is defined here, since it is referenced in both <see cref="GetVersion()"/> and <see cref="RunScript()"/>.
                 </para>
             </remarks>
         </TingenVersion>
