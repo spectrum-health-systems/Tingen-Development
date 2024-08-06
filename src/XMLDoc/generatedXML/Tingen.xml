@@ -38,7 +38,7 @@
             <summary>Tingen current version.</summary>
             <remarks>
                 <para>
-                    The version number is defined here, since it is referenced in both <see cref="M:Tingen_development.Tingen_development.GetVersion" /> and <see cref="!:RunScript()" />.
+                    The version number is defined here, since it is referenced in both <see cref="M:Tingen_development.Tingen_development.GetVersion" /> and <see cref="M:Tingen_development.Tingen_development.RunScript(ScriptLinkStandard.Objects.OptionObject2015,System.String)" />.
                 </para>
             </remarks>
         </member>

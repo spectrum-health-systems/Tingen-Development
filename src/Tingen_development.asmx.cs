@@ -4,7 +4,7 @@
 // Documentation: https://github.com/spectrum-health-systems/Tingen-Documentation
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240805 =====
+// ================================================================ 240806 =====
 
 // u240805.0853_code
 // u240805.0853_documentation
@@ -50,7 +50,7 @@ namespace Tingen_development
             /* Trace logs can't go here - the infrastructure isn't setup yet.
              */
 
-            TingenSession tnSession     = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
+            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
             tnSession.AvData.SystemCode = "UAT";
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
