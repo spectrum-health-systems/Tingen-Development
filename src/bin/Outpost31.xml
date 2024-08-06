@@ -4,20 +4,47 @@
         <name>Outpost31</name>
     </assembly>
     <members>
-        <member name="P:Outpost31.Core.TingenApp.AssemblyName">
-            <summary>Assembly name for log files.</summary>
+        <member name="T:Outpost31.Core.TingenApp">
+            <summary>Starts and stops Tingen.</summary>
             <remarks>
-              <para>
-               - Define the assembly name here so it can be used to write log files throughout the class.
-              </para>
+                <para>
+                    Please see the <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">Tingen documentation</see> for more information.
+                </para>
             </remarks>
         </member>
-        <member name="M:Outpost31.Core.TingenApp.Start(Outpost31.Core.Session.TingenSession)">
-            <summary>Start the Tingen web service.</summary>
-            <param name="tnSession">The TingenSession object for this session.</param>
+        <member name="P:Outpost31.Core.TingenApp.AssemblyName">
+            <summary>Assembly name for logging purposes.</summary>
+            <remarks> The assembly name is defined here so it can be used to write log files throughout the class.</remarks>
         </member>
-        <member name="M:Outpost31.Core.TingenApp.Stop(Outpost31.Core.Session.TingenSession)">
-            <summary>Handles any logic related to stopping Tingen.</summary>
+        <member name="M:Outpost31.Core.TingenApp.StartApp(Outpost31.Core.Session.TingenSession)">
+            <summary>Starts the Tingen web service.</summary>
+            <param name="tnSession">The TingenSession object for this session.</param>
+            <remarks>
+                <para>
+                    The Tingen web service has the following modes:
+                    <list type="table">
+                        <listheader>
+                            <term>Mode</term>
+                            <description>Description</description>
+                        </listheader>
+                        <item>
+                            <term>enabled</term>
+                            <description>The Tingen web service is enabled, and functions normally.</description>
+                        </item>
+                        <item>
+                            <term>disabled</term>
+                            <description>The Tingen web service is disabled, and does not do any work.</description>
+                        </item>
+                    </list>
+                    The TingenMode affects the Tingen web service as a whole, so setting the TingenMode to <c>disabled</c> will disable <i>all</i> functionality.<br />
+                    <br />
+                    Individual Modulescan be enabled/disabled via the modules "Mode" property.<br />
+                </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Core.TingenApp.StopApp(Outpost31.Core.Session.TingenSession)">
+            <summary>Stops the Tingen web service.</summary>
+            <param name="tnSession">The TingenSession object for this session.</param>
         </member>
         <member name="T:Outpost31.Core.Avatar.AvatarData">
             <summary>Avatar-specific data and logic.</summary>
@@ -89,11 +116,7 @@
         </member>
         <member name="P:Outpost31.Core.Avatar.ReturnObject.AssemblyName">
             <summary>Assembly name for logging purposes.</summary>
-            <remarks>
-                <para>
-                    The assembly name is defined here so it can be used to write log files throughout the class.
-                </para>
-            </remarks>
+            <!-- No matching elements were found for the following include tag --><include file="XMLDoc/Outpost31_doc.xml" path="Doc/Sec[@name=&quot;outpost31&quot;]/AssemblyName/*" />
         </member>
         <member name="M:Outpost31.Core.Avatar.ReturnObject.Finalize(Outpost31.Core.Session.TingenSession,System.String,System.String)">
             <summary>Finalize an OptionObject so it can be returned to Avatar.</summary>
@@ -583,32 +606,17 @@
             </remarks>
         </member>
         <member name="T:Outpost31.Core.ParseScriptParameter">
-            <summary>Soon.</summary>
+            <summary>Parse the Script Parameter passed from Avatar.</summary>
+            <!-- No matching elements were found for the following include tag --><include file="XMLDoc/Outpost31_doc.xml" path="Doc/Sec[@name=&quot;ParseScriptParameter}&quot;]/ParseScriptParameter/*" />
         </member>
         <member name="P:Outpost31.Core.ParseScriptParameter.AssemblyName">
-            <summary>Executing assembly name for log files.</summary>
-            <remarks>
-              <para>
-               - Executing assembly is defined here so it can be used when creating log files.
-              </para>
-            </remarks>
+            <summary>Assembly name for logging purposes.</summary>
+            <remarks> The assembly name is defined here so it can be used to write log files throughout the class.</remarks>
         </member>
-        <member name="M:Outpost31.Core.ParseScriptParameter.Parse(Outpost31.Core.Session.TingenSession)">
-            <summary>OLD Determines which Tingen <i>Module</i> will be doing the work this session.</summary>
-            <param name="tnSession">The Tingen session object.</param>
-            <remarks>
-             <para> When a new Tingen Module is added, this method needs to be updated.
-              <example>
-               To add a new Tingen Module named "NewModule", the following code <c>else if</c> needs be added
-                <code>
-                 else if (tnSession.AvComponents.ScriptModule == "newmodule")
-                 {
-                     Outpost31.Module.NewModule.ParseScriptCommand.ParseCommand(tnSession);
-                 }
-                </code>
-               </example>
-              </para>
-            </remarks>
+        <member name="M:Outpost31.Core.ParseScriptParameter.ParseSentParameter(Outpost31.Core.Session.TingenSession)">
+            <summary>Parses the original Script Parameter sent from Avatar.</summary>
+            <param name="tnSession">The TingenSession object for this session.</param>
+            <!-- No matching elements were found for the following include tag --><include file="XMLDoc/Outpost31.Core_doc.xml" path="Doc/Sec[@name=&quot;ParseScriptParameter}&quot;]/ParseSentParameter/*" />
         </member>
         <member name="T:Outpost31.Core.Configuration.ConfigSettings">
             <summary>The Tingen configuration settings.</summary>

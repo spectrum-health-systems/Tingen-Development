@@ -18,9 +18,9 @@
                         </item>
                     </list>
                     <br />
-                    This class does very little work itself (the heavy lifting is done in <see href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#Outpost31">Outpost31</see>)
-                    and should not be modified.<br />
+                    This class does very little work itself, as the heavy lifting is done in <see href="https://github.com/spectrum-health-systems/Outpost31">Outpost31</see>.<br />
                     <br />
+                    This source code should be pretty static, and should not be modfied.<br />
                     <br />
                     Please see the <see href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</see> for more information.
                 </para>
@@ -28,55 +28,23 @@
         </member>
         <member name="P:Tingen_development.Tingen_development.AssemblyName">
             <summary>Assembly name for logging purposes.</summary>
-            <remarks>
-                <para>
-                    The assembly name is defined here so it can be used to write log files throughout the class.
-                </para>
-            </remarks>
+            <remarks> The assembly name is defined here so it can be used to write log files throughout the class.</remarks>
         </member>
         <member name="P:Tingen_development.Tingen_development.TingenVersion">
             <summary>Tingen current version.</summary>
-            <remarks>
-                <para>
-                    The version number is defined here, since it is referenced in both <see cref="M:Tingen_development.Tingen_development.GetVersion" /> and <see cref="M:Tingen_development.Tingen_development.RunScript(ScriptLinkStandard.Objects.OptionObject2015,System.String)" />.
-                </para>
-            </remarks>
+            <remarks>The version number is referenced in both <c>GetVersion()</c> and <c>RunScript()</c></remarks>.
         </member>
         <member name="M:Tingen_development.Tingen_development.GetVersion">
             <summary>Get the current version of Tingen.</summary>
             <returns>The current version of Tingen.</returns>
-            <remarks>
-                <para>
-                    This method is required by Avatar and should not be modified.
-                </para>
-            </remarks>
+            <remarks>This method is required by Avatar and should not be modified.</remarks>
         </member>
         <member name="M:Tingen_development.Tingen_development.RunScript(ScriptLinkStandard.Objects.OptionObject2015,System.String)">
             <summary>Starts the Tingen web service.</summary>
             <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
             <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
             <returns>The finalized OptionObject to myAvatar.</returns>
-            <remarks>
-                <para>
-                    This method is required by Avatar and should not be modified.<br />
-                    <br />
-                    The only difference between <c>Tingen_development.cs</c> and <c>Tingen.cs</c> is the System Code:
-                    <list type="table">
-                        <listheader>
-                            <term>System Code</term>
-                            <description>Description</description>
-                        </listheader>
-                        <item>
-                            <term>UAT</term>
-                            <description>The System Code for the UAT environment (Tingen_development)</description>
-                        </item>
-                        <item>
-                            <term>LIVE</term>
-                            <description>The System Code for the LIVE environment (Tingen)</description>
-                        </item>
-                    </list>
-                </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-paramater">Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Codes</seealso>
+            <remarks>This method is required by Avatar and should not be modified.</remarks>
         </member>
     </members>
 </doc>

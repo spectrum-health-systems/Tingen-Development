@@ -1,13 +1,24 @@
-﻿// ================================================================ 24.8.0 =====
-// Tingen-Development: Tingen development version.
+﻿// u240806.1126_code
+// u240806.1126_documentation
+
+// ================================================================ 24.8.0 =====
+// Tingen: Tingen web service.
 // Repository: https://github.com/APrettyCoolProgram/Tingen-Development
 // Documentation: https://github.com/spectrum-health-systems/Tingen-Documentation
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
 // ================================================================ 240806 =====
 
-// u240805.0853_code
-// u240805.0853_documentation
+// -----------------------------------------------------------------------------
+//                                 About Tingen
+// -----------------------------------------------------------------------------
+// Tingen is a custom web service for Avatar.
+//
+// Tingen doesn't actually do much, it mainly accepts a request from Avatar and
+// forwards it to Outpost31 to do the heavy lifting.
+//
+// In theory, this source code shouldn't need to be modified, so if the update
+// timestamps are really old, that's fine.
 
 using System.Reflection;
 using System.Web.Services;
@@ -19,7 +30,7 @@ using ScriptLinkStandard.Objects;
 namespace Tingen_development
 {
     /// <summary>Entry point for Tingen.</summary>
-    /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="tingen"]/Tingen/*'/>
+    /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="Tingen"]/Tingen/*'/>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
@@ -50,17 +61,18 @@ namespace Tingen_development
             /* Trace logs can't go here - the infrastructure isn't setup yet.
              */
 
+            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
+
             /* The only difference between the development and stable versions of Tingen is that the development version
              * uses the "UAT" system code, while the stable version uses the "LIVE" system code.
              */
-
-            TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
             tnSession.AvData.SystemCode = "UAT";
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
 
-            TingenApp.Start(tnSession);
-            TingenApp.Stop(tnSession);
+            TingenApp.StartApp(tnSession);
+
+            TingenApp.StopApp(tnSession);
 
             return tnSession.AvData.ReturnOptionObject;
         }
