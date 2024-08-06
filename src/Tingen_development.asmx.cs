@@ -26,16 +26,16 @@ namespace Tingen_development
     public class Tingen_development : WebService
     {
         /// <summary>Assembly name for logging purposes.</summary>
-        /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="tingen"]/AssemblyName/*'/>
+        /// <remarks> The assembly name is defined here so it can be used to write log files throughout the class.</remarks>
         public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
 
         /// <summary>Tingen current version.</summary>
-        /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="tingen"]/TingenVersion/*'/>
+        /// <remarks>The version number is defined here, since it is referenced in both <c>GetVersion()</c> and <c>RunScript()</c></remarks>.
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         /// <summary>Get the current version of Tingen.</summary>
         /// <returns>The current version of Tingen.</returns>
-        /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="tingen"]/GetVersion/*'/>
+        /// <remarks>This method is required by Avatar and should not be modified.</remarks>
         [WebMethod]
         public string GetVersion() => $"VERSION {TingenVersion}";
 
@@ -43,11 +43,15 @@ namespace Tingen_development
         /// <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
         /// <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
-        /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="tingen"]/RunScript/*'/>
+        /// <remarks>This method is required by Avatar and should not be modified.</remarks>
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
             /* Trace logs can't go here - the infrastructure isn't setup yet.
+             */
+
+            /* The only difference between the development and stable versions of Tingen is that the development version uses the "UAT"
+             * system code, while the stable version uses the "LIVE" system code.
              */
 
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
