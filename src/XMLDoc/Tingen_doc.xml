@@ -25,31 +25,5 @@
                 </para>
             </remarks>
         </Tingen>
-        <RunScript>
-            <remarks>
-                <para>
-                    This method is required by Avatar and should not be modified.<br/>
-                    <br/>
-                    The only difference between <c>Tingen_development.cs</c> and <c>Tingen.cs</c> is the System Code:
-                    <list type="table">
-                        <listheader>
-                            <term>System Code</term>
-                            <description>Description</description>
-                        </listheader>
-                        <item>
-                            <term>UAT</term>
-                            <description>The System Code for the UAT environment (Tingen_development)</description>
-                        </item>
-                        <item>
-                            <term>LIVE</term>
-                            <description>The System Code for the LIVE environment (Tingen)</description>
-                        </item>
-                    </list>
-                </para>
-            </remarks>
-            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
-            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-paramater">Script Parameter</seealso>
-            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Codes</seealso>
-        </RunScript>
     </Sec>
 </Doc>

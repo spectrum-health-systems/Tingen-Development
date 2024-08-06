@@ -30,7 +30,7 @@ namespace Tingen_development
         public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
 
         /// <summary>Tingen current version.</summary>
-        /// <remarks>The version number is defined here, since it is referenced in both <c>GetVersion()</c> and <c>RunScript()</c></remarks>.
+        /// <remarks>The version number is referenced in both <c>GetVersion()</c> and <c>RunScript()</c></remarks>.
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         /// <summary>Get the current version of Tingen.</summary>
@@ -50,8 +50,8 @@ namespace Tingen_development
             /* Trace logs can't go here - the infrastructure isn't setup yet.
              */
 
-            /* The only difference between the development and stable versions of Tingen is that the development version uses the "UAT"
-             * system code, while the stable version uses the "LIVE" system code.
+            /* The only difference between the development and stable versions of Tingen is that the development version
+             * uses the "UAT" system code, while the stable version uses the "LIVE" system code.
              */
 
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
