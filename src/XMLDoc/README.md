@@ -1,4 +1,4 @@
-﻿# Tingen\XMLDoc\
+﻿# Tingen\XmlDoc\
 
 This directory contains the following XML documentation for the Tingen project:
 

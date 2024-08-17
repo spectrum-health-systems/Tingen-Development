@@ -1,13 +1,10 @@
-﻿// u240806.1126_code
-// u240806.1126_documentation
-
-// ================================================================ 24.8.0 =====
+﻿// ================================================================ 24.8.0 =====
 // Tingen: Tingen web service.
 // Repository: https://github.com/APrettyCoolProgram/Tingen-Development
 // Documentation: https://github.com/spectrum-health-systems/Tingen-Documentation
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240806 =====
+// ================================================================ 240817 =====
 
 // -----------------------------------------------------------------------------
 //                                 About Tingen
@@ -20,6 +17,9 @@
 // In theory, this source code shouldn't need to be modified, so if the update
 // timestamps are really old, that's fine.
 
+// u240817.1003_code
+// u240817.1003_documentation
+
 using System.Reflection;
 using System.Web.Services;
 using Outpost31.Core;
@@ -30,7 +30,7 @@ using ScriptLinkStandard.Objects;
 namespace Tingen_development
 {
     /// <summary>Entry point for Tingen.</summary>
-    /// <include file='XMLDoc/Tingen_doc.xml' path='Doc/Sec[@name="Tingen"]/Tingen/*'/>
+    /// <include file='XmlDoc/Tingen_doc.xml' path='Doc/Sec[@name="Tingen"]/Tingen/*'/>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
@@ -45,16 +45,16 @@ namespace Tingen_development
         public static string TingenVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         /// <summary>Get the current version of Tingen.</summary>
-        /// <returns>The current version of Tingen.</returns>
         /// <remarks>This method is required by Avatar and should not be modified.</remarks>
+        /// <returns>The current version of Tingen.</returns>
         [WebMethod]
         public string GetVersion() => $"VERSION {TingenVersion}";
 
         /// <summary>Starts the Tingen web service.</summary>
         /// <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
         /// <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
-        /// <returns>The finalized OptionObject to myAvatar.</returns>
         /// <remarks>This method is required by Avatar and should not be modified.</remarks>
+        /// <returns>The finalized OptionObject to myAvatar.</returns>
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {

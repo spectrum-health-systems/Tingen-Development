@@ -5,16 +5,24 @@
     </assembly>
     <members>
         <member name="T:Outpost31.Core.TingenApp">
-            <summary>Starts and stops Tingen.</summary>
+            <summary>High level logic for the Tingen application.</summary>
             <remarks>
                 <para>
-                    Please see the <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">Tingen documentation</see> for more information.
+                    The TingenApp class takes care of the Tingen web service as a whole. It is responsible for:
+                    <list type="bullet">
+                        <item>Starting the Tingen web service</item>
+                        <item>Stopping the Tingen web service</item>
+                    </list>
                 </para>
             </remarks>
         </member>
         <member name="P:Outpost31.Core.TingenApp.AssemblyName">
             <summary>Assembly name for logging purposes.</summary>
-            <remarks> The assembly name is defined here so it can be used to write log files throughout the class.</remarks>
+            <remarks>
+                <para>
+                    The assembly name is defined here so it can be used to write log files throughout the class.
+                </para>
+            </remarks>
         </member>
         <member name="M:Outpost31.Core.TingenApp.StartApp(Outpost31.Core.Session.TingenSession)">
             <summary>Starts the Tingen web service.</summary>
@@ -52,11 +60,11 @@
                 <para>
                     All of the imortant data sent from Avatar is stored here, and should only contain the following Avatar-specific data:<br />
                     <list type="bullet">
-                        <item>The <paramref name="AvatarSystemCode" /></item>
-                        <item>The <paramref name="SentScriptParameter" /></item>
-                        <item>The <paramref name="SentOptionObject" /> </item>
-                        <item>The <paramref name="WorkOptionObject" /></item>
-                        <item>The <paramref name="ReturnOptionObject" /></item>
+                        <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.SystemCode" /> </item>
+                        <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter" /></item>
+                        <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject" /> </item>
+                        <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" /></item>
+                        <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" /></item>
                     </list>
                     <br />
                     When Tingen starts, this object is created and added to the session object.
@@ -68,71 +76,155 @@
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SystemCode">
             <summary>The System Code that Tingen will use.</summary>
-            <value>An Avatar System Code (e.g.: "LIVE", "UAT", "SBOX")</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Codes</seealso>
-        </member>
-        <member name="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter">
-            <summary>The Script Parameter sent from Avatar.</summary>
-            <value>The Script Parameter sent from Avatar (e.g.: "Admin-Mode-Status-Update")</value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-parameter">Script Parameter</seealso>
+            <remarks>
+                <para>
+                    Each Avatar environment has a unique System Code:<br />
+                    <list type="table">
+                        <listheader>
+                            <term>System Code</term>
+                            <description>Description</description>
+                        </listheader>
+                        <item>
+                            <term>LIVE</term>
+                            <description>Production environment</description>
+                        </item>
+                        <item>
+                            <term>UAT</term>
+                            <description>User Acceptance Testing environment</description>
+                        </item>
+                        <item>
+                            <term>SBOX</term>
+                            <description>Sandbox environment</description>
+                        </item>
+                    </list>
+                    <br />
+                    Please note that while Tingen is designed to work with all of these environments, it is only tested using "LIVE" and "UAT".
+                </para>
+            </remarks><value>
+                An Avatar System Code (e.g.: "LIVE", "UAT", "SBOX")
+            </value>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject">
             <summary>The original OptionObject sent from Avatar.</summary>
-            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
+            <remarks>
+                <para>
+                    Avatar sends two components to Tingen:
+                    <list type="table">
+                        <listheader>
+                            <term>Component</term>
+                            <description>Description</description>
+                        </listheader>
+                        <item>
+                            <term><b>OptionObject</b></term>
+                            <description>
+                                The <i>Avatar data</i> that Tingen needs to do work.
+                            </description>
+                        </item>
+                        <item>
+                            <term>Script Parameter</term>
+                            <description>
+                                The <i>commands</i> that tell Tingen what work needs to be done.
+                            </description>
+                        </item>
+                    </list>
+                </para>
+                <para>
+                    It is important to note that the SentOptionObject is <i>never modified by Tingen</i>.<br />
+                    <br />
+                    All work is done using the <see cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" />, and the <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" /> is used to send data back to Avatar.
+                </para>
+            </remarks><seealso cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" /><seealso cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" />
+        </member>
+        <member name="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter">
+            <summary>The original Script Parameter sent from Avatar.</summary>
+            <remarks>
+                <para>
+                    Avatar sends two components to Tingen:
+                    <list type="table">
+                        <listheader>
+                            <term>Component</term>
+                            <description>Description</description>
+                        </listheader>
+                        <item>
+                            <term>OptionObject</term>
+                            <description>The <i>Avatar data</i> that Tingen needs to do work.</description>
+                        </item>
+                        <item>
+                            <term><b>Script Parameter</b></term>
+                            <description>The <i>commands</i> that tell Tingen what work needs to be done.</description>
+                        </item>
+                    </list>
+                </para>
+                <para>
+                    <i>In general</i> the Script Parameter will contain the following components seperated by a hyphen:
+                    <list type="table">
+                        <listheader>
+                            <term>Component</term>
+                            <description>Description</description>
+                        </listheader>
+                        <item>
+                            <term>Module</term>
+                            <description>The <i>module</i> that is being called (e.g.: "Admin")</description>
+                        </item>
+                        <item>
+                            <term>Command</term>
+                            <description>The requested <i>command</i> (e.g.: "Service")</description>
+                        </item>
+                        <item>
+                            <term>Action</term>
+                            <description>The requested <i>action</i> (e.g.: "Update")</description>
+                        </item>
+                        <item>
+                            <term>Option</term>
+                            <description>The (optional) <i>option</i> (e.g.: "All")</description>
+                        </item>
+                    </list>
+                </para>
+            </remarks><example>
+                To update all service information:
+                <code>
+                    Admin-Service-Update-All
+                </code>
+                To verify that the user is authorized to submit an open incident:
+                <code>
+                    OpenIncident-Verify-AuthorIsViewing
+                </code>
+            </example><value>
+                The Script Parameter sent from Avatar (e.g.: "Admin-Service-Update-All")
+            </value>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject">
-            <summary>TheOptionObject that may be modified during the Tingen session.</summary>
-            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
+            <summary>The OptionObject that may be modified by Tingen.</summary>
+            <remarks>
+                <para>
+                    The <b>WorkOptionObject</b> is a clone of the <see cref="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject" /> that is used to do work.<br />
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject">
-            <summary>TheOptionObject that will be returned to Avatar.</summary>
-            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
+            <summary>The OptionObject that will be returned to Avatar.</summary>
+            <remarks>
+                <para>
+                    The <b>WorkOptionObject</b> is a clone of the <see cref="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject" /> that is used to return data back to Avatar.<br />
+                </para>
+            </remarks>
         </member>
         <member name="M:Outpost31.Core.Avatar.AvatarData.BuildObject(ScriptLinkStandard.Objects.OptionObject2015,System.String)">
-            <summary>Builds a new AvatarData object.</summary>
-            <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
-            <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
-            <returns>The necessary Avatar data.</returns>
-            <remarks>
-                    <para>
-                        The <paramref name="sentScriptParameter" /> is converted to lowercase so it is easier to compare against.<br />
-                        <br />
-                        The <paramref name="workOptionObject" /> is cloned from the <paramref name="sentOptionObject" /> so it can be modified without affecting the original data.<br />
-                        <br />
-                        The <paramref name="returnOptionObject" /> is initally set to <c>null</c>, and will be formatted/finalized prior to returning to Avatar.
-                    </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-script-paramater">Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-system-codes">System Codes</seealso>
-        </member>
-        <member name="T:Outpost31.Core.Avatar.ReturnObject">
-            <summary>Finalizes an OptionObject so it can be returned to AvatarNX.</summary>
+            <summary>Builds a new <see cref="T:Outpost31.Core.Avatar.AvatarData" /> object.</summary>
+            <param name="sentOptionObject">The <see cref="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject" /> sent from Avatar.</param>
+            <param name="sentScriptParameter">The <see cref="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter" /> sent from Avatar.</param>
+            <returns>All of the data/information Tingen needs in order to do work.</returns>
             <remarks>
                 <para>
-                    Before returning an OptionObject to Avatar, it must be finalized.<br />
+                    Before returning an OptionObject to Avatar, it must be <b>finalized</b>.<br />
                     <br />
-                    That's what this class does. It finalizes the OptionObject so it can be returned to Avatar.
-                    <br />
-                    <br />
-                    Please see the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</a> for more information.
-                </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso>
-        </member>
-        <member name="P:Outpost31.Core.Avatar.ReturnObject.AssemblyName">
-            <summary>Assembly name for logging purposes.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XMLDoc/Outpost31_doc.xml" path="Doc/Sec[@name=&quot;outpost31&quot;]/AssemblyName/*" />
-        </member>
-        <member name="M:Outpost31.Core.Avatar.ReturnObject.Finalize(Outpost31.Core.Session.TingenSession,System.String,System.String)">
-            <summary>Finalize an OptionObject so it can be returned to Avatar.</summary>
-            <param name="tnSession">The Tingen session object.</param>
-            <param name="errorCode">The OptionObject error code.</param>
-            <param name="errorMessage">The OptionObject error message.</param>
-            <remarks>
-                <para>
-                    Before returning an OptionObject to Avatar, it must be finalized.<br />
-                    <br />
-                    Finalizing an OptionObject is a two part process:
+                    Finalizing an OptionObject is a three part process:
                     <list type="number">
-                        <item>Assign an error code to the returnOptionObject</item>
+                        <item>Assign an <i>error code</i> to the returnOptionObject</item>
+                        <item>Assign an <i>error message</i> to the returnOptionObject</item>
                         <item>Verify the returnOptionObject contains all required data</item>
                     </list>
-                    And here is the list of valid error codes:
+                    Valid error codes include:
                     <list type="table">
                         <listheader>
                             <term>Error code</term>
@@ -140,35 +232,106 @@
                         </listheader>
                         <item>
                             <term>0</term>
-                            <description>Success - Returns the OptionObject without a message</description>
+                            <description><b>Success</b> - Returns the OptionObject without a message</description>
                         </item>
                         <item>
                             <term>1</term>
-                            <description> Error - Stops the script from processing and displays an message with an "OK" button</description>
+                            <description><b>Error</b> - Stops the script from processing and displays an message with an "OK" button</description>
                         </item>
                         <item>
                             <term>2</term>
-                            <description>OKCancel - Displays a message with "OK" and "Cancel" buttons.</description>
+                            <description><b>OKCancel</b> - Displays a message with "OK" and "Cancel" buttons.</description>
                         </item>
                         <item>
                             <term>3</term>
-                            <description>Info - Displays an informational warning message with an "OK" button.</description>
+                            <description><b>Info</b> - Displays an informational warning message with an "OK" button.</description>
                         </item>
                         <item>
                             <term>4</term>
-                            <description>YesNo - Displays a message with "Yes" and "No" buttons.</description>
+                            <description><b>YesNo</b> - Displays a message with "Yes" and "No" buttons.</description>
                         </item>
                         <item>
                             <term>5</term>
-                            <description>OpenURL - Opens an URL in a browser</description>
+                            <description><b>OpenURL</b> - Opens an URL in a browser</description>
                         </item>
                         <item>
                             <term>6</term>
-                            <description>OpenForm - Presents an OK/Cancel dialog to open a form (only be used on Form Load and Field events).</description>
+                            <description><b>OpenForm</b> - Presents an OK/Cancel dialog to open a form (only be used on Form Load and Field events).</description>
                         </item>
                     </list>
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#avatar-optionobject">OptionObjects</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#optionobject-error-codes">OptionObject error codes</seealso>
+            </remarks><seealso href="https://github.com/rcskids/ScriptLinkStandard">ScriptLinkStandard</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject-error-codes.md">OptionObject Error Codes</seealso>
+        </member>
+        <member name="T:Outpost31.Core.Avatar.ReturnObject">
+            <summary>Finalizes an OptionObject so it can be returned to AvatarNX.</summary>
+            <remarks>
+                <para>
+                    Before returning an OptionObject to Avatar, it must be finalized, which is what this class does: it finalizes the OptionObject so it can be returned to Avatar.<br />
+                    <br />
+                    Please see the <a href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</a> for more information.
+                </para>
+            </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Avatar.ReturnObject.AssemblyName">
+            <summary>Assembly name for logging purposes.</summary>
+            <remarks>
+                <para>
+                    The assembly name is defined here so it can be used to write log files throughout the class.
+                </para>
+            </remarks>
+        </member>
+        <member name="M:Outpost31.Core.Avatar.ReturnObject.Finalize(Outpost31.Core.Session.TingenSession,System.String,System.String)">
+            <summary>Finalize an OptionObject so it can be returned to Avatar.</summary>
+            <param name="tnSession">The <see cref="T:Outpost31.Core.Session.TingenSession" /> object.</param>
+            <param name="errorCode">The OptionObject <see href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject-error-codes.md">error code</see>.</param>
+            <param name="errorMessage">The OptionObject error message .</param>
+            <remarks>
+                <para>
+                    Before returning an OptionObject to Avatar, it must be <b>finalized</b>.<br />
+                    <br />
+                    Finalizing an OptionObject is a three part process:
+                    <list type="number">
+                        <item>Assign an <i>error code</i> to the returnOptionObject</item>
+                        <item>Assign an <i>error message</i> to the returnOptionObject</item>
+                        <item>Verify the returnOptionObject contains all required data</item>
+                    </list>
+                    Valid error codes include:
+                    <list type="table">
+                        <listheader>
+                            <term>Error code</term>
+                            <description>Description</description>
+                        </listheader>
+                        <item>
+                            <term>0</term>
+                            <description><b>Success</b> - Returns the OptionObject without a message</description>
+                        </item>
+                        <item>
+                            <term>1</term>
+                            <description><b>Error</b> - Stops the script from processing and displays an message with an "OK" button</description>
+                        </item>
+                        <item>
+                            <term>2</term>
+                            <description><b>OKCancel</b> - Displays a message with "OK" and "Cancel" buttons.</description>
+                        </item>
+                        <item>
+                            <term>3</term>
+                            <description><b>Info</b> - Displays an informational warning message with an "OK" button.</description>
+                        </item>
+                        <item>
+                            <term>4</term>
+                            <description><b>YesNo</b> - Displays a message with "Yes" and "No" buttons.</description>
+                        </item>
+                        <item>
+                            <term>5</term>
+                            <description><b>OpenURL</b> - Opens an URL in a browser</description>
+                        </item>
+                        <item>
+                            <term>6</term>
+                            <description><b>OpenForm</b> - Presents an OK/Cancel dialog to open a form (only be used on Form Load and Field events).</description>
+                        </item>
+                    </list>
+                </para>
+            </remarks><seealso href="https://github.com/rcskids/ScriptLinkStandard">ScriptLinkStandard</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject-error-codes.md">OptionObject Error Codes</seealso>
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.SystemCodePaths">
             <summary>System Code paths for Tingen.</summary>
@@ -605,18 +768,21 @@
              </para>
             </remarks>
         </member>
-        <member name="T:Outpost31.Core.ParseScriptParameter">
-            <summary>Parse the Script Parameter passed from Avatar.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XMLDoc/Outpost31_doc.xml" path="Doc/Sec[@name=&quot;ParseScriptParameter}&quot;]/ParseScriptParameter/*" />
+        <member name="T:Outpost31.Core.ScriptParameter">
+            <summary>Parse the Script Parameter components passed from Avatar.</summary>
         </member>
-        <member name="P:Outpost31.Core.ParseScriptParameter.AssemblyName">
+        <member name="P:Outpost31.Core.ScriptParameter.AssemblyName">
             <summary>Assembly name for logging purposes.</summary>
-            <remarks> The assembly name is defined here so it can be used to write log files throughout the class.</remarks>
+            <remarks>The assembly name is defined here so it can be used to write log files throughout the class.</remarks>
         </member>
-        <member name="M:Outpost31.Core.ParseScriptParameter.ParseSentParameter(Outpost31.Core.Session.TingenSession)">
+        <member name="M:Outpost31.Core.ScriptParameter.ParseSent(Outpost31.Core.Session.TingenSession)">
             <summary>Parses the original Script Parameter sent from Avatar.</summary>
             <param name="tnSession">The TingenSession object for this session.</param>
-            <!-- No matching elements were found for the following include tag --><include file="XMLDoc/Outpost31.Core_doc.xml" path="Doc/Sec[@name=&quot;ParseScriptParameter}&quot;]/ParseSentParameter/*" />
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31.Core_doc.xml" path="Outpost31/Cs[@name=&quot;ScriptParameter&quot;]/ParseSent/*" />
+        </member>
+        <member name="M:Outpost31.Core.ScriptParameter.ParseAdminModule(Outpost31.Core.Session.TingenSession)">
+            <summary>test</summary>
+            <param name="tnSession"></param>
         </member>
         <member name="T:Outpost31.Core.Configuration.ConfigSettings">
             <summary>The Tingen configuration settings.</summary>

@@ -36,15 +36,15 @@
         </member>
         <member name="M:Tingen_development.Tingen_development.GetVersion">
             <summary>Get the current version of Tingen.</summary>
-            <returns>The current version of Tingen.</returns>
             <remarks>This method is required by Avatar and should not be modified.</remarks>
+            <returns>The current version of Tingen.</returns>
         </member>
         <member name="M:Tingen_development.Tingen_development.RunScript(ScriptLinkStandard.Objects.OptionObject2015,System.String)">
             <summary>Starts the Tingen web service.</summary>
             <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
             <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
-            <returns>The finalized OptionObject to myAvatar.</returns>
             <remarks>This method is required by Avatar and should not be modified.</remarks>
+            <returns>The finalized OptionObject to myAvatar.</returns>
         </member>
     </members>
 </doc>
