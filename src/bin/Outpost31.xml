@@ -20,7 +20,8 @@
             <summary>Assembly name for logging purposes.</summary>
             <remarks>
                 <para>
-                    The assembly name is defined here so it can be used to write log files throughout the class.
+                    The assembly name is defined here so it can be used to write log files<br />
+                    throughout the class.
                 </para>
             </remarks>
         </member>
@@ -55,11 +56,13 @@
             <param name="tnSession">The TingenSession object for this session.</param>
         </member>
         <member name="T:Outpost31.Core.Avatar.AvatarData">
-            <summary>Avatar-specific data and logic.</summary>
+            <summary>The Tingen session component that contains Avatar-related data.</summary>
             <remarks>
                 <para>
-                    All of the imortant data sent from Avatar is stored here, and should only contain
-                    the following Avatar-specific data:
+                    The <see cref="T:Outpost31.Core.Avatar.AvatarData" /> class is part of the <see cref="T:Outpost31.Core.Session.TingenSession" /> object, and contains<br />
+                    all of the necessary Avatar-related data that Tingen needs to do its work.<br />
+                    <br />
+                    This object contains:
                     <list type="bullet">
                         <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.SystemCode" /> </item>
                         <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter" /></item>
@@ -68,12 +71,13 @@
                         <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" /></item>
                     </list>
                     <br />
-                    When Tingen starts, this object is created and added to the <see cref="T:Outpost31.Core.Session.TingenSession" /> object.
+                    When Tingen starts, the <see cref="T:Outpost31.Core.Avatar.AvatarData" /> object is added to<br />
+                    the <see cref="T:Outpost31.Core.Session.TingenSession" /> object.
                 </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen/Outpost31 Documentation</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Session.md">Tingen Sessions</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SystemCode">
-            <summary>The System Code that Tingen will use.</summary>
+            <summary>The Avatar System Code that Tingen will use.</summary>
             <remarks>
                 <para>
                     Each Avatar environment has a unique System Code:<br />
@@ -84,27 +88,27 @@
                         </listheader>
                         <item>
                             <term>LIVE</term>
-                            <description>Production environment</description>
+                            <description>The <b>Production</b> environment</description>
                         </item>
                         <item>
                             <term>UAT</term>
-                            <description>User Acceptance Testing environment</description>
+                            <description>The <b>User Acceptance Testing</b> environment</description>
                         </item>
                         <item>
                             <term>SBOX</term>
-                            <description>Sandbox environment</description>
+                            <description>The <b>Sandbox</b> environment</description>
                         </item>
                     </list>
                     <br />
-                    Please note that while Tingen is designed to work with all of these environments, it is only tested<br />
-                    using "LIVE" and "UAT".
+                    Please note that while Tingen is designed to work with all of these environments,<br />
+                    it is only tested using "LIVE" and "UAT".
                 </para>
             </remarks><value>
-                An Avatar System Code (e.g.: "LIVE", "UAT", "SBOX")
+                The Avatar System Code (e.g.: "LIVE", "UAT", "SBOX")
             </value>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject">
-            <summary>The original OptionObject sent from Avatar.</summary>
+            <summary>The original <see cref="T:ScriptLinkStandard.Objects.OptionObject" /> sent from Avatar.</summary>
             <remarks>
                 <para>
                     Avatar sends two components to Tingen:
@@ -114,7 +118,9 @@
                             <description>Description</description>
                         </listheader>
                         <item>
-                            <term><b>OptionObject</b></term>
+                            <term>
+                                <b>OptionObject</b>
+                            </term>
                             <description>
                                 The <i>Avatar data</i> that Tingen needs to do work.
                             </description>
@@ -128,10 +134,10 @@
                     </list>
                 </para>
                 <para>
-                    It is important to note that the SentOptionObject is <i>never modified by Tingen</i>.<br />
+                    It is important to note that the SentOptionObject is <i>never modified</i> by Tingen.<br />
                     <br />
-                    All work is done using the <see cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" />, and the <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" /><br />
-                    is used to send data back to Avatar.
+                    All work is done using the <see cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" />, and<br />
+                    the <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" /> is used to send data back to Avatar.
                 </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">The OptionObject</seealso>
         </member>
@@ -147,11 +153,17 @@
                         </listheader>
                         <item>
                             <term>OptionObject</term>
-                            <description>The <i>Avatar data</i> that Tingen needs to do work.</description>
+                            <description>
+                                The <i>Avatar data</i> that Tingen needs to do work.
+                            </description>
                         </item>
                         <item>
-                            <term><b>Script Parameter</b></term>
-                            <description>The <i>commands</i> that tell Tingen what work needs to be done.</description>
+                            <term>
+                                <b>Script Parameter</b>
+                            </term>
+                            <description>
+                                The <i>commands</i> that tell Tingen what work needs to be done.
+                            </description>
                         </item>
                     </list>
                 </para>
@@ -164,19 +176,27 @@
                         </listheader>
                         <item>
                             <term>Module</term>
-                            <description>The <i>module</i> that is being called (e.g.: "Admin")</description>
+                            <description>
+                                The <i>module</i> that is being called (e.g.: "Admin")
+                            </description>
                         </item>
                         <item>
                             <term>Command</term>
-                            <description>The requested <i>command</i> (e.g.: "Service")</description>
+                            <description>
+                                The requested <i>command</i> (e.g.: "Service")
+                            </description>
                         </item>
                         <item>
                             <term>Action</term>
-                            <description>The requested <i>action</i> (e.g.: "Update")</description>
+                            <description>
+                                The requested <i>action</i> (e.g.: "Update")
+                            </description>
                         </item>
                         <item>
                             <term>Option</term>
-                            <description>The (optional) <i>option</i> (e.g.: "All")</description>
+                            <description>
+                                The (optional) <i>option</i> (e.g.: "All")
+                            </description>
                         </item>
                     </list>
                 </para>
@@ -216,52 +236,19 @@
             <param name="sentScriptParameter">The <see cref="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter" /> sent from Avatar.</param>
             <returns>All of the data/information Tingen needs in order to do work.</returns>
             <remarks>
-                <para>
-                    Before returning an OptionObject to Avatar, it must be <b>finalized</b>.<br />
-                    <br />
-                    Finalizing an OptionObject is a three part process:
-                    <list type="number">
-                        <item>Assign an <i>error code</i> to the returnOptionObject</item>
-                        <item>Assign an <i>error message</i> to the returnOptionObject</item>
-                        <item>Verify the returnOptionObject contains all required data</item>
-                    </list>
-                    Valid error codes include:
-                    <list type="table">
-                        <listheader>
-                            <term>Error code</term>
-                            <description>Description</description>
-                        </listheader>
-                        <item>
-                            <term>0</term>
-                            <description><b>Success</b> - Returns the OptionObject without a message</description>
-                        </item>
-                        <item>
-                            <term>1</term>
-                            <description><b>Error</b> - Stops the script from processing and displays an message with an "OK" button</description>
-                        </item>
-                        <item>
-                            <term>2</term>
-                            <description><b>OKCancel</b> - Displays a message with "OK" and "Cancel" buttons.</description>
-                        </item>
-                        <item>
-                            <term>3</term>
-                            <description><b>Info</b> - Displays an informational warning message with an "OK" button.</description>
-                        </item>
-                        <item>
-                            <term>4</term>
-                            <description><b>YesNo</b> - Displays a message with "Yes" and "No" buttons.</description>
-                        </item>
-                        <item>
-                            <term>5</term>
-                            <description><b>OpenURL</b> - Opens an URL in a browser</description>
-                        </item>
-                        <item>
-                            <term>6</term>
-                            <description><b>OpenForm</b> - Presents an OK/Cancel dialog to open a form (only be used on Form Load and Field events).</description>
-                        </item>
-                    </list>
-                </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">OptionObject Error Codes</seealso>
+                    <para>
+                        The <see cref="P:Outpost31.Core.Avatar.AvatarData.SystemCode" /> is defined at runtime in <c>Tingen.Runscript()</c>.<br />
+                        <br />
+                        The <see cref="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter" /> is converted to lowercase so it is easier<br />
+                        to compare against.<br />
+                        <br />
+                        The <see cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" /> is cloned from the <see cref="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject" />,<br />
+                        so it can be modified without affecting the original data.<br />
+                        <br />
+                        The <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" /> is initally set to <c>null</c>, and will be<br />
+                        formatted/finalized prior to returning to Avatar.
+                    </para>
+            </remarks>
         </member>
         <member name="T:Outpost31.Core.Avatar.ReturnObject">
             <summary>Finalizes an OptionObject so it can be returned to AvatarNX.</summary>
@@ -277,7 +264,8 @@
             <summary>Assembly name for logging purposes.</summary>
             <remarks>
                 <para>
-                    The assembly name is defined here so it can be used to write log files throughout the class.
+                    The assembly name is defined here so it can be used to write log files<br />
+                    throughout the class.
                 </para>
             </remarks>
         </member>
@@ -844,7 +832,9 @@
                         </listheader>
                         <item>
                             <term>Tingen</term>
-                            <description><c>enabled</c>, <c>enabled</c></description>
+                            <description>
+                                <c>enabled</c>, <c>enabled</c>
+                            </description>
                         </item>
                         <item>
                             <term>Open Incident Module</term>
@@ -852,7 +842,9 @@
                         </item>
                         <item>
                             <term>Netsmart web services</term>
-                            <description><i>Not implemented</i></description>
+                            <description>
+                                <i>Not implemented</i>
+                            </description>
                         </item>
                     </list>
                 </para>
@@ -897,7 +889,9 @@
                         </listheader>
                         <item>
                             <term>Tingen</term>
-                            <description><c>enabled</c>, <c>enabled</c></description>
+                            <description>
+                                <c>enabled</c>, <c>enabled</c>
+                            </description>
                         </item>
                         <item>
                             <term>Open Incident Module</term>
@@ -905,7 +899,9 @@
                         </item>
                         <item>
                             <term>Netsmart web services</term>
-                            <description><i>Not implemented</i></description>
+                            <description>
+                                <i>Not implemented</i>
+                            </description>
                         </item>
                     </list>
                 </para>
@@ -950,7 +946,9 @@
                         </listheader>
                         <item>
                             <term>Tingen</term>
-                            <description><c>enabled</c>, <c>enabled</c></description>
+                            <description>
+                                <c>enabled</c>, <c>enabled</c>
+                            </description>
                         </item>
                         <item>
                             <term>Open Incident Module</term>
@@ -958,7 +956,9 @@
                         </item>
                         <item>
                             <term>Netsmart web services</term>
-                            <description><i>Not implemented</i></description>
+                            <description>
+                                <i>Not implemented</i>
+                            </description>
                         </item>
                     </list>
                 </para>
@@ -1263,7 +1263,21 @@
             <param name="tnSession"></param>
         </member>
         <member name="T:Outpost31.WelcomeToOutpost31">
-            <summary>Just a welcome message.</summary>
+            <summary>Welcome to Outpost31!</summary>
+            <remarks>
+                <para>
+                    Outpost31 is the logic for the Tingen web service.<br/>
+                    <br/>
+                    This class is just a placeholder for documentation, and where the Outpost31<br/>
+                    version number is updated (see the header above).<br/>
+                    <br/>
+                    While you're here, take a look at this stuff:
+                    <list type="bullet">
+                        <item>The <see href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen Documentation</see></item>
+                    </list>
+                    Uh...I guess that's it. Thanks for stopping by!
+                </para>
+            </remarks>
         </member>
     </members>
 </doc>
