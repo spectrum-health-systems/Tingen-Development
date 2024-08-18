@@ -58,7 +58,8 @@
             <summary>Avatar-specific data and logic.</summary>
             <remarks>
                 <para>
-                    All of the imortant data sent from Avatar is stored here, and should only contain the following Avatar-specific data:<br />
+                    All of the imortant data sent from Avatar is stored here, and should only contain
+                    the following Avatar-specific data:
                     <list type="bullet">
                         <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.SystemCode" /> </item>
                         <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter" /></item>
@@ -67,12 +68,9 @@
                         <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" /></item>
                     </list>
                     <br />
-                    When Tingen starts, this object is created and added to the session object.
-                    <br />
-                    <br />
-                    Please see the <see href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</see> for more information.
+                    When Tingen starts, this object is created and added to the <see cref="T:Outpost31.Core.Session.TingenSession" /> object.
                 </para>
-            </remarks>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen/Outpost31 Documentation</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Session.md">Tingen Sessions</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SystemCode">
             <summary>The System Code that Tingen will use.</summary>
@@ -98,7 +96,8 @@
                         </item>
                     </list>
                     <br />
-                    Please note that while Tingen is designed to work with all of these environments, it is only tested using "LIVE" and "UAT".
+                    Please note that while Tingen is designed to work with all of these environments, it is only tested<br />
+                    using "LIVE" and "UAT".
                 </para>
             </remarks><value>
                 An Avatar System Code (e.g.: "LIVE", "UAT", "SBOX")
@@ -131,7 +130,8 @@
                 <para>
                     It is important to note that the SentOptionObject is <i>never modified by Tingen</i>.<br />
                     <br />
-                    All work is done using the <see cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" />, and the <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" /> is used to send data back to Avatar.
+                    All work is done using the <see cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" />, and the <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" /><br />
+                    is used to send data back to Avatar.
                 </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">The OptionObject</seealso>
         </member>
@@ -197,7 +197,7 @@
             <summary>The OptionObject that may be modified by Tingen.</summary>
             <remarks>
                 <para>
-                    The <b>WorkOptionObject</b> is a clone of the <see cref="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject" /> that is used to do work.<br />
+                    The <b>WorkOptionObject</b> is a clone of the <see cref="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject" /> that is used to do work.
                 </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">The OptionObject</seealso>
         </member>
@@ -205,7 +205,8 @@
             <summary>The OptionObject that will be returned to Avatar.</summary>
             <remarks>
                 <para>
-                    The <b>WorkOptionObject</b> is a clone of the <see cref="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject" /> that is used to return data back to Avatar.<br />
+                    The <b>WorkOptionObject</b> is a clone of the <see cref="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject" /> that is used to return<br />
+                    back to Avatar.
                 </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">The OptionObject</seealso>
         </member>
@@ -790,7 +791,8 @@
                 <para>
                     This class initializes the Tingen configuration settings, which define the <i>core functionality</i> of Tingen web service.<br />
                     <br />
-                    While Module
+                    The only configuration settings that are not related to core functionality are the Module <i>mode</i> settings, which are store here
+                    While Module <i>mode</i> settings are stored in the configuration file, the full configuration settings are stored in the <c>Tingen.config</c> file.<br />
 
                     <list type="bullet">
                         <item>Are specific to Tingen <i>core functionality</i></item>
@@ -807,7 +809,8 @@
             <summary>Determines the available Tingen web service functionality.</summary>
             <remarks>
                 <para>
-                    The Tingen web service, as well as its individual Modules, have various levels of functionality that are determined by their <b>Mode</b> setting.<br />
+                    The Tingen web service, as well as its individual Modules, have various levels of functionality that<br />
+                    are determined by their <b>Mode</b> settings.<br />
                     <br />
                     Modes are defined as:
                     <list type="table">
@@ -826,8 +829,9 @@
                     </list>
                 </para>
                 <para>
-                    When the Tingen web service is <b>enabled</b>, it will do work and (potentially) return a <i>modified</i> OptionObject.<br />
-                    When the Tingen web service is <b>disabled</b>, it will <i>not</i> do work and will return an <i>unmodified</i> OptionObject.
+                    When the Tingen web service is <b>enabled</b>, it will do work and (potentially) return a <i>modified</i><br />
+                    OptionObject. When the Tingen web service is <b>disabled</b>, it will <i>not</i> do work and will<br />
+                    return an <i>unmodified</i> OptionObject.
                 </para>
                 <para>
                     Each Tingen component may have a different Mode setting, so it is important to verify the Mode setting for each component.
@@ -858,7 +862,8 @@
             <summary>Determines the available Open Incident Module functionality.</summary>
             <remarks>
                 <para>
-                    The Tingen web service, as well as its individual Modules, have various levels of functionality that are determined by their <b>Mode</b> setting.<br />
+                    The Tingen web service, as well as its individual Modules, have various levels of functionality that<br />
+                    are determined by their <b>Mode</b> settings.<br />
                     <br />
                     Modes are defined as:
                     <list type="table">
@@ -877,8 +882,9 @@
                     </list>
                 </para>
                 <para>
-                    When the Tingen web service is <b>enabled</b>, it will do work and (potentially) return a <i>modified</i> OptionObject.<br />
-                    When the Tingen web service is <b>disabled</b>, it will <i>not</i> do work and will return an <i>unmodified</i> OptionObject.
+                    When the Tingen web service is <b>enabled</b>, it will do work and (potentially) return a <i>modified</i><br />
+                    OptionObject. When the Tingen web service is <b>disabled</b>, it will <i>not</i> do work and will<br />
+                    return an <i>unmodified</i> OptionObject.
                 </para>
                 <para>
                     Each Tingen component may have a different Mode setting, so it is important to verify the Mode setting for each component.
@@ -909,7 +915,8 @@
             <summary>Determines the available Netsmart web service functionality.</summary>
             <remarks>
                 <para>
-                    The Tingen web service, as well as its individual Modules, have various levels of functionality that are determined by their <b>Mode</b> setting.<br />
+                    The Tingen web service, as well as its individual Modules, have various levels of functionality that<br />
+                    are determined by their <b>Mode</b> settings.<br />
                     <br />
                     Modes are defined as:
                     <list type="table">
@@ -928,8 +935,9 @@
                     </list>
                 </para>
                 <para>
-                    When the Tingen web service is <b>enabled</b>, it will do work and (potentially) return a <i>modified</i> OptionObject.<br />
-                    When the Tingen web service is <b>disabled</b>, it will <i>not</i> do work and will return an <i>unmodified</i> OptionObject.
+                    When the Tingen web service is <b>enabled</b>, it will do work and (potentially) return a <i>modified</i><br />
+                    OptionObject. When the Tingen web service is <b>disabled</b>, it will <i>not</i> do work and will<br />
+                    return an <i>unmodified</i> OptionObject.
                 </para>
                 <para>
                     Each Tingen component may have a different Mode setting, so it is important to verify the Mode setting for each component.
