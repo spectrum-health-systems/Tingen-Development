@@ -25,7 +25,7 @@
       <DocumentationSource sourceFile="..\..\src\Tingen_development.csproj" />
     </DocumentationSources>
     <HelpFileFormat>Website</HelpFileFormat>
-    <SyntaxFilters>C#, XAML Usage, ASP.NET</SyntaxFilters>
+    <SyntaxFilters>C#, ASP.NET</SyntaxFilters>
     <PresentationStyle>Default2022</PresentationStyle>
     <CleanIntermediates>True</CleanIntermediates>
     <KeepLogFile>True</KeepLogFile>
