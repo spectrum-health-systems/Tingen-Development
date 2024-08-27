@@ -59,6 +59,10 @@ namespace Tingen_development
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
             /* Trace logs can't go here - the infrastructure isn't setup yet.
+             *
+             * But you can use a Primeval log!
+             *
+             * LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
              */
 
             LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
