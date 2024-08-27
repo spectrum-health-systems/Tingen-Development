@@ -61,6 +61,8 @@ namespace Tingen_development
             /* Trace logs can't go here - the infrastructure isn't setup yet.
              */
 
+            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
 
             /* The only difference between the development and stable versions of Tingen is that the development version
