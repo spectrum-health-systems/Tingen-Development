@@ -12,7 +12,6 @@
   ![DotNet](https://img.shields.io/badge/.net-Framework_4.8-blue?style=flat-square)&nbsp;&nbsp;
   ![Platform](https://img.shields.io/badge/platform-Windows-blue?style=flat-square)&nbsp;&nbsp;
 
-
 </div>
 
 > HI THERE!  
