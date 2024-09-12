@@ -26,11 +26,12 @@
 
 Tingen_development is:
 
-* It's the *development version* of Tingen
+* It's the **development version** of Tingen
 * It's **not intended** to be used in production environments!
-* It's most likely filled with *bad/ugly/dumb placeholder code*
-* Only used by the *developer(s)* of Tingen
-* Is public because I think it's important to make the source code available for everyone to see
+* It's most likely filled with **bad/ugly/dumb placeholder code**
+* Only used by the **developer(s)** of Tingen
+
+This repository is public because I think it's important to make the source code available for everyone to see
 
 # Repository branches
 
