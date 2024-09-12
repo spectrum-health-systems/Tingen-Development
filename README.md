@@ -42,7 +42,7 @@ There are three types of branches in this repository:
   The development branch is merged into main occasionally, so commits to this branch are not a good indication of development progress.
   
 * [development](https://github.com/spectrum-health-systems/Tingen_development/tree/development)  
-  The majority of Tingen development is done in this branch.
+  The majority of Tingen development is done in this branch, so if you want the latest-and-greatest, this is where to go.
 
 * Tingen_development archive snapshots.  
-  When development starts on a new monthly version, the previous version is archived to a seperate branch.
+  When development starts on a new monthly version, the previous version is archived to a separate branch.
