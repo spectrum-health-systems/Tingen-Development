@@ -6,8 +6,8 @@
 
   ![DevelopmentBranchNotifiction](https://img.shields.io/badge/DEVELOPMENT_RELEASE-firebrick?style=for-the-badge)
 
-  ![DevelopmentStatus](https://img.shields.io/badge/status-active-lightgreen?style=flat-square)&nbsp;&nbsp;
-  ![ReleaseVersion](https://img.shields.io/badge/release-24.9-maroon?style=flat-square)&nbsp;&nbsp;
+  ![DevelopmentStatus](https://img.shields.io/badge/status-active-chartreuse?style=flat-square)&nbsp;&nbsp;
+  ![ReleaseVersion](https://img.shields.io/badge/release-24.9-firebrick?style=flat-square)&nbsp;&nbsp;
   ![License](https://img.shields.io/github/license/spectrum-health-systems/Outpost31?style=flat-square)&nbsp;&nbsp;
   ![DotNet](https://img.shields.io/badge/.net-Framework_4.8-blue?style=flat-square)&nbsp;&nbsp;
   ![Platform](https://img.shields.io/badge/platform-Windows-blue?style=flat-square)&nbsp;&nbsp;
