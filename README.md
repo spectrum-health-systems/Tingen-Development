@@ -1,4 +1,4 @@
-<!-- u240712 -->
+<!-- u240924 -->
 
 <div align="center">
 
@@ -16,22 +16,24 @@
 
 > HI THERE!  
 > 
-> This is the **development version** of the [Tingen](https://github.com/spectrum-health-systems/Tingen) custom web service.  
+> This is the **development version** of Tingen.  
 > 
-> You're probably looking for the [Tingen Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease).
+> The development version of Tingen **should not be used** in production environments!
+>
+> Production environments should use the [Tingen Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease).
 
 # About Tingen_development
 
-[Tingen](https://github.com/spectrum-health-systems/Tingen) is a custom web service for Avatar.
+[Tingen](https://github.com/spectrum-health-systems/Tingen) is a custom web service for Netsmart's Avatar EHR.
 
 Tingen_development is:
 
-* It's the **development version** of Tingen
-* It's **not intended** to be used in production environments!
-* It's most likely filled with **bad/ugly/dumb placeholder code**
-* Only used by the **developer(s)** of Tingen
+* The *development version* of Tingen
+* *Not intended* to be used in production environments!
+* Most likely filled with *bad/ugly/dumb placeholder code*
+* Only used by the *developer(s)* of Tingen, *for* the development of Tingen
 
-This repository is public because I think it's important to make the source code available for everyone to see
+This repository is public because I think it's important to make the source code available for everyone to see.
 
 # Repository branches
 

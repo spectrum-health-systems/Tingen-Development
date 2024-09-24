@@ -1,5 +1,5 @@
 ﻿<!--
-    u240805.0855_documentation
+    u240924_documentation
 -->
 
 <Doc>
@@ -25,5 +25,16 @@
                 </para>
             </remarks>
         </Tingen>
+        <RunScript>
+            <remarks>
+                <para>
+                    This method is required by Avatar and should not be modified.<br/>
+                    <br/>
+                    The only difference between the development and stable versions of Tingen is that the development version uses<br/>
+                    the "UAT" system code, while the stable version uses the "LIVE" system code.<br/>
+                    <br/>
+                </para>
+            </remarks>
+        </RunScript>
     </Sec>
 </Doc>
