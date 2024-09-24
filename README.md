@@ -18,7 +18,7 @@
 > 
 > This is the **development version** of Tingen and **should not be used** in production environments!
 >
-> Production environments should use the [Tingen Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease).
+> Production environments should use the Tingen [Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease).
 
 # About Tingen_development
 
