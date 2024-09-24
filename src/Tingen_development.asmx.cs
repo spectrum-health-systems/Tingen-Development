@@ -1,24 +1,13 @@
-﻿// ================================================================ 24.8.0 =====
+﻿// ================================================================ 24.9.0 =====
 // Tingen: Tingen web service.
 // Repository: https://github.com/APrettyCoolProgram/Tingen-Development
 // Documentation: https://github.com/spectrum-health-systems/Tingen-Documentation
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 240820 =====
-
-// -----------------------------------------------------------------------------
-//                                 About Tingen
-// -----------------------------------------------------------------------------
-// Tingen is a custom web service for Avatar.
-//
-// Tingen doesn't actually do much, it mainly accepts a request from Avatar and
-// forwards it to Outpost31 to do the heavy lifting.
-//
-// In theory, this source code shouldn't need to be modified, so if the update
-// timestamps are really old, that's fine.
+// ================================================================ 240924 =====
 
 // u240817.1003_code
-// u240817.1003_documentation
+// u240924_documentation
 
 using System.Reflection;
 using System.Web.Services;
@@ -53,25 +42,17 @@ namespace Tingen_development
         /// <summary>Starts the Tingen web service.</summary>
         /// <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
         /// <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
-        /// <remarks>This method is required by Avatar and should not be modified.</remarks>
         /// <returns>The finalized OptionObject to myAvatar.</returns>
+        /// <include file='XmlDoc/Tingen_doc.xml' path='Doc/Sec[@name="Tingen"]/RunScript/*'/>
         [WebMethod]
         public OptionObject2015 RunScript(OptionObject2015 sentOptionObject, string sentScriptParameter)
         {
-            /* Trace logs can't go here - the infrastructure isn't setup yet.
-             *
-             * But you can use a Primeval log!
-             *
-             * LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+            /* Trace Logs can't go here because the logging infrastructure hasn't been been initialized yet, so if you
+             * need to create a logfile here, use a Primeval Log.
              */
-
-            LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
 
             TingenSession tnSession = TingenSession.Build(sentOptionObject, sentScriptParameter, TingenVersion);
 
-            /* The only difference between the development and stable versions of Tingen is that the development version
-             * uses the "UAT" system code, while the stable version uses the "LIVE" system code.
-             */
             tnSession.AvData.SystemCode = "UAT";
 
             LogEvent.Trace(1, AssemblyName, tnSession.TraceInfo);
@@ -84,3 +65,12 @@ namespace Tingen_development
         }
     }
 }
+
+/*
+=================
+DEVELOPMENT NOTES
+=================
+
+None.
+
+*/

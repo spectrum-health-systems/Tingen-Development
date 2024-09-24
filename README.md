@@ -1,4 +1,4 @@
-<!-- u240712 -->
+<!-- u240924 -->
 
 <div align="center">
 
@@ -16,33 +16,38 @@
 
 > HI THERE!  
 > 
-> This is the **development version** of the [Tingen](https://github.com/spectrum-health-systems/Tingen) custom web service.  
-> 
-> You're probably looking for the [Tingen Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease).
+> This is the **development version** of Tingen and **should not be used** in production environments!
+>
+> Production environments should use the [Tingen Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease).
 
 # About Tingen_development
 
-[Tingen](https://github.com/spectrum-health-systems/Tingen) is a custom web service for Avatar.
+[Tingen](https://github.com/spectrum-health-systems/Tingen) is a custom web service for Netsmart's Avatar EHR.
 
-Tingen_development is:
+*Tingen_development* is:
 
-* It's the *development version* of Tingen
-* It's **not intended** to be used in production environments!
-* It's most likely filled with *bad/ugly/dumb placeholder code*
-* Only used by the *developer(s)* of Tingen
-* Is public because I think it's important to make the source code available for everyone to see
+* The ***development version*** of Tingen
+* ***Not intended*** to be used in production environments!
+* Most likely filled with ***bad/ugly/dumb placeholder code***
+* Only used by the ***developer(s)*** of Tingen, ***for the development*** of Tingen
+
+This repository is public because I think it's important to make the source code available for everyone to see.
 
 # Repository branches
 
 There are three types of branches in this repository:
 
-* [main](https://github.com/spectrum-health-systems/Tingen_development/tree/main)  
-  This is about as "stable" as Tingen_development is going to get, and even then it is considered a development version, so it may contain broken/incomplete functionality!
+* **[main](https://github.com/spectrum-health-systems/Tingen_development/tree/main)**  
+  This is about as "stable" as Tingen_development is going to get, and even then it is considered a development version, so ***don't use it in production environments***!
 
-  The development branch is merged into main occasionally, so commits to this branch are not a good indication of development progress.
+  The development branch is merged into main occasionally, generally for documentation updates, so commits to this branch are not a good indication of development progress.
   
-* [development](https://github.com/spectrum-health-systems/Tingen_development/tree/development)  
+* **[development](https://github.com/spectrum-health-systems/Tingen_development/tree/development)**  
   The majority of Tingen development is done in this branch, so if you want the latest-and-greatest, this is where to go.
 
-* Tingen_development archive snapshots.  
-  When development starts on a new monthly version, the previous version is archived to a separate branch.
+* **Tingen_development archive snapshots**  
+  When development starts on a new monthly version, the previous version is archived to a separate branch (e.g., `24.9.0-development+final`).
+
+# Documentation
+
+You can find all the documentation you could ever want about Tingen (and related projects) [here](https://github.com/spectrum-health-systems/Tingen-Documentation).
