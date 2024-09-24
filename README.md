@@ -50,4 +50,4 @@ There are three types of branches in this repository:
 
 # Documentation
 
-You can find all the documentation you could ever want about Tingen (and related projects) (here)[https://github.com/spectrum-health-systems/Tingen-Documentation].
+You can find all the documentation you could ever want about Tingen (and related projects) [here](https://github.com/spectrum-health-systems/Tingen-Documentation).
