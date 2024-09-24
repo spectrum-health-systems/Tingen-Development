@@ -45,5 +45,5 @@ There are three types of branches in this repository:
 * **[development](https://github.com/spectrum-health-systems/Tingen_development/tree/development)**  
   The majority of Tingen development is done in this branch, so if you want the latest-and-greatest, this is where to go.
 
-* **Tingen_development archive snapshots** (e.g., `24.9.0-development+final`)  
-  When development starts on a new monthly version, the previous version is archived to a separate branch.
+* **Tingen_development archive snapshots**  
+  When development starts on a new monthly version, the previous version is archived to a separate branch (e.g., `24.9.0-development+final`).
