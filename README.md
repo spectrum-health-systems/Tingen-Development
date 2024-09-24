@@ -24,12 +24,12 @@
 
 [Tingen](https://github.com/spectrum-health-systems/Tingen) is a custom web service for Netsmart's Avatar EHR.
 
-*Tingen_development* is:
+Tingen_development is:
 
 * The ***development version*** of Tingen
 * ***Not intended*** to be used in production environments!
-* Most likely filled with ***bad/ugly/dumb placeholder code***
-* Only used by the ***developer(s)*** of Tingen, ***for the development*** of Tingen
+* Most likely filled with ***bad/ugly/dumb placeholder code***!
+* Only used by the ***developer(s)*** of Tingen, ***for the development*** of Tingen!
 
 This repository is public because I think it's important to make the source code available for everyone to see.
 
