@@ -29,7 +29,7 @@
 * The ***development version*** of Tingen
 * ***Not intended*** to be used in production environments!
 * Most likely filled with ***bad/ugly/dumb placeholder code***
-* Only used by the ***developer(s)*** of Tingen, ***for*** the development of Tingen
+* Only used by the ***developer(s)*** of Tingen, ***for the development*** of Tingen
 
 This repository is public because I think it's important to make the source code available for everyone to see.
 
@@ -38,12 +38,12 @@ This repository is public because I think it's important to make the source code
 There are three types of branches in this repository:
 
 * [main](https://github.com/spectrum-health-systems/Tingen_development/tree/main)  
-  This is about as "stable" as Tingen_development is going to get, and even then it is considered a development version, so it may contain broken/incomplete functionality!
+  This is about as "stable" as Tingen_development is going to get, and even then it is considered a development version, so ***don't use it in production environments***!
 
-  The development branch is merged into main occasionally, so commits to this branch are not a good indication of development progress.
+  The development branch is merged into main occasionally, generally for documentation updates, so commits to this branch are not a good indication of development progress.
   
 * [development](https://github.com/spectrum-health-systems/Tingen_development/tree/development)  
   The majority of Tingen development is done in this branch, so if you want the latest-and-greatest, this is where to go.
 
-* Tingen_development archive snapshots.  
+* Tingen_development archive snapshots (e.g., `24.9.0-development+final`)  
   When development starts on a new monthly version, the previous version is archived to a separate branch.
