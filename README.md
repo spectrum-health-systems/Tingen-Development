@@ -4,7 +4,7 @@
 
   ![logo](/.github/images/logos/TingenDevelopment_232x308.png)
 
-  ![DevelopmentBranchNotifiction](https://img.shields.io/badge/DEVELOPMENT_RELEASE-red?style=for-the-badge)
+  ![DevelopmentBranchNotifiction](https://img.shields.io/badge/DEVELOPMENT_RELEASE-brightred?style=for-the-badge)
 
   ![DevelopmentStatus](https://img.shields.io/badge/status-active-lightgreen?style=flat-square)&nbsp;&nbsp;
   ![ReleaseVersion](https://img.shields.io/badge/release-24.9-red?style=flat-square)&nbsp;&nbsp;
