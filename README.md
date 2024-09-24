@@ -47,3 +47,7 @@ There are three types of branches in this repository:
 
 * **Tingen_development archive snapshots**  
   When development starts on a new monthly version, the previous version is archived to a separate branch (e.g., `24.9.0-development+final`).
+
+# Documentation
+
+You can find all the documentation you could ever want about Tingen (and related projects) (here)[https://github.com/spectrum-health-systems/Tingen-Documentation].
