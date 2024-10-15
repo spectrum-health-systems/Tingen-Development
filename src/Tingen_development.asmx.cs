@@ -6,7 +6,7 @@
 // Licensed under the Apache 2.0 license.
 // ================================================================ 241014 =====
 
-// u240817.1003_code
+// u240817_code
 // u240924_documentation
 
 using System.Reflection;
