@@ -46,11 +46,11 @@
             <returns>The finalized OptionObject to myAvatar.</returns>
             <remarks>
                 <para>
-				    This method is required by Avatar and should not be modified.<br />
-					<br />
+                    This method is required by Avatar and should not be modified.<br />
+                    <br />
                     The only difference between the development and stable versions of Tingen is that the development version uses<br />
-					the "UAT" system code, while the stable version uses the "LIVE" system code.<br />
-					<br />	
+                    the "UAT" system code, while the stable version uses the "LIVE" system code.<br />
+                    <br />
                 </para>
             </remarks>
         </member>

@@ -1,16 +1,13 @@
-<!-- u240924 -->
+<!-- u241017 -->
 
 <div align="center">
 
   ![logo](/.github/images/logos/TingenDevelopment_232x308.png)
 
-  ![DevelopmentBranchNotifiction](https://img.shields.io/badge/DEVELOPMENT_RELEASE-E10600?style=for-the-badge)
-
-  ![DevelopmentStatus](https://img.shields.io/badge/status-active-lightgreen?style=flat-square)&nbsp;&nbsp;
-  ![ReleaseVersion](https://img.shields.io/badge/release-24.9-red?style=flat-square)&nbsp;&nbsp;
-  ![License](https://img.shields.io/github/license/spectrum-health-systems/Outpost31?style=flat-square)&nbsp;&nbsp;
-  ![DotNet](https://img.shields.io/badge/.net-Framework_4.8-blue?style=flat-square)&nbsp;&nbsp;
+  ![DEVELOPMENT_VERSION](https://img.shields.io/badge/release-24.10--development-firebrick?style=flat-square)&nbsp;&nbsp;
+  ![DotNet](https://img.shields.io/badge/.net-Framework_4.8-darkslateblue?style=flat-square)&nbsp;&nbsp;
   ![Platform](https://img.shields.io/badge/platform-Windows-blue?style=flat-square)&nbsp;&nbsp;
+  ![License](https://img.shields.io/github/license/spectrum-health-systems/Outpost31?style=flat-square)&nbsp;&nbsp;
 
 </div>
 
@@ -18,18 +15,18 @@
 > 
 > This is the **development version** of Tingen and **should not be used** in production environments!
 >
-> Production environments should use the [Tingen Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease).
+> Production environments should use the Tingen [Community Release](https://github.com/spectrum-health-systems/Tingen-CommunityRelease).
 
 # About Tingen_development
 
 [Tingen](https://github.com/spectrum-health-systems/Tingen) is a custom web service for Netsmart's Avatar EHR.
 
-*Tingen_development* is:
+Tingen_development is:
 
 * The ***development version*** of Tingen
 * ***Not intended*** to be used in production environments!
-* Most likely filled with ***bad/ugly/dumb placeholder code***
-* Only used by the ***developer(s)*** of Tingen, ***for the development*** of Tingen
+* Most likely filled with ***bad/ugly/dumb placeholder code***!
+* Only used by the ***developer(s)*** of Tingen, ***for the development*** of Tingen!
 
 This repository is public because I think it's important to make the source code available for everyone to see.
 
