@@ -34,7 +34,7 @@
         </member>
         <member name="P:Outpost31.Core.TingenApp.AssemblyName">
             <summary>Assembly name for logging purposes.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Common_doc.xml" path="Common/Term[@name=&quot;Term&quot;]/AssemblyName/*" />
+            <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Common_doc.xml" path="Common/Term[@name=&quot;Term&quot;]/AssemblyName/*" />
         </member>
         <member name="M:Outpost31.Core.TingenApp.StartApp(Outpost31.Core.Session.TingenSession)">
             <summary>Starts the Tingen web service.</summary>
@@ -99,8 +99,7 @@
             <remarks>
                 <para>
                     The <c>SentOptionObject</c> is the original data structure that is sent from  Avatar to Tingen, and contains all of the <i>data</i> Tingen needs to do its work.<br />
-                </para>
-                <para>
+                    <br />
                     It is important to note that the <c>SentOptionObject</c> is <i>never directly modified</i> by Tingen, since all modifications are made using the <see cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" />.
                 </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
@@ -120,19 +119,27 @@
                         </listheader>
                         <item>
                             <term>Module</term>
-                            <description>The <i>Tingen Module</i> that will do the work (e.g.: "Admin")</description>
+                            <description>
+                                The <i>Tingen Module</i> that will do the work (e.g.: "Admin")
+                            </description>
                         </item>
                         <item>
                             <term>Command</term>
-                            <description>The requested <i>command</i> (e.g.: "Service")</description>
+                            <description>
+                                The requested <i>command</i> (e.g.: "Service")
+                            </description>
                         </item>
                         <item>
                             <term>Action</term>
-                            <description>The requested <i>action</i> (e.g.: "Update")</description>
+                            <description>
+                                The requested <i>action</i> (e.g.: "Update")
+                            </description>
                         </item>
                         <item>
                             <term>Option</term>
-                            <description>The (optional) <i>option</i> (e.g.: "All")</description>
+                            <description>
+                                The (optional) <i>option</i> (e.g.: "All")
+                            </description>
                         </item>
                     </list>
                 </para>
@@ -170,23 +177,20 @@
             <summary>The data structure that (is potentially) modified during a Tingen Session.</summary>
             <remarks>
                 <para>
-                    Any modifications made to the original data sent from Avatar are made in the <c>WorkOptionObject</c> data structure
-                </para>
-                <para>
+                    Any modifications made to the original data sent from Avatar are made in the <c>WorkOptionObject</c> data structure.<br />
+                    <br />
                     The <c>WorkOptionObject</c> is not formatted correctly, nor does it contain the required information, to be returned to Avatar (that's the job of the <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" />).
                 </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject">
-            <summary>The data structure that returned to Avatar.</summary>
+            <summary>The data structure that is returned to Avatar.</summary>
             <remarks>
                 <para>
                     The <c>ReturnOptionObject</c> is the data structure that is returned to Avatar, and contains any modifications made to the original data.<br />
-                </para>
-                <para>
+                    <br />
                     Prior to returning the <c>ReturnOptionObject</c> to Avatar, it must be <i>finalized</i> via <see cref="M:Outpost31.Core.Avatar.ReturnObject.Finalize(Outpost31.Core.Session.TingenSession,System.String,System.String)" />.<br />
-                </para>
-                <para>
+                    <br />
                     The finalization process verifies that the <c>ReturnOptionObject</c> is formatted correctly, and that all of the required information Avatar needs to accept the returned data is is present.
                 </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
@@ -196,7 +200,17 @@
             <param name="sentOptionObject">The SentOptionObject data structure sent from Avatar.</param>
             <param name="sentScriptParameter">The SentScriptParameter sent from Avatar.</param>
             <returns>All of the data/information Tingen needs in order to do work.</returns>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31.Core.Avatar_doc.xml" path="Common/Type[@name=&quot;Property&quot;]/BuildObject/*" />
+            <remarks>
+                <para>
+                    A few things about this method:
+                    <list type="bullet">
+                        <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.SystemCode" /> is defined at runtime in <c>Tingen.Runscript()</c>.</item>
+                        <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter" /> is converted to lowercase so it is easier to compare against.</item>
+                        <item>All work is done in the <see cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" />, which is cloned from the <see cref="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject" />, ensuring that the original data sent from Avatar remains unmodified.</item>
+                        <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" /> is initally set to <c>null</c>, and will be finalized prior to returning to Avatar.</item>
+                    </list>
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
         </member>
         <member name="T:Outpost31.Core.Avatar.ReturnObject">
             <summary>Logic for the ReturnOptionObject data structure.</summary>
@@ -209,13 +223,9 @@
                 </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
         </member>
-        <member name="P:Outpost31.Core.Avatar.ReturnObject.AssemblyName">
-            <summary>Assembly name for logging purposes.</summary>
-            <remarks>
-                <para>
-                    The assembly name is defined here so it can be used to write log files throughout the class.
-                </para>
-            </remarks>
+        <member name="P:Outpost31.Core.Avatar.ReturnObject.ExeAsm">
+            <summary>The executing assembly name.</summary>
+            <remarks>This is defined here so it can be used to write log files throughout the class.</remarks>
         </member>
         <member name="M:Outpost31.Core.Avatar.ReturnObject.Finalize(Outpost31.Core.Session.TingenSession,System.String,System.String)">
             <summary>Finalize an OptionObject so it can be returned to Avatar.</summary>
@@ -286,96 +296,7 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.SystemCodePaths">
             <summary>System Code paths for Tingen.</summary>
-            <remarks>
-                <para>
-                    System Code paths are used to store all sorts of data for different System Codes.
-                </para>
-                <para>
-                    The following types of data are stored in the <c>%SystemCode%/</c> folder:
-                    <list type="table">
-                        <listheader>
-                            <term>Path</term>
-                            <description>Description</description>
-                        </listheader>
-                        <item>
-                            <term>Config</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Sessions</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Extensions</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Security</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>MessageRoot</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Alerts</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Errors</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Warnings</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>ImportRoot</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>FromAvatar</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Templates</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>ExportRoot</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Reports</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>SupportRoot</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Admin</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Archive</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Debugging</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Logs</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Temporary</term>
-                            <description />
-                        </item>
-                    </list>
-                </para>
-            </remarks>
+            <remarks>System Code paths are used to store all sorts of data for different Avatar System Codes.</remarks>>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Root">
             <summary>Root path for System Code data.</summary>
@@ -383,11 +304,33 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Config">
             <summary>Path for System Code configuration data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\Config\</c>"</remarks>
+            <remarks>
+                <para>
+                    Configuration data.
+                </para>
+                <para>
+                    Examples of configuration data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Sessions">
             <summary>Path for System Code session data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\Sessions\</c>"</remarks>
+            <remarks>
+                <para>
+                    Session data
+                </para>
+                <para>
+                    Examples of reports include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.CurrentSession">
             <summary>Current session path.</summary>
@@ -395,15 +338,34 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Extensions">
             <summary>Path for Tingen Extensions.</summary>
-            <remarks>Future functionality.</remarks>
+            <remarks>
+                <para>
+                    This functionality is not implemented (yet).
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Security">
             <summary>Path for Tingen security-related data.</summary>
-            <remarks>Future functionality.</remarks>
+            <remarks>
+                <para>
+                    This functionality is not implemented (yet).
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Temporary">
             <summary>Path for temporary data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\</c>"</remarks>
+            <remarks>
+                <para>
+                    Temporary data.
+                </para>
+                <para>
+                    Examples of temporary data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.MessageRoot">
             <summary>Root for message data.</summary>
@@ -411,15 +373,48 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Alerts">
             <summary>Path for alert data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\MessagesAlerts\</c>"</remarks>
+            <remarks>
+                <para>
+                    Alert messages are used to notify the user of important information.
+                </para>
+                <para>
+                    Examples of alerts include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Errors">
             <summary>Path for error data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\MessagesErrors\</c>"</remarks>
+            <remarks>
+                <para>
+                    Error messages are used to notify the user of a problem that has occurred.
+                </para>
+                <para>
+                    Examples of errors include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Warnings">
             <summary>Path for warning data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\MessagesWarnings\</c>"</remarks>
+            <remarks>
+                <para>
+                    Warning messages are used to notify the user of a potential problem.
+                </para>
+                <para>
+                    Examples of warnings include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.ExportRoot">
             <summary>Root for exported data.</summary>
@@ -431,15 +426,48 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.ImportRoot">
             <summary>Root for imported data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\Imports\</c>"</remarks>
+            <remarks>
+                <para>
+                    Reports are used to display data in a structured format.
+                </para>
+                <para>
+                    Examples of reports include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.FromAvatar">
             <summary>Path for imported data from Avatar.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\Imports\FromAvatar\</c>"</remarks>
+            <remarks>
+                <para>
+                    Data exported from Avatar.
+                </para>
+                <para>
+                    Examples of data exported from Avatar include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Templates">
             <summary>Path for imported templates.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\Imports\Templates\</c>"</remarks>
+            <remarks>
+                <para>
+                    Templates
+                </para>
+                <para>
+                    Examples of templates include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.SupportRoot">
             <summary>Root for support data.</summary>
@@ -447,19 +475,63 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Admin">
             <summary>Path for admin data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\Support\Admin\</c>"</remarks>
+            <remarks>
+                <para>
+                    Admin data.
+                </para>
+                <para>
+                    Examples of admin data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Archive">
             <summary>Path for archived data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\Support\Archive\</c>"</remarks>
+            <remarks>
+                <para>
+                    Archived data
+                </para>
+                <para>
+                    Examples of archived data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Debugging">
             <summary>Path for debugging data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\Support\Debugging\</c>"</remarks>
+            <remarks>
+                <para>
+                    Debugging data.
+                </para>
+                <para>
+                    Examples of Debugging data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Logs">
             <summary>Path for log data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\Support\Logs\</c>"</remarks>
+            <remarks>
+                <para>
+                    Logging data.
+                </para>
+                <para>
+                    Examples of logging data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="M:Outpost31.Core.Framework.Catalog.SystemCodePaths.BuildObject(System.String,System.String)">
             <summary>Builds the system code paths object.</summary>
@@ -474,40 +546,7 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.PublicPaths">
             <summary>Public paths for Tingen.</summary>
-            <remarks>
-                <para>
-                    Public paths are used to store data that is accessible users that have access to the <c>Public/</c> folder.
-                </para>
-                <para>
-                    The following types of data are stored in public paths:
-                    <list type="table">
-                        <listheader>
-                            <term>Path</term>
-                            <description>Description</description>
-                        </listheader>
-                        <item>
-                            <term>Alerts</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Errors</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Exports</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Reports</term>
-                            <description />
-                        </item>
-                        <item>
-                            <term>Warnings</term>
-                            <description />
-                        </item>
-                    </list>
-                </para>
-            </remarks>
+            <remarks>Public paths are used to store data that is accessible users that have access to the <c>Public/</c> folder.</remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Root">
             <summary>The root path for public data.</summary>
@@ -515,23 +554,78 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Alerts">
             <summary>The public path for alerts.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Public\Alerts\</c>"</remarks>
+            <remarks>
+                <para>
+                    Alert messages are used to notify the user of important information.
+                </para>
+                <para>
+                    Examples of alerts include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Errors">
             <summary>Path for public error messages.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Public\Errors\</c>"</remarks>
+            <remarks>
+                <para>
+                    Error messages are used to notify the user of a problem that has occurred.
+                </para>
+                <para>
+                    Examples of errors include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Exports">
             <summary>Path for public exported data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Public\Exports\</c>"</remarks>
+            <remarks>
+                <para>
+                    Exported data.
+                </para>
+                <para>
+                    Examples of exported data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Reports">
             <summary>Path for public reports.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Public\Reports\</c>"</remarks>
+            <remarks>
+                <para>
+                    Reports are used to display data in a structured format.
+                </para>
+                <para>
+                    Examples of reports include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Warnings">
             <summary>Path for public warning messages.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Public\Warnings\</c>"</remarks>
+            <remarks>
+                <para>
+                    Warning messages are used to notify the user of a potential problem.
+                </para>
+                <para>
+                    Examples of warnings include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="M:Outpost31.Core.Framework.Catalog.PublicPaths.BuildObject(System.String)">
             <summary>Builds the public paths data structure.</summary>
@@ -545,11 +639,7 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.RemotePaths">
             <summary>Remote paths for Tingen.</summary>
-            <remarks>
-             <para>
-              - Remote paths are used to store data that is accessible to specific users that have access to these locations.
-             </para>
-            </remarks>
+            <remarks>Remote paths are used to store data that is accessible users that have access to the <c>Remote/</c> folder.</remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Root">
             <summary>Root path for remote data.</summary>
@@ -557,23 +647,78 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Alerts">
             <summary>Path for remote alert data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Remote\Alerts\</c>"</remarks>
+            <remarks>
+                <para>
+                    Alert messages are used to notify the user of important information.
+                </para>
+                <para>
+                    Examples of alerts include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Errors">
             <summary>Path for remote error data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Remote\Errors\</c>"</remarks>
+            <remarks>
+                <para>
+                    Error messages are used to notify the user of a problem that has occurred.
+                </para>
+                <para>
+                    Examples of errors include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Exports">
             <summary>Path for remote export data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Remote\Exports\</c>"</remarks>
+            <remarks>
+                <para>
+                    Exported data.
+                </para>
+                <para>
+                    Examples of exported data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Reports">
             <summary>Path for remote report data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Remote\Reports\</c>"</remarks>
+            <remarks>
+                <para>
+                    Reports are used to display data in a structured format.
+                </para>
+                <para>
+                    Examples of reports include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Sessions">
             <summary>Path for remote session data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Remote\Sessions\</c>"</remarks>
+            <remarks>
+                <para>
+                    Session data
+                </para>
+                <para>
+                    Examples of reports include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.CurrentSession">
             <summary>Current session path.</summary>
@@ -581,7 +726,18 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Warnings">
             <summary>Path for remote warning files.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Remote\Warnings\</c>"</remarks>
+            <remarks>
+                <para>
+                    Warning messages are used to notify the user of a potential problem.
+                </para>
+                <para>
+                    Examples of warnings include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="M:Outpost31.Core.Framework.Catalog.RemotePaths.BuildObject(System.String)">
             <summary>Builds the remote paths object.</summary>
@@ -595,6 +751,7 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.TingenPaths">
             <summary>Specific to Tingen.</summary>
+            <remarks>Tingen paths are specific to Tingen.</remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.TingenPaths.Root">
             <summary>Root path for Tingen data.</summary>
@@ -602,6 +759,18 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.TingenPaths.Primeval">
             <summary>Path for Tingen Primeval data.</summary>
+            <remarks>
+                <para>
+                    Primeval logging data.
+                </para>
+                <para>
+                    Examples of primeval logging data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
             <value>C:\TingenData\Primeval</value>
         </member>
         <member name="M:Outpost31.Core.Framework.Catalog.TingenPaths.BuildObject(System.String)">
@@ -634,11 +803,7 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Maintenance.AssemblyName">
             <summary>Assembly name for logging purposes.</summary>
-            <remarks>
-                <para>
-                    The assembly name is defined here so it can be used to write log files throughout the class.
-                </para>
-            </remarks>
+            <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Common_doc.xml" path="Common/Type[@name=&quot;Property&quot;]/AssemblyName/*" />
         </member>
         <member name="M:Outpost31.Core.Framework.Maintenance.VerifyFramework(Outpost31.Core.Session.TingenSession)">
             <summary>Verify the Tingen framework.</summary>
@@ -862,6 +1027,7 @@
             <summary>Determines the available Tingen web service functionality.</summary>
             <remarks>
                 <para>
+                    HO
                     The Tingen web service has the following <b>Modes</b>:
                     <list type="table">
                         <listheader>
@@ -875,6 +1041,10 @@
                         <item>
                             <term>disabled</term>
                             <description>The Tingen web service is disabled, and does not do any work.</description>
+                        </item>
+                        <item>
+                            <term>Passthrough</term>
+                            <description>Functionality is enabled, but no changes are made (and log files are written).</description>
                         </item>
                     </list>
                 </para>
@@ -902,7 +1072,7 @@
                             <description>The OpenIncident Module is disabled, and does not do any work.</description>
                         </item>
                     </list>
-                    </para>
+                </para>
                 <para>
                     Disabling the OpenIncident Module <i>will not affect</i> any other Tingen Modules, or the Tingen web service as a whole.
                 </para>
@@ -910,15 +1080,19 @@
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.NtstWebServicesMode">
             <summary>Determines the available Netsmart web service functionality.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Common_doc.xml" path="Common/Term[@name=&quot;Term&quot;]/NotImplemented/*" />
+            <remarks>
+                <para>
+                    This functionality is not implemented (yet).
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.TraceLevel">
             <summary>Determines the session Trace Log level.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Common_doc.xml" path="Common/Term[@name=&quot;Term&quot;]/TraceLevel/*" />
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;CommonProperty&quot;]/TraceLevel/*" />
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.TraceDelay">
             <summary>Determines the Trace Log delay.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Common_doc.xml" path="Common/Term[@name=&quot;Term&quot;]/TraceDelay/*" />
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;CommonProperty&quot;]/TraceDelay/*" />
         </member>
         <member name="M:Outpost31.Core.Configuration.ConfigSettings.BuildDefaultObject">
             <summary>Build a default Tingen configuration object.</summary>
@@ -955,8 +1129,7 @@
                     </para>
                 <para>
                     When a new version of Tingen is released, these need to be verified/updated.
-                </para>
-                <para>
+                    <br />
                     Builds the default Tingen configuration settings, usually because a configuration file doesn't exist.
                 </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
@@ -968,9 +1141,8 @@
             <remarks>
                 <para>
                     The configuration file path is hard-coded, and set in <see cref="M:Outpost31.Core.Session.TingenSession.Build(ScriptLinkStandard.Objects.OptionObject2015,System.String,System.String)" /> when the <b>Tingen Session</b> is initialized.<br />
-                </para>
-                <para>
-                    If the configuration file does not exist, a configuration file with default values will be created.<br />&gt;
+                    <br />
+                    If the configuration file does not exist, a configuration file with default values will be created.
                 </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Session.md">Tingen Documentation: Tingen Sessions</seealso>
         </member>
@@ -1293,17 +1465,19 @@
             <param name="tnSession"></param>
         </member>
         <member name="T:Outpost31.WelcomeToOutpost31">
-            <summary>Welcome to Outpost31!</summary>
+            <summary>Welcome to Outpost31</summary>
             <remarks>
                 <para>
-                    Outpost31 is the logic for the Tingen web service.<br/>
-                    <br/>
-                    This class is just a placeholder for documentation, and where the Outpost31<br/>
-                    version number is updated (see the header above).<br/>
-                    <br/>
+                    Outpost31 is the backend logic for the Tingen web service.<br />
+                    <br />
+                    This class is just a placeholder for documentation, and where the Outpost31 version number is<br />
+                    updated (see the header above).<br />
+                    <br />
                     While you're here, take a look at this stuff:
                     <list type="bullet">
-                        <item>The <see href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen Documentation</see></item>
+                        <item>
+                            The <see href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen Documentation</see>
+                        </item>
                     </list>
                     Uh...I guess that's it. Thanks for stopping by!
                 </para>

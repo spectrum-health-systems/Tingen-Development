@@ -1,7 +1,7 @@
 ﻿<!-- u241018 -->
 
-<Doc>
-    <Sec name="Tingen">
+<Tingen>
+    <Cs name="Tingen">
         <Tingen>
             <remarks>
                 <para>
@@ -28,11 +28,11 @@
                 <para>
                     This method is required by Avatar and should not be modified.<br/>
                     <br/>
-                    The only difference between the development and stable versions of Tingen is that the development version uses<br/>
-                    the "UAT" system code, while the stable version uses the "LIVE" system code.<br/>
+                    The only difference between the development and stable versions of Tingen is that the development<br/>
+                    version uses the "UAT" system code, while the stable version uses the "LIVE" system code.<br/>
                     <br/>
                 </para>
             </remarks>
         </RunScript>
-    </Sec>
-</Doc>
+    </Cs>
+</Tingen>
