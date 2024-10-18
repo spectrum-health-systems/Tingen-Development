@@ -4,10 +4,10 @@
 // Documentation: https://github.com/spectrum-health-systems/Tingen-Documentation
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 241017 =====
+// ================================================================ 241018 =====
 
 // u240817_code
-// u240924_documentation
+// u241018_documentation
 
 using System.Reflection;
 using System.Web.Services;
@@ -26,7 +26,7 @@ namespace Tingen_development
     public class Tingen_development : WebService
     {
         /// <summary>Assembly name for logging purposes.</summary>
-        /// <remarks> The assembly name is defined here so it can be used to write log files throughout the class.</remarks>
+        /// <remarks>The assembly name is defined here so it can be used to write log files throughout the class.</remarks>
         public static string AssemblyName { get; set; } = Assembly.GetExecutingAssembly().GetName().Name;
 
         /// <summary>Tingen current version.</summary>
@@ -35,7 +35,7 @@ namespace Tingen_development
 
         /// <summary>Get the current version of Tingen.</summary>
         /// <remarks>This method is required by Avatar and should not be modified.</remarks>
-        /// <returns>The current version of Tingen.</returns>
+        /// <returns>The current version of Tingen, as defined in AssemblyInfo.cs.</returns>
         [WebMethod]
         public string GetVersion() => $"VERSION {TingenVersion}";
 
