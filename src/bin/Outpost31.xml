@@ -1262,79 +1262,104 @@
             </remarks>
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.TnVersion">
-            <summary>TBD</summary>
+            <summary>The Tingen version.</summary>
+            <remarks>
+                <para>
+                   The version of Tingen
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.TnBuild">
-            <summary>TBD</summary>
+            <summary>The Tingen build.</summary>
+            <remarks>
+                <para>
+                    The Build of Tingen
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.Date">
             <summary>The session datestamp.</summary>
+            <remarks>
+                <para>
+                   Session date
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.Time">
             <summary>The session timestamp.</summary>
+            <remarks>
+                <para>
+                    Session Time
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.ReturnClonedOptionObject">
             <summary>Return the cloned OptionObject.</summary>
+            <remarks>Do we return the cloned object?</remarks>
+            <returns>True/False.</returns>
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.TnConfig">
             <summary>Config</summary>
+            <remarks>
+                <para>
+                    See <b>Outpost31.Core.Configuration.TingenFramework.cs</b> for more information.
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.TnPath">
             <summary>Tingen Framework information.</summary>
-            <remarks>
-             <para>
-              See <b>Outpost31.Core.Configuration.TingenFramework.cs</b> for more information.
-             </para>
-            </remarks>
+            <remarks>NEED XML Build path stuff?</remarks>
+            <returns>Paths stuff</returns>
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.AvData">
             <summary>Avatar components .</summary>
-            <remarks>
-             <para>
-              See <b>Outpost31.Core.Configuration.TingenFramework.cs</b> for more information.
-             </para>
-            </remarks>
+            <remarks>NEED XML Avatar data</remarks>
+            <returns>Avatar data</returns>
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.NtstWebServiceSecurity">
-            <summary>TBD</summary>
+            <summary>Not used.</summary>
+            <remarks>Not used.</remarks>
+            <returns>Netsmart web service security information.</returns>
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.TraceInfo">
             <summary>Trace log information.</summary>
+            <remarks>NEED XML Trace log information.</remarks>
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.ModOpenIncident">
-             <summary>Module to open an incident.</summary>
-            
+            <summary>Module to open an incident.</summary>
+            <remarks>NEED XML</remarks>
+            <returns>What it returns</returns>
         </member>
         <member name="M:Outpost31.Core.Session.TingenSession.Build(ScriptLinkStandard.Objects.OptionObject2015,System.String,System.String)">
             <summary>Builds the Tingen Session object.</summary>
             <param name="configFile">The path to the Tingen configuration file.</param>
             <param name="sentOptionObject">The OptionObject sent from Avatar.</param>
             <param name="sentScriptParameter">The ScriptParameter sent from Avatar.</param>
-            <remarks>
-             <para>
-              The Tingen Session contains all of the information that Tingen needs to do what it does, including:
-              <list type="bullet">
-               <item>Configuration settings (user-definable settings from the <paramref name="configFile"/>)</item>
-               <item>Static settings (these do not change between sessions)</item>
-               <item>Runtime settings (unique to the current session)</item>
-               <item>Data sent from Avatar, including the <paramref name="sentOptionObject"/> and <paramref name="sentScriptParameter"/></item>
-               <item>Data derived from the <paramref name="sentOptionObject"/> or <paramref name="sentScriptParameter"/>.</item>
-               <item>Required Tingen Module details.</item>
-              </list>
-             </para>
-             <para>
-              <b>More information about this method:</b><br/>
-              This method is one of the most important in Tingen, as it builds the Tingen Session object.<br/><br/>
-              The Session object is built in this order:
-              <list type="number">
-               <item>A basic TingenSession object is initalized with the current date, time, configuration settings, and Avatar data.</item>
-               <item>Framework information is added seperately.</item>
-               <item>Trace log information is added seperately.</item>
-               <item>Module objects are added seperately.</item>
-              </list>
-             </para>
-            </remarks>
             <returns>An Tingen Session object.</returns>
+            <remarks>
+                <para>
+                    The Tingen Session contains all of the information that Tingen needs to do what it does, including:
+                    <list type="bullet">
+                        <item>Configuration settings (user-definable settings from the <paramref name="configFile" />) </item>
+                        <item>Static settings (these do not change between sessions)</item>
+                        <item>Runtime settings (unique to the current session)</item>
+                        <item>Data sent from Avatar, including the <paramref name="sentOptionObject" /> and <paramref name="sentScriptParameter" /></item>
+                        <item>Data derived from the <paramref name="sentOptionObject" /> or <paramref name="sentScriptParameter" />.</item>
+                        <item>Required Tingen Module details.</item>
+                    </list>
+                </para>
+                <para>
+                    <b>More information about this method:</b><br />
+                    This method is one of the most important in Tingen, as it builds the Tingen Session object.<br /><br />
+                    The Session object is built in this order:
+                    <list type="number">
+                        <item>A basic TingenSession object is initalized with the current date, time, configuration settings, and Avatar data.</item>
+                        <item>Framework information is added seperately.</item>
+                        <item>Trace log information is added seperately.</item>
+                        <item>Module objects are added seperately.</item>
+                    </list>
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
         </member>
         <member name="M:Outpost31.Core.Session.TingenSession.Initialize(Outpost31.Core.Session.TingenSession)">
             <summary>Soon.</summary>
