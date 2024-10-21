@@ -21,16 +21,7 @@
         </member>
         <member name="T:Outpost31.Core.TingenApp">
             <summary>High level logic for the Tingen application.</summary>
-            <remarks>
-                <para>
-                    The TingenApp class takes care of the Tingen web service as a whole, and is<br />
-                    responsible for:
-                    <list type="bullet">
-                        <item>Starting the Tingen web service</item>
-                        <item>Stopping the Tingen web service</item>
-                    </list>
-                </para>
-            </remarks>
+            <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Outpost31.Core_doc.xml" path="Outpost31/Cs[@name=&quot;TingenApp&quot;]/TingenApp/*" />
         </member>
         <member name="P:Outpost31.Core.TingenApp.AssemblyName">
             <summary>Assembly name for logging purposes.</summary>
@@ -39,11 +30,7 @@
         <member name="M:Outpost31.Core.TingenApp.StartApp(Outpost31.Core.Session.TingenSession)">
             <summary>Starts the Tingen web service.</summary>
             <param name="tnSession">The TingenSession object for this session.</param>
-            <remarks>
-                <para>
-                    If the Tingen <b>Mode</b> is set to "disabled"
-                </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Outpost31.Core_doc.xml" path="Outpost31/Cs[@name=&quot;TingenApp&quot;]/StartApp/*" />
         </member>
         <member name="M:Outpost31.Core.TingenApp.StopApp(Outpost31.Core.Session.TingenSession)">
             <summary>Stops the Tingen web service.</summary>
@@ -296,7 +283,11 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.SystemCodePaths">
             <summary>System Code paths for Tingen.</summary>
-            <remarks>System Code paths are used to store all sorts of data for different Avatar System Codes.</remarks>>
+            <para>
+                Builds/verifies Avatar System Code paths.<br />
+                <br />
+                System Codepaths are paths that are used by Tingen, and are generally not available to users.
+            </para><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Root">
             <summary>Root path for System Code data.</summary>
@@ -546,7 +537,13 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.PublicPaths">
             <summary>Public paths for Tingen.</summary>
-            <remarks>Public paths are used to store data that is accessible users that have access to the <c>Public/</c> folder.</remarks>
+            <remarks>
+                <para>
+                    Builds/verifies Tingen public paths.<br />
+                    <br />
+                    Public paths are paths that are accessible to the public, and are available in the <c>Public/</c> folder.
+            </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Root">
             <summary>The root path for public data.</summary>
@@ -639,7 +636,13 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.RemotePaths">
             <summary>Remote paths for Tingen.</summary>
-            <remarks>Remote paths are used to store data that is accessible users that have access to the <c>Remote/</c> folder.</remarks>
+            <remarks>
+                <para>
+                    Builds/verifies Tingen public paths.<br />
+                    <br />
+                    Public paths are paths that are accessible to the public, and are available in the <c>Public/</c> folder.
+            </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Root">
             <summary>Root path for remote data.</summary>
@@ -751,7 +754,11 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.TingenPaths">
             <summary>Specific to Tingen.</summary>
-            <remarks>Tingen paths are specific to Tingen.</remarks>
+            <para>
+                Builds/verifies Tingen-specific paths.<br />
+                <br />
+                Tingen-specific are paths that are used by Tingen, and are generally not available to users.
+            </para><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.TingenPaths.Root">
             <summary>Root path for Tingen data.</summary>
@@ -800,37 +807,39 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Maintenance">
             <summary>Methods for maintaining the Tingen framework.</summary>
+            <remarks>
+                Various maintenance tasks for the Tingen web service.
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
-        <member name="P:Outpost31.Core.Framework.Maintenance.AssemblyName">
-            <summary>Assembly name for logging purposes.</summary>
-            <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Common_doc.xml" path="Common/Type[@name=&quot;Property&quot;]/AssemblyName/*" />
+        <member name="P:Outpost31.Core.Framework.Maintenance.ExeAsm">
+            <summary>The executing assembly name.</summary>
+            <remarks>This is defined here so it can be used to write log files throughout the class.</remarks>
         </member>
         <member name="M:Outpost31.Core.Framework.Maintenance.VerifyFramework(Outpost31.Core.Session.TingenSession)">
             <summary>Verify the Tingen framework.</summary>
             <param name="tnSession">The Tingen Session object.</param>
+            <remarks>Verifies the Tingen framework components.</remarks>
         </member>
         <member name="M:Outpost31.Core.Framework.Maintenance.RefreshDirectory(System.String)">
             <summary>Delete a directory, then recreate it.</summary>
             <param name="directoryPath">The path to the directory to refresh.</param>
+            <remarks>Deletes the directory, then recreates it.</remarks>
         </member>
         <member name="M:Outpost31.Core.Framework.Maintenance.VerifyDirectory(System.String)">
             <summary>Verify a directory exists, and create it if it does not.</summary>
-            <remarks></remarks>
             <param name="directoryPath">The path to the directory to verify.</param>
+            <remarks>Verifies the directory exists, and creates it if it does not.</remarks>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Outpost31.Core.Framework.Maintenance.VerifyDirectories(System.Collections.Generic.List{System.String})" -->
+        <member name="M:Outpost31.Core.Framework.Maintenance.VerifyDirectories(System.Collections.Generic.List{System.String})">
+            <summary>Verify a list of directories exist, and create them if they do not.</summary>
+            <param name="directoryPaths">The list of directories to verify.</param>
+            <remarks>Verifies the directories exist, and creates them if they do not.</remarks>
+        </member>
         <member name="T:Outpost31.Core.Framework.Paths">
             <summary>The Tingen Framework.</summary>
             <remarks>
-             <para>
-              The Tingen Framework is comprised of:
-              <list type = "bullet">
-               <item>The Tingen directory structure</item>
-               <item>Tingen core data/files</item>
-               <item>Tingen maintenance procedures</item>
-              </list>
-             </para>
-            </remarks>
+                Builds path stuff
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.Tingen">
             <summary>Tingen data paths.</summary>
@@ -995,11 +1004,7 @@
         <member name="M:Outpost31.Core.ScriptParameter.ParseSent(Outpost31.Core.Session.TingenSession)">
             <summary>Parses the original Script Parameter sent from Avatar.</summary>
             <param name="tnSession">The TingenSession object for this session.</param>
-            <remarks>
-                <para>
-                    The ScriptParameter class is used to store the parameters that are passed to the Tingen web service.
-                </para>
-            </remarks>
+            <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Outpost31.Core_doc.xml" path="Outpost31/Cs[@name=&quot;ScriptParameter&quot;]/ParseSent/*" />
         </member>
         <member name="M:Outpost31.Core.ScriptParameter.ParseAdminModule(Outpost31.Core.Session.TingenSession)">
             <summary>test</summary>
