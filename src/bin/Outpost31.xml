@@ -283,11 +283,13 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.SystemCodePaths">
             <summary>System Code paths for Tingen.</summary>
-            <para>
-                Builds/verifies Avatar System Code paths.<br />
-                <br />
-                System Codepaths are paths that are used by Tingen, and are generally not available to users.
-            </para><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            <remarks>
+                <para>
+                    Builds/verifies Avatar System Code paths.<br />
+                    <br />
+                    System Codepaths are paths that are used by Tingen, and are generally not available to users.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Root">
             <summary>Root path for System Code data.</summary>
@@ -542,7 +544,7 @@
                     Builds/verifies Tingen public paths.<br />
                     <br />
                     Public paths are paths that are accessible to the public, and are available in the <c>Public/</c> folder.
-            </para>
+                </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Root">
@@ -638,10 +640,10 @@
             <summary>Remote paths for Tingen.</summary>
             <remarks>
                 <para>
-                    Builds/verifies Tingen public paths.<br />
+                    Builds/verifies Tingen remote paths.<br />
                     <br />
-                    Public paths are paths that are accessible to the public, and are available in the <c>Public/</c> folder.
-            </para>
+                    Remote paths are paths that are accessible to specific users.
+                </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Root">
@@ -754,11 +756,13 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.TingenPaths">
             <summary>Specific to Tingen.</summary>
-            <para>
-                Builds/verifies Tingen-specific paths.<br />
-                <br />
-                Tingen-specific are paths that are used by Tingen, and are generally not available to users.
-            </para><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            <remarks>
+                <para>
+                    Builds/verifies Tingen-specific paths.<br />
+                    <br />
+                    Tingen-specific are paths that are used by Tingen, and are generally not available to users.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.TingenPaths.Root">
             <summary>Root path for Tingen data.</summary>
@@ -792,18 +796,27 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Refresh">
             <summary>Refresh the Tingen directory structure.</summary>
+            <remarks>
+                Refreshes framework componenents.
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="M:Outpost31.Core.Framework.Refresh.RefreshOnDisable(Outpost31.Core.Session.TingenSession)">
             <summary>Refresh the Tingen directory structure when Tingen is disabled.</summary>
-            <remarks>
-             <para>
-              - If Tingen is disabled, might as well update the service status files.
-             </para>
-            </remarks>
             <param name="tnSession">The Tingen Session object</param>
+            <remarks>
+                <para>
+                    If Tingen is disabled, might as well update the service status files.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="M:Outpost31.Core.Framework.Refresh.RefreshOnUnknown(Outpost31.Core.Session.TingenSession)">
             <summary>Refresh the Tingen directory structure when Tingen is in an unknown state.</summary>
+            <param name="tnSession">The Tingen Session object</param>
+            <remarks>
+                <para>
+                    If Tingen is in an unknown state, might as well update the service status files.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="T:Outpost31.Core.Framework.Maintenance">
             <summary>Methods for maintaining the Tingen framework.</summary>
@@ -838,17 +851,53 @@
         <member name="T:Outpost31.Core.Framework.Paths">
             <summary>The Tingen Framework.</summary>
             <remarks>
-                Builds path stuff
+                Builds path stuff.
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.Tingen">
             <summary>Tingen data paths.</summary>
+            <remarks>
+                <para>
+                    The root folder for Tingen-specific data.
+                </para>
+                <para>
+                    Examples of Tingen-specific data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.SystemCode">
             <summary>System code data paths.</summary>
+            <remarks>
+                <para>
+                    The root folder for Avatar System Codes data.
+                </para>
+                <para>
+                    Examples of vatar System Codes data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.Public">
             <summary>Public data paths.</summary>
+            <remarks>
+                <para>
+                    The root folder for public data.
+                </para>
+                <para>
+                    Examples of public data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.Remote">
             <summary>Remote data paths.</summary>
@@ -857,7 +906,8 @@
             <summary>Builds the paths object.</summary>
             <param name="tnDataRoot">The Tingen data root.</param>
             <param name="avSystemCode">The Avatar System Code.</param>
-            <returns>The Tingen data paths</returns>
+            <remarks>Builds the paths object.</remarks>
+            <returns>The Tingen data paths.</returns>
         </member>
         <member name="T:Outpost31.Core.Logger.LoggerCatalog">
             <summary>Log catalog for the Outpost31.Core.Logger namespace.</summary>
