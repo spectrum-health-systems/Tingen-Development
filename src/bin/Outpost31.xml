@@ -40,7 +40,7 @@
             <summary>The Tingen session component that contains Avatar-related data.</summary>
             <remarks>
                 <para>
-                    The <c>AvatarData</c> class is the foundation of a data structure that contains the following <i>Avatar-related data</i>:
+                    The <c>AvatarData</c> class is the foundation of a data structure that contains the following::
                     <list type="bullet">
                         <item><see cref="P:Outpost31.Core.Avatar.AvatarData.SystemCode" /></item>
                         <item><see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" /></item>
@@ -56,30 +56,7 @@
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SystemCode">
             <summary>The Avatar System Code that Tingen will interface with.</summary>
-            <remarks>
-                <para>
-                    The Tingen works with a single Avatar environment at a time, defined by oneof the following Avatar <c>System Codes</c>:
-                    <list type="table">
-                        <listheader>
-                            <term>System Code</term>
-                            <description>Description</description>
-                        </listheader>
-                        <item>
-                            <term>LIVE</term>
-                            <description>The Production environment</description>
-                        </item>
-                        <item>
-                            <term>UAT</term>
-                            <description>The User Acceptance Testing environment</description>
-                        </item>
-                    </list>
-                </para>
-                <para>
-                    Your organization may have additional Avatar environments, but Tingen is only designed/tested to work with the above System Codes.
-                </para>
-            </remarks><value>
-                This should be <c>LIVE</c> for production environments, and <c>UAT</c> for testing environments.
-            </value>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;AvatarSystemCodes&quot;]/AvatarSystemCodes/*" />
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject">
             <summary>The original data structure sent from Avatar.</summary>
