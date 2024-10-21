@@ -911,138 +911,169 @@
         </member>
         <member name="T:Outpost31.Core.Logger.LoggerCatalog">
             <summary>Log catalog for the Outpost31.Core.Logger namespace.</summary>
+            <remarks>
+                <para>
+                    Log catalog.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Session.md">Tingen Documentation: The Tingen Session</seealso>
         </member>
         <member name="M:Outpost31.Core.Logger.LoggerCatalog.StandardContent(System.String,System.String,System.String,System.String,System.String)">
-            <summary>Soon.</summary>
-            <param name="assemblyName"></param>
-            <param name="callPath"></param>
-            <param name="callMember"></param>
-            <param name="callLine"></param>
-            <param name="message"></param>
-            <returns></returns>
+            <summary>Basic log information</summary>
+            <param name="assemblyName">The executing assembly name.</param>
+            <param name="callPath">The path of the calling class.</param>
+            <param name="callMember">The path of the calling method</param>
+            <param name="callLine">The line of code</param>
+            <param name="message">The log message</param>
+            <returns>The basic log content.</returns>
         </member>
         <member name="T:Outpost31.Core.Logger.TraceLog">
-            <summary>Soon.</summary>
+            <summary>Trace logs.</summary>
+            <remarks>
+                <para>
+                    Trace logs.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Session.md">Tingen Documentation: The Tingen Session</seealso>
         </member>
         <member name="P:Outpost31.Core.Logger.TraceLog.TraceLogPath">
-            <summary>TBD</summary>
+            <summary>Path to the TraceLog</summary>
         </member>
         <member name="P:Outpost31.Core.Logger.TraceLog.TraceLogLevel">
-            <summary>TBD</summary>
+            <summary>TraceLogLevel</summary>
         </member>
         <member name="P:Outpost31.Core.Logger.TraceLog.TraceLogDelay">
-            <summary>TBD</summary>
+            <summary>TraceLogDelay</summary>
         </member>
         <member name="M:Outpost31.Core.Logger.TraceLog.BuildInfo(System.String,System.Int32,System.Int32)">
             <summary>Build the trace log information.</summary>
+            <param name="traceLogLevel">TraceLog level</param>
+            <param name="traceLogDelay">TraceLog delay</param>
+            <param name="traceLogPath">TraceLog path</param>
             <remarks>
-            The <b>TraceLogPath</b> is the same as the <b>tnSession.Framework.SystemCodePath.Session</b> It's here so we can easily pass all the data
-            </remarks>
-            <param name="traceLogLevel"></param>
-            <param name="traceLogDelay"></param>
-            <param name="traceLogPath"></param>
-            <returns></returns>
+                <para>
+                    The <b>TraceLogPath</b> is the same as the <b>tnSession.Framework.SystemCodePath.Session</b> It's here so we can easily pass all the data
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
+            <returns>TraceLog information.</returns>
         </member>
         <member name="M:Outpost31.Core.Logger.TraceLog.Create(System.Int32,System.String,Outpost31.Core.Logger.TraceLog,System.String,System.String,System.Int32)">
-            <summary>Soon.</summary>
-            <param name="traceLevel"></param>
-            <param name="traceInfo"></param>
-            <param name="assemblyName"></param>
-            <param name="callPath"></param>
-            <param name="callMember"></param>
-            <param name="callLine"></param>
+            <summary>Create a TraceLog</summary>
+            <param name="traceLevel">TraceLog level</param>
+            <param name="traceInfo">Tracelog information</param>
+            <param name="assemblyName">Executing assembly</param>
+            <param name="callPath">Called class</param>
+            <param name="callMember">Called method</param>
+            <param name="callLine">Called line</param>
+            <remarks>
+                <para>
+                    Create a Trace log.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
         </member>
         <member name="M:Outpost31.Core.Logger.TraceLog.Create(System.Int32,System.String,Outpost31.Core.Logger.TraceLog,System.String,System.String,System.Int32,System.String)">
             <summary>Soon.</summary>
-            <param name="logLevel"></param>
-            <param name="assemblyName"></param>
-            <param name="traceInfo"></param>
-            <param name="fromClass"></param>
-            <param name="fromMethod"></param>
-            <param name="line"></param>
-            <param name="message"></param>
+            <param name="logLevel">TraceLog level</param>
+            <param name="assemblyName">Executing assembly</param>
+            <param name="traceInfo">Tracelog information</param>
+            <param name="fromClass">Called class</param>
+            <param name="fromMethod">Called method</param>
+            <param name="line">Called line</param>
+            <param name="message">Log message</param>
+            <remarks>
+                <para>
+                    Create a Trace log with a message.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
         </member>
         <member name="T:Outpost31.Core.Logger.PrimevalLog">
             <summary>Primeval logs</summary>
+            <remarks>
+                <para>
+                    Primeval logs are vary simple logs that can be created with very little information.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Session.md">Tingen Documentation: The Tingen Session</seealso>
         </member>
         <member name="P:Outpost31.Core.Logger.PrimevalLog.PrimevalLogPath">
             <summary>Primeval log path.</summary>
             <remarks>
-              <para>
-               - Primeval logs are written to <i>C:\TingenData\Primeval\</i>, defined here so it can be easily changed if needed.
-              </para>
-            </remarks>
+                <para>
+                    Primeval logs are written to <i>C:\TingenData\Primeval\</i>, defined here so it can be easily changed if needed.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
         </member>
         <member name="M:Outpost31.Core.Logger.PrimevalLog.Create(System.String,System.String,System.String,System.String,System.Int32)">
             <summary>Creates a Primeval log.</summary>
-            <param name="assemblyName"></param>
-            <param name="message"></param>
-            <param name="fromClass"></param>
-            <param name="fromMethod"></param>
-            <param name="line"></param>
+            <param name="assemblyName">The executing assembly name.</param>
+            <param name="message">The log message</param>
+            <param name="fromClass">The path of the calling class.</param>
+            <param name="fromMethod">The path of the calling method</param>
+            <param name="line">The line of code</param>
             <remarks>
-             <para>
-               - Before a Primeval log is written, the Primeval log path is verified to ensure it exists.<br/>
-               - Log files may be created quickly - and possibly at the same time - so a pause is added to ensure logs are unique.
-             </para>
-            </remarks>
-               <example>
-               To create a simple Primeval log:
-               <code>
-                LogEvent.Primeval(AssemblyName);
-                LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
-               </code>
-               To create a Primeval log with custom content:
-               <code>
-                LogEvent.Primeval(AssemblyName, message);
-                LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name, message);
-               </code>
-              </example>
+                <para>
+                    Before a Primeval log is written, the Primeval log path is verified to ensure it exists.<br />
+                    Log files may be created quickly - and possibly at the same time - so a pause is added to ensure logs are unique.
+                </para>
+            </remarks><example>
+                To create a simple Primeval log:
+                <code>
+                    LogEvent.Primeval(AssemblyName);
+                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name);
+                </code>
+                To create a Primeval log with custom content:
+                <code>
+                    LogEvent.Primeval(AssemblyName, message);
+                    LogEvent.Primeval(Assembly.GetExecutingAssembly().GetName().Name, message);
+                </code>
+            </example><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
         </member>
         <member name="M:Outpost31.Core.Logger.PrimevalLog.DevelopmentCleanup">
-            <summary> Removes old Primeval logs.</summary>
-            <remarks>
-             <para>
-              - Not currently used.
-             </para>
-            </remarks>
+            <summary>Removes old Primeval logs.</summary>
+            <remarks>Not currently used.</remarks>
         </member>
         <member name="T:Outpost31.Core.Logger.LogEvent">
             <summary>Provides logging functionality.</summary>
+            <remarks>
+                <para>
+                   Logs events
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Session.md">Tingen Documentation: The Tingen Session</seealso>
         </member>
         <member name="M:Outpost31.Core.Logger.LogEvent.Trace(System.Int32,System.String,Outpost31.Core.Logger.TraceLog,System.String,System.String,System.String,System.Int32)">
             <summary>Log a trace event.</summary>
             <remarks>
-             <para>
-              Trace logs are used to record information about the application's execution.
-              <list type="bullet">
-               <item>Records information about Tingen's execution</item>
-               <item>Used when debugging/troublshooting during development, and should probably be disabled in production</item>
-               <item>Important details are in the filename: <b>%assemblyName%-%calledClass%-%calledMethod%-%lineNumber.trace</b></item>
-               <item>Do not contain any data</item>   
-               <item>To ensure all logs are captured, filenames start with a timestamp: <b>ssfffffff_</b></item>
-               <item>Extension is <b>.trace</b></item>
-              </list>
-              - More information about Trace logs <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#logging">here</see>.
-             </para>
-            </remarks>
+                <para>
+                    Trace logs are used to record information about the application's execution.
+                    <list type="bullet">
+                        <item>Records information about Tingen's execution</item>
+                        <item>Used when debugging/troublshooting during development, and should probably be disabled in production</item>
+                        <item>Important details are in the filename: <b>%assemblyName%-%calledClass%-%calledMethod%-%lineNumber.trace</b></item>
+                        <item>Do not contain any data</item>
+                        <item>To ensure all logs are captured, filenames start with a timestamp: <b>ssfffffff_</b></item>
+                        <item>Extension is <b>.trace</b></item>
+                    </list>
+                </para>
+                <para>
+                    More information about Trace logs <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#logging">here</see>.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
         </member>
         <member name="M:Outpost31.Core.Logger.LogEvent.Primeval(System.String,System.String,System.String,System.String,System.Int32)">
             <summary>Log a primeval event.</summary>
             <remarks>
-             <para>
-              Primeval logs are vary simple logs that can be created with very little information.
-              <list type="bullet">
-               <item>Do not require any paramaters</item>
-               <item>Used when debugging/troublshooting during development, and should be disabled in production</item>
-               <item>Important details can be found in the file contents</item>
-               <item>May have custom messages (the default message is "Tingen primeval log"</item>
-               <item>To ensure all logs are captured, filenames are timestamped <b>yyMMddHHmmssfffffff</b></item>
-               <item>Extenstion is <b>.primeval</b></item>
-              </list>
-              - More information about Primeval logs <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#logging">here</see>.
-             </para>
-            </remarks>
+                <para>
+                    Primeval logs are vary simple logs that can be created with very little information.
+                    <list type="bullet">
+                        <item>Do not require any paramaters</item>
+                        <item>Used when debugging/troublshooting during development, and should be disabled in production</item>
+                        <item>Important details can be found in the file contents</item>
+                        <item>May have custom messages (the default message is "Tingen primeval log"</item>
+                        <item>To ensure all logs are captured, filenames are timestamped <b>yyMMddHHmmssfffffff</b></item>
+                        <item>Extenstion is <b>.primeval</b></item>
+                    </list>
+                </para>
+                <para>
+                    More information about Trace logs <see href="github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Glossary.md#logging">here</see>.
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
         </member>
         <member name="T:Outpost31.Core.ScriptParameter">
             <summary>Parse the Script Parameter components passed from Avatar.</summary>
