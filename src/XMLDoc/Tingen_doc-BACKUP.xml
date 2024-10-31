@@ -1,40 +1,13 @@
-﻿<!--
-    u241031
-    This is the external XML Documentation file for Tingen.Tingen.asmx.cs.
--->
+﻿<!-- u241023 -->
 
 <Tingen>
 
-    <!-- Classes -->
-    <Type name="Class">
+    <!--
+        Types: Properties
+    -->
+    <Type name="Properties">
 
-        <!-- Tingen.cs -->
-        <Tingen>
-            <remarks>
-                <para>
-                    There should only two methods in this class, both of which are required by Avatar:
-                    <list type="bullet">
-                        <item>
-                            <see cref="GetVersion()"/>
-                        </item>
-                        <item>
-                            <see cref="RunScript(OptionObject2015, string)"/>
-                        </item>
-                    </list>
-                </para>
-                <para>
-                    This class doesn't do much actual work, and should remain fairly static. For the<br/>
-                    most part, it just hands information to  <see href="https://github.com/spectrum-health-systems/Outpost31">Outpost31</see>, where the heavy lifting is done.<br/>
-                </para>
-            </remarks>
-            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
-        </Tingen>
-    </Type>
-
-    <!-- Properties-->
-    <Type name="Property">
-
-        <!-- TingenVersionNumber -->
+        <!-- /// <include file='XmlDoc/Tingen_doc.xml' path='Tingen/Type[@name="Properties"]/VersionNumber/*'/> -->
         <TingenVersionNumber>
             <remarks>
                 <para>
@@ -79,8 +52,9 @@
             </value>
         </TingenVersionNumber>
 
-        <!-- TingenBuildNumber -->
+        <!-- /// <include file='XmlDoc/Tingen_doc.xml' path='Tingen/Type[@name="Properties"]/BuildNumber/*'/> -->
         <TingenBuildNumber>
+
             <remarks>
                 <para>
                     The syntax for the Tingen build number is "<c>HHMM</c>", and is set at runtime<br/>
@@ -92,22 +66,47 @@
             <value>If Tingen is built at 10:30AM, the build number would be "<c>1030</c>"</value>
         </TingenBuildNumber>
 
-        <!-- DEPRECIATED 241031
+        <!-- Need this?
+
         <TingenConfig>
             <remarks>
                 <para>
                     See <b>Outpost31.Core.Configuration.TingenFramework.cs</b> for more information.
                 </para>
             </remarks>
-        </TingenConfig
+        </TingenConfig>
         -->
 
     </Type>
 
-    <!-- Methods -->
-    <Type name="Method">
+    <!--
+        Classes and Methods
+    -->
 
-        <!-- GetVersion() -->
+    <!-- Tingen.cs -->
+    <Cs name="Tingen">
+        <Tingen>
+            <remarks>
+                <para>
+                    There should only two methods in this class, both of which are required by Avatar:
+                    <list type="bullet">
+                        <item>
+                            <see cref="GetVersion()"/>
+                        </item>
+                        <item>
+                            <see cref="RunScript(OptionObject2015, string)"/>
+                        </item>
+                    </list>
+                </para>
+                <para>
+                    This class doesn't do much actual work, and should remain fairly static. For the<br/>
+                    most part, it just hands information to  <see href="https://github.com/spectrum-health-systems/Outpost31">Outpost31</see>, where the heavy lifting is done.<br/>
+                </para>
+            </remarks>
+            <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
+        </Tingen>
+
+        <!-- Tingen.GetVersion() -->
         <GetVersion>
             <remarks>
                 <para>
@@ -119,7 +118,7 @@
             </remarks>
         </GetVersion>
 
-        <!-- RunScript() -->
+        <!-- Tingen.Runscript() -->
         <RunScript>
             <remarks>
                 <para>
@@ -143,6 +142,6 @@
             </remarks>
         </RunScript>
 
-    </Type>
+    </Cs>
 
 </Tingen>

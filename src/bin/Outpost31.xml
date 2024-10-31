@@ -1240,19 +1240,11 @@
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.TnVersion">
             <summary>The Tingen version.</summary>
-            <remarks>
-                <para>
-                   The version of Tingen
-                </para>
-            </remarks>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;TingenInfo&quot;]/TingenVersion/*" />
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.TnBuild">
             <summary>The Tingen build.</summary>
-            <remarks>
-                <para>
-                    The Build of Tingen
-                </para>
-            </remarks>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;TingenInfo&quot;]/TingenBuild/*" />
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.Date">
             <summary>The session datestamp.</summary>
@@ -1277,11 +1269,7 @@
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.TnConfig">
             <summary>Config</summary>
-            <remarks>
-                <para>
-                    See <b>Outpost31.Core.Configuration.TingenFramework.cs</b> for more information.
-                </para>
-            </remarks>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;TingenInfo&quot;]/TingenConfig/*" />
         </member>
         <member name="P:Outpost31.Core.Session.TingenSession.TnPath">
             <summary>Tingen Framework information.</summary>
@@ -1349,13 +1337,14 @@
             <summary>TBD</summary>
         </member>
         <member name="T:Outpost31.Core.Utilities.DuFile">
-            <summary>TBD</summary>
+            <summary>Does things with files.</summary>
         </member>
         <member name="M:Outpost31.Core.Utilities.DuFile.WriteLocal(System.String,System.String)">
-            <summary>TBD</summary>
+            <summary>Writes text to a file.</summary>
         </member>
         <member name="T:Outpost31.Core.Utilities.DuJson">
             <summary>Provides JSON functionality.</summary>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31.Core.Utilities_doc.xml" path="Outpost31.Core.Utilities/Cs[@name=&quot;DuJson&quot;]/DuJSon/*" />
         </member>
         <member name="M:Outpost31.Core.Utilities.DuJson.ExportToLocalFile``1(``0,System.String,System.Boolean)">
             <summary>Export JSON data to an external file.</summary>
@@ -1364,16 +1353,16 @@
             <param name="filePath">The export file path.</param>
             <param name="formatJson">Determines if the JSON data is formatted.</param>
             <remarks>
-             <para>
-              <example>
-               To call DuJson.ExportToLocalFile():
-               <code>
-                TheObject theObject = new TheObject();
-                DuJson.ExportToLocalFile&lt;TheObject&gt;(theObject, "/Path/To/Export/File");
-               </code>
-              </example>
-             </para>
-            </remarks>
+                <para>
+                    These are some remarks
+                </para>
+            </remarks><example>
+                To call DuJson.ExportToLocalFile():
+                <code>
+                    TheObject theObject = new TheObject().;
+                    DuJson.ExportToLocalFile&lt;TheObject&gt;(theObject, "/Path/To/Export/File");
+                </code>
+            </example>
         </member>
         <member name="M:Outpost31.Core.Utilities.DuJson.ConvertToString``1(``0)">
             <summary>Convert a JSON object to a string[].</summary>
@@ -1385,17 +1374,17 @@
             <summary>Import JSON data from an external file.</summary>
             <typeparam name="JsonObject">The JSON object type.</typeparam>
             <param name="filePath">The import file path.</param>
-            <remarks>
-             <para>
-              <example>
-               To call DuJson.ImportFromLocalFile():
-               <code>
-                 TheObject theObject = DuJson.ImportFromLocalFile&lt;TheObject&gt;("/Path/To/Import/File");
-               </code>
-              </example>
-             </para>
-            </remarks>
             <returns>The contents of the file as a JSON object.</returns>
+            <remarks>
+                <para>
+                    These are some remarks
+                </para>
+            </remarks><example>
+                To call DuJson.ImportToLocalFile():
+                <code>
+                    TheObject theObject = DuJson.ImportFromLocalFile&lt;TheObject&gt;("/Path/To/Import/File");
+                </code>
+            </example>
         </member>
         <member name="T:Outpost31.Module.Admin.Export.OptionObject">
             <summary>TBD</summary>
@@ -1556,7 +1545,7 @@
             <summary>Welcome to Outpost31</summary>
             <remarks>
                 <para>
-                    Outpost31 is the backend logic for the Tingen web service.<br />
+                    Outpost31 is the back-end logic for the Tingen web service.<br />
                     <br />
                     This class is just a placeholder for documentation, and where the Outpost31 version number is<br />
                     updated (see the header above).<br />
