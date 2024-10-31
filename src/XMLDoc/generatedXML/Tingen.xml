@@ -10,12 +10,8 @@
                 <para>
                     There should only two methods in this class, both of which are required by Avatar:
                     <list type="bullet">
-                        <item>
-                            <see cref="M:Tingen_development.Tingen_development.GetVersion" />
-                        </item>
-                        <item>
-                            <see cref="M:Tingen_development.Tingen_development.RunScript(ScriptLinkStandard.Objects.OptionObject2015,System.String)" />
-                        </item>
+                        <item><see cref="M:Tingen_development.Tingen_development.GetVersion" /></item>
+                        <item><see cref="M:Tingen_development.Tingen_development.RunScript(ScriptLinkStandard.Objects.OptionObject2015,System.String)" /></item>
                     </list>
                 </para>
                 <para>

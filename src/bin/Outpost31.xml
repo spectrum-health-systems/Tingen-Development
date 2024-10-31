@@ -52,11 +52,34 @@
                 <para>
                     The <c>AvatarData</c> data structure is added to the <see cref="T:Outpost31.Core.Session.TingenSession" /> at runtime.
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Session.md">Tingen Documentation: The Tingen Session</seealso>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SystemCode">
             <summary>The Avatar System Code that Tingen will interface with.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;AvatarSystemCodes&quot;]/AvatarSystemCodes/*" />
+            <remarks>
+                <para>
+                    Tingen works with a single Avatar environment at a time, defined by one of the following Avatar <c>System Codes</c>:
+                    <list type="table">
+                        <listheader>
+                            <term>System Code</term>
+                            <description>Description</description>
+                        </listheader>
+                        <item>
+                            <term>LIVE</term>
+                            <description>The Production environment</description>
+                        </item>
+                        <item>
+                            <term>UAT</term>
+                            <description>The User Acceptance Testing environment</description>
+                        </item>
+                    </list>
+                </para>
+                <para>
+                    Your organization may have additional Avatar environments, but Tingen is only designed/tested to work with the above System Codes.
+                </para>
+            </remarks><value>
+                This should be <c>LIVE</c> for production environments, and <c>UAT</c> for testing environments.
+            </value>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject">
             <summary>The original data structure sent from Avatar.</summary>
@@ -66,76 +89,17 @@
                     <br />
                     It is important to note that the <c>SentOptionObject</c> is <i>never directly modified</i> by Tingen, since all modifications are made using the <see cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" />.
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter">
             <summary>The original Script Parameter sent from Avatar.</summary>
             <remarks>
                 <para>
-                    The <c>ScriptParameter</c> tells Tingen what work needs to be done, and how it should be done.
+                    The <c>SentOptionObject</c> is the original data structure that is sent from  Avatar to Tingen, and contains all of the <i>data</i> Tingen needs to do its work.<br />
+                    <br />
+                    It is important to note that the <c>SentOptionObject</c> is <i>never directly modified</i> by Tingen, since all modifications are made using the <see cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" />.
                 </para>
-                <para>
-                    The Script Parameter will generally contain the following components:
-                    <list type="table">
-                        <listheader>
-                            <term>Component</term>
-                            <description>Description</description>
-                        </listheader>
-                        <item>
-                            <term>Module</term>
-                            <description>
-                                The <i>Tingen Module</i> that will do the work (e.g.: "Admin")
-                            </description>
-                        </item>
-                        <item>
-                            <term>Command</term>
-                            <description>
-                                The requested <i>command</i> (e.g.: "Service")
-                            </description>
-                        </item>
-                        <item>
-                            <term>Action</term>
-                            <description>
-                                The requested <i>action</i> (e.g.: "Update")
-                            </description>
-                        </item>
-                        <item>
-                            <term>Option</term>
-                            <description>
-                                The (optional) <i>option</i> (e.g.: "All")
-                            </description>
-                        </item>
-                    </list>
-                </para>
-                <para>
-                    Also:
-                    <list type="bullet">
-                        <item>
-                            Some Script Parameters may not contain all of the above components, or may contain additional components that aren't listed.
-                        </item>
-                        <item>
-                            All Script Parameter components are separated by a "<c>-</c>" character.
-                        </item>
-                        <item>
-                            Script Parameters are pre-defined, so you can't just make up a new one and have it magically work. Sorry! You will need to use one of the <see href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">currently supported Script Parameters</see>.
-                        </item>
-                        <item>
-                            Tingen converts Script Parameters to lowercase for easier parsing, so you can use whatever casing you like when creating a ScriptLink event.
-                        </item>
-                    </list>
-                </para>
-            </remarks><example>
-                To update all service information, the Script Parameter would be:
-                <code>
-                    Admin-Service-Update-All
-                </code>
-                And to verify that the current user is authorized to submit an open incident:
-                <code>
-                    OpenIncident-Verify-AuthorIsViewing
-                </code>
-            </example><value>
-                A valid "<c>-</c>" delimited string (e.g, "<c>Admin-Service-Update-All</c>")
-            </value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Tingen Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/ScriptLink.md">Tingen Documentation: ScriptLink</seealso>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject">
             <summary>The data structure that (is potentially) modified during a Tingen Session.</summary>
@@ -145,7 +109,7 @@
                     <br />
                     The <c>WorkOptionObject</c> is not formatted correctly, nor does it contain the required information, to be returned to Avatar (that's the job of the <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" />).
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject">
             <summary>The data structure that is returned to Avatar.</summary>
@@ -157,7 +121,7 @@
                     <br />
                     The finalization process verifies that the <c>ReturnOptionObject</c> is formatted correctly, and that all of the required information Avatar needs to accept the returned data is is present.
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
+            </remarks>
         </member>
         <member name="M:Outpost31.Core.Avatar.AvatarData.BuildObject(ScriptLinkStandard.Objects.OptionObject2015,System.String)">
             <summary>Builds a new AvatarData data structure.</summary>
@@ -168,13 +132,13 @@
                 <para>
                     A few things about this method:
                     <list type="bullet">
-                        <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.SystemCode" /> is defined at runtime in <c>Tingen.Runscript()</c>.</item>
+                        <item> The <see cref="P:Outpost31.Core.Avatar.AvatarData.SystemCode" /> is defined at runtime in <c>Tingen.Runscript()</c>.</item>
                         <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.SentScriptParameter" /> is converted to lowercase so it is easier to compare against.</item>
                         <item>All work is done in the <see cref="P:Outpost31.Core.Avatar.AvatarData.WorkOptionObject" />, which is cloned from the <see cref="P:Outpost31.Core.Avatar.AvatarData.SentOptionObject" />, ensuring that the original data sent from Avatar remains unmodified.</item>
                         <item>The <see cref="P:Outpost31.Core.Avatar.AvatarData.ReturnOptionObject" /> is initally set to <c>null</c>, and will be finalized prior to returning to Avatar.</item>
                     </list>
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Script-Parameter.md">Tingen Documentation: The Script Parameter</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
+            </remarks>
         </member>
         <member name="T:Outpost31.Core.Avatar.ReturnObject">
             <summary>Logic for the ReturnOptionObject data structure.</summary>
@@ -185,7 +149,7 @@
                         <item>Finalizes the <c>ReturnOptionObject</c>, so it can be returned to Avatar</item>
                     </list>
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">Tingen Documentation: The OptionObject</seealso>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
         </member>
         <member name="P:Outpost31.Core.Avatar.ReturnObject.ExeAsm">
             <summary>The executing assembly name.</summary>
@@ -212,12 +176,12 @@
                             <description>Description</description>
                         </listheader>
                         <item>
-                            <term>"clone",<br />"none",<br /> "success"</term>
+                            <term>"clone",<br />"none",<br /> "success" </term>
                             <description>Returns the OptionObject without a message (error code <c>0</c>)</description>
                         </item>
                         <item>
                             <term>"error"</term>
-                            <description>Stops the script from processing and displays an message with an "OK" button (error code <c>1</c>)</description>
+                            <description> Stops the script from processing and displays an message with an "OK" button (error code <c>1</c>)</description>
                         </item>
                         <item>
                             <term>"okcancel"</term>
@@ -225,7 +189,7 @@
                         </item>
                         <item>
                             <term>"info"</term>
-                            <description>Displays an informational warning message with an "OK" button (error code <c>3</c>)</description>
+                            <description>Displays an informational warning message with an "OK" button (error code <c>3</c>) </description>
                         </item>
                         <item>
                             <term>"yesno"</term>
@@ -237,8 +201,7 @@
                         </item>
                         <item>
                             <term>"openform"</term>
-                            <description>Presents an OK/Cancel dialog to open a form (error code <c>6</c>)<br />
-                            </description>
+                            <description>Presents an OK/Cancel dialog to open a form (error code <c>6</c>)<br /></description>
                         </item>
                     </list>
                     <b>NOTE:</b> The <c>openform</c> error string can only be used on Form Load and Field events.
@@ -256,36 +219,36 @@
                 <code>
                     Outpost31.Core.Avatar.ReturnObject.Finalize(tnSession, "info", "Have a nice day!");
                 </code>
-            </example><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/OptionObject.md">OptionObject</seealso>
+            </example>
         </member>
         <member name="T:Outpost31.Core.Framework.Catalog.SystemCodePaths">
             <summary>System Code paths for Tingen.</summary>
             <remarks>
                 <para>
-                    Builds/verifies Avatar System Code paths.<br />
+                    Builds/verifies Tingen public paths.<br />
                     <br />
-                    System Codepaths are paths that are used by Tingen, and are generally not available to users.
+                    System Code paths are paths that are used by Tingen, and are generally not available to users.
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Root">
             <summary>Root path for System Code data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\</c>"</remarks>
-        </member>
-        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Config">
-            <summary>Path for System Code configuration data.</summary>
             <remarks>
                 <para>
-                    Configuration data.
+                    The root folder for Avatar System Codes data.
                 </para>
                 <para>
-                    Examples of configuration data include:
+                    Examples of Avatar System Codes data include:
                     <list type="bullet">
                         <item>Example #1</item>
                         <item>Example #2</item>
                     </list>
                 </para>
             </remarks>
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Config">
+            <summary>Path for System Code configuration data.</summary>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;DataPath&quot;]/Config/*" />
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Sessions">
             <summary>Path for System Code session data.</summary>
@@ -343,27 +306,16 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Alerts">
             <summary>Path for alert data.</summary>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;Paths&quot;]/Alerts/*" />
+        </member>
+        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Errors">
+            <summary>Path for error data.</summary>
             <remarks>
                 <para>
                     Alert messages are used to notify the user of important information.
                 </para>
                 <para>
                     Examples of alerts include:
-                    <list type="bullet">
-                        <item>Example #1</item>
-                        <item>Example #2</item>
-                    </list>
-                </para>
-            </remarks>
-        </member>
-        <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.Errors">
-            <summary>Path for error data.</summary>
-            <remarks>
-                <para>
-                    Error messages are used to notify the user of a problem that has occurred.
-                </para>
-                <para>
-                    Examples of errors include:
                     <list type="bullet">
                         <item>Example #1</item>
                         <item>Example #2</item>
@@ -396,18 +348,7 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.ImportRoot">
             <summary>Root for imported data.</summary>
-            <remarks>
-                <para>
-                    Reports are used to display data in a structured format.
-                </para>
-                <para>
-                    Examples of reports include:
-                    <list type="bullet">
-                        <item>Example #1</item>
-                        <item>Example #2</item>
-                    </list>
-                </para>
-            </remarks>
+            <remarks>Should be "<c>%tnDataRoot%\%SystemCode%\Imports\</c>"</remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.SystemCodePaths.FromAvatar">
             <summary>Path for imported data from Avatar.</summary>
@@ -522,11 +463,22 @@
                     <br />
                     Public paths are paths that are accessible to the public, and are available in the <c>Public/</c> folder.
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Root">
             <summary>The root path for public data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Public\</c>"</remarks>
+            <remarks>
+                <para>
+                    The root folder for public data.
+                </para>
+                <para>
+                    Examples of public data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Alerts">
             <summary>The public path for alerts.</summary>
@@ -575,18 +527,7 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Reports">
             <summary>Path for public reports.</summary>
-            <remarks>
-                <para>
-                    Reports are used to display data in a structured format.
-                </para>
-                <para>
-                    Examples of reports include:
-                    <list type="bullet">
-                        <item>Example #1</item>
-                        <item>Example #2</item>
-                    </list>
-                </para>
-            </remarks>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;Path&quot;]/Reports/*" />
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.PublicPaths.Warnings">
             <summary>Path for public warning messages.</summary>
@@ -621,11 +562,22 @@
                     <br />
                     Remote paths are paths that are accessible to specific users.
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Root">
             <summary>Root path for remote data.</summary>
-            <remarks>Should be "<c>%tnDataRoot%\Remote</c>"</remarks>
+            <remarks>
+                <para>
+                    The root folder for remote data.
+                </para>
+                <para>
+                    Examples of remote data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Alerts">
             <summary>Path for remote alert data.</summary>
@@ -674,18 +626,7 @@
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Reports">
             <summary>Path for remote report data.</summary>
-            <remarks>
-                <para>
-                    Reports are used to display data in a structured format.
-                </para>
-                <para>
-                    Examples of reports include:
-                    <list type="bullet">
-                        <item>Example #1</item>
-                        <item>Example #2</item>
-                    </list>
-                </para>
-            </remarks>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;Path&quot;]/Reports/*" />
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.RemotePaths.Sessions">
             <summary>Path for remote session data.</summary>
@@ -735,11 +676,11 @@
             <summary>Specific to Tingen.</summary>
             <remarks>
                 <para>
-                    Builds/verifies Tingen-specific paths.<br />
+                    Builds/verifies Tingen remote paths.<br />
                     <br />
                     Tingen-specific are paths that are used by Tingen, and are generally not available to users.
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Catalog.TingenPaths.Root">
             <summary>Root path for Tingen data.</summary>
@@ -773,33 +714,21 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Refresh">
             <summary>Refresh the Tingen directory structure.</summary>
-            <remarks>
-                Refreshes framework componenents.
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Outpost31.Core.Framework_doc.xml" path="Outpost31.Core.Framework/Cs[@name=&quot;Refresh&quot;]/Refresh/*" />
         </member>
         <member name="M:Outpost31.Core.Framework.Refresh.RefreshOnDisable(Outpost31.Core.Session.TingenSession)">
             <summary>Refresh the Tingen directory structure when Tingen is disabled.</summary>
             <param name="tnSession">The Tingen Session object</param>
-            <remarks>
-                <para>
-                    If Tingen is disabled, might as well update the service status files.
-                </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Outpost31.Core.Framework_doc.xml" path="Outpost31.Core.Framework/Cs[@name=&quot;Refresh&quot;]/RefreshOnDisable/*" />
         </member>
         <member name="M:Outpost31.Core.Framework.Refresh.RefreshOnUnknown(Outpost31.Core.Session.TingenSession)">
             <summary>Refresh the Tingen directory structure when Tingen is in an unknown state.</summary>
             <param name="tnSession">The Tingen Session object</param>
-            <remarks>
-                <para>
-                    If Tingen is in an unknown state, might as well update the service status files.
-                </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Outpost31.Core.Framework_doc.xml" path="Outpost31.Core.Framework/Cs[@name=&quot;Refresh&quot;]/RefreshOnUnknown/*" />
         </member>
         <member name="T:Outpost31.Core.Framework.Maintenance">
             <summary>Methods for maintaining the Tingen framework.</summary>
-            <remarks>
-                Various maintenance tasks for the Tingen web service.
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Outpost31.Core.Framework_doc.xml" path="Outpost31.Core.Framework/Cs[@name=&quot;Maintenance&quot;]/Maintenance/*" />
         </member>
         <member name="P:Outpost31.Core.Framework.Maintenance.ExeAsm">
             <summary>The executing assembly name.</summary>
@@ -827,54 +756,19 @@
         </member>
         <member name="T:Outpost31.Core.Framework.Paths">
             <summary>The Tingen Framework.</summary>
-            <remarks>
-                Builds path stuff.
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Outpost31.Core.Framework_doc.xml" path="Outpost31.Core.Framework/Cs[@name=&quot;Paths&quot;]/Paths/*" />
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.Tingen">
             <summary>Tingen data paths.</summary>
-            <remarks>
-                <para>
-                    The root folder for Tingen-specific data.
-                </para>
-                <para>
-                    Examples of Tingen-specific data include:
-                    <list type="bullet">
-                        <item>Example #1</item>
-                        <item>Example #2</item>
-                    </list>
-                </para>
-            </remarks>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;Paths&quot;]/TingenDataRoot/*" />
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.SystemCode">
             <summary>System code data paths.</summary>
-            <remarks>
-                <para>
-                    The root folder for Avatar System Codes data.
-                </para>
-                <para>
-                    Examples of vatar System Codes data include:
-                    <list type="bullet">
-                        <item>Example #1</item>
-                        <item>Example #2</item>
-                    </list>
-                </para>
-            </remarks>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;Paths&quot;]/SystemCodesDataRoot/*" />
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.Public">
             <summary>Public data paths.</summary>
-            <remarks>
-                <para>
-                    The root folder for public data.
-                </para>
-                <para>
-                    Examples of public data include:
-                    <list type="bullet">
-                        <item>Example #1</item>
-                        <item>Example #2</item>
-                    </list>
-                </para>
-            </remarks>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;Paths&quot;]/PublicDataRoot/*" />
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.Remote">
             <summary>Remote data paths.</summary>
@@ -1084,26 +978,25 @@
                 <para>
                     While a Module's Mode settings is stored in the Tingen configuration file, the rest of the Module's configuration settings are stored in that Module's configuration file.<br />
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.TingenMode">
             <summary>Determines the available Tingen web service functionality.</summary>
             <remarks>
                 <para>
-                    HO
-                    The Tingen web service has the following <b>Modes</b>:
+                    The following modes are available to Tingen and its individual Modules:
                     <list type="table">
                         <listheader>
                             <term>Mode</term>
                             <description>Description</description>
                         </listheader>
                         <item>
-                            <term>enabled</term>
-                            <description>The Tingen web service is enabled, and functions normally.</description>
+                            <term>Enabled</term>
+                            <description>Functionality is enabled.</description>
                         </item>
                         <item>
-                            <term>disabled</term>
-                            <description>The Tingen web service is disabled, and does not do any work.</description>
+                            <term>Disabled</term>
+                            <description>Functionality is disabled.</description>
                         </item>
                         <item>
                             <term>Passthrough</term>
@@ -1112,34 +1005,48 @@
                     </list>
                 </para>
                 <para>
-                    Disabling the Tingen web service will disable <i>all functionality</i>, including <i>all Module functionality</i>.
+                    Please note:
+                    <list type="bullet">
+                        <item>Individual modules may have additional modes, which are documented in the module's documentation.</item>
+                        <item>Disabling the Tingen web service will disable <i>all functionality</i>, including <i>all Module functionality</i>.
+                        </item>
+                    </list>
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.ModOpenIncidentMode">
             <summary>Determines the available Open Incident Module functionality.</summary>
             <remarks>
                 <para>
-                    The OpenIncident Module has the following Modes:
+                    The following modes are available to Tingen and its individual Modules:
                     <list type="table">
                         <listheader>
                             <term>Mode</term>
                             <description>Description</description>
                         </listheader>
                         <item>
-                            <term>enabled</term>
-                            <description>The OpenIncident Module is enabled, and functions normally.</description>
+                            <term>Enabled</term>
+                            <description>Functionality is enabled.</description>
                         </item>
                         <item>
-                            <term>disabled</term>
-                            <description>The OpenIncident Module is disabled, and does not do any work.</description>
+                            <term>Disabled</term>
+                            <description>Functionality is disabled.</description>
+                        </item>
+                        <item>
+                            <term>Passthrough</term>
+                            <description>Functionality is enabled, but no changes are made (and log files are written).</description>
                         </item>
                     </list>
                 </para>
                 <para>
-                    Disabling the OpenIncident Module <i>will not affect</i> any other Tingen Modules, or the Tingen web service as a whole.
+                    Please note:
+                    <list type="bullet">
+                        <item>Individual modules may have additional modes, which are documented in the module's documentation.</item>
+                        <item>Disabling the Tingen web service will disable <i>all functionality</i>, including <i>all Module functionality</i>.
+                        </item>
+                    </list>
                 </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.NtstWebServicesMode">
             <summary>Determines the available Netsmart web service functionality.</summary>
@@ -1151,63 +1058,43 @@
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.TraceLevel">
             <summary>Determines the session Trace Log level.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;CommonProperty&quot;]/TraceLevel/*" />
+            <remarks>
+                <para>
+                    Determines the amount of <b>Trace Logs</b> that are generated.
+                </para>
+                <para>
+                    The Trace Level can be be between <c>0</c> (disabled) and <c>9</c> (all Trace Logs are written).
+                </para>
+                <para>
+                    Trace log levels are cumulative, meaning that a level <c>3</c> trace log will also write level <c>2</c> and level <c>1</c> trace logs.
+                </para>
+            </remarks><value>
+                If you aren't having any issues, you can set this to <c>0</c>, but keep in mind that the higher the number, the greater affect creating Trace Logs will have on performance.
+            </value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Logging.md">Tingen Documentation: Logging</seealso>
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.TraceDelay">
             <summary>Determines the Trace Log delay.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;CommonProperty&quot;]/TraceDelay/*" />
+            <remarks>
+                <para>
+                    Determines the delay, in milliseconds, between <b>Trace Log</b> writes.
+                </para>
+                <para>
+                    Since Trace Logs may be written <i>extremely fast</i>, the <c>TraceDelay</c> setting can beused to slow down the log writing process, ensuring all logs are written.
+                </para>
+            </remarks><value>
+                The default is <c>10</c>. Increasing this value is not recommended, since it can have an adverse affect on performance.
+            </value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Logging.md">Tingen Documentation: Logging</seealso>
         </member>
         <member name="M:Outpost31.Core.Configuration.ConfigSettings.BuildDefaultObject">
             <summary>Build a default Tingen configuration object.</summary>
             <returns>An data structure with default Tingen configuration values.</returns>
-            <remarks>
-                <para>
-                    Default values for the Tingen configuration settings:<br />
-                    <list type="table">
-                        <listheader>
-                            <term>Setting</term>
-                            <description>Value</description>
-                        </listheader>
-                        <item>
-                            <term>TingenMode</term>
-                            <description>enabled</description>
-                        </item>
-                        <item>
-                            <term>ModOpenIncidentMode</term>
-                            <description>enabled</description>
-                        </item>
-                        <item>
-                            <term>NtstWebServicesMode</term>
-                            <description>disabled</description>
-                        </item>
-                        <item>
-                            <term>TraceLevel</term>
-                            <description>1</description>
-                        </item>
-                        <item>
-                            <term>TraceDelay</term>
-                            <description>10</description>
-                        </item>
-                    </list>
-                    </para>
-                <para>
-                    When a new version of Tingen is released, these need to be verified/updated.
-                    <br />
-                    Builds the default Tingen configuration settings, usually because a configuration file doesn't exist.
-                </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Modules.md">Tingen Documentation: Modules</seealso><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Modes.md">Tingen Documentation: Modes</seealso>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31.Core.Configuration.ConfigurationSettings_doc.xml" path="Outpost31.Core.Configuration.ConfigurationSettings/Type[@name=&quot;Method&quot;]/BuildDefaultObject/*" />
         </member>
         <member name="M:Outpost31.Core.Configuration.ConfigSettings.Load(System.String,System.String)">
             <summary>Load the Tingen configuration file.</summary>
             <param name="configPath">Path to the Tingen configuration file.</param>
             <returns>The necessary AvatarNX data.</returns>
-            <remarks>
-                <para>
-                    The configuration file path is hard-coded, and set in <see cref="M:Outpost31.Core.Session.TingenSession.Build(ScriptLinkStandard.Objects.OptionObject2015,System.String,System.String)" /> when the <b>Tingen Session</b> is initialized.<br />
-                    <br />
-                    If the configuration file does not exist, a configuration file with default values will be created.
-                </para>
-            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Tingen-Session.md">Tingen Documentation: Tingen Sessions</seealso>
+            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31.Core.Configuration.ConfigurationSettings_doc.xml" path="Outpost31.Core.Configuration.ConfigurationSettings/Type[@name=&quot;Method&quot;]/Load/*" />
         </member>
         <member name="T:Outpost31.Core.Session.Catalog">
             <summary>TBD</summary>
@@ -1542,7 +1429,7 @@
             <param name="tnSession"></param>
         </member>
         <member name="T:Outpost31.WelcomeToOutpost31">
-            <summary>Welcome to Outpost31</summary>
+            <summary>A place for Outpost31 details and stuff.</summary>
             <remarks>
                 <para>
                     Outpost31 is the back-end logic for the Tingen web service.<br />
@@ -1552,13 +1439,11 @@
                     <br />
                     While you're here, take a look at this stuff:
                     <list type="bullet">
-                        <item>
-                            The <see href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen Documentation</see>
-                        </item>
+                        <item>The <see href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen Documentation</see></item>
                     </list>
                     Uh...I guess that's it. Thanks for stopping by!
                 </para>
-            </remarks>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
         </member>
     </members>
 </doc>

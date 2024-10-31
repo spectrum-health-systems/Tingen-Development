@@ -1,6 +1,6 @@
 ﻿<!--
     u241031
-    This is the external XML Documentation file for Tingen.Tingen.asmx.cs.
+    This is the external XML Documentation file for the Tingen.Tingen.asmx.cs class.
 -->
 
 <Tingen>
@@ -14,12 +14,8 @@
                 <para>
                     There should only two methods in this class, both of which are required by Avatar:
                     <list type="bullet">
-                        <item>
-                            <see cref="GetVersion()"/>
-                        </item>
-                        <item>
-                            <see cref="RunScript(OptionObject2015, string)"/>
-                        </item>
+                        <item><see cref="GetVersion()"/></item>
+                        <item><see cref="RunScript(OptionObject2015, string)"/></item>
                     </list>
                 </para>
                 <para>
@@ -29,6 +25,7 @@
             </remarks>
             <seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
         </Tingen>
+
     </Type>
 
     <!-- Properties-->
