@@ -1,10 +1,10 @@
-﻿// =============================================================== 24.10.0 =====
-// Tingen: Tingen web service.
+﻿// =============================================================== 24.11.0 =====
+// Tingen: The Tingen web service entry point.
 // Repository: https://github.com/APrettyCoolProgram/Tingen-Development
 // Documentation: https://github.com/spectrum-health-systems/Tingen-Documentation
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 241031 =====
+// ================================================================ 241104 =====
 
 // u241023.1223_code
 // u241031_documentation
