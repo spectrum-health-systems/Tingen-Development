@@ -808,24 +808,72 @@
             </remarks>
         </member>
         <member name="T:Outpost31.Core.Framework.Paths">
-            <summary>The Tingen Framework.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31.Core.Framework.Paths_doc.xml" path="Outpost31.Core.Framework/Type[@name=&quot;Class&quot;]/Paths/*" />
+            <summary>The Tingen Framework paths.</summary>
+            <remarks>
+                <para>
+                    Does things with paths and stuff.<br />
+                </para>
+            </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.Tingen">
             <summary>Tingen data paths.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;RootPath&quot;]/TingenDataRoot/*" />
+            <remarks>
+                <para>
+                    The root folder for Tingen-specific data.
+                </para>
+                <para>
+                    Examples of Tingen-specific data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.SystemCode">
             <summary>System code data paths.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;RootPath&quot;]/SystemCodesDataRoot/*" />
+            <remarks>
+                <para>
+                    The root folder for Avatar System Codes data.
+                </para>
+                <para>
+                    Examples of Avatar System Codes data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.Public">
             <summary>Public data paths.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;RootPath&quot;]/PublicDataRoot/*" />
+            <remarks>
+                <para>
+                    The root folder for public data.
+                </para>
+                <para>
+                    Examples of public data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="P:Outpost31.Core.Framework.Paths.Remote">
             <summary>Remote data paths.</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31-Common_doc.xml" path="Outpost31-Common/Type[@name=&quot;RootPath&quot;]/RemoteDataRoot/*" />
+            <remarks>
+                <para>
+                    The root folder for remote data.
+                </para>
+                <para>
+                    Examples of remote data include:
+                    <list type="bullet">
+                        <item>Example #1</item>
+                        <item>Example #2</item>
+                    </list>
+                </para>
+            </remarks>
         </member>
         <member name="M:Outpost31.Core.Framework.Paths.Build(System.String,System.String)">
             <summary>Builds the paths object.</summary>
