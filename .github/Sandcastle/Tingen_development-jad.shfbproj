@@ -34,7 +34,7 @@
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <HelpTitle>Tingen API documentation</HelpTitle>
-    <HelpFileVersion>24.9</HelpFileVersion>
+    <HelpFileVersion>24.11</HelpFileVersion>
     <NamingMethod>MemberName</NamingMethod>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <RootNamespaceContainer>False</RootNamespaceContainer>
@@ -44,7 +44,7 @@
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <VisibleItems>Internals, Privates, PrivateFields, ProtectedInternalAsProtected</VisibleItems>
     <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
-    <WorkingPath>W:\Caches\Sandcastle\</WorkingPath>
+    <WorkingPath>D:\Caches\Sandcastle\</WorkingPath>
     <FooterText>&amp;lt%3bdiv align=&amp;quot%3bcenter&amp;quot%3b&amp;gt%3b
 Please see the &amp;lt%3ba href=&amp;quot%3bhttps://github.com/spectrum-health-systems/Tingen-Documentation&amp;quot%3b&amp;gt%3bTingen documentation&amp;lt%3b/a&amp;gt%3b for more information.
 &amp;lt%3b/div&amp;gt%3b</FooterText>
