@@ -1,15 +1,15 @@
-## .gitignore for Abatabadev
-## b240517
+## .gitignore for Tingen
+## b241119
 
 ## There are a few directories/resources that usually aren't committed to a
-## repository that need to be committed for Abatabdev:
+## repository that need to be committed for Tingen:
 ##
 ##  bin/
-##  AbatabLieutenant needs the files in this directory to successfully
-##  deploy Abatabadev.
+##  Both Tingen-DevDeploy and Tingen-Commander need the files in this
+##  directory to successfully deploy Tingen
 ##
 ##  log/, logs/
-##  Abatabadev logs are stored in these directories with similar names, so
+##  Tingen logs are stored in these directories with similar names, so
 ##  these are ignored to avoid issues.
 
 #[Bb]in/
