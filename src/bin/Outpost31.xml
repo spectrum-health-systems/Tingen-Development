@@ -23,9 +23,9 @@
             <summary>High level logic for the Tingen application.</summary>
             <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Outpost31.Core_doc.xml" path="Outpost31/Cs[@name=&quot;TingenApp&quot;]/TingenApp/*" />
         </member>
-        <member name="P:Outpost31.Core.TingenApp.AssemblyName">
-            <summary>Assembly name for logging purposes.</summary>
-            <!-- Failed to insert some or all of included XML --><include file="XmlDoc/Common_doc.xml" path="Common/Term[@name=&quot;Term&quot;]/AssemblyName/*" />
+        <member name="P:Outpost31.Core.TingenApp.ExeAsm">
+            <summary>The executing Assembly name.</summary>
+            <remarks>A required component for writing log files, defined here so it can be used throughout the class.</remarks>
         </member>
         <member name="M:Outpost31.Core.TingenApp.StartApp(Outpost31.Core.Session.TingenSession)">
             <summary>Starts the Tingen web service.</summary>
@@ -930,22 +930,39 @@
         </member>
         <member name="P:Outpost31.Core.Logger.TraceLog.TraceLogLevel">
             <summary>TraceLogLevel</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31.Core.Logger.TraceLog_doc.xml" path="Outpost31.Core.Logger.TraceLog/Type[@name=&quot;Property&quot;]/TraceLogLevel/*" />
+            <remarks>
+                <para>
+                    Determines the amount of <b>Trace Logs</b> that are generated.
+                </para>
+                <para>
+                    The Trace Level can be be between <c>0</c> (disabled) and <c>9</c> (all Trace Logs are written).
+                </para>
+                <para>
+                    Trace log levels are cumulative, meaning that a level <c>3</c> trace log will also write level <c>2</c> and level <c>1</c> trace logs.
+                </para>
+            </remarks><value>
+                If you aren't having any issues, you can set this to <c>0</c>, but keep in mind that the higher the number, the greater affect creating Trace Logs will have on performance.
+            </value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Logging.md">Tingen Documentation: Logging</seealso>
         </member>
         <member name="P:Outpost31.Core.Logger.TraceLog.TraceLogDelay">
             <summary>TraceLogDelay</summary>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31.Core.Logger.TraceLog_doc.xml" path="Outpost31.Core.Logger.TraceLog/Type[@name=&quot;Property&quot;]/TraceLogDelay/*" />
+            <remarks>
+                <para>
+                    Determines the delay, in milliseconds, between <b>Trace Log</b> writes.
+                </para>
+                <para>
+                    Since Trace Logs may be written <i>extremely fast</i>, the <c>TraceDelay</c> setting can beused to slow down the log writing process, ensuring all logs are written.
+                </para>
+            </remarks><value>
+                The default is <c>10</c>. Increasing this value is not recommended, since it can have an adverse affect on performance.
+            </value><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation/blob/main/Static/Logging.md">Tingen Documentation: Logging</seealso>
         </member>
         <member name="M:Outpost31.Core.Logger.TraceLog.BuildInfo(System.String,System.Int32,System.Int32)">
             <summary>Build the trace log information.</summary>
             <param name="traceLogLevel">TraceLog level</param>
             <param name="traceLogDelay">TraceLog delay</param>
             <param name="traceLogPath">TraceLog path</param>
-            <remarks>
-                <para>
-                    What this does.<br />
-                </para>
-            </remarks>
+            <remarks>Builds the Trace Log information.</remarks>
             <returns>TraceLog information.</returns>
         </member>
         <member name="M:Outpost31.Core.Logger.TraceLog.Create(System.Int32,System.String,Outpost31.Core.Logger.TraceLog,System.String,System.String,System.Int32)">
@@ -956,7 +973,11 @@
             <param name="callPath">Called class</param>
             <param name="callMember">Called method</param>
             <param name="callLine">Called line</param>
-            <!-- No matching elements were found for the following include tag --><include file="XmlDoc/Outpost31.Core.Logger.TraceLog_doc.xml" path="Outpost31.Core.Logger.TraceLog/Type[@name=&quot;Method&quot;]/Create/*" />
+            <remarks>
+                <para>
+                    What this creates.<br />
+                </para>
+            </remarks>
         </member>
         <member name="M:Outpost31.Core.Logger.TraceLog.Create(System.Int32,System.String,Outpost31.Core.Logger.TraceLog,System.String,System.String,System.Int32,System.String)">
             <summary>Soon.</summary>
@@ -1025,9 +1046,9 @@
         <member name="T:Outpost31.Core.ScriptParameter">
             <summary>Parse the Script Parameter components passed from Avatar.</summary>
         </member>
-        <member name="P:Outpost31.Core.ScriptParameter.AssemblyName">
-            <summary>Assembly name for logging purposes.</summary>
-            <remarks>The assembly name is defined here so it can be used to write log files throughout the class.</remarks>
+        <member name="P:Outpost31.Core.ScriptParameter.ExeAsm">
+            <summary>The executing Assembly name.</summary>
+            <remarks>A required component for writing log files, defined here so it can be used throughout the class.</remarks>
         </member>
         <member name="M:Outpost31.Core.ScriptParameter.ParseSent(Outpost31.Core.Session.TingenSession)">
             <summary>Parses the original Script Parameter sent from Avatar.</summary>
@@ -1055,6 +1076,9 @@
                     While a Module's Mode settings is stored in the Tingen configuration file, the rest of the Module's configuration settings are stored in that Module's configuration file.<br />
                 </para>
             </remarks><seealso href="https://github.com/spectrum-health-systems/Tingen-Documentation">Tingen documentation</seealso>
+        </member>
+        <member name="P:Outpost31.Core.Configuration.ConfigSettings.Outpost31Version">
+            <summary>DOCUMENTATION NEEDED</summary>
         </member>
         <member name="P:Outpost31.Core.Configuration.ConfigSettings.TingenMode">
             <summary>Determines the available Tingen web service functionality.</summary>
@@ -1216,13 +1240,9 @@
         <member name="T:Outpost31.Core.Session.Catalog">
             <summary>TBD</summary>
         </member>
-        <member name="P:Outpost31.Core.Session.Catalog.AssemblyName">
-            <summary>Assembly name for log files.</summary>
-            <remarks>
-              <para>
-               - Define the assembly name here so it can be used to write log files throughout the class.
-              </para>
-            </remarks>
+        <member name="P:Outpost31.Core.Session.Catalog.ExeAsm">
+            <summary>The executing Assembly name.</summary>
+            <remarks>A required component for writing log files, defined here so it can be used throughout the class.</remarks>
         </member>
         <member name="M:Outpost31.Core.Session.Catalog.CurrentSettings(Outpost31.Core.Session.TingenSession)">
             <summary>TBD</summary>
@@ -1402,13 +1422,9 @@
         <member name="T:Outpost31.Module.Admin.Service.Status">
             <summary>TBD</summary>
         </member>
-        <member name="P:Outpost31.Module.Admin.Service.Status.AssemblyName">
-            <summary>Assembly name for log files.</summary>
-            <remarks>
-              <para>
-               - Define the assembly name here so it can be used to write log files throughout the class.
-              </para>
-            </remarks>
+        <member name="P:Outpost31.Module.Admin.Service.Status.ExeAsm">
+            <summary>The executing Assembly name.</summary>
+            <remarks>A required component for writing log files, defined here so it can be used throughout the class.</remarks>
         </member>
         <member name="M:Outpost31.Module.Admin.Service.Status.UpdateAll(Outpost31.Core.Session.TingenSession)">
             <summary>TBD</summary>
@@ -1422,13 +1438,9 @@
         <member name="T:Outpost31.Module.Common.Action.Field">
             <summary>Field operations.</summary>
         </member>
-        <member name="P:Outpost31.Module.Common.Action.Field.AssemblyName">
-            <summary>Assembly name for log files.</summary>
-            <remarks>
-              <para>
-               - Define the assembly name here so it can be used to write log files throughout the class.
-              </para>
-            </remarks>
+        <member name="P:Outpost31.Module.Common.Action.Field.ExeAsm">
+            <summary>The executing Assembly name.</summary>
+            <remarks>A required component for writing log files, defined here so it can be used throughout the class.</remarks>
         </member>
         <member name="M:Outpost31.Module.Common.Action.Field.CompareValue(System.String,System.String,Outpost31.Core.Logger.TraceLog)">
             <summary>Compare the values of two form field IDs to determine if they are the same.</summary>
@@ -1480,13 +1492,9 @@
         <member name="T:Outpost31.Module.OpenIncident.ModuleOpenIncident">
             <summary>TBD</summary>
         </member>
-        <member name="P:Outpost31.Module.OpenIncident.ModuleOpenIncident.AssemblyName">
-            <summary>Assembly name for log files.</summary>
-            <remarks>
-              <para>
-               - Define the assembly name here so it can be used to write log files throughout the class.
-              </para>
-            </remarks>
+        <member name="P:Outpost31.Module.OpenIncident.ModuleOpenIncident.ExeAsm">
+            <summary>The executing Assembly name.</summary>
+            <remarks>A required component for writing log files, defined here so it can be used throughout the class.</remarks>
         </member>
         <member name="P:Outpost31.Module.OpenIncident.ModuleOpenIncident.Whitelist">
             <summary>TBD</summary>
@@ -1530,13 +1538,9 @@
         <member name="T:Outpost31.Module.OpenIncident.Verify">
             <summary>VerifyAuthor command.</summary>
         </member>
-        <member name="P:Outpost31.Module.OpenIncident.Verify.AssemblyName">
-            <summary>Assembly name for log files.</summary>
-            <remarks>
-              <para>
-               - Define the assembly name here so it can be used to write log files throughout the class.
-              </para>
-            </remarks>
+        <member name="P:Outpost31.Module.OpenIncident.Verify.ExeAsm">
+            <summary>The executing Assembly name.</summary>
+            <remarks>A required component for writing log files, defined here so it can be used throughout the class.</remarks>
         </member>
         <member name="M:Outpost31.Module.OpenIncident.Verify.OriginalAuthorIsOpening(Outpost31.Core.Session.TingenSession)">
             <summary>TBD</summary>
