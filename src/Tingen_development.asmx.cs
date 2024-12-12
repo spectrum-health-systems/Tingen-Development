@@ -1,13 +1,13 @@
 ﻿// =============================================================== 24.12.0 =====
-// Tingen: The Tingen web service entry point.
+// Tingen: The entry point for the Tingen web service.
 // Repository: https://github.com/APrettyCoolProgram/Tingen-Development
 // Documentation: https://github.com/spectrum-health-systems/Tingen-Documentation
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
-// ================================================================ 241205 =====
+// ================================================================ 241212 =====
 
 // u241023.1223_code
-// u241031_documentation
+// u241212_documentation
 
 using System.Reflection;
 using System.Web.Services;
@@ -66,9 +66,5 @@ namespace Tingen_development
     }
 }
 
-/*
-=================
-DEVELOPMENT NOTES
-=================
-
-*/
+/* DEVELOPMENT NOTES
+ */
